@@ -1,0 +1,26 @@
+---
+import Root from "@/layouts/Root.astro"
+import type { GetStaticPaths } from "astro"
+import { getCollection, type CollectionEntry } from "astro:content"
+
+export const getStaticPaths = (async () => {
+  const chapters = await getCollection("understanding-astro")
+  return chapters.map((c) => {
+    return {
+      params: { chapter: c.slug },
+      props: { chapter: c },
+    }
+  })
+}) satisfies GetStaticPaths
+
+interface Props {
+  chapter: CollectionEntry<"understanding-astro">
+}
+
+const { chapter } = Astro.props
+const { Content } = await chapter.render()
+---
+
+<Root>
+  <main><Content /></main>
+</Root>

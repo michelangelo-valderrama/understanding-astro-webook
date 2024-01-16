@@ -1,9 +1,21 @@
 ---
 import { Button } from "@/components/ui/button"
 import Root from "@/layouts/Root.astro"
+import { getCollection } from "astro:content"
+
+const collection = await getCollection("understanding-astro")
 ---
 
 <Root>
   <h1>Astro</h1>
   <Button type="button">Click</Button>
+  <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
+    {
+      collection.map((c) => (
+        <li>
+          <a class="underline" href={`/${c.slug}`}>{c.id}</a>
+        </li>
+      ))
+    }
+  </ul>
 </Root>
