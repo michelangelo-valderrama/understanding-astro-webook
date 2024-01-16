@@ -1,3 +1,9 @@
+---
+title: "Chapter 7: Be Audible! (Fullstack Astro Project)"
+description: "In this chapter, I’ll employ you to see beyond static apps and build fullstack applications with Astro."
+sortOrder: 7
+---
+
 # 🚀 Understanding Astro
 
 By [Ohans Emmanuel](https://www.ohansemmanuel.com/)

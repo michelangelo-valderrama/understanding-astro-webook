@@ -3,19 +3,23 @@ import { Button } from "@/components/ui/button"
 import Root from "@/layouts/Root.astro"
 import { getCollection } from "astro:content"
 
-const collection = await getCollection("understanding-astro")
+const collection = await getCollection("chapters")
 ---
 
-<Root>
+<Root title="Home" description="Description">
   <h1>Astro</h1>
   <Button type="button">Click</Button>
   <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
     {
-      collection.map((c) => (
-        <li>
-          <a class="underline" href={`/${c.slug}`}>{c.id}</a>
-        </li>
-      ))
+      collection
+        .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+        .map(({ slug, data: { title } }) => (
+          <li>
+            <a class="underline" href={`/${slug}`}>
+              {title}
+            </a>
+          </li>
+        ))
     }
   </ul>
 </Root>

@@ -1,3 +1,9 @@
+---
+title: "Chapter 6: Server-side Rendering (SSR) in Astro"
+description: "This chapter will guide you on enabling SSR in an Astro project, and we will also discuss a detailed overview of the extensive features a server-side rendered Astro project offers."
+sortOrder: 6
+---
+
 # 🚀 Understanding Astro
 
 By [Ohans Emmanuel](https://www.ohansemmanuel.com/)

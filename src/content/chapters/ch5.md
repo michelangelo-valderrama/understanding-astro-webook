@@ -1,3 +1,9 @@
+---
+title: "Chapter 5: Oh my React!"
+description: "Everything you need to know to develop rich content websites with real-world best practices. This is a practical section best served with you coding along."
+sortOrder: 5
+---
+
 # 🚀 Understanding Astro
 
 By [Ohans Emmanuel](https://www.ohansemmanuel.com/)

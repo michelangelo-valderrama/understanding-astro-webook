@@ -1,3 +1,9 @@
+---
+title: "Chapter 8: Build Your Own Astro Integrations"
+description: "At the end of this chapter, you’ll join the order of mages who wield great power to bend Astro to their will with new functionality and behaviour."
+sortOrder: 8
+---
+
 # 🚀 Understanding Astro
 
 By [Ohans Emmanuel](https://www.ohansemmanuel.com/)

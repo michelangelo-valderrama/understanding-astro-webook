@@ -4,23 +4,23 @@ import type { GetStaticPaths } from "astro"
 import { getCollection, type CollectionEntry } from "astro:content"
 
 export const getStaticPaths = (async () => {
-  const chapters = await getCollection("understanding-astro")
+  const chapters = await getCollection("chapters")
   return chapters.map((c) => {
     return {
       params: { chapter: c.slug },
-      props: { chapter: c },
+      props: c,
     }
   })
 }) satisfies GetStaticPaths
 
-interface Props {
-  chapter: CollectionEntry<"understanding-astro">
-}
+type Props = CollectionEntry<"chapters">
 
-const { chapter } = Astro.props
+const chapter = Astro.props
 const { Content } = await chapter.render()
 ---
 
-<Root>
-  <main><Content /></main>
+<Root title={chapter.data.title} description={chapter.data.description}>
+  <main>
+    <Content />
+  </main>
 </Root>

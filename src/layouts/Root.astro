@@ -1,5 +1,20 @@
 ---
+import { SEO } from "astro-seo"
 import "@/styles/globals.css"
+
+interface Props {
+  title: string
+  description: string
+  image?: string
+  creator?: `@${string}`
+}
+
+const {
+  description,
+  title,
+  creator = "@VTokyo9",
+  image = "/understanding-astro-banner.png",
+} = Astro.props
 ---
 
 <html lang="en" class="dark">
@@ -8,7 +23,20 @@ import "@/styles/globals.css"
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
-    <title>Understanding Astro</title>
+    <SEO
+      title={title}
+      titleTemplate="| Understanding Astro"
+      description={description}
+      openGraph={{
+        basic: {
+          image,
+          title,
+          type: "website",
+        },
+      }}
+      twitter={{ creator, image }}
+    />
+    <slot name="head" />
   </head>
   <body class="">
     <slot />

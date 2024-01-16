@@ -1,3 +1,9 @@
+---
+title: "Conclusion"
+description: "Look who made it to the end! 🚀"
+sortOrder: 9
+---
+
 ## Conclusion
 
 Look who made it to the end! 🚀
