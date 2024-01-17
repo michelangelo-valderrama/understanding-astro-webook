@@ -104,7 +104,7 @@ Now, let’s bundle this application for production.
 
 Stop the local running server and build the application with the following command:
 
-```js
+```bash
 npm run build
 ```
 
@@ -205,7 +205,7 @@ To do this, I built the same React starter application using Astro.
 
 Use the following command to create the project:
 
-```js
+```bash
 npm create astro@latest -- --template ohansemmanuel/astrojs-ditch-the-runtime-react --yes
 ```
 
@@ -219,7 +219,7 @@ We use the same `create astro` command to create a new project. The difference h
 
 Choose the project directory, then start the application via:
 
-```js
+```bash
 npm run start
 ```
 
@@ -233,7 +233,7 @@ Note that the application is similar to the starter React application we explore
 
 Now let’s go ahead and build this application for production with the following command:
 
-```js
+```bash
 npm run build
 ```
 
@@ -328,7 +328,7 @@ cd hello-astro
 
 Run the following command to start the new project:
 
-```js
+```bash
 npm init --yes
 ```
 
@@ -336,7 +336,7 @@ The `--yes` flag will use all the defaults, skipping the prompts.
 
 Now install `astro`:
 
-```js
+```bash
 npm install astro
 ```
 
@@ -447,7 +447,7 @@ Let’s give this a shot.
 Consider the starting `index.astro` page below:
 
 ```html
-<!-- 📂src/pages/index.astro -->
+<!-- 📂 src/pages/index.astro -->
 
 <!DOCTYPE html>
 <html lang="en-GB">
@@ -483,7 +483,7 @@ Conceptually, we could compose the `index.astro` component from two smaller comp
 Here’s how:
 
 ```js
-<!-- 📂 src/pages/index.astro -->
+// 📂 src/pages/index.astro
 ---
 import Body from "../components/Body.astro";
 import Head from "../components/Head.astro";
@@ -618,7 +618,7 @@ Every child component is housed in `Head` and `Body` and rendered within the roo
 However, what happens if we remove this element (and the associated `DOCTYPE` as seen below:
 
 ```js
-// src/components/index.astro
+// 📂 src/components/index.astro
 ---
 import Body from "../components/Body.astro";
 import Head from "../components/Head.astro";

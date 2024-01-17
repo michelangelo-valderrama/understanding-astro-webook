@@ -198,8 +198,7 @@ const book = "Understanding Astro.js";
 
 Sometimes, to show the source of the code, a comment to the file path is added to the top of the code block, as shown below:
 
-```js
-{/** 📂 src/pages/index.astro **/}
+```astro title="src/pages/index.astro"
 ---
 const { author } = Astro.props;
 const book = "Understanding Astro.js";
@@ -210,7 +209,7 @@ const book = "Understanding Astro.js";
 
 With code fragments referring to changes in a nearby application code, you’ll find an ellipsis to signify no code changes in the previous code, e.g.:
 
-```js
+```astro
 // ...
 <h1 data-name={book}>A changed book name</h1>
 ```
@@ -219,7 +218,7 @@ The code above suggests the previous code block remains the same, except for the
 
 Finally, the book uses the `npm` package manager. For example, the code to install a package will be described as shown below:
 
-```js
+```bash
 npm install some-package
 ```
 
