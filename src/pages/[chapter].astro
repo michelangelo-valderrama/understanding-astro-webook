@@ -25,8 +25,13 @@ if (data.next) nextChapter = await getEntry(data.next)
 if (data.prev) prevChapter = await getEntry(data.prev)
 ---
 
-<Root title={data.title} description={data.description}>
-  <Layout class="max-w-screen-sm">
+<Root
+  title={data.title}
+  description={data.description}
+  creator={`@${data.authorSocial}`}
+  image={data.image?.src}
+>
+  <Layout>
     <nav class="flex mb-8">
       <a
         class="font-bold text-lg flex items-center gap-x-2 text-muted-foreground hover:text-accent-foreground transition-colors"

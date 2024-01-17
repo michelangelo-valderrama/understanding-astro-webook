@@ -7,7 +7,7 @@ const chapters = defineCollection({
     description: z.string().max(250),
     sortOrder: z.number(),
     author: z.string().default("Ohans Emmanuel"),
-    authorSocial: z.string().default("@OhansEmmanuel"),
+    authorSocial: z.string().default("OhansEmmanuel"),
     image: z
       .object({
         src: z.string().default("/understanding-astro-banner.png"),

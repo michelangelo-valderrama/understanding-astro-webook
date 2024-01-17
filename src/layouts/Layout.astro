@@ -1,4 +1,6 @@
 ---
+import Header from "@/components/Header.astro"
+
 interface Props {
   class?: string
 }
@@ -6,8 +8,9 @@ interface Props {
 const { class: className } = Astro.props
 ---
 
-<div
-  class:list={["max-w-screen-md mx-auto p-4 mt-6 md:mt-20 min-h-[100svh]", className]}
->
-  <slot />
+<div class="min-h-[90svh] pt-14">
+  <Header />
+  <div class:list={["max-w-screen-sm mx-auto p-4", className]}>
+    <slot />
+  </div>
 </div>

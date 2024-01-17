@@ -23,6 +23,7 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+    <meta name="theme-color" content="#09090b" />
     <SEO
       title={title}
       titleTemplate="%s | Understanding Astro"
@@ -38,7 +39,7 @@ const {
     />
     <slot name="head" />
   </head>
-  <body class="">
+  <body>
     <slot />
   </body>
 </html>
