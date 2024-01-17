@@ -2,13 +2,9 @@
 title: "Chapter 4: The Secret Life of Astro Component Islands"
 description: "Component islands are the secret to Astro’s super-fast narrative. It’s time to learn everything about them."
 sortOrder: 4
+next: ch5
+prev: ch3
 ---
-
-# 🚀 Understanding Astro
-
-By [Ohans Emmanuel](https://www.ohansemmanuel.com/)
-
-<br />
 
 <br /> 
 <br />
@@ -23,7 +19,7 @@ By [Ohans Emmanuel](https://www.ohansemmanuel.com/)
 <br /> 
 <br />
 
-## Chapter 4: The Secret Life of Astro Component Islands
+# Chapter 4: The Secret Life of Astro Component Islands
 
 Component islands are the secret to Astro’s super-fast narrative. It’s time to learn everything about them.
 

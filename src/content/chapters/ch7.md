@@ -2,15 +2,11 @@
 title: "Chapter 7: Be Audible! (Fullstack Astro Project)"
 description: "In this chapter, I’ll employ you to see beyond static apps and build fullstack applications with Astro."
 sortOrder: 7
+next: ch8
+prev: ch6
 ---
 
-# 🚀 Understanding Astro
-
-By [Ohans Emmanuel](https://www.ohansemmanuel.com/)
-
-<br />
-
-## Chapter 7: Be Audible! (Fullstack Astro Project)
+# Chapter 7: Be Audible! (Fullstack Astro Project)
 
 > … People will believe what they see. Let them see.  
 >  ― Henry David Thoreau

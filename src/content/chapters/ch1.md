@@ -2,17 +2,11 @@
 title: "Chapter 1: Build your first Astro Application"
 description: "Get started with the basics of Astro by building a practical application: a personal site."
 sortOrder: 1
+next: ch2
+prev: preface
 ---
 
-## Table of contents
-
-# 🚀 Understanding Astro
-
-By [Ohans Emmanuel](https://www.ohansemmanuel.com/)
-
-<br />
-
-## Chapter 1: Build your first Astro Application
+# Chapter 1: Build your first Astro Application
 
 > Long is the road to learning by precepts, but short and successful by examples - Seneca the Younger.
 

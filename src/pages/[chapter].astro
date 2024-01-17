@@ -1,7 +1,9 @@
 ---
+import ChapterPagination from "@/components/ChapterPagination.astro"
+import Layout from "@/layouts/Layout.astro"
 import Root from "@/layouts/Root.astro"
 import type { GetStaticPaths } from "astro"
-import { getCollection, type CollectionEntry } from "astro:content"
+import { getCollection, type CollectionEntry, getEntry } from "astro:content"
 
 export const getStaticPaths = (async () => {
   const chapters = await getCollection("chapters")
@@ -15,12 +17,64 @@ export const getStaticPaths = (async () => {
 
 type Props = CollectionEntry<"chapters">
 
-const chapter = Astro.props
-const { Content } = await chapter.render()
+const { render, data } = Astro.props
+const { Content } = await render()
+
+let nextChapter, prevChapter
+if (data.next) nextChapter = await getEntry(data.next)
+if (data.prev) prevChapter = await getEntry(data.prev)
 ---
 
-<Root title={chapter.data.title} description={chapter.data.description}>
-  <main>
-    <Content />
-  </main>
+<Root title={data.title} description={data.description}>
+  <Layout class="max-w-screen-sm">
+    <nav class="flex mb-8">
+      <a
+        class="font-bold text-lg flex items-center gap-x-2 text-muted-foreground hover:text-accent-foreground transition-colors"
+        href="/"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-5"
+          ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg
+        >
+        Home
+      </a>
+    </nav>
+    <header></header>
+    <main class="prose dark:prose-invert max-w-none prose-zinc break-words">
+      <Content />
+    </main>
+    <footer class="grid grid-cols-2 gap-x-4 mt-14 mb-10">
+      <div>
+        {
+          prevChapter && (
+            <ChapterPagination
+              title={prevChapter.data.title}
+              href={prevChapter.slug}
+              type="left"
+            />
+          )
+        }
+      </div>
+      <div>
+        {
+          nextChapter && (
+            <ChapterPagination
+              title={nextChapter.data.title}
+              href={nextChapter.slug}
+              type="right"
+            />
+          )
+        }
+      </div>
+    </footer>
+  </Layout>
 </Root>

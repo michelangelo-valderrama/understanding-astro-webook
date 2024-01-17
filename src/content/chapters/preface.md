@@ -1,14 +1,11 @@
 ---
 title: Preface
-description: "Preface"
+description: Preface
 sortOrder: 0
+next: ch1
 ---
 
-# 🚀 Understanding Astro
-
-By [Ohans Emmanuel](https://www.ohansemmanuel.com/)
-
-<br />
+# Preface
 
 ## Introduction
 

@@ -2,15 +2,11 @@
 title: "Chapter 2: Astro Components In-depth"
 description: "Go beyond the basics and master the essential Astro entity."
 sortOrder: 2
+next: ch3
+prev: ch1
 ---
 
-# 🚀 Understanding Astro
-
-By [Ohans Emmanuel](https://www.ohansemmanuel.com/)
-
-<br />
-
-## Chapter 2: Astro Components In-depth
+# Chapter 2: Astro Components In-depth
 
 Go beyond the basics and master the essential Astro entity.
 

@@ -1,5 +1,5 @@
 ---
-import { Button } from "@/components/ui/button"
+import Layout from "@/layouts/Layout.astro"
 import Root from "@/layouts/Root.astro"
 import { getCollection } from "astro:content"
 
@@ -7,19 +7,28 @@ const collection = await getCollection("chapters")
 ---
 
 <Root title="Home" description="Description">
-  <h1>Astro</h1>
-  <Button type="button">Click</Button>
-  <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
-    {
-      collection
-        .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
-        .map(({ slug, data: { title } }) => (
-          <li>
-            <a class="underline" href={`/${slug}`}>
-              {title}
-            </a>
-          </li>
-        ))
-    }
-  </ul>
+  <Layout>
+    <header class="mb-10 md:mb-14 text-center">
+      <h1
+        class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl"
+      >
+        Understanding Astro
+      </h1>
+    </header>
+    <main>
+      <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
+        {
+          collection
+            .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+            .map(({ slug, data: { title } }) => (
+              <li>
+                <a class="underline" href={`/${slug}`}>
+                  {title}
+                </a>
+              </li>
+            ))
+        }
+      </ul>
+    </main>
+  </Layout>
 </Root>

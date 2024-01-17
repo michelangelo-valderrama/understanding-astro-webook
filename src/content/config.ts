@@ -1,4 +1,4 @@
-import { z, defineCollection } from "astro:content"
+import { z, defineCollection, reference } from "astro:content"
 
 const chapters = defineCollection({
   type: "content",
@@ -20,6 +20,8 @@ const chapters = defineCollection({
     modificationDate: z.date().optional(),
     authorContact: z.string().email().default("ohans@ohansemmanuel.me"),
     tags: z.array(z.string()).default(["Astro", "Understanding Astro", "Book"]),
+    next: reference("chapters").optional(),
+    prev: reference("chapters").optional(),
   }),
 })
 

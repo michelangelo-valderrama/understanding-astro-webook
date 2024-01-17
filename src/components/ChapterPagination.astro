@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string
+  href: string
+  type: "right" | "left"
+}
+
+const { href, title, type } = Astro.props
+---
+
+<a
+  class:list={[
+    "transition-colors group border border-border hover:bg-muted px-4 py-3 rounded-lg flex items-center gap-x-2",
+    {
+      "flex-row-reverse text-right": type == "right",
+    },
+  ]}
+  href={href}
+>
+  <span
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class:list={[
+        "size-6",
+        {
+          "rotate-180": type === "left",
+        },
+      ]}><path d="m9 18 6-6-6-6"></path></svg
+    ></span
+  >
+  <span class="text-lg font-semibold truncate group-hover:text-clip">{title}</span>
+</a>
