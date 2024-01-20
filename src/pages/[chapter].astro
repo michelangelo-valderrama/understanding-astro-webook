@@ -18,7 +18,7 @@ export const getStaticPaths = (async () => {
 type Props = CollectionEntry<"chapters">
 
 const { render, data } = Astro.props
-const { Content } = await render()
+const { Content, remarkPluginFrontmatter } = await render()
 
 let nextChapter, prevChapter
 if (data.next) nextChapter = await getEntry(data.next)
@@ -32,31 +32,67 @@ if (data.prev) prevChapter = await getEntry(data.prev)
   image={data.image?.src}
 >
   <Layout>
-    <nav class="flex mb-8">
-      <a
-        class="font-bold text-lg flex items-center gap-x-2 text-muted-foreground hover:text-accent-foreground transition-colors"
-        href="/"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="size-5"
-          ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg
+    <header class="mb-8">
+      <nav class="flex mb-4">
+        <a
+          class="font-bold text-lg flex items-center gap-x-2 text-muted-foreground hover:text-accent-foreground transition-colors"
+          href="/"
         >
-        Home
-      </a>
-    </nav>
-    <header></header>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-5"
+            ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg
+          >
+          Home
+        </a>
+      </nav>
+      <div class="rounded-lg bg-muted/40 px-6 py-4 space-y-2">
+        <p class="text-muted-foreground">
+          {remarkPluginFrontmatter.minutesRead}
+        </p>
+        {
+          data.proyect && (
+            <menu class="flex gap-x-6 underline ">
+              {data.proyect?.view && (
+                <li>
+                  <a
+                    href={data.proyect.view}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View demo
+                  </a>
+                </li>
+              )}
+              {data.proyect?.source && (
+                <li>
+                  <a
+                    href={data.proyect.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Source code
+                  </a>
+                </li>
+              )}
+            </menu>
+          )
+        }
+      </div>
+    </header>
+
     <main class="prose dark:prose-invert max-w-none prose-zinc break-words">
       <Content />
     </main>
+
     <footer class="grid grid-cols-2 gap-x-4 mt-14 mb-10">
       <div>
         {

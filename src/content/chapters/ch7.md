@@ -4,6 +4,8 @@ description: "In this chapter, I’ll employ you to see beyond static apps and b
 sortOrder: 7
 next: ch8
 prev: ch6
+proyect:
+  source: https://github.com/understanding-astro/fullstack-astro
 ---
 
 # Chapter 7: Be Audible! (Fullstack Astro Project)
@@ -12,18 +14,6 @@ prev: ch6
 >  ― Henry David Thoreau
 
 In this chapter, I’ll employ you to see beyond static apps and build fullstack applications with Astro.
-
-<br /> 
-<br /> 
-<br /> 
-<br />
-
-[![](/images/ch7/watch-instead@3x.png)](https://ohans.me/understanding-astro-udemy)
-
-<br /> 
-<br />
-
-[![](/images/ch7/view-project.png)]([https://github.com/understanding-astro/fullstack-astro])
 
 ## What you’ll learn
 

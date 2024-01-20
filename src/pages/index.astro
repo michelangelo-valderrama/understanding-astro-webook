@@ -16,13 +16,13 @@ const collection = await getCollection("chapters")
       </h1>
     </header>
     <main>
-      <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
+      <ul class="my-6 ml-6 list-disc space-y-2 md:space-y-4">
         {
           collection
             .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
             .map(({ slug, data: { title } }) => (
               <li>
-                <a class="text-sm hover:underline px-2 py-2.5" href={`/${slug}`}>
+                <a class="text-sm md:text-base underline px-2 py-2.5" href={`/${slug}`}>
                   {title}
                 </a>
               </li>

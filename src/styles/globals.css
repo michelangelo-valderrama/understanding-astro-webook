@@ -68,10 +68,16 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border box-border min-w-0;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground min-h-[100dvh];
+  }
+  h1, h2, h3, h4 {
+    @apply text-balance;
+  }
+  p {
+    @apply text-pretty;
   }
 }
 

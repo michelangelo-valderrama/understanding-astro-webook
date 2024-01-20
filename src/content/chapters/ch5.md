@@ -4,21 +4,13 @@ description: "Everything you need to know to develop rich content websites with 
 sortOrder: 5
 next: ch6
 prev: ch4
+proyect:
+  source: https://github.com/understanding-astro/react.dev-astro
 ---
 
 # Chapter 5: Oh my React!
 
 Everything you need to know to develop rich content websites with real-world best practices. This is a practical section best served with you coding along.
-
-<br /> 
-<br />
-
-[![](/images/ch5/watch-instead@3x.png)](https://ohans.me/understanding-astro-udemy)
-
-<br /> 
-<br />
-
-[![](/images/ch5/view-project.png)](https://github.com/understanding-astro/react.dev-astro)
 
 ---
 

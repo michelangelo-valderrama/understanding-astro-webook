@@ -20,6 +20,12 @@ const chapters = defineCollection({
     modificationDate: z.date().optional(),
     authorContact: z.string().email().default("ohans@ohansemmanuel.me"),
     tags: z.array(z.string()).default(["Astro", "Understanding Astro", "Book"]),
+    proyect: z
+      .object({
+        view: z.string().url().optional(),
+        source: z.string().url().optional(),
+      })
+      .optional(),
     next: reference("chapters").optional(),
     prev: reference("chapters").optional(),
   }),

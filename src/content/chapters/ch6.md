@@ -4,26 +4,13 @@ description: "This chapter will guide you on enabling SSR in an Astro project, a
 sortOrder: 6
 next: ch7
 prev: ch5
+proyect:
+  source: https://github.com/understanding-astro/ssr
 ---
 
 # Chapter 6: Server-side Rendering (SSR) in Astro
 
 This chapter will guide you on enabling SSR in an Astro project, and we will also discuss a detailed overview of the extensive features a server-side rendered Astro project offers.
-
-<br /> 
-<br /> 
-<br /> 
-<br />
-
-[![](/images/ch1/watch-instead@3x.png)](https://ohans.me/understanding-astro-udemy)
-
-<br /> 
-<br />
-
-[![](/images/ch1/view-project.png)](https://github.com/understanding-astro/ssr)
-
-<br /> 
-<br />
 
 ## What you’ll learn
 
@@ -102,7 +89,7 @@ export default defineConfig({
 
 If we rerun the production build, we will have an error in the console.
 
-```She
+```bash
 [error] Cannot use `output: 'server'` without an adapter. Please install and configure the appropriate server adapter for your final deployment.
 ```
 

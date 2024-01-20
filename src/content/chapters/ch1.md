@@ -4,6 +4,9 @@ description: "Get started with the basics of Astro by building a practical appli
 sortOrder: 1
 next: ch2
 prev: preface
+proyect:
+  view: https://astro-beginner-project.vercel.app/
+  source: https://github.com/understanding-astro/astro-beginner-project
 ---
 
 # Chapter 1: Build your first Astro Application
@@ -11,26 +14,6 @@ prev: preface
 > Long is the road to learning by precepts, but short and successful by examples - Seneca the Younger.
 
 Get started with the basics of Astro by building a practical application: a personal site.
-
-<br /> 
-<br /> 
-<br /> 
-<br />
-
-[![](/images/ch1/view-project@3x.png)](https://astro-beginner-project.vercel.app/)
-
-<br /> 
-<br />
-
-[![](/images/ch1/watch-instead@3x.png)](https://ohans.me/understanding-astro-udemy)
-
-<br /> 
-<br />
-
-[![](/images/ch1/view-project.png)](https://github.com/understanding-astro/astro-beginner-project)
-
-<br /> 
-<br />
 
 ## What you’ll learn
 
@@ -58,19 +41,11 @@ Firstly, make sure you have nodejs installed.
 
 If unsure, run `node --version` in your terminal. You will get back a node version if you have nodejs installed.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-04-29%20at%2011.11.18@2x.png" width="70%" alt="Get NodeJS version from the CLI." align="center">
-    <figcaption><em>Get NodeJS version from the CLI.</em></figcaption>
-    <br><br><br>
-</figure>
+![Get NodeJS version from the CLI.](/images/ch1/CleanShot%202023-04-29%20at%2011.11.18@2x.png)
 
 Don’t have nodejs installed? Then, visit the official [download](https://nodejs.org/en/download) page and install the necessary package for your operating system. It’s as easy as installing any other computer program. Click, click, click!
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-04-28%20at%2010.44.30@2x.png" width="70%" alt="The NodeJS download page." align="center">
-    <figcaption><em>The NodeJS download page.</em></figcaption>
-    <br><br><br>
-</figure>
+![The NodeJS download page.](/images/ch1/CleanShot%202023-04-28%20at%2010.44.30@2x.png)
 
 ### Setting up your code editor
 
@@ -82,11 +57,7 @@ You can develop Astro applications with any code editor, but VSCode is also the 
 
 If you’re building with VSCode[^1], install the official [Astro extension](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode). This helps with syntax and semantic highlighting, diagnostic messages, IntelliSense, and more.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-04-28%20at%2011.03.36@2x.png" width="70%" alt="The official Astro VSCode extension." align="center">
-    <figcaption><em>The official Astro VSCode extension.</em></figcaption>
-    <br><br><br>
-</figure>
+![The official Astro VSCode extension.](/images/ch1/CleanShot%202023-04-28%20at%2011.03.36@2x.png)
 
 Let’s now get started setting up our first Astro project. To do this, we must install Astro, and the fastest way to do this is to use the Astro automatic CLI.
 
@@ -107,11 +78,7 @@ pnpm create astro@latest
 yarn create astro
 ```
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-04-28%20at%2011.15.44@2x.png" width="70%" alt="Starting a new project with the Astro CLI wizard extension." align="center">
-    <figcaption><em>Starting a new project with the Astro CLI wizard extension.</em></figcaption>
-    <br><br><br>
-</figure>
+![Starting a new project with the Astro CLI wizard extension.](/images/ch1/CleanShot%202023-04-28%20at%2011.15.44@2x.png)
 
 This will start the wizard, which will guide us through helpful prompts. It’s important to mention that we can run this from anywhere on our machine and later choose where exactly we want the project created.
 
@@ -121,39 +88,23 @@ Alternatively, we could have run the `npm create astro@latest` command in our de
 
 When asked, “How would you like to start your new project?” go ahead and choose “Empty”.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-04-28%20at%2011.20.54@2x.png" width="70%" alt="Answering the template CLI prompt." align="center">
-    <figcaption><em>Answering the template CLI prompt.</em></figcaption>
-    <br><br><br>
-</figure>
+![Answering the template CLI prompt.](/images/ch1/CleanShot%202023-04-28%20at%2011.20.54@2x.png)
 
 We want a fresh start to explore Astro from the ground up.
 
 Now, we will be asked whether to install dependencies or not. Select yes and hit enter to continue the installation.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-04-28%20at%2011.22.21@2x.png" width="70%" alt="Installing dependencies in the CLI prompt." align="center">
-    <figcaption><em>Installing dependencies in the CLI prompt.</em></figcaption>
-    <br><br><br>
-</figure>
+![Installing dependencies in the CLI prompt.](/images/ch1/CleanShot%202023-04-28%20at%2011.22.21@2x.png)
 
 Once the dependencies are installed, answer the “Do you plan to write TypeScript?” prompt with a yes and choose the “strictest” option.
 
 We want strong type safety.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-04-28%20at%2011.24.22@2x.png" width="70%" alt="Choosing Typescript in the CLI prompt." align="center">
-    <figcaption><em>Choosing Typescript in the CLI prompt.</em></figcaption>
-    <br><br><br>
-</figure>
+![Choosing Typescript in the CLI prompt.](/images/ch1/CleanShot%202023-04-28%20at%2011.24.22@2x.png)
 
 Afterwards, answer the “Initialise a new git repository?” question with whatever works for you. I’ll go with a yes here and hit enter.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-04-28%20at%2011.25.33@2x.png" width="70%" alt="Initialising git in the CLI prompt." align="center">
-    <figcaption><em>Initialising git in the CLI prompt.</em></figcaption>
-    <br><br><br>
-</figure>
+![Initialising git in the CLI prompt.](/images/ch1/CleanShot%202023-04-28%20at%2011.25.33@2x.png)
 
 And voila! Believe it or not, our new project is created and ready to go!
 
@@ -171,11 +122,7 @@ npm run start
 
 This will start the live application on an available local port 🚀
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-04-28%20at%2011.29.57@2x.png" width="70%" alt="The basic Astro project running on localhost:3000." align="center">
-    <figcaption><em>The basic Astro project running on localhost:3000.</em></figcaption>
-    <br><br><br>
-</figure>
+![The basic Astro project running on localhost:3000.](/images/ch1/CleanShot%202023-04-28%20at%2011.29.57@2x.png)
 
 ## Project structure
 
@@ -290,19 +237,11 @@ Also, notice what’s written within the `<body>` tag. An `<h1>` element with th
 
 If we visit the running application in the browser, we have the `<h1>` rendered.
 
-<figure>
-    <img src="images/ch1/CleanShot%202023-05-11%20at%2014.18.20@2x.png" width="70%" alt="The rendered page heading." align="center">
-    <figcaption><em>The rendered page heading.</em></figcaption>
-    <br><br><br>
-</figure>
+![The rendered page heading.](/images/ch1/CleanShot%202023-05-11%20at%2014.18.20@2x.png)
 
 Now change the text to read `<h1>Hello world</h1>` and notice how the page is updated in the browser!
 
-<figure>
-    <img src="images/ch1/CleanShot%202023-05-11%20at%2014.19.41@2x.png" width="70%" alt="The updated page heading." align="center">
-    <figcaption><em>The updated page heading.</em></figcaption>
-    <br><br><br>
-</figure>
+![The updated page heading.](/images/ch1/CleanShot%202023-05-11%20at%2014.19.41@2x.png)
 
 This leads us nicely to discuss pages in Astro — what I consider the entry point to our application.
 
@@ -312,11 +251,7 @@ Astro leverages a file-based routing system and achieves this by using the files
 
 For example, the `src/pages/index.astro` file corresponds to the `index` page served in the browser.
 
-<figure>
-    <img src="images/ch1/CleanShot%202023-04-29%20at%2009.49.26@2x.png" width="70%" alt="The project’s index page." align="center">
-    <figcaption><em>The project’s index page.</em></figcaption>
-    <br><br><br>
-</figure>
+![The project’s index page.](/images/ch1/CleanShot%202023-04-29%20at%2009.49.26@2x.png)
 
 Let’s go ahead and create an `src/pages/about.astro` page with similar content to `index.astro` as shown below:
 
@@ -343,11 +278,7 @@ Let’s go ahead and create an `src/pages/about.astro` page with similar content
 
 Now, if we navigate to `/about` in the browser, we should have the new page rendered.
 
-<figure>
-    <img src="images/ch1/CleanShot%202023-04-29%20at%2009.50.13@2x.png" width="70%" alt="The “About us” page." align="center">
-    <figcaption><em>The “About us” page.</em></figcaption>
-    <br><br><br>
-</figure>
+![The “About us” page.](/images/ch1/CleanShot%202023-04-29%20at%2009.50.13@2x.png)
 
 ### What makes a valid Astro page?
 
@@ -355,19 +286,11 @@ We’ve defined Astro pages as files in the `src/pages/`directory. Unfortunately
 
 For example, if we duplicate the `favicon.svg` file in `public/favicon.svg` into the `pages` directory, does this represent a `favicon` page?
 
-<figure>
-    <img src="images/ch1/CleanShot%202023-04-29%20at%2009.55.21.png" width="40%" alt="Duplicating the favicon in the pages directory." align="center">
-    <figcaption><em>Duplicating the favicon in the pages directory.</em></figcaption>
-    <br><br><br>
-</figure>
+![Duplicating the favicon in the pages directory.](/images/ch1/CleanShot%202023-04-29%20at%2009.55.21.png)
 
 Even though `index.astro` and `about.astro` correspond to our website’s index and about pages, `/favicon` will return a `404: Not found` error.
 
-<figure>
-    <img src="images/ch1/CleanShot%202023-04-29%20at%2009.56.51@2x.png" width="70%" alt="The /favicon route." align="center">
-    <figcaption><em>The /favicon route.</em></figcaption>
-    <br><br><br>
-</figure>
+![The /favicon route.](/images/ch1/CleanShot%202023-04-29%20at%2009.56.51@2x.png)
 
 This is because only specific files make a valid astro page. For example, if we consider the `index` and `about` files in the `pages` directory, you perhaps notice something: they both have the `.astro` file ending!
 
@@ -469,11 +392,7 @@ Note that the `profilePicture` variable is referenced using curly braces `{ }`. 
 
 Now we should have the image rendered on the home page:
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-04-29%20at%2010.30.54@2x.png" width="70%" alt="Rendering the user profile photo." align="center">
-    <figcaption><em>Rendering the user profile photo.</em></figcaption>
-    <br><br><br>
-</figure>
+![Rendering the user profile photo.](/images/ch1/CleanShot%202023-04-29%20at%2010.30.54@2x.png)
 
 It’s not much, but it’s honest work, eh?
 
@@ -561,11 +480,7 @@ Add a `<style>` tag, and write CSS as usual!
 
 The user details should now be styled as expected.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-01%20at%2008.42.27@2x.png" width="70%" alt="Applying styles to the index.astro page component." align="center">
-    <figcaption><em>Applying styles to the index.astro page component.</em></figcaption>
-    <br><br><br>
-</figure>
+![Applying styles to the index.astro page component.](/images/ch1/CleanShot%202023-05-01%20at%2008.42.27@2x.png)
 
 If we inspect the eventual styles applied to our UI elements via the browser developer tools, we’ll notice that the style selectors look different.
 
@@ -613,11 +528,7 @@ This will ensure all other `h1` in our project remains the same, and this style 
 
 Please look at the pages of our completed application, and realise how they all have identical forms.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-01%20at%2009.10.55.png" width="70%" alt="A breakdown of the application page structure." align="center">
-    <figcaption><em>A breakdown of the application page structure.</em></figcaption>
-    <br><br><br>
-</figure>
+![A breakdown of the application page structure.](/images/ch1/CleanShot%202023-05-01%20at%2009.10.55.png)
 
 There’s a navigation bar, a footer, and some container that holds the page’s main content.
 
@@ -714,11 +625,7 @@ const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
 
 If we checked our app, we’d have a blank `index` page.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-10%20at%2017.18.07.png" width="70%" alt="Blank application page." align="center">
-    <figcaption><em>Blank application page.</em></figcaption>
-    <br><br><br>
-</figure>
+![Blank application page.](/images/ch1/CleanShot%202023-05-10%20at%2017.18.07.png)
 
 Why’s that?
 
@@ -735,11 +642,7 @@ The `<Main>` layout component is rendered, and nothing else. The child component
 
 To render the child elements of an Astro component, we must specify where to render these using a `<slot />` element.
 
-<figure>
-    <img src="/images/ch1/a.png" width="70%" alt="Injecting child elements into a slot." align="center">
-    <figcaption><em>Injecting child elements into a slot.</em></figcaption>
-    <br><br><br>
-</figure>
+![Injecting child elements into a slot.](/images/ch1/a.png)
 
 Let’s add a `<slot>` within `Main.astro` :
 
@@ -753,11 +656,7 @@ Let’s add a `<slot>` within `Main.astro` :
 </body>
 ```
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-10%20at%2017.19.59.png" width="70%" alt="Page refactored to use a reusable layout component." align="center">
-    <figcaption><em>Page refactored to use a reusable layout component.</em></figcaption>
-    <br><br><br>
-</figure>
+![Page refactored to use a reusable layout component.](/images/ch1/CleanShot%202023-05-10%20at%2017.19.59.png)
 
 We should now have our page rendered with the reusable layout in place.
 
@@ -814,11 +713,7 @@ The `Main` layout is in place but doesn’t add much to our page. Let’s start 
 
 With this, we’ll have the `main` element centred, but the headers, `h1` and `h2` remain unstyled.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-10%20at%2017.21.33.png" width="70%" alt="A comparison of the changes before and after the layout component style." align="center">
-    <figcaption><em>A comparison of the changes before and after the layout component style.</em></figcaption>
-    <br><br><br>
-</figure>
+![A comparison of the changes before and after the layout component style.](/images/ch1/CleanShot%202023-05-10%20at%2017.21.33.png)
 
 This is because styles applied via the `<style>` tag are locally scoped by default.
 
@@ -844,11 +739,7 @@ For example, to break out of the default locally scoped `<style>` behaviour, we 
 
 This will remove the local CSS scoping and make the styles available globally.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-01%20at%2011.06.50.png" width="70%" alt="The page with global fonts and styles." align="center">
-    <figcaption><em>The page with global fonts and styles.</em></figcaption>
-    <br><br><br>
-</figure>
+![The page with global fonts and styles.](/images/ch1/CleanShot%202023-05-01%20at%2011.06.50.png)
 
 ## Custom fonts and global CSS
 
@@ -904,11 +795,7 @@ body {
 
 And boom! We have sorted global fonts.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-10%20at%2017.41.13.png" width="70%" alt="The page with global fonts and styles." align="center">
-    <figcaption><em>The page with global fonts and styles.</em></figcaption>
-    <br><br><br>
-</figure>
+![The page with global fonts and styles.](/images/ch1/CleanShot%202023-05-10%20at%2017.41.13.png)
 
 ## Independent Astro components
 
@@ -1004,11 +891,7 @@ import NavigationBar from "../components/NavigationBar.astro";
 </main>
 ```
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-01%20at%2015.17.48@2x.png" width="70%" alt="Navigation bar and footer rendered." align="center">
-    <figcaption><em>Navigation bar and footer rendered.</em></figcaption>
-    <br><br><br>
-</figure>
+![Navigation bar and footer rendered.](/images/ch1/CleanShot%202023-05-01%20at%2015.17.48@2x.png)
 
 ## Adding interactive scripts
 
@@ -1034,21 +917,13 @@ So, where’s the log?
 
 Astro runs on the server. In our case, this represents our local development server. So, the `console.log` will appear in the terminal where Astro serves our local application.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-01%20at%2017.55.33.png" width="70%" alt="Astro server logs." align="center">
-    <figcaption><em>Astro server logs.</em></figcaption>
-    <br><br><br>
-</figure>
+![Astro server logs.](/images/ch1/CleanShot%202023-05-01%20at%2017.55.33.png)
 
 When we eventually build our application for production with `npm run build`, Astro will output `HTML` files corresponding to our pages in `src/pages`.
 
 In this example, the `Hello world!` message will be logged but not get into the compiled `HTML` pages.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-01%20at%2018.02.53.png" width="70%" alt="Logs during building the production application." align="center">
-    <figcaption><em>Logs during building the production application.</em></figcaption>
-    <br><br><br>
-</figure>
+![Logs during building the production application.](/images/ch1/CleanShot%202023-05-01%20at%2018.02.53.png)
 
 To add interactive scripts, i.e., scripts that make it into the final `HTML` page build output, add a `<script>` element in the component markup section.
 
@@ -1066,11 +941,7 @@ For example, let’s move the `console.log` from the frontmatter to the markup v
 
 We should have `Hello world!` logged in the browser console!
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-01%20at%2018.07.13@2x.png" width="70%" alt="The browser “Hello world” log." align="center">
-    <figcaption><em>The browser “Hello world” log.</em></figcaption>
-    <br><br><br>
-</figure>
+![The browser “Hello world” log.](/images/ch1/CleanShot%202023-05-01%20at%2018.07.13@2x.png)
 
 ## Interactive theme toggle
 
@@ -1118,11 +989,7 @@ import ThemeToggler from "./ThemeToggler.astro";
 </nav>
 ```
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-02%20at%2006.43.28.png" width="70%" alt="The sun and moon icons rendered in the toggle button." align="center">
-    <figcaption><em>The sun and moon icons rendered in the toggle button.</em></figcaption>
-    <br><br><br>
-</figure>
+![The sun and moon icons rendered in the toggle button.](/images/ch1/CleanShot%202023-05-02%20at%2006.43.28.png)
 
 Let’s add some `<style>` to `ThemeToggler`:
 
@@ -1156,11 +1023,7 @@ Let’s add some `<style>` to `ThemeToggler`:
 
 Now, we should have a decent-looking theme toggler.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-02%20at%2006.50.49.png" width="70%" alt="A styled theme toggle button" align="center">
-    <figcaption><em>A styled theme toggle button</em></figcaption>
-    <br><br><br>
-</figure>
+![A styled theme toggle button](/images/ch1/CleanShot%202023-05-02%20at%2006.50.49.png)
 
 ## The :global() selector
 
@@ -1168,11 +1031,7 @@ Let’s take a moment to consider the strategy we’ll use for toggling the them
 
 We’ll toggle a CSS class on the root element whenever a user clicks the toggle.
 
-<figure>
-    <img src="/images/ch1/embed.png" width="70%" alt="Adding a new “dark” class on toggle" align="center">
-    <figcaption><em>Adding a new “dark” class on toggle</em></figcaption>
-    <br><br><br>
-</figure>
+![Adding a new “dark” class on toggle](/images/ch1/embed.png)
 
 For example, if the user was viewing the site in light mode and clicked to toggle, we’ll add a `.dark` class to the root element and, based on that, apply dark-themed styles.
 
@@ -1202,11 +1061,7 @@ Here’s how we’d achieve this:
 
 To see this at work, inspect the page via the developer tools, and add a `dark` class to the root element. The toggle icon will be appropriately changed.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-02%20at%2007.03.08.png" width="70%" alt="Inspecting icon change with a root dark class" align="center">
-    <figcaption><em>Inspecting icon change with a root dark class</em></figcaption>
-    <br><br><br>
-</figure>
+![Inspecting icon change with a root dark class](/images/ch1/CleanShot%202023-05-02%20at%2007.03.08.png)
 
 In practice, limit `:global` only to appropriate use cases because mixing global and locally scoped component styles will become challenging to debug. However, this is permissible, given our use case.
 
@@ -1282,11 +1137,7 @@ body {
 
 With this seemingly simple change, we should now have the text and background colour of the `body` react to clicking the toggle.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-02%20at%2007.51.51.png" width="70%" alt="Dark mode activated" align="center">
-    <figcaption><em>Dark mode activated</em></figcaption>
-    <br><br><br>
-</figure>
+![Dark mode activated](/images/ch1/CleanShot%202023-05-02%20at%2007.51.51.png)
 
 Finally, update the navigation links in `NavigationBar` to reflect theme preferences:
 
@@ -1306,11 +1157,7 @@ Finally, update the navigation links in `NavigationBar` to reflect theme prefere
 </style>
 ```
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-02%20at%2007.55.56.png" width="70%" alt="Navigation links styled for dark mode" align="center">
-    <figcaption><em>Navigation links styled for dark mode</em></figcaption>
-    <br><br><br>
-</figure>
+![Navigation links styled for dark mode](/images/ch1/CleanShot%202023-05-02%20at%2007.55.56.png)
 
 ## Accessing global client objects
 
@@ -1471,11 +1318,7 @@ In the real world, we quickly realise that the defaults don’t always satisfy e
 
 For example, consider the unstyled flash of content when we refresh our home page. For a user who chose the dark theme previously, refreshing the page shows light-themed rendered content before changing to dark after the script is parsed.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-03%20at%2003.24.42.png" width="70%" alt="Transitioning light themed content viewed on Regular 3G throttling." align="center">
-    <figcaption><em>Transitioning light themed content viewed on Regular 3G throttling.</em></figcaption>
-    <br><br><br>
-</figure>
+![Transitioning light themed content viewed on Regular 3G throttling.](/images/ch1/CleanShot%202023-05-03%20at%2003.24.42.png)
 
 This occurs because we restore the user-chosen theme only after the page’s HTML has been parsed, i.e, the default behaviour of processed Astro scripts.
 
@@ -1517,11 +1360,7 @@ Be careful with `is:inline` as it removes the default non-blocking nature of scr
 
 Open your developer tools and throttle the network. Then go ahead and refresh after toggling dark mode. We should have eradicated the flash of unstyled content!
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-11%20at%2007.30.21@2x.png" width="70%" alt="Throttling the network via the chrome developer tools." align="center">
-    <figcaption><em>Throttling the network via the chrome developer tools.</em></figcaption>
-    <br><br><br>
-</figure>
+![Throttling the network via the chrome developer tools.](/images/ch1/CleanShot%202023-05-11%20at%2007.30.21@2x.png)
 
 ## Global selectors in scripts
 
@@ -1546,11 +1385,7 @@ This will be selected if we add a random button somewhere on the page before our
 //...
 ```
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-03%20at%2003.38.21.png" width="70%" alt="The donate to charity button." align="center">
-    <figcaption><em>The donate to charity button.</em></figcaption>
-    <br><br><br>
-</figure>
+![The donate to charity button.](/images/ch1/CleanShot%202023-05-03%20at%2003.38.21.png)
 
 This button, which has nothing to do with theme toggling, will now be responsible for toggling the user’s theme.
 
@@ -1588,11 +1423,7 @@ It’s no surprise Astro supports creating pages via markdown. So, let’s put t
 
 We’ll create two new pages to replace our dead `Philosophies` and `Beyond technology` navigation links.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-02%20at%2010.50.19@2x.png" width="70%" alt="The dead navigation links." align="center">
-    <figcaption><em>The dead navigation links.</em></figcaption>
-    <br><br><br>
-</figure>
+![The dead navigation links.](/images/ch1/CleanShot%202023-05-02%20at%2010.50.19@2x.png)
 
 Create the first page in `src/pages/philosophies.md` with the following content:
 
@@ -1618,11 +1449,7 @@ These files are written in markdown syntax[^6].
 
 As with Astro component pages, markdown pages eventually get compiled to standard `HTML` pages rendered in the browser. The same file-based routing is also used. For example, to access the `philosophies` and `beyond-tech` pages, visit the `/philosophies` and `/beyond-tech ` routes, respectively.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-03%20at%2002.42.23.png" width="70%" alt="The philosophies page." align="center">
-    <figcaption><em>The philosophies page.</em></figcaption>
-    <br><br><br>
-</figure>
+![The philosophies page.](/images/ch1/CleanShot%202023-05-03%20at%2002.42.23.png)
 
 ## Navigating between pages
 
@@ -1679,19 +1506,15 @@ layout: path-to-layout
 First, let’s reuse the same `Main` layout by adding the following to both markdown pages:
 
 ```md
-// add at the top of the Markdown pages.
 ---
+# add at the top of the Markdown pages.
 layout: ../layouts/Main.astro
 ---
 ```
 
 The markdown pages should now reuse our existing layout with the theming, navigation and footer all set in place!
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-03%20at%2004.40.15.png" width="70%" alt="Using the Main layout in the markdown pages." align="center">
-    <figcaption><em>Using the Main layout in the markdown pages.</em></figcaption>
-    <br><br><br>
-</figure>
+![Using the Main layout in the markdown pages.](/images/ch1/CleanShot%202023-05-03%20at%2004.40.15.png)
 
 Since `Main.astro` includes our `global.css` files, let’s go ahead and provide some default global styles for paragraphs and lists:
 
@@ -1708,11 +1531,7 @@ li {
 }
 ```
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-11%20at%2007.51.10@2x.png" width="70%" alt="Global list styles are now applied to the Markdown pages." align="center">
-    <figcaption><em>Global list styles are now applied to the Markdown pages.</em></figcaption>
-    <br><br><br>
-</figure>
+![Global list styles are now applied to the Markdown pages.](/images/ch1/CleanShot%202023-05-11%20at%2007.51.10@2x.png)
 
 We should now have these styles take effect on our markdown pages! Isn’t life better with shared layout components? 😉
 
@@ -1781,11 +1600,11 @@ To enforce Typescript checks, define the `Props` type alias or interface.
 ```ts
 // Either of these is valid
 type Props = {
-  title: string,
+  title: string
 }
 
 interface Props {
-  title: string;
+  title: string
 }
 ```
 
@@ -1804,11 +1623,7 @@ const { title } = Astro.props;
 
 With the type declared, we’ll have Typescript error(s) in files where we’ve used `<Main>` without the required `title` prop.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-03%20at%2006.01.52.png" width="70%" alt="Invalid title props error." align="center">
-    <figcaption><em>Invalid title props error.</em></figcaption>
-    <br><br><br>
-</figure>
+![Invalid title props error.](/images/ch1/CleanShot%202023-05-03%20at%2006.01.52.png)
 
 Update the `index.astro` and `Blog.astro` pages to pass a `title` prop to `Main`:
 
@@ -1885,11 +1700,7 @@ const { poster, title, subtitle } = Astro.props.frontmatter;
 - `type Props = ...` or `interface Props {}` is how we provide types for an Astro component.
 - The final line deconstructs the properties from `Astro.props.frontmatter` with full Typescript support.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-03%20at%2005.16.20.png" width="70%" alt="Typescript support in the Markdown layout." align="center">
-    <figcaption><em>Typescript support in the Markdown layout.</em></figcaption>
-    <br><br><br>
-</figure>
+![Typescript support in the Markdown layout.](/images/ch1/CleanShot%202023-05-03%20at%2005.16.20.png)
 
 Equally update the layout markup to render the image, title and subtitle:
 
@@ -1938,11 +1749,7 @@ Most of the markup is arguably standard. However, note the `title.toLowerCase()`
 
 Our markdown pages will now have styled titles, subtitles and poster images! With all this handled in one place — the markdown layout.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-03%20at%2005.19.26.png" width="70%" alt="The fully formed Markdown page." align="center">
-    <figcaption><em>The fully formed Markdown page.</em></figcaption>
-    <br><br><br>
-</figure>
+![The fully formed Markdown page.](/images/ch1/CleanShot%202023-05-03%20at%2005.19.26.png)
 
 ## Interactive navigation state
 
@@ -1981,11 +1788,7 @@ Finally, add the relevant style for the active tag:
 
 Viola! We should now have the active anchor tag styled differently.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-03%20at%2009.44.02.png" width="70%" alt="Active anchor tag styles." align="center">
-    <figcaption><em>Active anchor tag styles.</em></figcaption>
-    <br><br><br>
-</figure>
+![Active anchor tag styles.](/images/ch1/CleanShot%202023-05-03%20at%2009.44.02.png)
 
 ## Component composition
 
@@ -1993,19 +1796,11 @@ Our first look at component composition was with the `Main` and `Blog` layouts. 
 
 Our goal is to create a set of different yet identical cards. Each card acts as a link to a blog and will have a title and some background gradient.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-04%20at%2009.44.58.png" width="70%" alt="The eventual card layout we will build." align="center">
-    <figcaption><em>The eventual card layout we will build.</em></figcaption>
-    <br><br><br>
-</figure>
+![The eventual card layout we will build.](/images/ch1/CleanShot%202023-05-04%20at%2009.44.58.png)
 
 To achieve this, we’ll have a `Cards.astro` component that renders multiple `Card.astro` components.
 
-<figure>
-    <img src="/images/ch1/b.png" width="70%" alt="The card composition visualised." align="center">
-    <figcaption><em>The card composition visualised.</em></figcaption>
-    <br><br><br>
-</figure>
+![The card composition visualised.](/images/ch1/b.png)
 
 Let’s start by creating `Card.astro`.
 
@@ -2152,11 +1947,7 @@ import Cards from "../components/Cards.astro";
 </Main>
 ```
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-04%20at%2010.18.23.png" width="70%" alt="The rendered cards." align="center">
-    <figcaption><em>The rendered cards.</em></figcaption>
-    <br><br><br>
-</figure>
+![The rendered cards.](/images/ch1/CleanShot%202023-05-04%20at%2010.18.23.png)
 
 Clicking any of the links will point to the respective blog page.
 
@@ -2263,11 +2054,7 @@ And voila!
 
 Our cards are now more beautiful than ever.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-04%20at%2010.45.36.png" width="70%" alt="Applying dynamic gradients to the cards." align="center">
-    <figcaption><em>Applying dynamic gradients to the cards.</em></figcaption>
-    <br><br><br>
-</figure>
+![Applying dynamic gradients to the cards.](/images/ch1/CleanShot%202023-05-04%20at%2010.45.36.png)
 
 ## The dark side of define:vars
 
@@ -2287,11 +2074,7 @@ In `Card.astro` go ahead and add a `<script>` with the `define:vars` directive a
 
 Inspect the elements via the developer tools. You’ll notice that the `<script>` is inlined and unprocessed, i.e., just as we’ve written it, apart from being wrapped in an immediately invoked function execution (IIFE).
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-04%20at%2012.07.32.png" width="70%" alt="The inlined scripts." align="center">
-    <figcaption><em>The inlined scripts.</em></figcaption>
-    <br><br><br>
-</figure>
+![The inlined scripts.](/images/ch1/CleanShot%202023-05-04%20at%2012.07.32.png)
 
 The script is also added three times — with a different value of `gradientFrom` for each rendered card.
 
@@ -2444,11 +2227,7 @@ Then update our component styles:
 
 This isn’t necessarily a wrong approach to getting this done. We will now have a list of the blogs, as expected.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-11%20at%2012.52.18@2x.png" width="70%" alt="The rendered blog list." align="center">
-    <figcaption><em>The rendered blog list.</em></figcaption>
-    <br><br><br>
-</figure>
+![The rendered blog list.](/images/ch1/CleanShot%202023-05-11%20at%2012.52.18@2x.png)
 
 A better solution is to use `Astro.glob()` to load multiple files.
 
@@ -2512,11 +2291,7 @@ Deploying a static website is relatively the same regardless of the technology u
 
 At the end of your deployment build, we’ll have static assets to deploy to any service we choose.
 
-<figure>
-    <img src="/images/ch1/generate-prod-build.png" width="70%" alt="Generating production builds." align="center">
-    <figcaption><em>Generating production builds.</em></figcaption>
-    <br><br><br>
-</figure>
+![Generating production builds.](/images/ch1/generate-prod-build.png)
 
 Once this is done, we must wire up a static web server to serve this content when your users visit the deployed site.
 
@@ -2547,29 +2322,17 @@ Choosing a web server will come down to your choice. I’ll go ahead and explain
 
 Go over to Netlify and create an account.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-01-25%20at%2004.51.46@2x.png" width="70%" alt="The Netlify homepage." align="center">
-    <figcaption><em>The Netlify homepage.</em></figcaption>
-    <br><br><br>
-</figure>
+![The Netlify homepage.](/images/ch1/CleanShot%202023-01-25%20at%2004.51.46@2x.png)
 
 Once you create an account and sign in, you’ll find a manual section to deploy a site.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-01-25%20at%2004.56.37@2x.png" width="70%" alt="The Netlify dashboard." align="center">
-    <figcaption><em>The Netlify dashboard.</em></figcaption>
-    <br><br><br>
-</figure>
+![The Netlify dashboard.](/images/ch1/CleanShot%202023-01-25%20at%2004.56.37@2x.png)
 
 Now, click `browse to upload` and upload the `dist` folder containing our static production assets.
 
 Once the upload is completed, you’ll have your site deployed with a random public URL, as shown below:
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-01-25%20at%2004.57.57@2x.png" width="70%" alt="Deployed Netlify site URL." align="center">
-    <figcaption><em>Deployed Netlify site URL.</em></figcaption>
-    <br><br><br>
-</figure>
+![Deployed Netlify site URL.](/images/ch1/CleanShot%202023-01-25%20at%2004.57.57@2x.png)
 
 Visit the URL to view your newly deployed website!
 
@@ -2581,11 +2344,7 @@ However, in the real world, you may find this less optimal.
 
 The main challenge here is that every change made to your website requires you to build the application and re-upload it to your server manually.
 
-<figure>
-    <img src="/images/ch1/manual-redeployment.png" width="70%" alt="Manually redeploying after new changes." align="center">
-    <figcaption><em>Manually redeploying after new changes.</em></figcaption>
-    <br><br><br>
-</figure>
+![Manually redeploying after new changes.](/images/ch1/manual-redeployment.png)
 
 This is a well-known problem with a standardised solution. The solution
 involves automating the entire process of deploying static websites by connecting your website to a git provider.
@@ -2602,27 +2361,15 @@ Automating the deployment of a static website looks something like this:
 
 To see this process in practice with Netlify, go over [to your dashboard](https://app.netlify.com/start) and connect a Git provider (step 1).
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-01-25%20at%2005.46.08@2x.png" width="70%" alt="Netlify: connecting a Git provider." align="center">
-    <figcaption><em>Netlify: connecting a Git provider.</em></figcaption>
-    <br><br><br>
-</figure>
+![Netlify: connecting a Git provider.](/images/ch1/CleanShot%202023-01-25%20at%2005.46.08@2x.png)
 
 I’ll go ahead to select Github, authorise Netlify and select the GitHub project (step 2).
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-01-25%20at%2005.47.23@2x.png" width="70%" alt="Netlify: selecting the Github project." align="center">
-    <figcaption><em>Netlify: selecting the Github project.</em></figcaption>
-    <br><br><br>
-</figure>
+![Netlify: selecting the Github project.](/images/ch1/CleanShot%202023-01-25%20at%2005.47.23@2x.png)
 
 Once that’s selected, provide the settings for your application deployment (Step 3). By default, Netlify will suggest the `build` and `publish directory`. Check these to make sure there are no errors.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-01-25%20at%2005.49.46@2x.png" width="70%" alt="Netlify: suggested build command and publish directory." align="center">
-    <figcaption><em>Netlify: suggested build command and publish directory.</em></figcaption>
-    <br><br><br>
-</figure>
+![Netlify: suggested build command and publish directory.](/images/ch1/CleanShot%202023-01-25%20at%2005.49.46@2x.png)
 
 Hit deploy, and your site will be live in seconds (step 4).
 
@@ -2639,19 +2386,11 @@ Let’s put this to the test by following the steps below:
 - Go to the Lighthouse tab.
 - Analyse the page load.
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-11%20at%2013.42.45@2x.png" width="70%" alt="Analysing page load via lighthouse." align="center">
-    <figcaption><em>Analysing page load via lighthouse.</em></figcaption>
-    <br><br><br>
-</figure>
+![Analysing page load via lighthouse.](/images/ch1/CleanShot%202023-05-11%20at%2013.42.45@2x.png)
 
 Here’s my result running the test:
 
-<figure>
-    <img src="/images/ch1/CleanShot%202023-05-11%20at%2013.44.24@2x.png" width="70%" alt="Lighthouse 100% scores." align="center">
-    <figcaption><em>Lighthouse 100% scores.</em></figcaption>
-    <br><br><br>
-</figure>
+![Lighthouse 100% scores.](/images/ch1/CleanShot%202023-05-11%20at%2013.44.24@2x.png)
 
 If this were a school examination, we would have just scored A+ on performance without trying!
 
@@ -2665,10 +2404,10 @@ This has been a lengthy discourse on Astro! We’ve delved into building a proje
 
 Why stop here? We’ve only just scratched the surface.
 
-[^1]: For other editors, please see the official Astro site [https://docs.astro.build/en/editor-setup/](https://docs.astro.build/en/editor-setup/)
-[^2]: What is a “.d.ts” file in Typescript? [https://medium.com/@ohansemmanuel/what-is-a-d-ts-file-in-typescript-2e2d90d58eca](https://medium.com/@ohansemmanuel/what-is-a-d-ts-file-in-typescript-2e2d90d58eca)
+[^1]: For other editors, please see the official Astro site <https://docs.astro.build/en/editor-setup/>
+[^2]: What is a “.d.ts” file in Typescript? <https://medium.com/@ohansemmanuel/what-is-a-d-ts-file-in-typescript-2e2d90d58eca>
 [^3]: As we’ll see later, they can also be used in .mdx files.
-[^4]: Don’t know CSS variables? Read my guide [https://medium.com/free-code-camp/everything-you-need-to-know-about-css-variables-c74d922ea855](https://medium.com/free-code-camp/everything-you-need-to-know-about-css-variables-c74d922ea855)
-[^5]: What is Markdown? [https://en.wikipedia.org/wiki/Markdown](https://en.wikipedia.org/wiki/Markdown)
-[^6]: The markdown syntax cheatsheet [https://www.markdownguide.org/cheat-sheet/](https://www.markdownguide.org/cheat-sheet/)
-[^7]: Markdown layout properties: [https://docs.astro.build/en/core-concepts/layouts/#markdown-layout-props](https://docs.astro.build/en/core-concepts/layouts/#markdown-layout-props)
+[^4]: Don’t know CSS variables? Read my guide <https://medium.com/free-code-camp/everything-you-need-to-know-about-css-variables-c74d922ea855>
+[^5]: What is Markdown? <https://en.wikipedia.org/wiki/Markdown>
+[^6]: The markdown syntax cheatsheet <https://www.markdownguide.org/cheat-sheet/>
+[^7]: Markdown layout properties: <https://docs.astro.build/en/core-concepts/layouts/#markdown-layout-props>

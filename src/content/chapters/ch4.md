@@ -4,20 +4,9 @@ description: "Component islands are the secret to Astro’s super-fast narrative
 sortOrder: 4
 next: ch5
 prev: ch3
+proyect:
+  source: https://github.com/understanding-astro/astro-islands-showcase
 ---
-
-<br /> 
-<br />
-
-[![](/images/ch3/watch-instead@3x.png)](https://ohans.me/understanding-astro-udemy)
-
-<br /> 
-<br />
-
-[![](/images/ch3/view-project.png)](https://github.com/understanding-astro/astro-islands-showcase)
-
-<br /> 
-<br />
 
 # Chapter 4: The Secret Life of Astro Component Islands
 

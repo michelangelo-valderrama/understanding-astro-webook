@@ -87,31 +87,34 @@ The mix of these different chapter types will keep you engaged and make your lea
 
 ### Concept chapters
 
-<figure>
+![Learn new concepts.](/images/concept@2x.png)
+<!-- <figure>
     <img src="images/concept@2x.png" width="70%" alt="Learn new concepts." align="center">
     <figcaption><em>Learn new concepts.</em></figcaption>
     <br><br><br>
-</figure>
+</figure> -->
 
 In concept chapters, we’ll learn the core concepts of Astro. These chapters will include code examples and throwaway applications. We will build no real-world projects in these chapters.
 
 ### Project chapters
 
-<figure>
+![Build real world projects.](/images/build.png)
+<!-- <figure>
     <img src="images/build.png" width="70%" alt="Build real world projects." align="center">
     <figcaption><em>Build real world projects.</em></figcaption>
     <br><br><br>
-</figure>
+</figure> -->
 
 In project chapters, we’ll apply previous concepts we’ve learned towards building a near real-world project.
 
 ### Concept and project chapters
 
-<figure>
+![Building and learning new concepts.](/images/concept%20and%20build.png)
+<!-- <figure>
     <img src="images/concept%20and%20build.png" width="70%" alt="Building and learning new concepts." align="center">
     <figcaption><em>Building and learning new concepts.</em></figcaption>
     <br><br><br>
-</figure>
+</figure> -->
 
 A project and concept chapter focuses on building a real-world application while introducing new concepts along the way.
 
@@ -210,7 +213,7 @@ const book = "Understanding Astro.js";
 With code fragments referring to changes in a nearby application code, you’ll find an ellipsis to signify no code changes in the previous code, e.g.:
 
 ```astro
-// ...
+{/** ... **/}
 <h1 data-name={book}>A changed book name</h1>
 ```
 
