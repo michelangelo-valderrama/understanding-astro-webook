@@ -68,6 +68,7 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
+        sans: ["Geist Sans", ...defaultTheme.fontFamily.sans],
         mono: ["Cascadia", ...defaultTheme.fontFamily.mono],
       },
     },

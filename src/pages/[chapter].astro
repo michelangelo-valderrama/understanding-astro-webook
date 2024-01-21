@@ -1,9 +1,11 @@
 ---
-import ChapterPagination from "@/components/ChapterPagination.astro"
-import Layout from "@/layouts/Layout.astro"
-import Root from "@/layouts/Root.astro"
 import type { GetStaticPaths } from "astro"
-import { getCollection, type CollectionEntry, getEntry } from "astro:content"
+import { getCollection, type CollectionEntry } from "astro:content"
+import Root from "@/layouts/Root.astro"
+import Layout from "@/layouts/Layout.astro"
+import Prose from "@/components/Prose.astro"
+import Pagination from "@/components/Pagination.astro"
+import ExternalLink from "@/components/ExternalLink.astro"
 
 export const getStaticPaths = (async () => {
   const chapters = await getCollection("chapters")
@@ -19,10 +21,6 @@ type Props = CollectionEntry<"chapters">
 
 const { render, data } = Astro.props
 const { Content, remarkPluginFrontmatter } = await render()
-
-let nextChapter, prevChapter
-if (data.next) nextChapter = await getEntry(data.next)
-if (data.prev) prevChapter = await getEntry(data.prev)
 ---
 
 <Root
@@ -31,29 +29,8 @@ if (data.prev) prevChapter = await getEntry(data.prev)
   creator={`@${data.authorSocial}`}
   image={data.image?.src}
 >
-  <Layout>
-    <header class="mb-8">
-      <nav class="flex mb-4">
-        <a
-          class="font-bold text-lg flex items-center gap-x-2 text-muted-foreground hover:text-accent-foreground transition-colors"
-          href="/"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="size-5"
-            ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg
-          >
-          Home
-        </a>
-      </nav>
+  <Layout class="max-w-screen-sm">
+    <header class="mb-8 mt-4 md:mb-10">
       <div class="rounded-lg bg-muted/40 px-6 py-4 space-y-2">
         <p class="text-muted-foreground">
           {remarkPluginFrontmatter.minutesRead}
@@ -63,24 +40,16 @@ if (data.prev) prevChapter = await getEntry(data.prev)
             <menu class="flex gap-x-6 underline ">
               {data.proyect?.view && (
                 <li>
-                  <a
-                    href={data.proyect.view}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <ExternalLink href={data.proyect.view}>
                     View demo
-                  </a>
+                  </ExternalLink>
                 </li>
               )}
               {data.proyect?.source && (
                 <li>
-                  <a
-                    href={data.proyect.source}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <ExternalLink href={data.proyect.source}>
                     Source code
-                  </a>
+                  </ExternalLink>
                 </li>
               )}
             </menu>
@@ -89,33 +58,12 @@ if (data.prev) prevChapter = await getEntry(data.prev)
       </div>
     </header>
 
-    <main class="prose dark:prose-invert max-w-none prose-zinc break-words">
-      <Content />
+    <main>
+      <Prose>
+        <Content />
+      </Prose>
     </main>
 
-    <footer class="grid grid-cols-2 gap-x-4 mt-14 mb-10">
-      <div>
-        {
-          prevChapter && (
-            <ChapterPagination
-              title={prevChapter.data.title}
-              href={prevChapter.slug}
-              type="left"
-            />
-          )
-        }
-      </div>
-      <div>
-        {
-          nextChapter && (
-            <ChapterPagination
-              title={nextChapter.data.title}
-              href={nextChapter.slug}
-              type="right"
-            />
-          )
-        }
-      </div>
-    </footer>
+    <footer><Pagination next={data.next} prev={data.prev} /></footer>
   </Layout>
 </Root>
