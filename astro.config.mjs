@@ -2,12 +2,12 @@ import { defineConfig } from "astro/config"
 import tailwind from "@astrojs/tailwind"
 import react from "@astrojs/react"
 import expressiveCode from "astro-expressive-code"
-import { remarkReadingTime } from "./plugins"
+import { remarkReadingTime, remarkImageOptimization } from "./plugins"
 
 // https://astro.build/config
 export default defineConfig({
   markdown: {
-    remarkPlugins: [remarkReadingTime],
+    remarkPlugins: [remarkReadingTime, remarkImageOptimization],
   },
   integrations: [
     tailwind({
