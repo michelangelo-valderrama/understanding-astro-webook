@@ -1,6 +1,15 @@
 ---
 import { SEO } from "astro-seo"
 import "@/styles/globals.css"
+import "@fontsource/geist-sans/100.css"
+import "@fontsource/geist-sans/200.css"
+import "@fontsource/geist-sans/300.css"
+import "@fontsource/geist-sans/400.css"
+import "@fontsource/geist-sans/500.css"
+import "@fontsource/geist-sans/600.css"
+import "@fontsource/geist-sans/700.css"
+import "@fontsource/geist-sans/800.css"
+import "@fontsource/geist-sans/900.css"
 
 interface Props {
   title: string
@@ -23,7 +32,18 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
-    <meta name="theme-color" content="#09090b" />
+    <meta
+      name="theme-color"
+      content="hsl(0 0% 100%)"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="hsl(240 10% 3.9%)"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta name="color-scheme" content="dark light" />
+
     <SEO
       title={title}
       titleTemplate="%s | Understanding Astro"
@@ -39,7 +59,9 @@ const {
     />
     <slot name="head" />
   </head>
-  <body>
+  <body
+    class="bg-background text-foreground min-h-[100dvh] selection:bg-foreground selection:text-background"
+  >
     <slot />
   </body>
 </html>

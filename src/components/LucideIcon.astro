@@ -1,0 +1,23 @@
+---
+interface Props {
+  icon: any
+  class?: string
+}
+
+const { icon, class: className, ...props } = Astro.props
+
+const [, attributes, children] = icon
+
+const componentChildren = children
+  ?.map(
+    ([shape, attributes]: any[]) =>
+      `<${shape} ${Object.entries(attributes)
+        .map(([k, v]) => `${k}="${v}"`)
+        .join(" ")} />`
+  )
+  .join("")
+
+const componentAttributes = { ...attributes, ...props }
+---
+
+<svg class={className} {...componentAttributes} set:html={componentChildren} />
