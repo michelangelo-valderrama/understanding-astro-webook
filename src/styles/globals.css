@@ -73,7 +73,10 @@
   body {
     @apply bg-background text-foreground min-h-[100dvh];
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     @apply text-balance;
   }
   p {
@@ -87,4 +90,13 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+.expressive-code .copy button {
+  width: 1.6rem !important;
+  height: 1.6rem !important;
+}
+
+.expressive-code .copy button::after {
+  margin: 0.4rem !important;
 }

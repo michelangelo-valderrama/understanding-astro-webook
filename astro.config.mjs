@@ -3,6 +3,7 @@ import tailwind from "@astrojs/tailwind"
 import react from "@astrojs/react"
 import expressiveCode from "astro-expressive-code"
 import { remarkReadingTime, remarkImageOptimization } from "./plugins"
+import theme from "./public/vercel-theme.json"
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,9 +16,18 @@ export default defineConfig({
     }),
     react(),
     expressiveCode({
-      themes: ["github-dark", "github-light"],
-      useDarkModeMediaQuery: true,
-      themeCssSelector: (theme) => `.theme-${theme.name}`,
+      themes: [theme],
+      styleOverrides: {
+        borderColor: "#27272a",
+        codeBackground: "#18181b",
+        codeFontFamily:
+          "Cascadia, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+        frames: {
+          editorActiveTabBackground: "#18181b",
+          terminalBackground: "#18181b",
+          terminalTitlebarBackground: "#18181b",
+        },
+      },
     }),
   ],
 })
