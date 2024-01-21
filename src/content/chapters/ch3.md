@@ -37,11 +37,9 @@ In simple terms, there are two main actors in serving an application to a user:
 
 To display a website, a user requests a resource from an application server.
 
-<figure>
-    <img src="/images/ch3/a.png" width="70%" alt="The web browser requesting article.html from an application server." align="center">
-    <figcaption><em>The web browser requesting article.html from an application server.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The web browser requesting article.html from an application server.](/images/ch3/a.png)
+
 
 With these two actors at play, a significant architectural decision you’ll make when building any decent frontend application is whether to render an application on the client or server[^1].
 
@@ -51,29 +49,23 @@ Let’s briefly explore both options.
 
 ### Client-side rendering (CSR)
 
-<figure>
-    <img src="/images/ch3/1.png" width="80%" alt="Choosing client side rendering." align="center">
-    <figcaption><em>Choosing client side rendering.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Choosing client side rendering.](/images/ch3/1.png)
+
 
 By definition, a client-side rendered application renders pages directly in the browser using Javascript. All logic, data-fetching, templating and routing are handled on the client (the user’s browser).
 
-<figure>
-    <img src="/images/ch3/a-1.png" width="70%" alt="An overview of a client-side rendered application." align="center">
-    <figcaption><em>An overview of a client-side rendered application.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![An overview of a client-side rendered application.](/images/ch3/a-1.png)
+
 
 The past years saw the rise of client-side rendering, particularly among single-page applications. You’ve likely seen this in action if you’ve worked with libraries like React or Vue.
 
 For a practical overview, consider the webpage for a blog article with a like count and a comment section below the initial viewport.
 
-<figure>
-    <img src="/images/ch3/a-2.png" width="70%" alt="A blog article with a dynamic sidebar and a comment section below the article." align="center">
-    <figcaption><em>A blog article with a dynamic sidebar and a comment section below the article.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![A blog article with a dynamic sidebar and a comment section below the article.](/images/ch3/a-2.png)
+
 
 If this application was entirely client-side rendered, the simplified rendering flow would look like this:
 
@@ -84,11 +76,9 @@ If this application was entirely client-side rendered, the simplified rendering 
 5. The data for the article, number of comments and comments are fetched.
 6. A fully interactive page is shown to the user.
 
-<figure>
-    <img src="/images/ch3/a-3.png" width="70%" alt="Visualising the rendering process from a user's perspective." align="center">
-    <figcaption><em>Visualising the rendering process from a user's perspective.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Visualising the rendering process from a user's perspective.](/images/ch3/a-3.png)
+
 
 #### The pros of client-side rendering (CSR)
 
@@ -109,11 +99,9 @@ If this application was entirely client-side rendered, the simplified rendering 
 
 ### Server-side rendering
 
-<figure>
-    <img src="/images/ch3/choosing-ssr.png" width="70%" alt="Choosing server-side rendering." align="center">
-    <figcaption><em>Choosing server-side rendering.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Choosing server-side rendering.](/images/ch3/choosing-ssr.png)
+
 
 Let’s assume we’re unhappy with client-side rendering and decide to do the opposite.
 
@@ -128,11 +116,9 @@ In our example, here’s what a simplified flow would look like:
 3. The server renders the `HTML` page with the article, the number of comments and other required assets.
 4. The server sends the client a fully formed `HTML` page.
 
-<figure>
-    <img src="/images/ch3/aa.png" width="70%" alt="Visualising the rendering process from a user's perspective." align="center">
-    <figcaption><em>Visualising the rendering process from a user's perspective.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Visualising the rendering process from a user's perspective.](/images/ch3/aa.png)
+
 
 NB: it is assumed that the server sends a mostly static `HTML` page with minimal Javascript needed for interactivity.
 
@@ -153,11 +139,9 @@ NB: it is assumed that the server sends a mostly static `HTML` page with minimal
 
 We’ve explored rendering on both sides of the application rendering pole. However, what if there was a way to use server and client-side rendering? Some strategy right in the middle of the hypothetic rendering pole?
 
-<figure>
-    <img src="/images/ch3/ssr-with-client-rehydration.png" width="70%" alt="Choosing SSR with client-side hydration." align="center">
-    <figcaption><em>Choosing SSR with client-side hydration.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Choosing SSR with client-side hydration.](/images/ch3/ssr-with-client-rehydration.png)
+
 
 If we were building an interactive application and working with a framework like React or Vue, a widely common approach is to render on the server and hydrate on the client.
 
@@ -175,11 +159,9 @@ In our example, here’s what a simplified flow would look like:
 
 Making an otherwise static page interactive (e.g., attaching event listeners) is called hydration.
 
-<figure>
-    <img src="/images/ch3/ssr-csr-hydrate-flow.png" width="70%" alt="Visualising the rendering process from a user's perspective." align="center">
-    <figcaption><em>Visualising the rendering process from a user's perspective.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Visualising the rendering process from a user's perspective.](/images/ch3/ssr-csr-hydrate-flow.png)
+
 
 #### The pros of server-side rendering with client-side hydration
 
@@ -202,11 +184,9 @@ Combining server-side rendering with client-side hydration has the potential to 
 
 One way to tackle the heavy delay in time to interactivity (TTI) seems obvious. Instead of hydrating the entire application, why not hydrate only the interactive bits?
 
-<figure>
-    <img src="/images/ch3/p-hydration.png" width="70%" alt="Partial hydration vs full-page hydration." align="center">
-    <figcaption><em>Partial hydration vs full-page hydration.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Partial hydration vs full-page hydration.](/images/ch3/p-hydration.png)
+
 
 As opposed to hydrating the entire application client side, partial hydration refers to hydrating specific parts of an application while leaving the rest static.
 
@@ -216,11 +196,9 @@ We may also take partial hydration further and implement what’s known as lazy 
 
 In this case, we may hydrate the like button when the page is loaded and hydrate the comment section only when the user scrolls below the initial viewport.
 
-<figure>
-    <img src="/images/ch3/a-4.png" width="70%" alt="Hydrate the comment section at a later time." align="center">
-    <figcaption><em>Hydrate the comment section at a later time.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Hydrate the comment section at a later time.](/images/ch3/a-4.png)
+
 
 Talk about flexibility!
 
@@ -237,11 +215,9 @@ Talk about flexibility!
 
 The island architecture is built upon the foundation of partial hydration. Essentially, the islands architecture refers to having “islands of interactivity” on an otherwise static `HTML` page.
 
-<figure>
-    <img src="/images/ch3/independent-islands.png" width="70%" alt="Islands of interactivity on an otherwise static webpage." align="center">
-    <figcaption><em>Islands of interactivity on an otherwise static webpage.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Islands of interactivity on an otherwise static webpage.](/images/ch3/independent-islands.png)
+
 
 To make sense of this, think of these islands as partially hydrated components. So our entire page isn’t hydrated, but rather these islands.
 
@@ -276,7 +252,7 @@ Here are the functional requirements for our island implementation:
 
 Let’s call our island module `mini-island`.
 
-To install `mini-island`, a developer will import our _soon-to-be-built_ module as shown below:
+To install `mini-island`, a developer will import our *soon-to-be-built* module as shown below:
 
 ```js
 <script type="module">
@@ -473,11 +449,9 @@ To view this via a local web server, run the following command from the project 
 
 By default, this should start a local static web server on port `8000`. We may now view the initial demo page on `http://localhost:8000/demos/initial.html`
 
-<figure>
-    <img src="/images/ch3/CleanShot%202023-05-14%20at%2007.29.14.png" width="70%" alt="The initial demo page." align="center">
-    <figcaption><em>The initial demo page.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The initial demo page.](/images/ch3/CleanShot%202023-05-14%20at%2007.29.14.png)
+
 
 Let’s confirm that our custom element `mini-island` is registered rendering the custom element with a simple paragraph child element:
 
@@ -494,11 +468,9 @@ Let’s confirm that our custom element `mini-island` is registered rendering th
 
 This will render the custom element and the `Hello future island` paragraph as expected:
 
-<figure>
-    <img src="/images/ch3/CleanShot%202023-05-14%20at%2007.27.26.png" width="70%" alt="Rendering the custom element with a child element." align="center">
-    <figcaption><em>Rendering the custom element with a child element.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Rendering the custom element with a child element.](/images/ch3/CleanShot%202023-05-14%20at%2007.27.26.png)
+
 
 Now, let’s go ahead and add some Javascript within `<mini-island>` as shown below:
 
@@ -515,11 +487,9 @@ Now, let’s go ahead and add some Javascript within `<mini-island>` as shown be
 
 If you refresh the page and check the browser console, we should see the warning logged.
 
-<figure>
-    <img src="/images/ch3/CleanShot%202023-05-14%20at%2007.32.44.png" width="70%" alt="Console warning from the island." align="center">
-    <figcaption><em>Console warning from the island.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Console warning from the island.](/images/ch3/CleanShot%202023-05-14%20at%2007.32.44.png)
+
 
 This means the script was fired almost immediately. Not our ideal solution.
 
@@ -704,19 +674,15 @@ Note that the `<template>` element has the `data-island` attribute. This is how 
 
 Now, refresh your browser and notice how the `console.warn` is triggered.
 
-<figure>
-    <img src="/images/ch3/CleanShot%202023-05-15%20at%2007.10.42.png" width="70%" alt="Hydrated island script." align="center">
-    <figcaption><em>Hydrated island script.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Hydrated island script.](/images/ch3/CleanShot%202023-05-15%20at%2007.10.42.png)
+
 
 If you also inspect the elements, you’ll notice that the `<template>` has been replaced with its live child content.
 
-<figure>
-    <img src="/images/ch3/CleanShot%202023-05-15%20at%2007.11.54.png" width="70%" alt="Replaced island <template> element." align="center">
-    <figcaption><em>Replaced island template element.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Replaced island &#x3C;template> element.](/images/ch3/CleanShot%202023-05-15%20at%2007.11.54.png)
+
 
 We’re officially hydrating our island!
 
@@ -762,11 +728,9 @@ Update the `initial.html` document to consider our first use case. Here’s the 
 </html>
 ```
 
-<figure>
-    <img src="/images/ch3/CleanShot%202023-05-15%20at%2007.18.38.png" width="70%" alt="The client:visible demo." align="center">
-    <figcaption><em>The client:visible demo.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The client:visible demo.](/images/ch3/CleanShot%202023-05-15%20at%2007.18.38.png)
+
 
 We now have a paragraph that reads `scroll down`, which has a large enough bottom padding to push the island off the viewport.
 
@@ -774,11 +738,9 @@ With the `client:visible` attribute on the `<mini-island>`, we should not hydrat
 
 However, test this in your browser.
 
-<figure>
-    <img src="/images/ch3/CleanShot%202023-05-15%20at%2007.20.43.png" width="70%" alt="The island is hydrated before being in view" align="center">
-    <figcaption><em>The island is hydrated before being in view.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The island is hydrated before being in view](/images/ch3/CleanShot%202023-05-15%20at%2007.20.43.png)
+
 
 The script is hydrated before we scroll (as soon as the page loads), and the `THIS IS A WARNING FROM AN ISLAND` message is logged.
 
@@ -826,11 +788,9 @@ if ("customElements" in window) {
 
 Within `Conditions`, we will introduce a static property that’s a key-value representation of the `client:` attribute and async methods.
 
-<figure>
-    <img src="/images/ch3/attr-promise.png" width="80%" alt="An object with key-value corresponding to attribute and promise condition." align="center">
-    <figcaption><em>An object with key-value corresponding to attribute and promise condition.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![An object with key-value corresponding to attribute and promise condition.](/images/ch3/attr-promise.png)
+
 
 Our conditions will be fulfilled at a later unknown time. So, we will represent these with async functions. These async functions will return promises that are resolved when the associated condition is met.
 
@@ -1235,11 +1195,9 @@ Note that we’ve introduced a large `34MB` image from [Effigis](https://effigis
 
 The large image will keep the browser busy for some time. Before testing this in the browser, I suggest disabling the browser cache via developer tools.
 
-<figure>
-    <img src="/images/ch3/CleanShot%202023-05-15%20at%2011.43.31.png" width="70%" alt="The disable cache property in Firefox." align="center">
-    <figcaption><em>The disable cache property in Firefox.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The disable cache property in Firefox.](/images/ch3/CleanShot%202023-05-15%20at%2011.43.31.png)
+
 
 Open the page in the browser and notice how the script is not invoked until the browser has finished loading the large image and is in an idle state.
 
@@ -1410,6 +1368,7 @@ Let’s go ahead and build a counter application leveraging Vue and `<mini-islan
 It’s okay if you do not understand the Vue code snippets. What’s important is the following:
 
 - The HTML markup is rendered as soon as the HTML page is loaded and parsed.
+
 - This includes the static counter markup within `mini-island`, i.e.,
 
   ```html
@@ -1430,8 +1389,11 @@ It’s okay if you do not understand the Vue code snippets. What’s important i
   ```
 
 - However, the counter is not hydrated at this point. So, clicking the counter will not increase the count. This is because Vue hasn’t been loaded, and the counter button is not yet hydrated.
+
 - Consider the loading condition set on the island, i.e., `client:media="(max-width: 400px)"`.
+
 - Now, resize your browser (use the developer tools) to a width less than `400px` to hydrate the island.
+
 - This will import Vue and hydrate the counter. Here’s the code responsible for within the island `template`:
 
   ```html
@@ -1516,6 +1478,7 @@ Apart from a few changes, the code above is identical to the standard Vue API.
 Here’s how this works:
 
 - The HTML markup is rendered as soon as the HTML page is loaded and parsed.
+
 - This includes the static counter markup within `mini-island`, i.e.,
 
   ```html
@@ -1536,9 +1499,13 @@ Here’s how this works:
   ```
 
 - NB: the significant difference in the code above is the introduction of the `v-scope` attribute to hold our count data variable.
+
 - The counter, however, is not hydrated at this point. So, clicking the counter will not increase the count. This is because petite-vue hasn’t been loaded, and the counter button is not yet hydrated.
+
 - Consider the loading condition set on the island, i.e., `client:media="(max-width: 400px)"`
+
 - Now, resize your browser (take advantage of the developer tools) to a width less than `400px` to hydrate the island.
+
 - This will import Petite-vue and hydrate the counter. Here’s the code responsible for within the island `template`:
 
   ```html
@@ -1656,14 +1623,25 @@ The main goal of this chapter was to peel back the perceived layer of complexity
 Now, we will take this knowledge into exploring component islands in Astro, and (almost) nothing will surprise you. That’s the definition of proper understanding!
 
 [^1]: There are other rendering techniques in between rendering on the client or server.
+
 [^2]: Time to first byte refers to the time between navigation to the site and when the first bytes of are received.
+
 [^3]: The TTI measure the duration it takes for a webpage to achieve complete interactivity.
+
 [^4]: When a browser displays the initial content from the DOM, it is known as the First Contentful Paint (FCP). This is the first indication to the user that the page is loading.
+
 [^5]: Time to first byte (TTFB): the time from when the user navigates the page to when the first bit of content comes in.
-[^6]: Web components on MDN: [https://developer.mozilla.org/en-US/docs/Web/API/Web_components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)
+
+[^6]: Web components on MDN: <https://developer.mozilla.org/en-US/docs/Web/API/Web_components>
+
 [^7]: The whole page is loaded when dependent resources such as stylesheets, scripts, iframes, and images have been fetched.
-[^8]: Leverage window.requestIdleCallback for idle state: [https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)
-[^9]: querySelectorAll on MDN: [https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
-[^10]: The IntersectionObserver API on MDN [https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+
+[^8]: Leverage `window.requestIdleCallback` for idle state: <https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback>
+
+[^9]: querySelectorAll on MDN: <https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll>
+
+[^10]: The IntersectionObserver API on MDN <https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API>
+
 [^11]: [https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState](https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState "readyState")
+
 [^12]: [https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback "requestIdleCallback")

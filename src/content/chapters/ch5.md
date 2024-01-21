@@ -29,19 +29,15 @@ We’ve spent ample time learning the ins and outs of building static websites w
 
 Instead, we’ll begin with a basic static project we’ll build upon throughout the chapter.
 
-<figure>
-    <img src="images/ch5/project-shell.png" width="70%" alt="Building from a starter project." align="center">
-    <figcaption><em>Building from a starter project.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Building from a starter project.](/images/ch5/project-shell.png)
+
 
 In this chapter, we will adopt a solution-oriented approach similar to that of detectives. We aim to solve various `TODOs` scattered throughout the starter project.
 
-<figure>
-    <img src="images/ch5/todos.png" width="70%" alt="Solving small isolated problems." align="center">
-    <figcaption><em>Solving small isolated problems.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Solving small isolated problems.](/images/ch5/todos.png)
+
 
 The reason for this is to ignore already learned concepts and focus on learning new concepts or consolidating older concepts via practice — solving isolated problems.
 
@@ -81,11 +77,9 @@ When prompted, type “y” to accept each prompt. “y” means “yes”!
 
 The complete installation will add all relevant react dependencies and updates the `astro.config.mjs` project configuration file.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-06-23%20at%2008.11.48.png" width="70%" alt="Installing the React integration and dependencies." align="center">
-    <figcaption><em>Installing the React integration and dependencies.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Installing the React integration and dependencies.](/images/ch5/CleanShot%202023-06-23%20at%2008.11.48.png)
+
 
 Finally, go ahead and install the `mdx` integration. I’ll describe the what and why later in the chapter. For now, go ahead and install the integration by running the following:
 
@@ -95,11 +89,9 @@ npx astro add mdx
 
 This will install the `@astrojs/mdx` integration and also update the `astro.config.mjs` project configuration file.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-06-23%20at%2008.13.42.png" width="70%" alt="Installing the MDX integration." align="center">
-    <figcaption><em>Installing the MDX integration.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Installing the MDX integration.](/images/ch5/CleanShot%202023-06-23%20at%2008.13.42.png)
+
 
 Now run the application:
 
@@ -111,11 +103,9 @@ This will run the application in an available local port e.g., the default `loca
 
 Visit the local server and you’ll find the base unstyled application running in the browser as shown below:
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-06-23%20at%2008.16.14.png" width="70%" alt="The unstyled homepage." align="center">
-    <figcaption><em>The unstyled homepage.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The unstyled homepage.](/images/ch5/CleanShot%202023-06-23%20at%2008.16.14.png)
+
 
 I’ve got to say that’s one ugly-looking page.
 
@@ -143,19 +133,15 @@ npx astro add tailwind
 
 This will install the Astro tailwind integration in the project and update the project configuration.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-06-24%20at%2008.16.12.png" width="70%" alt="Installing the Astro Tailwind integration." align="center">
-    <figcaption><em>Installing the Astro Tailwind integration.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Installing the Astro Tailwind integration.](/images/ch5/CleanShot%202023-06-24%20at%2008.16.12.png)
+
 
 Once the installation is complete, the existing application styles will now take effect. Visit the application on your local port to see the styled application.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-06-24%20at%2008.17.17.png" width="70%" alt="The styled application." align="center">
-    <figcaption><em>The styled application.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The styled application.](/images/ch5/CleanShot%202023-06-24%20at%2008.17.17.png)
+
 
 What a difference styling makes!
 
@@ -167,11 +153,9 @@ Using Tailwind in Astro is straightforward. Install the Tailwind integration and
 
 For example, consider the styled text “The library for web and native user interfaces” on the project homepage:
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-03%20at%2006.50.11@2x.png" width="70%" alt="The homepage subtitle." align="center">
-    <figcaption><em>The homepage subtitle.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The homepage subtitle.](/images/ch5/CleanShot%202023-07-03%20at%2006.50.11@2x.png)
+
 
 Now, consider the code responsible for the styles:
 
@@ -196,11 +180,9 @@ Firstly, most Tailwind utility classes are well-named and you can infer what the
 
 If you’re coding along in VSCode, I recommend installing the official Tailwind integration:
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-03%20at%2006.55.50@2x.png" width="70%" alt="Installing the official VSCode Tailwind plugin." align="center">
-    <figcaption><em>Installing the official VSCode Tailwind plugin.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Installing the official VSCode Tailwind plugin.](/images/ch5/CleanShot%202023-07-03%20at%2006.55.50@2x.png)
+
 
 If you’re not using VSCode, consider finding your [editor setup](https://tailwindcss.com/docs/editor-setup) in the official Tailwind docs.
 
@@ -214,11 +196,9 @@ For example, hovering over the `max-w-lg` displays the css property value for th
 }
 ```
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-03%20at%2006.58.37@2x.png" width="70%" alt="Hovering over Tailwind classes." align="center">
-    <figcaption><em>Hovering over Tailwind classes.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Hovering over Tailwind classes.](/images/ch5/CleanShot%202023-07-03%20at%2006.58.37@2x.png)
+
 
 This is very helpful because you can now inspect whatever classes are added to any markup in the project!
 
@@ -301,11 +281,9 @@ We’ve learned that appropriate file types in the `src/pages` directory get tra
 
 However, what if we need to have some files collocated in the `src/pages` directory without being transformed into accompanying `HTML` pages?
 
-<figure>
-    <img src="images/ch5/exclude_page_intro.png" width="70%" alt="Colocating files in the pages directory." align="center">
-    <figcaption><em>Colocating files in the pages directory.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Colocating files in the pages directory.](/images/ch5/exclude_page_intro.png)
+
 
 This can be helpful for collocating tests, utilities and components along the associating pages.
 
@@ -313,11 +291,9 @@ Well, there’s a solution for that.
 
 To exclude a valid page file type in the `src/pages` directory from being compiled into an associating HTML page, prefix the file name with an underscore `_`.
 
-<figure>
-    <img src="images/ch5/prefix_exclude_page.png" width="70%" alt="Prefix file name with a underscore to not transform into HTML pages." align="center">
-    <figcaption><em>Prefix file name with a underscore to not transform into HTML pages.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Prefix file name with a underscore to not transform into HTML pages.](/images/ch5/prefix_exclude_page.png)
+
 
 For example, take a look at the `pages/_components/Home` directory in the project.
 
@@ -336,11 +312,9 @@ Take a look at the `index.astro` and consider the `TODO` to render the `Video` R
 ❗️ <Code class="text-white">TODO:</Code> (Astro Island): Render the ...
 ```
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-05%20at%2008.40.18@2x.png" width="70%" alt="TODO: Render the Video React component island." align="center">
-    <figcaption><em>TODO: Render the Video React component island.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![TODO: Render the Video React component island.](/images/ch5/CleanShot%202023-07-05%20at%2008.40.18@2x.png)
+
 
 Now consider the annotated solution below:
 
@@ -364,11 +338,9 @@ import { Video } from "./_components/home/Video";
 - Pass a `client:visible` attribute to hydrate the island as soon as the component is visible
 - Finally pass the required `video` object props to the `Video` component: `{title: "my video", description: "Video description"}`.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-05%20at%2008.39.19@2x.png" width="70%" alt="The rendered video island." align="center">
-    <figcaption><em>The rendered video island.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The rendered video island.](/images/ch5/CleanShot%202023-07-05%20at%2008.39.19@2x.png)
+
 
 Similarly, let’s resolve the second TODO. This time around we’ll render multiple `Video` components.
 
@@ -377,11 +349,9 @@ Similarly, let’s resolve the second TODO. This time around we’ll render mult
 ❗️ <Code class="text-white">TODO:</Code> (Astro Island): Render two ...
 ```
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-05%20at%2008.43.18@2x.png" width="70%" alt="TODO: Render two React component islands." align="center">
-    <figcaption><em>TODO: Render two React component islands.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![TODO: Render two React component islands.](/images/ch5/CleanShot%202023-07-05%20at%2008.43.18@2x.png)
+
 
 Consider the solution below:
 
@@ -402,11 +372,9 @@ Consider the solution below:
 </ExampleResultPanel>
 ```
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-05%20at%2008.45.15@2x.png" width="70%" alt="The rendered Astro islands." align="center">
-    <figcaption><em>The rendered Astro islands.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The rendered Astro islands.](/images/ch5/CleanShot%202023-07-05%20at%2008.45.15@2x.png)
+
 
 ## Syntax highlighting
 
@@ -424,21 +392,17 @@ Let’s have a look at these.
 
 Astro ships with a `<Code />` component that provides syntax highlights at build time.
 
-<figure>
-    <img src="images/ch5/code_component.png" width="70%" alt="The Code component renders to HTML and inline styles without any Javascript." align="center">
-    <figcaption><em>The Code component renders to HTML and inline styles without any Javascript.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The Code component renders to HTML and inline styles without any Javascript.](/images/ch5/code_component.png)
+
 
 By implication, there’s no runtime overhead to this method of syntax highlighting as no computations are done at runtime and the eventual result is a bunch of elements with inline styles.
 
 This is powered by Shiki.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-06-25%20at%2008.35.52.png" width="70%" alt="Sample syntax highlighted DOM output." align="center">
-    <figcaption><em>Sample syntax highlighted DOM output.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Sample syntax highlighted DOM output.](/images/ch5/CleanShot%202023-06-25%20at%2008.35.52.png)
+
 
 Let’s go back to our starter project and resolve another TODO.
 
@@ -449,11 +413,9 @@ Let’s go back to our starter project and resolve another TODO.
 ❗️ <Code class="text-white">TODO:</Code> Replace with Syntax highlighted code
 ```
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-05%20at%2016.06.25@2x.png" width="70%" alt="TODO: Add syntax highlighted code block." align="center">
-    <figcaption><em>TODO: Add syntax highlighted code block.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![TODO: Add syntax highlighted code block.](/images/ch5/CleanShot%202023-07-05%20at%2016.06.25@2x.png)
+
 
 The goal here is to provide syntax-highlighted code within the component markup.
 
@@ -487,11 +449,9 @@ import { Code as AstroCode } from "astro/components";
 </div>
 ```
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-06-25%20at%2013.04.02@2x.png" width="70%" alt="The syntax highlighted code block." align="center">
-    <figcaption><em>The syntax highlighted code block.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The syntax highlighted code block.](/images/ch5/CleanShot%202023-06-25%20at%2013.04.02@2x.png)
+
 
 Since the code snippets are just good old HTML DOM nodes, we can apply some styles on the parent `div` to style them further as shown below:
 
@@ -508,11 +468,9 @@ This will reduce the size of the font, reduce the type leading and make the code
 
 See the results below:
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-06-25%20at%2013.03.25@2x.png" width="70%" alt="Better styled syntax highlighted code block." align="center">
-    <figcaption><em>Better styled syntax highlighted code block.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Better styled syntax highlighted code block.](/images/ch5/CleanShot%202023-06-25%20at%2013.03.25@2x.png)
+
 
 Much better, eh?
 
@@ -552,11 +510,9 @@ Consider the identical solution below:
  />
 ```
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-06-25%20at%2013.05.02@2x.png" width="70%" alt="The syntax highlighted code block." align="center">
-    <figcaption><em>The syntax highlighted code block.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The syntax highlighted code block.](/images/ch5/CleanShot%202023-06-25%20at%2013.05.02@2x.png)
+
 
 The default `Code` component also supports all the official Shiki [themes](https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes). For example, we can change the component theme to `poimandres` as shown below:
 
@@ -568,11 +524,9 @@ The default `Code` component also supports all the official Shiki [themes](https
 />
 ```
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-06-25%20at%2013.15.33@2x.png" width="70%" alt="The poimandres theme." align="center">
-    <figcaption><em>The poimandres theme.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The poimandres theme.](/images/ch5/CleanShot%202023-06-25%20at%2013.15.33@2x.png)
+
 
 Let’s consider the PROs and CONs of using the default `Code` component provided by Astro.
 
@@ -584,7 +538,7 @@ Let’s consider the PROs and CONs of using the default `Code` component provide
 
 #### Cons
 
-- More work is required to customise your themes e.g., Our www.react.dev clone requires its custom theme
+- More work is required to customise your themes e.g., Our [www.react.dev](http://www.react.dev) clone requires its custom theme
 - No default support for dark and light theme
 
 ### Bring your theme
@@ -666,11 +620,9 @@ import Shiki from "@components/Shiki.astro";
 
 And there we go! We’ve successfully loaded a custom theme.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-06-25%20at%2013.55.54@2x.png" width="70%" alt="Comparing the previous highlighted code with the new Night Owl theme." align="center">
-    <figcaption><em>Comparing the previous highlighted code with the new Night Owl theme.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Comparing the previous highlighted code with the new Night Owl theme.](/images/ch5/CleanShot%202023-06-25%20at%2013.55.54@2x.png)
+
 
 For more customisations, we could spend time tweaking the different theme tokens in the `snippet-theme.json` file.
 
@@ -747,11 +699,9 @@ One solution to best organise the project’s content could be to save the conte
 
 We may visually model these as collections of data saved in a database with a predefined data schema.
 
-<figure>
-    <img src="images/ch5/predefined_schema_db.png" width="70%" alt="Modelling data with a predefined schema in a database." align="center">
-    <figcaption><em>Modelling data with a predefined schema in a database.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Modelling data with a predefined schema in a database.](/images/ch5/predefined_schema_db.png)
+
 
 With Astro projects, we don’t particularly need a database to store and enforce our content data models.
 
@@ -763,21 +713,17 @@ So, what’s a content collection?
 
 A content collection is any top-level directory in the `src/content` folder of an Astro project.
 
-<figure>
-    <img src="images/ch5/content_collections.png" width="50%" alt="Content collections - top directories in src/content." align="center">
-    <figcaption><em>Content collections - top directories in src/content.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Content collections - top directories in src/content.](/images/ch5/content_collections.png)
+
 
 Note that the `src/content` directory is strictly reserved for content collections. Don’t use this directory for anything else.
 
 Now that we know what a content collection is, the individual documents or entries within a collection are referred to as collection entries.
 
-<figure>
-    <img src="images/ch5/collection_entries.png" width="70%" alt="Collection entries within a single collection." align="center">
-    <figcaption><em>Collection entries within a single collection.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Collection entries within a single collection.](/images/ch5/collection_entries.png)
+
 
 Collection entries are documents in formats such as Markdown or MDX. They can also be in data formats such as JSON or YAML. For consistency, you’ll find most collection entries with a consistent naming pattern e.g., kebab-case.
 
@@ -797,19 +743,15 @@ Now, content collections aim to address three main problems:
 
 When working with content collections, note that only top-level directories in `src/content` count as collections. For example, with multiple collections such as `blogs`, `authors` and `comments`, we could accurately represent these distinct content types with three top-level directories within `src/content`.
 
-<figure>
-    <img src="images/ch5/content_collection_example.png" width="50%" alt="Organising different content collections." align="center">
-    <figcaption><em>Organising different content collections.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Organising different content collections.](/images/ch5/content_collection_example.png)
+
 
 If there’s a need to further organise content via subdirectories within a collection, that’s entirely acceptable! For example. The `blogs` content collection may have subdirectories to organise content via languages e.g., `en`, `fr`, etc.
 
-<figure>
-    <img src="images/ch5/collection_subdirectories.png" width="50%" alt="Subdirectories within content collections." align="center">
-    <figcaption><em>Subdirectories within content collections.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Subdirectories within content collections.](/images/ch5/collection_subdirectories.png)
+
 
 ### Authoring content with MDX
 
@@ -819,11 +761,9 @@ What do you see?
 
 You should find a `blog` collection in `src/content/blog` with a handful of `.mdx` files.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-11%20at%2006.44.39.png" width="70%" alt="Entries in the blog collection." align="center">
-    <figcaption><em>Entries in the blog collection.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Entries in the blog collection.](/images/ch5/CleanShot%202023-07-11%20at%2006.44.39.png)
+
 
 Each `mdx` file refers to the collection entry for the blog collection. However, what is an `mdx` file?
 
@@ -1031,11 +971,9 @@ Find the next TODO on the `blog/index.astro` page:
 
 The goal is to fetch all the blogs in the blog content collection and render visual cards for each entry. Also, note that clicking each card should point to the actual blog.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-10%20at%2005.49.23.png" width="70%" alt="Rendering blog post cards." align="center">
-    <figcaption><em>Rendering blog post cards.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Rendering blog post cards.](/images/ch5/CleanShot%202023-07-10%20at%2005.49.23.png)
+
 
 Consider the solution below:
 
@@ -1220,13 +1158,11 @@ const { title, year, month, day } = Astro.params;
 
 ```
 
-Clicking on the _data fetching with react server components_ and _introducing react dev blog_ cards should now render their accompanying page.
+Clicking on the *data fetching with react server components* and *introducing react dev blog* cards should now render their accompanying page.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-02%20at%2007.41.17.png" width="70%" alt="Rendered blog markup." align="center">
-    <figcaption><em>Rendered blog markup.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Rendered blog markup.](/images/ch5/CleanShot%202023-07-02%20at%2007.41.17.png)
+
 
 ### 2. Rest parameters
 
@@ -1267,13 +1203,11 @@ const { path } = Astro.params;
 </BlogLayout>
 ```
 
-Clicking on the _data fetching with react server components_ and _introducing react dev blog_ cards should now render their accompanying page.
+Clicking on the *data fetching with react server components* and *introducing react dev blog* cards should now render their accompanying page.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-02%20at%2007.40.03.png" width="70%" alt="Rendered blog markup." align="center">
-    <figcaption><em>Rendered blog markup.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Rendered blog markup.](/images/ch5/CleanShot%202023-07-02%20at%2007.40.03.png)
+
 
 ### Priority order
 
@@ -1286,11 +1220,9 @@ Well, Astro needs to make a decision, and that’s following the priority list b
 3. Dynamic routes with rest parameters have the lowest priority, e.g., `/pages/products/[...path]`.
 4. Following the above, any ties will be resolved alphabetically.
 
-<figure>
-    <img src="images/ch5/route_priority.png" width="70%" alt="Route priority order from first to last." align="center">
-    <figcaption><em>Route priority order from first to last.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Route priority order from first to last.](/images/ch5/route_priority.png)
+
 
 A decent example is to note that even though the dynamic path `[...path.astro]` matches the root path `/blog`, the static route `blog/index.astro` always takes priority while the dynamic route `[...path.astro]` kicks in for each blog page.
 
@@ -1300,11 +1232,9 @@ Right now, we’re manually adding objects to the exported `getStaticPaths` func
 
 However, our desired solution is to generate these from the blog content collection.
 
-<figure>
-    <img src="images/ch5/auto_entry_route.png" width="70%" alt="Automatically generate routes for each collection entry" align="center">
-    <figcaption><em>Automatically generate routes for each collection entry.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![Automatically generate routes for each collection entry](/images/ch5/auto_entry_route.png)
+
 
 To achieve this, we need to rework the `getStaticPaths` implementation to fetch all blog posts from the content collection and generate the required paths.
 
@@ -1341,11 +1271,9 @@ const { path } = Astro.params;
 
 Now, every single blog entry now has an associating path defined. Give this a try by clicking any blog link from the home page.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-02%20at%2007.51.47.png" width="70%" alt="All blog paths now automatically handled." align="center">
-    <figcaption><em>All blog paths now automatically handled.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![All blog paths now automatically handled.](/images/ch5/CleanShot%202023-07-02%20at%2007.51.47.png)
+
 
 ### Rendering each blog content
 
@@ -1404,11 +1332,9 @@ const { Content } = await blogEntry.render();
 <Content />;
 ```
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-02%20at%2008.48.36.png" width="70%" alt="The rendered blog content." align="center">
-    <figcaption><em>The rendered blog content.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The rendered blog content.](/images/ch5/CleanShot%202023-07-02%20at%2008.48.36.png)
+
 
 ## MDX components
 
@@ -1494,13 +1420,11 @@ import { mdxComponents } from "@components/mdxComponents";
 
 With this, we should now have properly styled components in place of the bland HTML elements.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-10%20at%2006.39.24.png" width="70%" alt="Leveraging custom components for the MDX HTML output." align="center">
-    <figcaption><em>Leveraging custom components for the MDX HTML output.</em></figcaption>
-    <br><br><br>
-</figure>
 
-Consider the full list of available HTML elements that can be overwritten with custom components in the [official MDX documentation]([https://mdxjs.com/table-of-components/]).
+![Leveraging custom components for the MDX HTML output.](/images/ch5/CleanShot%202023-07-10%20at%2006.39.24.png)
+
+
+Consider the full list of available HTML elements that can be overwritten with custom components in the [official MDX documentation](\[https://mdxjs.com/table-of-components/]).
 
 ### Internal components
 
@@ -1508,11 +1432,9 @@ Components can also be imported and directly rendered within MDX. That’s part 
 
 Go ahead and open the first blog route in `/blog/2020/12/21/data-fetching-with-react-server-components` and find the first `TODO` on the page.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-10%20at%2006.42.47.png" width="70%" alt="TODO: add the Intro component." align="center">
-    <figcaption><em>TODO: add the Intro component.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![TODO: add the Intro component.](/images/ch5/CleanShot%202023-07-10%20at%2006.42.47.png)
+
 
 To resolve this TODO, we need to import and render the `Intro` component in `src/components/Intro.astro`.
 
@@ -1533,11 +1455,9 @@ import Intro from "@components/Intro.astro";
 ---
 ```
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-02%20at%2009.07.29.png" width="70%" alt="The rendered Intro component." align="center">
-    <figcaption><em>The rendered Intro component.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The rendered Intro component.](/images/ch5/CleanShot%202023-07-02%20at%2009.07.29.png)
+
 
 We imported and rendered an Astro component right in the MDX file. How amazing!
 
@@ -1557,11 +1477,9 @@ import Note from "@components/Note.astro";
 <Note>React Server Components are still in research and development.</Note>;
 ```
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-02%20at%2010.43.07.png" width="70%" alt="The rendered Note component." align="center">
-    <figcaption><em>The rendered Note component.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The rendered Note component.](/images/ch5/CleanShot%202023-07-02%20at%2010.43.07.png)
+
 
 Note that, unlike JavaScript imports that must be at the top of the file, we can import components in an MDX file anywhere aside from the frontmatter section.
 
@@ -1605,11 +1523,9 @@ import { YouTube } from "astro-embed";
 <YouTube id="https://youtu.be/TQQPAU21ZUw" />
 ```
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-10%20at%2007.05.09.png" width="70%" alt="The rendered Youtube component." align="center">
-    <figcaption><em>The rendered Youtube component.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The rendered Youtube component.](/images/ch5/CleanShot%202023-07-10%20at%2007.05.09.png)
+
 
 Note that we’re colocating the import statement close to the component render. However, we may move the import higher up the file as well.
 
@@ -1802,14 +1718,12 @@ It renders a blank page via `<BaseLayout />` and automatically redirects the use
 
 Give this a try by visiting the API reference link on the homepage.
 
-<figure>
-    <img src="images/ch5/CleanShot%202023-07-10%20at%2007.28.40.png" width="70%" alt="The API reference link." align="center">
-    <figcaption><em>The API reference link.</em></figcaption>
-    <br><br><br>
-</figure>
+
+![The API reference link.](/images/ch5/CleanShot%202023-07-10%20at%2007.28.40.png)
+
 
 ## Conclusion
 
 Building rich content applications is right up Astro’s alley! With content collections, we can build large content-driven applications with organisation and confidence.
 
-[^1]: For Markdown files, it’s possible to use a number of plugins such as [https://rehype-pretty-code.netlify.app/](https://rehype-pretty-code.netlify.app/)
+[^1]: For Markdown files, it’s possible to use a number of plugins such as <https://rehype-pretty-code.netlify.app/>
