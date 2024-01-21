@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
+    "@astrojs/mdx": "^2.0.5",
     "@astrojs/react": "^3.0.9",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/geist-sans": "^5.0.1",
@@ -24,6 +25,7 @@
     "astro-seo": "^0.8.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "hast-util-select": "^6.0.2",
     "lucide": "^0.312.0",
     "lucide-react": "^0.312.0",
     "mdast-util-to-string": "^4.0.0",

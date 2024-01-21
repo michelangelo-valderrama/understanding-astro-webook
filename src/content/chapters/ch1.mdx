@@ -9,10 +9,12 @@ proyect:
   source: https://github.com/understanding-astro/astro-beginner-project
 ---
 
+import { Tabs, TabItem } from "@/components/tabs"
+
 # Chapter 1: Build your first Astro Application
 
 > Long is the road to learning by precepts, but short and successful by examples
-> 
+>
 > \- Seneca the Younger.
 
 Get started with the basics of Astro by building a practical application: a personal site.
@@ -1629,15 +1631,20 @@ With the type declared, we’ll have Typescript error(s) in files where we’ve 
 
 Update the `index.astro` and `Blog.astro` pages to pass a `title` prop to `Main`:
 
-```astro title="src/layouts/index.astro"
-<Main title="Frau Katarina">
-{/* ... */}
-```
-
-```astro title="src/layouts/Blog.astro"
-<Main title="Frau Katarina | Blog">
-{/* ... */}
-```
+<Tabs>
+  <TabItem label="index.astro">
+    ```astro title="src/layouts/index.astro"
+    <Main title="Frau Katarina">
+    {/* ... */}
+    ```
+  </TabItem>
+  <TabItem label="Blog.astro">
+    ```astro title="src/layouts/Blog.astro"
+    <Main title="Frau Katarina | Blog">
+    {/* ... */}
+    ```
+  </TabItem>
+</Tabs>
 
 ## Leveraging markdown frontmatter properties
 
@@ -2406,10 +2413,10 @@ This has been a lengthy discourse on Astro! We’ve delved into building a proje
 
 Why stop here? We’ve only just scratched the surface.
 
-[^1]: For other editors, please see the official Astro site <https://docs.astro.build/en/editor-setup/>
-[^2]: What is a “.d.ts” file in Typescript? <https://medium.com/@ohansemmanuel/what-is-a-d-ts-file-in-typescript-2e2d90d58eca>
+[^1]: For other editors, please see the official Astro site https://docs.astro.build/en/editor-setup/
+[^2]: What is a “.d.ts” file in Typescript? https://medium.com/@ohansemmanuel/what-is-a-d-ts-file-in-typescript-2e2d90d58eca
 [^3]: As we’ll see later, they can also be used in .mdx files.
-[^4]: Don’t know CSS variables? Read my guide <https://medium.com/free-code-camp/everything-you-need-to-know-about-css-variables-c74d922ea855>
-[^5]: What is Markdown? <https://en.wikipedia.org/wiki/Markdown>
-[^6]: The markdown syntax cheatsheet <https://www.markdownguide.org/cheat-sheet/>
-[^7]: Markdown layout properties: <https://docs.astro.build/en/core-concepts/layouts/#markdown-layout-props>
+[^4]: Don’t know CSS variables? Read my guide https://medium.com/free-code-camp/everything-you-need-to-know-about-css-variables-c74d922ea855
+[^5]: What is Markdown? https://en.wikipedia.org/wiki/Markdown
+[^6]: The markdown syntax cheatsheet https://www.markdownguide.org/cheat-sheet/
+[^7]: Markdown layout properties: https://docs.astro.build/en/core-concepts/layouts/#markdown-layout-props

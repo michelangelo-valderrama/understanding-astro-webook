@@ -70,9 +70,6 @@
   * {
     @apply border-border box-border min-w-0;
   }
-  body {
-    @apply bg-background text-foreground min-h-[100dvh];
-  }
   h1,
   h2,
   h3,
@@ -99,4 +96,8 @@
 
 .expressive-code .copy button::after {
   margin: 0.4rem !important;
+}
+
+.expressive-code {
+  margin-bottom: 2rem;
 }

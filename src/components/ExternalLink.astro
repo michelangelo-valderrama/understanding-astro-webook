@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from "astro/types"
+import LucideIcon from "./LucideIcon.astro"
+import { ExternalLink as ExternalLinkIcon } from "lucide"
+
+type Props = HTMLAttributes<"a">
+
+const { href, ...props } = Astro.props
+---
+
+<a class="flex items-center gap-x-1" href={href} target="_blank" rel="noopener noreferrer" {...props}>
+  <span><slot /></span>
+  <LucideIcon class="size-4" icon={ExternalLinkIcon} />
+</a>

@@ -5,6 +5,8 @@ import expressiveCode from "astro-expressive-code"
 import { remarkReadingTime, remarkImageOptimization } from "./plugins"
 import theme from "./public/vercel-theme.json"
 
+import mdx from "@astrojs/mdx"
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -30,5 +32,6 @@ export default defineConfig({
         },
       },
     }),
+    mdx(),
   ],
 })
