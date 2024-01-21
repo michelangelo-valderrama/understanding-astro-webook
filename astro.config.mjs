@@ -26,6 +26,7 @@ export default defineConfig({
           editorActiveTabBackground: "#18181b",
           terminalBackground: "#18181b",
           terminalTitlebarBackground: "#18181b",
+          shadowColor: "transparent",
         },
       },
     }),

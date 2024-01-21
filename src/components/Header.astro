@@ -3,9 +3,9 @@ import ToggleTheme from "./ToggleTheme.astro"
 ---
 
 <header
-  class="z-10 fixed w-full top-0 left-0 h-14 bg-background/60 backdrop-blur-sm"
+  class="z-50 fixed w-full top-0 left-0 h-14 bg-background/60 border-b border-b-border/40 backdrop-blur"
 >
-  <div class="flex items-center px-4 h-full w-full">
+  <div class="flex items-center px-4 h-full w-full max-w-screen-xl mx-auto">
     <slot />
     <div class="ml-auto">
       <ToggleTheme />

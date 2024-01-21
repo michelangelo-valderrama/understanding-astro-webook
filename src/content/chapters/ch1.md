@@ -11,7 +11,9 @@ proyect:
 
 # Chapter 1: Build your first Astro Application
 
-> Long is the road to learning by precepts, but short and successful by examples - Seneca the Younger.
+> Long is the road to learning by precepts, but short and successful by examples
+> 
+> \- Seneca the Younger.
 
 Get started with the basics of Astro by building a practical application: a personal site.
 

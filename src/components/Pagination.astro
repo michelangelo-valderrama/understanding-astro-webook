@@ -1,0 +1,36 @@
+---
+import { getEntry } from "astro:content"
+import ChapterPagination from "./ChapterPagination.astro"
+
+interface Props {
+  next?: any
+  prev?: any
+}
+
+const { next, prev } = Astro.props
+
+let nextChapter, prevChapter
+if (next) nextChapter = await getEntry(next)
+if (prev) prevChapter = await getEntry(prev)
+---
+
+<div class="flex gap-x-4 mt-14 mb-10">
+  {
+    prevChapter && (
+      <ChapterPagination
+        title={prevChapter.data.title}
+        href={prevChapter.slug}
+        type="left"
+      />
+    )
+  }
+  {
+    nextChapter && (
+      <ChapterPagination
+        title={nextChapter.data.title}
+        href={nextChapter.slug}
+        type="right"
+      />
+    )
+  }
+</div>
