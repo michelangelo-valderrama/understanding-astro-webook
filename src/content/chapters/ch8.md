@@ -6,8 +6,6 @@ next: conclusion
 prev: ch7
 ---
 
-# Chapter 8: Build Your Own Astro Integrations
-
 At the end of this chapter, you’ll join the order of mages who wield great power to bend Astro to their will with new functionality and behaviour.
 
 ## What you’ll learn

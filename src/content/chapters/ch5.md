@@ -8,8 +8,6 @@ proyect:
   source: https://github.com/understanding-astro/react.dev-astro
 ---
 
-# Chapter 5: Oh my React!
-
 Everything you need to know to develop rich content websites with real-world best practices. This is a practical section best served with you coding along.
 
 ---

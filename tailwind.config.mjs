@@ -71,6 +71,26 @@ module.exports = {
         sans: ["Geist Sans", ...defaultTheme.fontFamily.sans],
         mono: ["Cascadia", ...defaultTheme.fontFamily.mono],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            "h2, h3, h4 > a": {
+              position: "relative",
+              "&:before": {
+                position: "absolute",
+                left: "-1.2rem",
+                "font-weight": "normal",
+                "text-align": "left"
+              },
+              "&:hover": {
+                "&:before": {
+                  content: '"§"',
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],

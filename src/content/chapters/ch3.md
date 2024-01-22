@@ -8,8 +8,6 @@ proyect:
   source: https://github.com/understanding-astro/build-your-own-component-island
 ---
 
-# Chapter 3: Build Your Own Component Island
-
 > “What I cannot create, I do not understand” — Richard Feynman
 
 Astro’s fast narrative relies on component islands, which allow using other framework components like React, Vue, or Svelte in our Astro applications. This chapter will guide us in creating our own component island from the ground up.

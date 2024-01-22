@@ -6,8 +6,6 @@ next: ch3
 prev: ch1
 ---
 
-# Chapter 2: Astro Components In-depth
-
 Go beyond the basics and master the essential Astro entity.
 
 ## What you’ll learn

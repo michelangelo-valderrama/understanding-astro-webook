@@ -8,8 +8,6 @@ proyect:
   source: https://github.com/understanding-astro/ssr
 ---
 
-# Chapter 6: Server-side Rendering (SSR) in Astro
-
 This chapter will guide you on enabling SSR in an Astro project, and we will also discuss a detailed overview of the extensive features a server-side rendered Astro project offers.
 
 ## What you’ll learn

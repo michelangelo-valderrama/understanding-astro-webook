@@ -5,8 +5,6 @@ sortOrder: 0
 next: ch1
 ---
 
-# Preface
-
 ## Introduction
 
 I'm not one of those bandwagon-jumping folks who drool over every shiny new library or framework that hits the scene just because it's trending. I'm more of a "wait-and-see" kinda person.
@@ -175,7 +173,7 @@ When text is written in a monospaced font, it typically represents code samples.
 
 Below’s an example:
 
-```js
+```astro
 ---
 const { author } = Astro.props;
 const book = "Understanding Astro.js";
@@ -184,7 +182,7 @@ const book = "Understanding Astro.js";
 <h1 data-name={book}>A new book</h1>
 ```
 
-Sometimes, to show the source of the code, a comment to the file path is added to the top of the code block, as shown below:
+To display the source of the code, a *tab* will be added above the code block with the absolute path, as shown below:
 
 ```astro title="src/pages/index.astro"
 ---
@@ -195,10 +193,10 @@ const book = "Understanding Astro.js";
 <h1 data-name={book}>A new book</h1>
 ```
 
-With code fragments referring to changes in a nearby application code, you’ll find an ellipsis to signify no code changes in the previous code, e.g.:
+In code fragment that refer to changes in the code, the changes will be shown in green if they are an addition, or in red if they have been removed, e. g.:
 
-```astro
-{/** ... **/}
+```astro title="src/pages/index.astro" del={1} ins={2}
+<h1 data-name={book}>A new book</h1>
 <h1 data-name={book}>A changed book name</h1>
 ```
 

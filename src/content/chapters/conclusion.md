@@ -5,8 +5,6 @@ sortOrder: 9
 prev: ch8
 ---
 
-# Conclusion
-
 Look who made it to the end! 🚀
 
 Yes, you!

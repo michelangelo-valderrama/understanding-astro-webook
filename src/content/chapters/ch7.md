@@ -8,8 +8,6 @@ proyect:
   source: https://github.com/understanding-astro/fullstack-astro
 ---
 
-# Chapter 7: Be Audible! (Fullstack Astro Project)
-
 > … People will believe what they see. Let them see.\
 > ― Henry David Thoreau
 
