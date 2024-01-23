@@ -4,7 +4,8 @@ import { Button } from "./ui/button"
 ---
 
 <header
-  class="z-50 fixed w-full top-0 left-0 h-14 bg-background/60 border-b border-b-border/60 backdrop-blur"
+  data-ghost-border
+  class="z-50 fixed w-full top-0 left-0 h-14 bg-background/60 border-b border-b-transparent duration-300 backdrop-blur"
 >
   <div class="flex items-center px-4 h-full w-full max-w-screen-xl mx-auto">
     <div>
@@ -33,3 +34,33 @@ import { Button } from "./ui/button"
     </div>
   </div>
 </header>
+
+<script>
+  const callback = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        header.classList.add("border-b-transparent")
+        header.classList.remove("border-b-border")
+      } else {
+        header.classList.remove("border-b-transparent")
+        header.classList.add("border-b-border")
+      }
+    })
+  }
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 1,
+  }
+
+  const header = document.querySelector(
+    "header[data-ghost-border]"
+  ) as HTMLDivElement
+
+  const observer = new IntersectionObserver(callback, options)
+
+  observer.observe(
+    document.querySelector("[data-ghost-border-trigger]") as Element
+  )
+</script>

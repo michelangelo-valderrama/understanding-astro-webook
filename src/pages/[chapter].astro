@@ -31,9 +31,9 @@ const { Content, remarkPluginFrontmatter, headings } = await render()
   image={data.image?.src}
 >
   <Post title={data.title}>
-    <header class="mb-8 mt-4 md:mb-10">
+    <header class="mb-8 md:mb-10">
       <div class="rounded-lg bg-muted/40 px-6 py-4 space-y-2">
-        <p class="text-muted-foreground">
+        <p data-ghost-border-trigger class="text-muted-foreground">
           {remarkPluginFrontmatter.minutesRead}
         </p>
         {

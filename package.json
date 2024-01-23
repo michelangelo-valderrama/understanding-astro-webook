@@ -8,6 +8,7 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "preview:host": "astro preview --host",
     "astro": "astro"
   },
   "dependencies": {

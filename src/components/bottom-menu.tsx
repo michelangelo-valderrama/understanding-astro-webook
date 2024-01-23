@@ -21,7 +21,7 @@ export const BottomMenu = ({ headings }: Props) => (
             <span>Table of contents</span>
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="mb-2 overflow-scroll max-h-96">
+        <PopoverContent className="mb-2 overflow-scroll max-h-96 rounded-lg">
           <TableOfContents headings={headings} />
         </PopoverContent>
       </Popover>

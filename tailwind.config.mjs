@@ -71,10 +71,10 @@ module.exports = {
         sans: ["Geist Sans", ...defaultTheme.fontFamily.sans],
         mono: ["Cascadia", ...defaultTheme.fontFamily.mono],
       },
-      /* typography: {
+      typography: {
         DEFAULT: {
           css: {
-            "h2, h3, h4 > a": {
+            /* "h2, h3, h4 > a": {
               position: "relative",
               "&:before": {
                 position: "absolute",
@@ -87,10 +87,39 @@ module.exports = {
                   content: '"§"',
                 },
               },
+            }, */
+            h1: { "@apply text-4xl font-extrabold lg:text-5xl": "" },
+            h2: {
+              "@apply border-b pb-2 text-3xl font-semibold first:mt-0": "",
             },
+            h3: { "@apply text-2xl font-semibold": "" },
+            h4: { "@apply text-xl font-semibold": "" },
+            p: {
+              "@apply leading-7 [&:not(:first-child)]:mt-6 text-pretty": "",
+            },
+            blockquote: {
+              "@apply mt-6 border-l-2 border-l-border/80 pl-6 italic": "",
+            },
+            table: { "@apply w-full": "" },
+            tr: { "@apply m-0 border-t p-0 even:bg-muted/40": "" },
+            th: {
+              "@apply border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right":
+                "",
+            },
+            td: {
+              "@apply border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right":
+                "",
+            },
+            ul: { "@apply my-6 list-disc [&>li]:mt-2": "" },
+            code: {
+              "@apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-normal":
+                "",
+            },
+            img: { "@apply rounded-lg": "" },
+            figcaption: { "@apply text-center": "" },
           },
         },
-      }, */
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
