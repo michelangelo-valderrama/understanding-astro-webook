@@ -2,10 +2,11 @@
 import type { GetStaticPaths } from "astro"
 import { getCollection, type CollectionEntry } from "astro:content"
 import Root from "@/layouts/Root.astro"
-import Layout from "@/layouts/Layout.astro"
+import Post from "@/layouts/Post.astro"
 import Prose from "@/components/Prose.astro"
 import Pagination from "@/components/Pagination.astro"
 import ExternalLink from "@/components/ExternalLink.astro"
+import { BottomMenu } from "@/components/bottom-menu"
 
 export const getStaticPaths = (async () => {
   const chapters = await getCollection("chapters")
@@ -20,7 +21,7 @@ export const getStaticPaths = (async () => {
 type Props = CollectionEntry<"chapters">
 
 const { render, data } = Astro.props
-const { Content, remarkPluginFrontmatter } = await render()
+const { Content, remarkPluginFrontmatter, headings } = await render()
 ---
 
 <Root
@@ -29,7 +30,7 @@ const { Content, remarkPluginFrontmatter } = await render()
   creator={`@${data.authorSocial}`}
   image={data.image?.src}
 >
-  <Layout class="max-w-screen-sm">
+  <Post title={data.title}>
     <header class="mb-8 mt-4 md:mb-10">
       <div class="rounded-lg bg-muted/40 px-6 py-4 space-y-2">
         <p class="text-muted-foreground">
@@ -65,6 +66,13 @@ const { Content, remarkPluginFrontmatter } = await render()
       </Prose>
     </main>
 
-    <footer><Pagination next={data.next} prev={data.prev} /></footer>
-  </Layout>
+    <footer class="mb-20">
+      <Pagination next={data.next} prev={data.prev} />
+    </footer>
+  </Post>
+
+  <BottomMenu
+    headings={[{ text: "Top", slug: "", depth: 2 }, ...headings]}
+    client:only
+  />
 </Root>

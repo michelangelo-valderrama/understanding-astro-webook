@@ -9,7 +9,11 @@ import { Button } from "./ui/button"
   <div class="flex items-center px-4 h-full w-full max-w-screen-xl mx-auto">
     <div>
       <a href="/">
-        <Button size="icon" className="flex items-center justify-center" variant="ghost">
+        <Button
+          size="icon"
+          className="flex items-center justify-center"
+          variant="ghost"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -23,7 +27,7 @@ import { Button } from "./ui/button"
         </Button>
       </a>
     </div>
-    <slot />
+    <div class="flex-1 flex items-center"><slot /></div>
     <div class="ml-auto">
       <ToggleTheme />
     </div>

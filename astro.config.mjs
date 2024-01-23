@@ -1,10 +1,5 @@
 import { defineConfig } from "astro/config"
-import {
-  remarkReadingTime,
-  remarkImageOptimization,
-  rehypeLinkHeading,
-} from "./plugins"
-import { rehypeHeadingIds } from "@astrojs/markdown-remark"
+import { remarkReadingTime, remarkImageOptimization } from "./plugins"
 import expressiveCode from "astro-expressive-code"
 import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
@@ -15,7 +10,9 @@ import theme from "./public/vercel-theme.json"
 export default defineConfig({
   markdown: {
     remarkPlugins: [remarkReadingTime, remarkImageOptimization],
-    rehypePlugins: [rehypeHeadingIds, rehypeLinkHeading],
+  },
+  devToolbar: {
+    enabled: false,
   },
   integrations: [
     tailwind({
