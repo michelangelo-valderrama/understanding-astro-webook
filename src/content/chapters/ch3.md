@@ -8,7 +8,9 @@ proyect:
   source: https://github.com/understanding-astro/build-your-own-component-island
 ---
 
-> “What I cannot create, I do not understand” — Richard Feynman
+> What I cannot create, I do not understand
+>
+> — Richard Feynman
 
 Astro’s fast narrative relies on component islands, which allow using other framework components like React, Vue, or Svelte in our Astro applications. This chapter will guide us in creating our own component island from the ground up.
 
@@ -35,9 +37,7 @@ In simple terms, there are two main actors in serving an application to a user:
 
 To display a website, a user requests a resource from an application server.
 
-
 ![The web browser requesting article.html from an application server.](/images/ch3/a.png)
-
 
 With these two actors at play, a significant architectural decision you’ll make when building any decent frontend application is whether to render an application on the client or server[^1].
 
@@ -47,23 +47,17 @@ Let’s briefly explore both options.
 
 ### Client-side rendering (CSR)
 
-
 ![Choosing client side rendering.](/images/ch3/1.png)
-
 
 By definition, a client-side rendered application renders pages directly in the browser using Javascript. All logic, data-fetching, templating and routing are handled on the client (the user’s browser).
 
-
 ![An overview of a client-side rendered application.](/images/ch3/a-1.png)
-
 
 The past years saw the rise of client-side rendering, particularly among single-page applications. You’ve likely seen this in action if you’ve worked with libraries like React or Vue.
 
 For a practical overview, consider the webpage for a blog article with a like count and a comment section below the initial viewport.
 
-
 ![A blog article with a dynamic sidebar and a comment section below the article.](/images/ch3/a-2.png)
-
 
 If this application was entirely client-side rendered, the simplified rendering flow would look like this:
 
@@ -74,9 +68,7 @@ If this application was entirely client-side rendered, the simplified rendering 
 5. The data for the article, number of comments and comments are fetched.
 6. A fully interactive page is shown to the user.
 
-
 ![Visualising the rendering process from a user's perspective.](/images/ch3/a-3.png)
-
 
 #### The pros of client-side rendering (CSR)
 
@@ -97,9 +89,7 @@ If this application was entirely client-side rendered, the simplified rendering 
 
 ### Server-side rendering
 
-
 ![Choosing server-side rendering.](/images/ch3/choosing-ssr.png)
-
 
 Let’s assume we’re unhappy with client-side rendering and decide to do the opposite.
 
@@ -114,9 +104,7 @@ In our example, here’s what a simplified flow would look like:
 3. The server renders the `HTML` page with the article, the number of comments and other required assets.
 4. The server sends the client a fully formed `HTML` page.
 
-
 ![Visualising the rendering process from a user's perspective.](/images/ch3/aa.png)
-
 
 NB: it is assumed that the server sends a mostly static `HTML` page with minimal Javascript needed for interactivity.
 
@@ -137,9 +125,7 @@ NB: it is assumed that the server sends a mostly static `HTML` page with minimal
 
 We’ve explored rendering on both sides of the application rendering pole. However, what if there was a way to use server and client-side rendering? Some strategy right in the middle of the hypothetic rendering pole?
 
-
 ![Choosing SSR with client-side hydration.](/images/ch3/ssr-with-client-rehydration.png)
-
 
 If we were building an interactive application and working with a framework like React or Vue, a widely common approach is to render on the server and hydrate on the client.
 
@@ -157,9 +143,7 @@ In our example, here’s what a simplified flow would look like:
 
 Making an otherwise static page interactive (e.g., attaching event listeners) is called hydration.
 
-
 ![Visualising the rendering process from a user's perspective.](/images/ch3/ssr-csr-hydrate-flow.png)
-
 
 #### The pros of server-side rendering with client-side hydration
 
@@ -182,9 +166,7 @@ Combining server-side rendering with client-side hydration has the potential to 
 
 One way to tackle the heavy delay in time to interactivity (TTI) seems obvious. Instead of hydrating the entire application, why not hydrate only the interactive bits?
 
-
 ![Partial hydration vs full-page hydration.](/images/ch3/p-hydration.png)
-
 
 As opposed to hydrating the entire application client side, partial hydration refers to hydrating specific parts of an application while leaving the rest static.
 
@@ -194,9 +176,7 @@ We may also take partial hydration further and implement what’s known as lazy 
 
 In this case, we may hydrate the like button when the page is loaded and hydrate the comment section only when the user scrolls below the initial viewport.
 
-
 ![Hydrate the comment section at a later time.](/images/ch3/a-4.png)
-
 
 Talk about flexibility!
 
@@ -213,9 +193,7 @@ Talk about flexibility!
 
 The island architecture is built upon the foundation of partial hydration. Essentially, the islands architecture refers to having “islands of interactivity” on an otherwise static `HTML` page.
 
-
 ![Islands of interactivity on an otherwise static webpage.](/images/ch3/independent-islands.png)
-
 
 To make sense of this, think of these islands as partially hydrated components. So our entire page isn’t hydrated, but rather these islands.
 
@@ -250,7 +228,7 @@ Here are the functional requirements for our island implementation:
 
 Let’s call our island module `mini-island`.
 
-To install `mini-island`, a developer will import our *soon-to-be-built* module as shown below:
+To install `mini-island`, a developer will import our _soon-to-be-built_ module as shown below:
 
 ```js
 <script type="module">
@@ -447,9 +425,7 @@ To view this via a local web server, run the following command from the project 
 
 By default, this should start a local static web server on port `8000`. We may now view the initial demo page on `http://localhost:8000/demos/initial.html`
 
-
 ![The initial demo page.](/images/ch3/CleanShot%202023-05-14%20at%2007.29.14.png)
-
 
 Let’s confirm that our custom element `mini-island` is registered rendering the custom element with a simple paragraph child element:
 
@@ -466,9 +442,7 @@ Let’s confirm that our custom element `mini-island` is registered rendering th
 
 This will render the custom element and the `Hello future island` paragraph as expected:
 
-
 ![Rendering the custom element with a child element.](/images/ch3/CleanShot%202023-05-14%20at%2007.27.26.png)
-
 
 Now, let’s go ahead and add some Javascript within `<mini-island>` as shown below:
 
@@ -485,9 +459,7 @@ Now, let’s go ahead and add some Javascript within `<mini-island>` as shown be
 
 If you refresh the page and check the browser console, we should see the warning logged.
 
-
 ![Console warning from the island.](/images/ch3/CleanShot%202023-05-14%20at%2007.32.44.png)
-
 
 This means the script was fired almost immediately. Not our ideal solution.
 
@@ -672,15 +644,11 @@ Note that the `<template>` element has the `data-island` attribute. This is how 
 
 Now, refresh your browser and notice how the `console.warn` is triggered.
 
-
 ![Hydrated island script.](/images/ch3/CleanShot%202023-05-15%20at%2007.10.42.png)
-
 
 If you also inspect the elements, you’ll notice that the `<template>` has been replaced with its live child content.
 
-
-![Replaced island &#x3C;template> element.](/images/ch3/CleanShot%202023-05-15%20at%2007.11.54.png)
-
+![Replaced island <template> element.](/images/ch3/CleanShot%202023-05-15%20at%2007.11.54.png)
 
 We’re officially hydrating our island!
 
@@ -726,9 +694,7 @@ Update the `initial.html` document to consider our first use case. Here’s the 
 </html>
 ```
 
-
 ![The client:visible demo.](/images/ch3/CleanShot%202023-05-15%20at%2007.18.38.png)
-
 
 We now have a paragraph that reads `scroll down`, which has a large enough bottom padding to push the island off the viewport.
 
@@ -736,9 +702,7 @@ With the `client:visible` attribute on the `<mini-island>`, we should not hydrat
 
 However, test this in your browser.
 
-
 ![The island is hydrated before being in view](/images/ch3/CleanShot%202023-05-15%20at%2007.20.43.png)
-
 
 The script is hydrated before we scroll (as soon as the page loads), and the `THIS IS A WARNING FROM AN ISLAND` message is logged.
 
@@ -786,9 +750,7 @@ if ("customElements" in window) {
 
 Within `Conditions`, we will introduce a static property that’s a key-value representation of the `client:` attribute and async methods.
 
-
 ![An object with key-value corresponding to attribute and promise condition.](/images/ch3/attr-promise.png)
-
 
 Our conditions will be fulfilled at a later unknown time. So, we will represent these with async functions. These async functions will return promises that are resolved when the associated condition is met.
 
@@ -1193,9 +1155,7 @@ Note that we’ve introduced a large `34MB` image from [Effigis](https://effigis
 
 The large image will keep the browser busy for some time. Before testing this in the browser, I suggest disabling the browser cache via developer tools.
 
-
 ![The disable cache property in Firefox.](/images/ch3/CleanShot%202023-05-15%20at%2011.43.31.png)
-
 
 Open the page in the browser and notice how the script is not invoked until the browser has finished loading the large image and is in an idle state.
 
@@ -1621,25 +1581,14 @@ The main goal of this chapter was to peel back the perceived layer of complexity
 Now, we will take this knowledge into exploring component islands in Astro, and (almost) nothing will surprise you. That’s the definition of proper understanding!
 
 [^1]: There are other rendering techniques in between rendering on the client or server.
-
 [^2]: Time to first byte refers to the time between navigation to the site and when the first bytes of are received.
-
 [^3]: The TTI measure the duration it takes for a webpage to achieve complete interactivity.
-
 [^4]: When a browser displays the initial content from the DOM, it is known as the First Contentful Paint (FCP). This is the first indication to the user that the page is loading.
-
 [^5]: Time to first byte (TTFB): the time from when the user navigates the page to when the first bit of content comes in.
-
 [^6]: Web components on MDN: <https://developer.mozilla.org/en-US/docs/Web/API/Web_components>
-
 [^7]: The whole page is loaded when dependent resources such as stylesheets, scripts, iframes, and images have been fetched.
-
 [^8]: Leverage `window.requestIdleCallback` for idle state: <https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback>
-
 [^9]: querySelectorAll on MDN: <https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll>
-
 [^10]: The IntersectionObserver API on MDN <https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API>
-
 [^11]: [https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState](https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState "readyState")
-
 [^12]: [https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback "requestIdleCallback")

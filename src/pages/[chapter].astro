@@ -7,6 +7,8 @@ import Prose from "@/components/Prose.astro"
 import Pagination from "@/components/Pagination.astro"
 import ExternalLink from "@/components/ExternalLink.astro"
 import { BottomMenu } from "@/components/bottom-menu"
+import LucideIcon from "@/components/LucideIcon.astro"
+import { Pen } from "lucide"
 
 export const getStaticPaths = (async () => {
   const chapters = await getCollection("chapters")
@@ -20,7 +22,7 @@ export const getStaticPaths = (async () => {
 
 type Props = CollectionEntry<"chapters">
 
-const { render, data } = Astro.props
+const { render, data, id } = Astro.props
 const { Content, remarkPluginFrontmatter, headings } = await render()
 ---
 
@@ -33,9 +35,20 @@ const { Content, remarkPluginFrontmatter, headings } = await render()
   <Post slot="body" title={data.title}>
     <header class="mb-8 md:mb-10">
       <div class="rounded-lg bg-muted/40 px-6 py-4 space-y-2">
-        <p data-ghost-border-trigger class="text-muted-foreground">
-          {remarkPluginFrontmatter.minutesRead}
-        </p>
+        <div class="flex justify-between">
+          <p data-ghost-border-trigger class="text-muted-foreground">
+            {remarkPluginFrontmatter.minutesRead}
+          </p>
+          <a
+            class="underline underline-offset-4 flex items-center gap-x-1.5 text-sm"
+            href={`https://github.com/michelangelo-valderrama/understanding-astro-webook/blob/main/src/content/chapters/${id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Edit page</span>
+            <LucideIcon class="size-3.5" icon={Pen} />
+          </a>
+        </div>
         {
           data.proyect && (
             <menu class="flex gap-x-6 underline ">

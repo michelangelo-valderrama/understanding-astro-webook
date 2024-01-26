@@ -74,23 +74,10 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            /* "h2, h3, h4 > a": {
-              position: "relative",
-              "&:before": {
-                position: "absolute",
-                left: "-1.2rem",
-                "font-weight": "normal",
-                "text-align": "left"
-              },
-              "&:hover": {
-                "&:before": {
-                  content: '"§"',
-                },
-              },
-            }, */
             h1: { "@apply text-4xl font-extrabold lg:text-5xl": "" },
             h2: {
-              "@apply border-b pb-2 text-3xl font-semibold first:mt-0": "",
+              "@apply border-b pb-2 text-3xl font-semibold first:mt-0 first-of-type:mt-6 md:first-of-type:mt-8":
+                "",
             },
             h3: { "@apply text-2xl font-semibold": "" },
             h4: { "@apply text-xl font-semibold": "" },
@@ -119,7 +106,10 @@ module.exports = {
             },
             img: { "@apply rounded-lg bg-white": "" },
             figcaption: { "@apply text-center": "" },
-            ".h-icon": { "@apply no-underline text-muted-foreground before:content-['§_']": "" }
+            ".h-icon": {
+              "@apply no-underline text-muted-foreground before:content-['§_']":
+                "",
+            },
           },
         },
       },

@@ -1,6 +1,6 @@
 ---
 title: Preface
-description: Preface
+description: How learning Astro is different with this book and the documentation, book structure, conventions and prerequisites.
 sortOrder: 0
 next: ch1
 ---
@@ -182,7 +182,7 @@ const book = "Understanding Astro.js";
 <h1 data-name={book}>A new book</h1>
 ```
 
-To display the source of the code, a *tab* will be added above the code block with the absolute path, as shown below:
+To display the source of the code, a _tab_ will be added above the code block with the absolute path, as shown below:
 
 ```astro title="src/pages/index.astro"
 ---
