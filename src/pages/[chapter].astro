@@ -30,7 +30,7 @@ const { Content, remarkPluginFrontmatter, headings } = await render()
   creator={`@${data.authorSocial}`}
   image={data.image?.src}
 >
-  <Post title={data.title}>
+  <Post slot="body" title={data.title}>
     <header class="mb-8 md:mb-10">
       <div class="rounded-lg bg-muted/40 px-6 py-4 space-y-2">
         <p data-ghost-border-trigger class="text-muted-foreground">

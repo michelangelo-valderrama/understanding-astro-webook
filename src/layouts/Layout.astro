@@ -1,5 +1,6 @@
 ---
 import Header from "@/components/Header.astro"
+import Footer from "@/components/Footer.astro"
 
 interface Props {
   class?: string
@@ -12,5 +13,6 @@ const { class: className } = Astro.props
   <Header />
   <div class:list={["mx-auto p-4 md:mt-6", className]}>
     <slot />
+    <Footer />
   </div>
 </div>

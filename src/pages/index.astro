@@ -1,20 +1,31 @@
 ---
-import { getCollection } from "astro:content"
 import { ArrowRight } from "lucide"
 import Layout from "@/layouts/Layout.astro"
 import Root from "@/layouts/Root.astro"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import LucideIcon from "@/components/LucideIcon.astro"
 import { Badge } from "@/components/ui/badge"
+import Chapters from "@/components/Chapters.astro"
+import LucideIcon from "@/components/LucideIcon.astro"
 
-const collection = await getCollection("chapters")
+const site = Astro.url.origin
 ---
 
 <Root
   title="Understanding Astro"
   description="The complete guide to building insanely fast production websites."
 >
-  <Layout class="max-w-screen-lg">
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      url: site,
+      image: `${site}/understanding-astro-banner.png`,
+      name: "Understanding Astro",
+      description:
+        "The complete guide to building insanely fast production websites.",
+    })}
+  />
+  <Layout slot="body" class="max-w-screen-lg">
     <header class="mt-6 md:mt-10 mb-10 md:mb-16 text-center">
       <div class="mb-4">
         <a
@@ -44,27 +55,7 @@ const collection = await getCollection("chapters")
       </p>
     </header>
     <main class="mb-20">
-      <section>
-        <h2 class="font-semibold mb-4 md:text-lg">Chapters:</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-4">
-          {
-            collection
-              .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
-              .map(({ slug, data: { title, description } }) => (
-                <a class="group" href={`/${slug}`}>
-                  <Card className="w-full h-full transition duration-300 group-hover:shadow-black/5 dark:group-hover:shadow-white/5 group-hover:shadow-xl group-hover:border-black/80 dark:group-hover:border-white/80">
-                    <CardHeader>
-                      <h3 class="text-lg md:text-xl font-bold">{title}</h3>
-                    </CardHeader>
-                    <CardContent>
-                      <p class="text-muted-foreground">{description}</p>
-                    </CardContent>
-                  </Card>
-                </a>
-              ))
-          }
-        </div>
-      </section>
+      <Chapters />
     </main>
   </Layout>
 </Root>

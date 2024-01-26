@@ -1,0 +1,42 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content"
+import Chapter from "./Chapter.astro"
+
+const collection = await getCollection("chapters")
+
+const col01: CollectionEntry<"chapters">[] = []
+const col02: CollectionEntry<"chapters">[] = []
+
+collection
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+  .forEach((c, i) => {
+    if (i % 2 === 0) {
+      return col01.push(c)
+    }
+    return col02.push(c)
+  })
+---
+
+<section>
+  <h2 class="font-bold mb-4">Chapters:</h2>
+  <div class="md:columns-2 gap-x-6">
+    <div>
+      {
+        col01.map(({ slug, data: { title, description } }) => (
+          <a class="group" href={`/${slug}`}>
+            <Chapter {title} {description} />
+          </a>
+        ))
+      }
+    </div>
+    <div>
+      {
+        col02.map(({ slug, data: { title, description } }) => (
+          <a class="group" href={`/${slug}`}>
+            <Chapter {title} {description} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

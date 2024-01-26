@@ -1,0 +1,31 @@
+---
+interface Props {
+  class?: string
+}
+---
+
+<footer class:list={["mb-4 mt-2", Astro.props.class]}>
+  <p class="text-sm text-muted-foreground grid">
+    <span
+      >Web built by <a
+        class="text-foreground underline"
+        href="https://github.com/michelangelo-valderrama/"
+        target="_blank"
+        rel="noopener noreferrer">michelangelo</a
+      >, book by <a
+        class="text-foreground underline"
+        href="https://www.ohansemmanuel.com/"
+        target="_blank"
+        rel="noopener noreferrer">Ohans Emmanuel</a
+      >.</span
+    >
+    <span
+      >The source code is available on <a
+        class="text-foreground underline"
+        href="https://github.com/michelangelo-valderrama/understanding-astro-webook"
+        target="_blank"
+        rel="noopener noreferrer">GitHub</a
+      >.</span
+    >
+  </p>
+</footer>

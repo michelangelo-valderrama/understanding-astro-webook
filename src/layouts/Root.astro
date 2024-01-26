@@ -52,11 +52,11 @@ const {
       }}
       twitter={{ creator, image }}
     />
-    <slot name="head" />
+    <slot />
   </head>
   <body
     class="bg-background text-foreground min-h-[100dvh] selection:bg-foreground selection:text-background"
   >
-    <slot />
+    <slot name="body" />
   </body>
 </html>
