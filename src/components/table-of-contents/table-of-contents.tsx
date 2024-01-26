@@ -9,7 +9,11 @@ export const TableOfContents = ({ headings }: Props) => {
   let depth = 0
 
   for (const heading of headings) {
-    const h = { ...heading, children: [] }
+    heading.text = heading.text.replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    const h = {
+      ...heading,
+      children: [],
+    }
     if (!layer.length || h.depth <= depth) {
       depth = h.depth
       layer.push(h)

@@ -94,6 +94,8 @@ module.exports = {
             },
             h3: { "@apply text-2xl font-semibold": "" },
             h4: { "@apply text-xl font-semibold": "" },
+            h5: { "@apply text-lg font-semibold": "" },
+            h6: { "@apply font-semibold": "" },
             p: {
               "@apply leading-7 [&:not(:first-child)]:mt-6 text-pretty": "",
             },
@@ -115,8 +117,9 @@ module.exports = {
               "@apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-normal":
                 "",
             },
-            img: { "@apply rounded-lg": "" },
+            img: { "@apply rounded-lg bg-white": "" },
             figcaption: { "@apply text-center": "" },
+            ".h-icon": { "@apply no-underline text-muted-foreground before:content-['§_']": "" }
           },
         },
       },

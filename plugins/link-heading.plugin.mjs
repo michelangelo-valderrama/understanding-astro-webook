@@ -4,7 +4,7 @@ export const rehypeLinkHeading = () => (tree) => {
   const v = (node, _, parent) => {
     if (node.type !== "element") return
     const { tagName } = node
-    if (tagName[0] !== "h") return
+    if (!/h([0-6])/.test(tagName)) return
     const slug = node.properties.id
     const n = Object.assign(node, {
       children: [
@@ -15,9 +15,10 @@ export const rehypeLinkHeading = () => (tree) => {
             href: `#${slug}`,
             "aria-hidden": "true",
             tabindex: "-1",
+            class: "h-icon",
           },
-          children: [...node.children],
         },
+        ...node.children,
       ],
     })
     parent.children.splice(parent.children.indexOf(node), 1, n)
