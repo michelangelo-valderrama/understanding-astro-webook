@@ -4,8 +4,8 @@ import { Button } from "./ui/button"
 ---
 
 <header
-  data-ghost-border
-  class="z-50 fixed w-full top-0 left-0 h-14 bg-background/60 border-b border-b-transparent duration-300 backdrop-blur"
+  data-ghost
+  class="z-50 fixed w-full top-0 left-0 h-14 bg-transparent border-b border-b-transparent duration-300"
 >
   <div class="flex items-center px-4 h-full w-full max-w-screen-xl mx-auto">
     <div>
@@ -36,31 +36,33 @@ import { Button } from "./ui/button"
 </header>
 
 <script>
-  const callback = (entries: IntersectionObserverEntry[]) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        header.classList.add("border-b-transparent")
-        header.classList.remove("border-b-border")
-      } else {
-        header.classList.remove("border-b-transparent")
-        header.classList.add("border-b-border")
-      }
-    })
+  import { GhostEffect } from "@/utils/gosth-effect"
+
+  const intersectionFn = (
+    entry: IntersectionObserverEntry,
+    element: Element
+  ) => {
+    element.classList.add("border-b-transparent")
+    element.classList.add("bg-transparent")
+    element.classList.remove("border-b-border")
+    element.classList.remove("bg-background/60")
+    element.classList.remove("backdrop-blur")
+  }
+  const noIntersectionFn = (
+    entry: IntersectionObserverEntry,
+    element: Element
+  ) => {
+    element.classList.remove("border-b-transparent")
+    element.classList.remove("bg-transparent")
+    element.classList.add("border-b-border")
+    element.classList.add("bg-background/60")
+    element.classList.add("backdrop-blur")
   }
 
-  const options = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 1,
-  }
-
-  const header = document.querySelector(
-    "header[data-ghost-border]"
-  ) as HTMLDivElement
-
-  const observer = new IntersectionObserver(callback, options)
-
-  observer.observe(
-    document.querySelector("[data-ghost-border-trigger]") as Element
-  )
+  const ghost = new GhostEffect({
+    elementSelector: "header[data-ghost]",
+    triggerSelector: "[data-ghost-trigger]",
+    intersectionFn,
+    noIntersectionFn,
+  })
 </script>

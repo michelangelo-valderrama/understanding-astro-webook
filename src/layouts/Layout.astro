@@ -11,6 +11,7 @@ const { class: className } = Astro.props
 
 <div class="min-h-[90svh] pt-14">
   <Header />
+  <div class="h-14 w-full absolute top-0 left-0" data-ghost-trigger></div>
   <div class:list={["mx-auto p-4 md:mt-6", className]}>
     <slot />
     <Footer />

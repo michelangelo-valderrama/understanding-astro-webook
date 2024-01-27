@@ -3,16 +3,45 @@ import Header from "@/components/Header.astro"
 
 interface Props {
   title: string
+  class?: string
 }
 ---
 
-<div class="min-h-[90svh] pt-14">
+<div class:list={["min-h-[90svh] pt-14", Astro.props.class]}>
   <Header>
     <div class="max-w-screen-sm mx-auto px-2 md:px-4 select-none">
-      <p class="w-full truncate font-semibold">{Astro.props.title}</p>
+      <p
+        class="w-full truncate font-semibold text-transparent transition duration-300"
+        data-ghost-title
+      >
+        {Astro.props.title}
+      </p>
     </div>
   </Header>
+  <div class="h-14 w-full absolute top-0 left-0" data-ghost-trigger></div>
   <div class="mx-auto p-4 md:mt-6 max-w-screen-sm">
     <slot />
   </div>
 </div>
+
+<script>
+  import { GhostEffect } from "@/utils/gosth-effect"
+
+  const intersectionFn = (entry: IntersectionObserverEntry, elem: Element) => {
+    elem.classList.add("text-transparent")
+  }
+
+  const noIntersectionFn = (
+    entry: IntersectionObserverEntry,
+    elem: Element
+  ) => {
+    elem.classList.remove("text-transparent")
+  }
+
+  const ghost = new GhostEffect({
+    elementSelector: "p[data-ghost-title]",
+    triggerSelector: "h1[data-ghost-title-trigger]",
+    intersectionFn,
+    noIntersectionFn,
+  })
+</script>

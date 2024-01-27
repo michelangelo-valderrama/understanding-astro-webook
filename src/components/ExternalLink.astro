@@ -8,7 +8,7 @@ type Props = HTMLAttributes<"a">
 const { href, ...props } = Astro.props
 ---
 
-<a class="flex items-center gap-x-1" href={href} target="_blank" rel="noopener noreferrer" {...props}>
+<a class="flex items-center gap-x-1 underline underline-offset-4" href={href} target="_blank" rel="noopener noreferrer" {...props}>
   <span><slot /></span>
   <LucideIcon class="size-4" icon={ExternalLinkIcon} />
 </a>

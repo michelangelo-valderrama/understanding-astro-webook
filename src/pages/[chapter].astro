@@ -32,11 +32,16 @@ const { Content, remarkPluginFrontmatter, headings } = await render()
   creator={`@${data.authorSocial}`}
   image={data.image?.src}
 >
-  <Post slot="body" title={data.title}>
+  <div
+    slot="body"
+    class="fixed inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
+  >
+  </div>
+  <Post slot="body" class="relative z-10" title={data.title}>
     <header class="mb-8 md:mb-10">
-      <div class="rounded-lg bg-muted/40 px-6 py-4 space-y-2">
+      <div class="rounded-lg bg-muted/40 backdrop-blur px-6 py-4 space-y-2">
         <div class="flex justify-between">
-          <p data-ghost-border-trigger class="text-muted-foreground">
+          <p class="text-muted-foreground">
             {remarkPluginFrontmatter.minutesRead}
           </p>
           <a
@@ -51,7 +56,7 @@ const { Content, remarkPluginFrontmatter, headings } = await render()
         </div>
         {
           data.proyect && (
-            <menu class="flex gap-x-6 underline ">
+            <menu class="flex gap-x-4 md:gap-x-6">
               {data.proyect?.view && (
                 <li>
                   <ExternalLink href={data.proyect.view}>
@@ -74,7 +79,7 @@ const { Content, remarkPluginFrontmatter, headings } = await render()
 
     <main>
       <Prose>
-        <h1>{data.title}</h1>
+        <h1 data-ghost-title-trigger>{data.title}</h1>
         <Content />
       </Prose>
     </main>
