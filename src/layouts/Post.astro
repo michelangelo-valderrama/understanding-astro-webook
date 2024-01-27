@@ -7,7 +7,8 @@ interface Props {
 }
 ---
 
-<div class:list={["min-h-[90svh] pt-14", Astro.props.class]}>
+<div class:list={["flex flex-col min-h-screen", Astro.props.class]}>
+  <div class="h-14 w-full absolute top-0 left-0" data-ghost-trigger></div>
   <Header>
     <div class="max-w-screen-sm mx-auto px-2 md:px-4 select-none">
       <p
@@ -18,10 +19,11 @@ interface Props {
       </p>
     </div>
   </Header>
-  <div class="h-14 w-full absolute top-0 left-0" data-ghost-trigger></div>
-  <div class="mx-auto p-4 md:mt-6 max-w-screen-sm">
-    <slot />
-  </div>
+  <main>
+    <div class="mx-auto p-4 md:mt-6 max-w-screen-sm">
+      <slot />
+    </div>
+  </main>
 </div>
 
 <script>
