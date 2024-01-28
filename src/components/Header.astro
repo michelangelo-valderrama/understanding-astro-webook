@@ -42,20 +42,14 @@ import { Button } from "./ui/button"
 <script>
   import { GhostEffect } from "@/utils/gosth-effect"
 
-  const intersectionFn = (
-    entry: IntersectionObserverEntry,
-    element: Element
-  ) => {
+  const intersectionFn = (element: Element) => {
     element.classList.add("border-b-transparent")
     element.classList.add("bg-transparent")
     element.classList.remove("border-b-border")
     element.classList.remove("bg-background/60")
     element.classList.remove("backdrop-blur")
   }
-  const noIntersectionFn = (
-    entry: IntersectionObserverEntry,
-    element: Element
-  ) => {
+  const noIntersectionFn = (element: Element) => {
     element.classList.remove("border-b-transparent")
     element.classList.remove("bg-transparent")
     element.classList.add("border-b-border")
@@ -63,7 +57,7 @@ import { Button } from "./ui/button"
     element.classList.add("backdrop-blur")
   }
 
-  const ghost = new GhostEffect({
+  new GhostEffect({
     elementSelector: "[data-ghost]",
     triggerSelector: "[data-ghost-trigger]",
     intersectionFn,

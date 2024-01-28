@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import Chapters from "@/components/Chapters.astro"
 import LucideIcon from "@/components/LucideIcon.astro"
 
-const site = Astro.url.origin
+const site = import.meta.env.SITE
 ---
 
 <Root

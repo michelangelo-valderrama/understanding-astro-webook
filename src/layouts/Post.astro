@@ -29,18 +29,15 @@ interface Props {
 <script>
   import { GhostEffect } from "@/utils/gosth-effect"
 
-  const intersectionFn = (entry: IntersectionObserverEntry, elem: Element) => {
+  const intersectionFn = (elem: Element) => {
     elem.classList.add("text-transparent")
   }
 
-  const noIntersectionFn = (
-    entry: IntersectionObserverEntry,
-    elem: Element
-  ) => {
+  const noIntersectionFn = (elem: Element) => {
     elem.classList.remove("text-transparent")
   }
 
-  const ghost = new GhostEffect({
+  new GhostEffect({
     elementSelector: "p[data-ghost-title]",
     triggerSelector: "h1[data-ghost-title-trigger]",
     intersectionFn,

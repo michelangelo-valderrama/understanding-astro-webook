@@ -20,6 +20,7 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
+  site: "https://understanding-astro-webook.vercel.app/",
   integrations: [
     tailwind({
       applyBaseStyles: false,

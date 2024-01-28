@@ -1,7 +1,7 @@
 interface Props {
   elementSelector: string
-  intersectionFn: (entry: IntersectionObserverEntry, element: Element) => void
-  noIntersectionFn: (entry: IntersectionObserverEntry, element: Element) => void
+  intersectionFn: (element: Element, entry: IntersectionObserverEntry) => void
+  noIntersectionFn: (element: Element, entry: IntersectionObserverEntry) => void
   triggerSelector: string
 }
 
@@ -15,9 +15,9 @@ export class GhostEffect {
     const callback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          intersectionFn(entry, element)
+          intersectionFn(element, entry)
         } else {
-          noIntersectionFn(entry, element)
+          noIntersectionFn(element, entry)
         }
       })
     }
