@@ -1,0 +1,47 @@
+---
+import type { MarkdownHeading } from "astro"
+import { TocButton } from "./toc-button"
+import LucideIcon from "./LucideIcon.astro"
+import { ChevronLeft, ChevronRight } from "lucide"
+import { cn } from "@/lib/utils"
+
+interface Props {
+  headings: MarkdownHeading[]
+  prevLink?: string
+  nextLink?: string
+}
+
+const { headings, nextLink, prevLink } = Astro.props
+---
+
+<div class="fixed bottom-0 left-0 w-full z-50">
+  <div class="max-w-sm px-4 pb-6 mx-auto">
+    <div class="rounded-full border flex items-center justify-center">
+      <a
+        href={prevLink}
+        class={cn(
+          "inline-flex items-center justify-center whitespace-nowrap rounded-md transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-background shadow-sm rounded-l-full w-12 h-11 hover:bg-accent hover:text-accent-foreground",
+          {
+            "text-muted-foreground/60 pointer-events-none": !prevLink,
+          }
+        )}
+      >
+        <LucideIcon icon={ChevronLeft} />
+        <span class="sr-only">Chevron Left</span>
+      </a>
+      <TocButton headings={headings} client:load />
+      <a
+        href={nextLink}
+        class={cn(
+          "inline-flex items-center justify-center whitespace-nowrap rounded-md transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-background shadow-sm rounded-r-full w-12 h-11 hover:bg-accent hover:text-accent-foreground",
+          {
+            "text-muted-foreground/60 pointer-events-none": !nextLink,
+          }
+        )}
+      >
+        <LucideIcon icon={ChevronRight} />
+        <span class="sr-only">Chevron Right</span>
+      </a>
+    </div>
+  </div>
+</div>

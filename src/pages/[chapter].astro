@@ -1,14 +1,14 @@
 ---
 import type { GetStaticPaths } from "astro"
 import { getCollection, type CollectionEntry } from "astro:content"
+import { Pen } from "lucide"
 import Root from "@/layouts/Root.astro"
 import Post from "@/layouts/Post.astro"
-import Prose from "@/components/Prose.astro"
-import Pagination from "@/components/Pagination.astro"
+import BottomMenu from "@/components/BottomMenu.astro"
 import ExternalLink from "@/components/ExternalLink.astro"
-import { BottomMenu } from "@/components/bottom-menu"
 import LucideIcon from "@/components/LucideIcon.astro"
-import { Pen } from "lucide"
+import Pagination from "@/components/Pagination.astro"
+import Prose from "@/components/Prose.astro"
 
 export const getStaticPaths = (async () => {
   const chapters = await getCollection("chapters")
@@ -91,6 +91,7 @@ const { Content, remarkPluginFrontmatter, headings } = await render()
 
   <BottomMenu
     headings={[{ text: "Top", slug: "", depth: 2 }, ...headings]}
-    client:only
+    nextLink={data.next?.slug}
+    prevLink={data.prev?.slug}
   />
 </Root>

@@ -15,13 +15,15 @@ const { class: className } = Astro.props
   <Header>
     <div slot="top">
       <Banner client:load className="text-sm">
-        🚧 Page still in <strong>development</strong>, if you want to contribute
-        do not hesitate to do so <a
-          class="font-bold underline underline-offset-4"
+        <a
           href="https://github.com/michelangelo-valderrama/understanding-astro-webook"
           target="_blank"
-          rel="noopener noreferrer">here</a
+          rel="noopener noreferrer"
         >
+          🚧 Web still in <strong>development</strong>, if you want to
+          contribute do not hesitate to do so
+          <span class="font-bold underline underline-offset-4"> here</span>
+        </a>
       </Banner>
     </div>
   </Header>
