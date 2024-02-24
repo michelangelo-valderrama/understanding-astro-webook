@@ -396,7 +396,7 @@ if (isLoggedOut) {
 
 We have a much simpler API here. We can redirect by just passing the relative path to redirect to. The status code is also optional here.
 
-> It’s important to note that redirects should be done in page components, I.e., not inside other components, e.g., layouts or base components.
+> It’s important to note that redirects should be done in page components, i.e., not inside other components, e.g., layouts or base components.
 
 ### Utilities for manipulating cookies
 

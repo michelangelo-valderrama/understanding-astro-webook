@@ -483,7 +483,7 @@ However, a question that may remain in your heart is, why exactly are we sending
 
 ## Implementing protected pages
 
-Every page in our application is statically generated except for `index.astro` I.e., the homepage.
+Every page in our application is statically generated except for `index.astro` i.e., the homepage.
 
 The homepage is server-side rendered because we want to ensure it’s protected, i.e., only authenticated users ever land here.
 

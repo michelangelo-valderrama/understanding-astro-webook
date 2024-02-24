@@ -102,7 +102,7 @@ Once the dependencies are installed, answer the “Do you plan to write TypeScri
 
 We want strong type safety.
 
-![Choosing Typescript in the CLI prompt.](/images/ch1/CleanShot%202023-04-28%20at%2011.24.22@2x.png)
+![Choosing TypeScript in the CLI prompt.](/images/ch1/CleanShot%202023-04-28%20at%2011.24.22@2x.png)
 
 Afterwards, answer the “Initialise a new git repository?” question with whatever works for you. I’ll go with a yes here and hit enter.
 
@@ -132,13 +132,13 @@ Open the newly created project in your code editor, and you’ll notice that the
 
 Astro has an opinionated folder structure. We can see some of this in our new project. By design, every Astro project will include the following in the root directory:
 
-| File / Directory |                                                                                                                                                        |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| astro.config.mjs | The Astro configuration file. This is where we provide configuration options for our Astro project.                                                    |
-| tsconfig.json    | A Typescript configuration file. This specifies the root files and Typescript compiler options.                                                        |
-| package.json     | A JSON file that holds the project metadata. This is typically found at the root of most Node.js projects.                                             |
-| public/\*        | This directory holds files and assets that will be copied into the Astro build directory untouched, e.g., fonts, images and files such as `robots.txt` |
-| src/\*           | The source code of our project resides here.                                                                                                           |
+| File / Directory   |                                                                                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `astro.config.mjs` | The Astro configuration file. This is where we provide configuration options for our Astro project.                                                    |
+| `tsconfig.json`    | A TypeScript configuration file. This specifies the root files and TypeScript compiler options.                                                        |
+| `package.json`     | A JSON file that holds the project metadata. This is typically found at the root of most Node.js projects.                                             |
+| `public/*`         | This directory holds files and assets that will be copied into the Astro build directory untouched, e.g., fonts, images and files such as `robots.txt` |
+| `src/*`            | The source code of our project resides here.                                                                                                           |
 
 Let’s now look at the files in our newly generated project.
 
@@ -173,9 +173,9 @@ Using your editor, we may navigate to the referenced path, e.g., in `vscode` by 
 }
 ```
 
-This is very well annotated, so we won’t spend time on this. However, the `compilerOptions` for Typescript are set in this file. The point to make here is Astro keeps a list of typescript configurations (`base`, `strict` and `strictest`) that our project leverage when we initialise via the CLI wizard.
+This is very well annotated, so we won’t spend time on this. However, the `compilerOptions` for TypeScript are set in this file. The point to make here is Astro keeps a list of typescript configurations (`base`, `strict` and `strictest`) that our project leverage when we initialise via the CLI wizard.
 
-In this example, we’ll leave the `tsconfig.json` file as is. Typescript (and consequently the `tsconfig.json` file is optional in Astro projects. However, I strongly recommend you leverage Typescript. We’ll do so all through the book.
+In this example, we’ll leave the `tsconfig.json` file as is. TypeScript (and consequently the `tsconfig.json` file is optional in Astro projects. However, I strongly recommend you leverage TypeScript. We’ll do so all through the book.
 
 ### package.json
 
@@ -201,7 +201,7 @@ At the moment, it defines an empty configuration. So we’ll leave it as is. How
 
 ### src/env.d.ts
 
-`d.ts` files are called type declaration files[^2]. Yes, that’s for Typescript alone, and they exist for one purpose: to describe the shape of some existing module. The information in this file is used for type checking by Typescript.
+`.d.ts` files are called type declaration files[^2]. Yes, that’s for TypeScript alone, and they exist for one purpose: to describe the shape of some existing module. The information in this file is used for type checking by TypeScript.
 
 ```ts title="src/env.d.ts"
 /// <reference types="astro/client" />
@@ -300,7 +300,7 @@ In layperson’s terms, these are Astro files, but a more technical terminology 
 
 So, quick quiz: what is an Astro component?
 
-That’s easy—a file with the `.astro` ending.
+That’s easy: a file with the `.astro` ending.
 
 10 points to you! Well done.
 
@@ -320,7 +320,6 @@ Consider the contents of the `index.astro` page:
 
 <html lang="en">
   <!-- removed for brevity -->
-
 </html>
 ```
 
@@ -328,8 +327,10 @@ Notice the distinction between the two parts of this file’s content.
 
 The section at the bottom contains the page’s markup:
 
-```astro title="src/pages/index.astro"
-// ...
+```astro title="src/pages/index.astro" {4-6}
+---
+---
+
 <html lang="en">
   <!-- removed for brevity -->
 </html>
@@ -339,9 +340,13 @@ This part is called the **component template** section.
 
 While the top section contains a rather strange divider-looking syntax:
 
-```astro
+```astro title="src/pages/index.astro" {1-2}
 ---
 ---
+
+<html lang="en">
+  <!-- removed for brevity -->
+</html>
 ```
 
 This part is called the **component script** section, and the `---` is called fence.
@@ -350,9 +355,9 @@ Together, these make up an Astro component.
 
 Let’s take the component script section for a spin.
 
-The section’s name hints at what this section of the component does. Within the component script code fence, we may declare variables, import packages and fully take advantage of Javascript or Typescript.
+The section’s name hints at what this section of the component does. Within the component script code fence, we may declare variables, import packages and fully take advantage of JavaScript or TypeScript.
 
-Oh yes, Typescript!
+Oh yes, TypeScript!
 
 Let’s start by creating a variable to hold our user’s profile picture, as shown below:
 
@@ -364,7 +369,7 @@ const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
 
 We may then take advantage of the component template section to reference this image as shown below:
 
-```astro title="src/pages/index.astro"
+```astro title="src/pages/index.astro" ins={15-20} del={14}
 ---
 const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
 ---
@@ -378,7 +383,7 @@ const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
     <title>Astro</title>
   </head>
   <body>
-    <!-- 👀 Look here  -->
+    <h1>Astro</h1>
     <img
       src={profilePicture}
       alt="Frau Katerina's headshot."
@@ -387,7 +392,6 @@ const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
     />
   </body>
 </html>
-
 ```
 
 Note that the `profilePicture` variable is referenced using curly braces `{ }`. This is how to reference variables from the component script in the component markup.
@@ -400,31 +404,34 @@ It’s not much, but it’s honest work, eh?
 
 Let’s go ahead and flesh out the page to have the user’s profile markup:
 
-```astro title="src/pages/index.astro"
-// ...
-  <body>
-    <!-- Look here 👀 -->
+```astro title="src/pages/index.astro" ins={8-23} del={2-7}
+<body>
+  <img
+    src={profilePicture}
+    alt="Frau Katerina's headshot."
+    width="100px"
+    height="100px"
+  />
+  <div>
+    <img
+      src={profilePicture}
+      alt="Frau Katerina's headshot."
+      width="100px"
+      height="100px"
+    />
     <div>
-      <img
-        src={profilePicture}
-        alt="Frau Katerina's headshot."
-        width="100px"
-        height="100px"
-      />
-      <div>
-        <h1>Frau Katerina</h1>
-        <h2>VP of Engineering at Goooogle</h2>
-        <p>
-          Helping developers be excellent and succeed at building scalable
-          products
-        </p>
-      </div>
+      <h1>Frau Katerina</h1>
+      <h2>VP of Engineering at Goooogle</h2>
+      <p>
+        Helping developers be excellent and succeed at building scalable
+        products
+      </p>
     </div>
-  </body>
-// ...
+  </div>
+</body>
 ```
 
-As you might have noticed, we’re writing `HTML` looking syntax in the component markup section!
+As you might have noticed, we’re writing HTML looking syntax in the component markup section!
 
 Now we should have the user photo and their bio rendered in the browser as follows:
 
@@ -436,26 +443,29 @@ Styling in Astro is relatively easy to reason about. Add a `<style>` tag to a co
 
 While it’s possible to select elements directly, let’s go ahead and add classes to the component markup for ease:
 
-```astro title="src/pages/index.astro"
-// ...
+```astro title="src/pages/index.astro" ins='class="profile"' ins='class="profile__picture"' ins='class="profile__details"'
 <div class="profile">
-    <img
-      src={profilePicture}
-      class="profile__picture"
-      {/** ... **/}
-    />
-    <div class="profile__details">
-      <h1>Frau Katerina</h1>
-      {/** ... **/}
-    </div>
+  <img
+    src={profilePicture}
+    class="profile__picture"
+    alt="Frau Katerina's headshot."
+    width="100px"
+    height="100px"
+  />
+  <div class="profile__details">
+    <h1>Frau Katerina</h1>
+    <h2>VP of Engineering at Goooogle</h2>
+    <p>
+      Helping developers be excellent and succeed at building scalable
+      products
+    </p>
+  </div>
 </div>
-// ...
 ```
 
 Add a `<style>` tag, and write CSS as usual!
 
 ```astro
-// ...
 <style>
   .profile {
     display: flex;
@@ -477,7 +487,6 @@ Add a `<style>` tag, and write CSS as usual!
     margin: 0 2rem 1rem 0;
   }
 </style>
-
 ```
 
 The user details should now be styled as expected.
@@ -496,7 +505,7 @@ For example, to style the user name, we’ve written the following CSS:
 
 However, what’s applied in the browser looks something like this:
 
-```css
+```css ":where(.astro-J7PV25F6) > h1:where(.astro-J7PV25F6)"
 .profile__details:where(.astro-J7PV25F6) > h1:where(.astro-J7PV25F6) {
   margin-top: 0;
 }
@@ -518,7 +527,7 @@ h1 {
 
 The eventual style applied in the browser will be similar to the following:
 
-```css
+```css ":where(.astro-some-unique-id)"
 h1:where(.astro-some-unique-id) {
   color: red;
 }
@@ -544,9 +553,9 @@ Layouts are Astro components with a twist. They are used to provide reusable UI 
 
 Conventionally, layouts are placed in the `src/layouts` directory. This is not compulsory but a widespread pattern.
 
-Let’s go ahead and create our first layout in `src/layouts/Main`. We’ll do this by moving away all the reusable UI structures currently in `index.astro` as follows:
+Let’s go ahead and create our first layout in `src/layouts/Main.astro`. We’ll do this by moving away all the reusable UI structures currently in `index.astro` as follows:
 
-```astro title="src/layouts/Main.astro"
+```astro title="src/layouts/Main.astro" ins={"Add a new meta description tag":10-11}
 ---
 ---
 
@@ -556,14 +565,14 @@ Let’s go ahead and create our first layout in `src/layouts/Main`. We’ll do t
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    {/* Add a new meta description tag */}
+
     <meta name="description" content="Frau Katarina's website" />
-    {/* Title is hardcoded as Astro, for now. */}
+    <!-- Title is hardcoded as Astro, for now -->
     <title>Astro</title>
   </head>
   <body>
     <main>
-      {/* We want the content of each page to go here */}
+      <!-- We want the content of each page to go here -->
     </main>
   </body>
 </html>
@@ -597,7 +606,7 @@ Let’s put this into practice. We may now use the `Main` layout in the `index.a
 - Import the `Main` layout from `"../layouts/Main.astro"`
 - Substitute the `<html>`, `<head>` and `<body>` elements for the `<Main>` layout in `index.astro`.
 
-```astro
+```astro ins={2} {7,25}
 ---
 import Main from "../layouts/Main.astro";
 
@@ -623,6 +632,28 @@ const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
     </div>
   </div>
 </Main>
+
+<style>
+  .profile {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 1rem 0 3rem 0;
+  }
+
+  .profile__details {
+    flex: 1 0 300px;
+  }
+
+  .profile__details > h1 {
+    margin-top: 0;
+  }
+
+  .profile__picture {
+    border-radius: 50%;
+    margin: 0 2rem 1rem 0;
+  }
+</style>
 ```
 
 If we checked our app, we’d have a blank `index` page.
@@ -634,7 +665,7 @@ Why’s that?
 Unlike HTML elements, the child elements in the `<Main>` tag aren’t automatically rendered.
 
 ```astro
-{/** Child div will not be automatically rendered */}
+<!-- Child div will not be automatically rendered  -->
 <Main>
   <div>Hello from child</div>
 <Main>
@@ -648,11 +679,10 @@ To render the child elements of an Astro component, we must specify where to ren
 
 Let’s add a `<slot>` within `Main.astro` :
 
-```astro
-//...
+```astro ins={"We want the content of each page to go here":3-4}
 <body>
   <main>
-    {/* We want the content of each page to go here */}
+
     <slot />
   </main>
 </body>
@@ -691,8 +721,7 @@ For this reason, it’s common practice to capitalise both component file names 
 
 The `Main` layout is in place but doesn’t add much to our page. Let’s start by adding some styles for the headers and also centre the page’s content:
 
-```astro
-<!-- 📂 src/layouts/Main.astro -->
+```astro title="src/layouts/Main.astro"
 <style>
   h1 {
     font-size: 3rem;
@@ -733,7 +762,7 @@ I know that sounds like a mouthful! However, in simple terms, template directive
 
 For example, to break out of the default locally scoped `<style>` behaviour, we can add a `is:global` attribute as shown below:
 
-```astro
+```astro ins="is:global"
 <style is:global>
   /** ... **/
 </style>
@@ -753,7 +782,7 @@ In cases where a project requires importing some existing global css file, this 
 
 For example, let’s refactor our project to use `global.css`. To do so, move the entire CSS content within the `<style is:global>` element into `src/styles/global.css`. Then import the styles in the `Main.astro` component frontmatter:
 
-```astro title="src/layouts/Main.astro"
+```astro title="src/layouts/Main.astro" ins={2}
 ---
 import "../styles/global.css";
 ---
@@ -763,7 +792,7 @@ This will load and inject style onto the page.
 
 Now, let’s turn our attention to global fonts.
 
-We will use the Google [Inter](https://fonts.google.com/specimen/Inter) font for the project, but how do we do this?
+We will use the [Google Inter font](https://fonts.google.com/specimen/Inter) for the project, but how do we do this?
 
 Technically speaking, to add Inter to our project, we must add the `<link>`s to Inter on every page required.
 
@@ -771,10 +800,16 @@ However, instead of repeating ourselves on every page, we can leverage the share
 
 Go ahead and add the `<link>`s to the Inter font as shown below:
 
-```astro title="src/layouts/Main.astro"
+```astro title="src/layouts/Main.astro" ins={10-15}
 <html lang="en">
   <head>
-    {/** 👀 Look here ... **/}
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Frau Katarina's website" />
+    <title>Astro</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -782,7 +817,7 @@ Go ahead and add the `<link>`s to the Inter font as shown below:
       rel="stylesheet"
     />
   </head>
-  {/** ... **/}
+  <!-- ... -->
 </html>
 ```
 
@@ -791,7 +826,7 @@ We may now update the `global.css` file to use the new font family:
 ```css
 body {
   font-family: "Inter", sans-serif;
-  padding: 0 0.5rem; /** Additional body style **/
+  padding: 0 0.5rem;
 }
 ```
 
@@ -814,11 +849,11 @@ When creating components, a standard convention is to have them in the `src/comp
 
 <style>
   footer {
-    /** Applies top and bottom paddings **/
+    /* Applies top and bottom paddings */
     padding: 3rem 0;
-    /** Centers the text content **/
+    /* Centers the text content */
     text-align: center;
-    /** Makes the font smaller **/
+    /* Makes the font smaller */
     font-size: 0.9rem;
   }
 </style>
@@ -835,14 +870,12 @@ Let’s also create a `NavigationBar` component:
     <li>
       <a href="/">Home</a>
     </li>
-
     <li>
-      {/** Link points nowhere for now **/}
+      <!-- Link points nowhere for now -->
       <a href="#">Philosophies</a>
     </li>
-
     <li>
-      {/** Link points nowhere for now **/}
+      <!-- Link points nowhere for now -->
       <a href="#">Beyond technology</a>
     </li>
   </ul>
@@ -878,37 +911,59 @@ Let’s also create a `NavigationBar` component:
 
 Now render the `NavigationBar` and `Footer` as shown below:
 
-```astro title="src/layouts/Main.astro"
+```astro title="src/layouts/Main.astro" ins={2-3,25,27}
 ---
-//...
 import Footer from "../components/Footer.astro";
 import NavigationBar from "../components/NavigationBar.astro";
+import "../styles/global.css";
 ---
 
-{/** ... **/}
-<main>
-  <NavigationBar />
-  <slot />
-  <Footer />
-</main>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Frau Katarina's website" />
+    <title>Astro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <NavigationBar />
+      <slot />
+      <Footer />
+    </main>
+  </body>
+</html>
 ```
 
 ![Navigation bar and footer rendered.](/images/ch1/CleanShot%202023-05-01%20at%2015.17.48@2x.png)
 
 ## Adding interactive scripts
 
-An integral part of Astro’s philosophy is shipping zero Javascript by default to the browser.
+An integral part of Astro’s philosophy is shipping zero JavaScript by default to the browser.
 
-This means our pages get compiled into `HTML` pages with all Javascript stripped away by default.
+This means our pages get compiled into HTML pages with all JavaScript stripped away by default.
 
-You might ask, what about all the Javascript written in the component script section of an Astro component?
+You might ask, what about all the JavaScript written in the component script section of an Astro component?
 
-The component script and markup will be used to generate the eventual `HTML` page(s) sent to the browser.
+The component script and markup will be used to generate the eventual HTML page(s) sent to the browser.
 
 For example, go ahead and add a simple `console.log` to the frontmatter of the `index.astro` page:
 
-```astro title="src/pages/index.astro"
+```astro title="src/pages/index.astro" ins={6}
 ---
+import Main from "../layouts/Main.astro"
+
+const profilePicture = "https://i.imgur.com/JPGFE75.jpg"
+
 console.log("Hello world!");
 ---
 ```
@@ -921,20 +976,18 @@ Astro runs on the server. In our case, this represents our local development ser
 
 ![Astro server logs.](/images/ch1/CleanShot%202023-05-01%20at%2017.55.33.png)
 
-When we eventually build our application for production with `npm run build`, Astro will output `HTML` files corresponding to our pages in `src/pages`.
+When we eventually build our application for production with `npm run build`, Astro will output HTML files corresponding to our pages in `src/pages`.
 
-In this example, the `Hello world!` message will be logged but not get into the compiled `HTML` pages.
+In this example, the `Hello world!` message will be logged but not get into the compiled HTML pages.
 
 ![Logs during building the production application.](/images/ch1/CleanShot%202023-05-01%20at%2018.02.53.png)
 
-To add interactive scripts, i.e., scripts that make it into the final `HTML` page build output, add a `<script>` element in the component markup section.
+To add interactive scripts, i.e., scripts that make it into the final HTML page build output, add a `<script>` element in the component markup section.
 
 For example, let’s move the `console.log` from the frontmatter to the markup via a `<script>` element:
 
-```astro title="src/pages/index.astro"
----
----
-{/** ... **/}
+```astro title="src/pages/index.astro" ins={3-5}
+<!-- ... -->
 
 <script>
   console.log("Hello world!");
@@ -970,23 +1023,22 @@ Add the following markup:
 </button>
 ```
 
-- For accessibility, the button has an `aria-label` of `Theme toggler`].
-- The `SVG` has a fixed width of `25px`, rendering two `<path>` elements.
+- For accessibility, the button has an `aria-label` of `Theme toggler`.
+- The SVG has a fixed width of `25px`, rendering two `<path>` elements.
 - The first `<path>` visually represents a sun icon. The second is a moon icon.
 - By default, both icons (sun and moon) are rendered. Our goal is to toggle the displayed icon based on the active theme.
 
 Then import the component and render it in the `NavigationBar`:
 
-```astro title="src/components/NavigationBar"
+```astro title="src/components/NavigationBar" ins={2,9}
 ---
 import ThemeToggler from "./ThemeToggler.astro";
 ---
 
 <nav>
   <ul>
-    {/** ... **/}
+    <!-- ... -->
   </ul>
-  {/** 👀 Look here **/}
   <ThemeToggler />
 </nav>
 ```
@@ -996,7 +1048,6 @@ import ThemeToggler from "./ThemeToggler.astro";
 Let’s add some `<style>` to `ThemeToggler`:
 
 ```astro title="src/components/ThemeToggler.astro"
-{/** ... **/}
 <style>
   button {
     cursor: pointer;
@@ -1012,7 +1063,7 @@ Let’s add some `<style>` to `ThemeToggler`:
   }
 
   button:active {
-    /** Return the button to its standard size when active */
+    /* Return the button to its standard size when active */
     transform: scale(1);
   }
 
@@ -1045,16 +1096,16 @@ To do this, we will leverage the `:global` selector.
 
 Here’s how we’d achieve this:
 
-```astro title="src/components/ThemeToggler.astro"
+```astro title="src/components/ThemeToggler.astro" ins={4-7,9-12}
 <style>
-  /**...**/
+  /* ... */
 
-  /** If a parent element has a .dark class, target the .sun icon and make the path black (shows the icon) */
+  /* If a parent element has a .dark class, target the .sun icon and make the path black (shows the icon) */
   :global(.dark) .sun {
     fill: black;
   }
 
-  /** If a parent element has a .dark class, target the .moon icon and make the path transparent (hides the icon) */
+  /* If a parent element has a .dark class, target the .moon icon and make the path transparent (hides the icon) */
   :global(.dark) .moon {
     fill: transparent;
   }
@@ -1073,24 +1124,24 @@ We’ve handled the styles for our toggle, assuming a `.dark` root class. Now, L
 
 ```astro title="src/components/ThemeToggler.astro"
 <script>
-  /** Represent the toggle theme class with a variable */
+  /* Represent the toggle theme class with a variable */
   const DARK_THEME_CLASS = "dark"
 
-  /** Grab the toggle */
+  /* Grab the toggle */
   const toggle = document.querySelector("button")
-  /** Grab the document root element. In this case <html>  */
+  /* Grab the document root element. In this case <html>  */
   const rootEl = document.documentElement
 
   if (toggle) {
     toggle.addEventListener("click", () => {
-      /** toggle the "dark" class on the root element */
+      /* toggle the "dark" class on the root element */
       rootEl.classList.toggle(DARK_THEME_CLASS)
     })
   }
 </script>
 ```
 
-Notice that this is standard Javascript. Nothing fancy going on here.
+Notice that this is standard JavaScript. Nothing fancy going on here.
 
 - The toggle is selected via `document.querySelector("button")`.
 - To set up an event listener, we use the `.addEventListener` method on the button.
@@ -1106,7 +1157,7 @@ CSS variables[^4] are outstanding, and we’ll leverage them for theming our app
 
 Firstly, let’s go ahead and define the colour variables we’ll use in the project.
 
-```css title="styles/global.css"
+```css title="styles/global.css" ins={1-15}
 html {
   --background: white;
   --grey-200: #222222;
@@ -1122,16 +1173,40 @@ html.dark {
   --grey-600: #ffffff;
   --grey-900: #fafafa;
 }
+
+h1 {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+h1 + h2 {
+  font-size: 1.1rem;
+  margin-top: -1.4rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+main {
+  max-width: 40rem;
+  margin: auto;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  padding: 0 0.5rem;
+}
 ```
 
-- Set the variables on the root `HTML` element to be globally scoped.
+- Set the variables on the root HTML element to be globally scoped.
 - A CSS variable is a property that begins with two dashes, `--` e.g., `--background`.
 - For simplicity, we’ll stick to the minimal grey palette above.
 
 The first visual change we’ll make is to add the following `color` and `background` style declarations to the `body` element:
 
-```css title="styles/global.css"
+```css title="styles/global.css" ins={4-5}
 body {
+  font-family: "Inter", sans-serif;
+  padding: 0 0.5rem;
   color: var(--grey-600);
   background: var(--background);
 }
@@ -1143,9 +1218,27 @@ With this seemingly simple change, we should now have the text and background co
 
 Finally, update the navigation links in `NavigationBar` to reflect theme preferences:
 
-```astro title="src/components/NavigationBar.astro"
+```astro title="src/components/NavigationBar.astro" ins={22,28-30}
 <style>
-  /* ... */
+  nav {
+    display: flex;
+    align-items: flex-start;
+    padding: 2rem 0;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 auto 0 0;
+  }
+
+  nav li {
+    opacity: 0.8;
+    list-style: none;
+    font-size: 0.95rem;
+  }
+
   a {
     color: var(--grey-400);
     padding: 0.5rem 1rem;
@@ -1173,12 +1266,12 @@ Since Astro runs on the server, attempting to access a `window` property within 
 
 ```astro
 ---
-{/** ❌ this will fail with the error: window is undefined **/}
-const value = window.localStorage.getItem("value")
+// ❌ this will fail with the error: window is undefined
+const value = window.localStorage.getItem("value");
 ---
 ```
 
-To access `window` properties, we need the script to run on the client, I.e., in the browser. So, we must leverage one or more client-side scripts.
+To access `window` properties, we need the script to run on the client, i.e., in the browser. So, we must leverage one or more client-side scripts.
 
 A good use case for this is remembering the user’s theme choice.
 
@@ -1200,25 +1293,33 @@ Here are the first steps we’ll take:
 
 Here’s that translated in code:
 
-```astro title="src/components/ThemeToggler.astro"
+```astro title="src/components/ThemeToggler.astro" ins={4-8,19-24}
 <script>
-  const DARK_THEME_CLASS = "dark"
-  /** Represent the local storage key by a variable */
-  const COLOUR_MODE = "COLOUR_MODE"
-  /** Represent the local storage values by variables */
-  const LIGHT_THEME = "LIGHT"
-  const DARK_THEME = "DARK"
-  /** ... **/
-  toggle.addEventListener("click", () => {
-    /** ... */
-    /**Get the current theme mode, i.e., light or dark */
-    const colourMode = rootEl.classList.contains(DARK_THEME_CLASS)
-      ? DARK_THEME
-      : LIGHT_THEME
+  // Represent the toggle theme class with a variable
+  const DARK_THEME_CLASS = "dark";
+  // Represent the local storage key by a variable
+  const COLOUR_MODE = "COLOUR_MODE";
+  // Represent the local storage values by variables
+  const LIGHT_THEME = "LIGHT";
+  const DARK_THEME = "DARK";
 
-    /** Save the current theme to local storage   */
-    window.localStorage.setItem(COLOUR_MODE, colourMode)
-  })
+  // Grab the toggle
+  const toggle = document.querySelector("button");
+  // Grab the document root element. In this case <html>
+  const rootEl = document.documentElement;
+
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      // toggle the "dark" class on the root element
+      rootEl.classList.toggle(DARK_THEME_CLASS);
+      // Get the current theme mode, i.e., light or dark
+      const colourMode = rootEl.classList.contains(DARK_THEME_CLASS)
+        ? DARK_THEME
+        : LIGHT_THEME;
+      // Save the current theme to local storage
+      window.localStorage.setItem(COLOUR_MODE, colourMode);
+    })
+  }
 </script>
 ```
 
@@ -1226,37 +1327,57 @@ We have saved the theme to local storage but must now set the active theme as so
 
 Here’s the annotated code required to achieve this:
 
-```astro title="src/components/ThemeToggler.astro"
+```astro title="src/components/ThemeToggler.astro" ins={15-38}
 <script>
-  {
-    /**... **/
-  }
+  // Represent the toggle theme class with a variable
+  const DARK_THEME_CLASS = "dark";
+  // Represent the local storage key by a variable
+  const COLOUR_MODE = "COLOUR_MODE";
+  // Represent the local storage values by variables
+  const LIGHT_THEME = "LIGHT";
+  const DARK_THEME = "DARK";
+  
+  // Grab the toggle
+  const toggle = document.querySelector("button");
+  // Grab the document root element. In this case <html>
+  const rootEl = document.documentElement;
+
   const getInitialColourMode = () => {
-    /** Get colour mode from local storage **/
-    const previouslySavedColourMode = window.localStorage.getItem(COLOUR_MODE)
+    // Get colour mode from local storage
+    const previouslySavedColourMode = window.localStorage.getItem(COLOUR_MODE);
     if (previouslySavedColourMode) {
-      return previouslySavedColourMode
+      return previouslySavedColourMode;
     }
-    /** Does the user prefer dark mode, e.g., through an operating system or user agent setting? */
+    // Does the user prefer dark mode, e.g., through an operating system or user agent setting?
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return DARK_THEME
+      return DARK_THEME;
     }
-    /** Default to the light theme */
-    return LIGHT_THEME
+    // Default to the light theme
+    return LIGHT_THEME;
   }
-  /**Get initial colour mode */
-  const initialColourMode = getInitialColourMode()
+
+  // Get initial colour mode
+  const initialColourMode = getInitialColourMode();
   const setInitialColourMode = (mode: string) => {
     if (mode === LIGHT_THEME) {
-      rootEl.classList.remove(DARK_THEME_CLASS)
+      rootEl.classList.remove(DARK_THEME_CLASS);
     } else {
-      rootEl.classList.add(DARK_THEME_CLASS)
+      rootEl.classList.add(DARK_THEME_CLASS);
     }
   }
-  /** Set the initial colour mode as soon as the script is executed */
-  setInitialColourMode(initialColourMode)
-  {
-    /**... **/
+  setInitialColourMode(initialColourMode);
+
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      // toggle the "dark" class on the root element
+      rootEl.classList.toggle(DARK_THEME_CLASS);
+      // Get the current theme mode, i.e., light or dark
+      const colourMode = rootEl.classList.contains(DARK_THEME_CLASS)
+        ? DARK_THEME
+        : LIGHT_THEME;
+      // Save the current theme to local storage
+      window.localStorage.setItem(COLOUR_MODE, colourMode);
+    });
   }
 </script>
 ```
@@ -1265,41 +1386,41 @@ Now, give this a try. First, toggle the theme and refresh to see the theme choic
 
 ## The magic of scripts
 
-Client-side scripts added via a `<script>` may seem like your typical Javascript vanilla JS, but they’re more capable in specific ways.
+Client-side scripts added via a `<script>` may seem like your typical JavaScript vanilla JS, but they’re more capable in specific ways.
 
 The most crucial point is that Astro processes these. This means within a `<script>`, we can import other scripts or import npm packages, and Astro will resolve and package the script for use in the browser.
 
 ```astro
 <script>
-  /** ✅ valid package import **/
-  import { titleCase } from "title-case"
+  // ✅ valid package import
+  import { titleCase } from "title-case";
 
-  const title = titleCase("string")
+  const title = titleCase("string");
 
-  alert(title)
+  alert(title);
 </script>
 ```
 
 ```astro
-/** ✅ valid script reference **/
+<!-- ✅ valid script reference -->
 <script src="path-to-script.js" />
 ```
 
-Another critical point is the `<script>` fully supports Typescript. For example, in our solution, we typed the parameter for the `setInitialColourMode` function:
+Another critical point is the `<script>` fully supports TypeScript. For example, in our solution, we typed the parameter for the `setInitialColourMode` function:
 
 ```ts
 // mode is of type string
 const setInitialColourMode = (mode: string) => {
-  ...
+  // ...
 };
 ```
 
-We don’t have to sacrifice type safety within the client `<script>` elements and can go on to write standard Typescript code. Astro will strip out the types at build time and only serve the processed Javascript to the browser.
+We don’t have to sacrifice type safety within the client `<script>` elements and can go on to write standard TypeScript code. Astro will strip out the types at build time and only serve the processed JavaScript to the browser.
 
 Here’s a summary of what Astro does:
 
-- `NPM` packages and local files can be imported and will be bundled.
-- Typescript is fully supported within the `<script>`.
+- NPM packages and local files can be imported and will be bundled.
+- TypeScript is fully supported within the `<script>`.
 - If a single `Astro` component with a `<script>` is used multiple times on a page, the `<script>` is processed and only included once.
 - Astro will process and insert the script in the `<head>` of the page with a `type=module` attribute.
 - ❗️The implication of `type=module` is that the browser will defer the script, i.e., load in parallel and **execute it only after** the page’s parsed.
@@ -1310,9 +1431,9 @@ By default, Astro processes `<script>`s. However, to opt out of Astro’s defaul
 
 ```astro
 <script is:inline>
-  // Imports will not be processed // Typescript not supported by default //
-  Script will be added as is, e.g., multiple times if the component is used more
-  than once on a page.
+  // Imports will not be processed
+  // TypeScript not supported by default
+  // Script will be added as is, e.g., multiple times if the component is used more than once on a page.
 </script>
 ```
 
@@ -1332,26 +1453,48 @@ So, let’s go ahead and move the theme restoration code bit into `Main.astro` �
 
 We’ll also make sure to add this within the `<head>` of the layout, as shown below:
 
-```astro title="src/layouts/Main.astro"
+```astro title="src/layouts/Main.astro" ins={3-42}
 <head>
   <!-- ... -->
-  <!-- 👀 add is:inline -->
   <script is:inline>
-    const DARK_THEME_CLASS = "dark"
-    const COLOUR_MODE = "COLOUR_MODE"
-    const LIGHT_THEME = "LIGHT"
-    const DARK_THEME = "DARK"
-    const rootEl = document.documentElement
+    const DARK_THEME_CLASS = "dark";
+    const COLOUR_MODE = "COLOUR_MODE";
+    const LIGHT_THEME = "LIGHT";
+    const DARK_THEME = "DARK";
+
+    const toggle = document.querySelector("button");
+    const rootEl = document.documentElement;
+
     const getInitialColourMode = () => {
-      /** ... */
+      const previouslySavedColourMode = window.localStorage.getItem(COLOUR_MODE);
+      if (previouslySavedColourMode) {
+        return previouslySavedColourMode;
+      }
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return DARK_THEME;
+      }
+      return LIGHT_THEME;
     }
-    const initialColourMode = getInitialColourMode()
-    // 👀 remove string type on mode
-    const setInitialColourMode = (mode) => {
-      /** ... */
+
+    const initialColourMode = getInitialColourMode();
+    const setInitialColourMode = (mode: string) => {
+      if (mode === LIGHT_THEME) {
+        rootEl.classList.remove(DARK_THEME_CLASS);
+      } else {
+        rootEl.classList.add(DARK_THEME_CLASS);
+      }
     }
-    /** Set the initial colour mode as soon as the script is executed */
-    setInitialColourMode(initialColourMode)
+    setInitialColourMode(initialColourMode);
+
+    if (toggle) {
+      toggle.addEventListener("click", () => {
+        rootEl.classList.toggle(DARK_THEME_CLASS);
+        const colourMode = rootEl.classList.contains(DARK_THEME_CLASS)
+          ? DARK_THEME
+          : LIGHT_THEME;
+        window.localStorage.setItem(COLOUR_MODE, colourMode);
+      });
+    }
   </script>
 </head>
 ```
@@ -1373,7 +1516,7 @@ We know the `<script>` will eventually be bundled and injected into our page’s
 However, consider our selector for registering the theme toggle clicks:
 
 ```ts title="src/components/ThemeToggler.astro"
-const toggle = document.querySelector("button")
+const toggle = document.querySelector("button");
 ```
 
 The problem with this seemingly harmless code is that `document.querySelector` will return the first element that matches the selector — a button element.
@@ -1381,10 +1524,9 @@ The problem with this seemingly harmless code is that `document.querySelector` w
 This will be selected if we add a random button somewhere on the page before our theme toggle button.
 
 ```astro title="src/layouts/Main.astro"
-<button> Donate to charity </button>
+<button>Donate to charity</button>
 <Nav />
-
-//...
+<!--... -->
 ```
 
 ![The donate to charity button.](/images/ch1/CleanShot%202023-05-03%20at%2003.38.21.png)
@@ -1401,19 +1543,19 @@ document.querySelector("#some-unique-id")
 
 Let’s refactor our solution to use a data attribute.
 
-```astro title="src/components/ThemeToggler.astro"
+```astro title="src/components/ThemeToggler.astro" ins='[data-theme-toggle]' ins='aria-label="Theme toggler"' ins='data-theme-toggle'
 <button aria-label="Theme toggler" data-theme-toggle>
   <!-- ... -->
 </button>
 
 <script>
-  /** 👀 Look here */
+  // ...
   const toggle = document.querySelector("[data-theme-toggle]")
   // ...
 </script>
 ```
 
-With the more specific selector, only an element with the data attribute `theme-toggle` will be selected, leaving `<button> Donate to charity </button>` out of our theme toggle business.
+With the more specific selector, only an element with the data attribute `theme-toggle` will be selected, leaving `<button>Donate to charity</button>` out of our theme toggle business.
 
 ## Markdown pages
 
@@ -1449,7 +1591,7 @@ Create the second page in `src/pages/beyond-tech.md` with the following content:
 
 These files are written in markdown syntax[^6].
 
-As with Astro component pages, markdown pages eventually get compiled to standard `HTML` pages rendered in the browser. The same file-based routing is also used. For example, to access the `philosophies` and `beyond-tech` pages, visit the `/philosophies` and `/beyond-tech ` routes, respectively.
+As with Astro component pages, markdown pages eventually get compiled to standard HTML pages rendered in the browser. The same file-based routing is also used. For example, to access the `philosophies` and `beyond-tech` pages, visit the `/philosophies` and `/beyond-tech ` routes, respectively.
 
 ![The philosophies page.](/images/ch1/CleanShot%202023-05-03%20at%2002.42.23.png)
 
@@ -1457,7 +1599,7 @@ As with Astro component pages, markdown pages eventually get compiled to standar
 
 Navigating between pages in Astro requires no magic wand. Surprise!
 
-Astro uses the standard `<a>` element to navigate between pages. This makes sense as each page is a separate `HTML` page.
+Astro uses the standard `<a>` element to navigate between pages. This makes sense as each page is a separate HTML page.
 
 Let’s update the navigation links to point to the new markdown pages as shown below:
 
@@ -1597,7 +1739,7 @@ const { title } = Astro.props;
 </html>
 ```
 
-To enforce Typescript checks, define the `Props` type alias or interface.
+To enforce TypeScript checks, define the `Props` type alias or interface.
 
 ```ts
 // Either of these is valid
@@ -1623,7 +1765,7 @@ const { title } = Astro.props;
 {/** ... **/}
 ```
 
-With the type declared, we’ll have Typescript error(s) in files where we’ve used `<Main>` without the required `title` prop.
+With the type declared, we’ll have TypeScript error(s) in files where we’ve used `<Main>` without the required `title` prop.
 
 ![Invalid title props error.](/images/ch1/CleanShot%202023-05-03%20at%2006.01.52.png)
 
@@ -1705,9 +1847,9 @@ const { poster, title, subtitle } = Astro.props.frontmatter;
 - The `MarkdownLayoutProps` utility type accepts a generic and returns the type for all the properties available to a markdown layout. So feel free to inspect the entire shape[^7].
 - `MarkdownLayoutProps` accepts our frontmatter property type definition as a generic, i.e., `title`, `poster` and `subtitle`. These are properties we’ve added in the frontmatter of our Markdown pages.
 - `type Props = ...` or `interface Props {}` is how we provide types for an Astro component.
-- The final line deconstructs the properties from `Astro.props.frontmatter` with full Typescript support.
+- The final line deconstructs the properties from `Astro.props.frontmatter` with full TypeScript support.
 
-![Typescript support in the Markdown layout.](/images/ch1/CleanShot%202023-05-03%20at%2005.16.20.png)
+![TypeScript support in the Markdown layout.](/images/ch1/CleanShot%202023-05-03%20at%2005.16.20.png)
 
 Equally update the layout markup to render the image, title and subtitle:
 
@@ -2085,7 +2227,7 @@ Inspect the elements via the developer tools. You’ll notice that the `<script>
 
 The script is also added three times — with a different value of `gradientFrom` for each rendered card.
 
-With scripts, a better solution (except the inline behaviour is ideal for your use case) is to pass the data from the component frontmatter to the rendered element via `data-` attributes and then access these via Javascript.
+With scripts, a better solution (except the inline behaviour is ideal for your use case) is to pass the data from the component frontmatter to the rendered element via `data-` attributes and then access these via JavaScript.
 
 For example, we may rewrite the previous solution as shown below:
 
@@ -2116,7 +2258,7 @@ Let’s go ahead and create a new `blog` directory to hold some more markdown pa
 ---
 layout: "../../layouts/Blog.astro"
 poster: "/images/adventure.jpg"
-title: "Why Rust is the Future of Javascript Tooling"
+title: "Why Rust is the Future of JavaScript Tooling"
 subtitle: "How to create fast, speedy developer experiences."
 ---
 
@@ -2143,8 +2285,8 @@ subtitle: "Sleep is great for you. Here's why:"
 ---
 layout: "../../layouts/Blog.astro"
 poster: "/images/coding.jpg"
-title: "Typescript is the new Javascript"
-subtitle: "Typescript is becoming a standard for web development these days:"
+title: "TypeScript is the new JavaScript"
+subtitle: "TypeScript is becoming a standard for web development these days:"
 ---
 
 - Type safety
@@ -2168,13 +2310,13 @@ We aim to list these blog titles on our home page. One way to do this would be t
   <ol class="blogs">
     <li class="blogs__list">
       <a href="blogs/typescript-new-javascript" class="blog__link"
-        >Typescript is the new Javascript</a
+        >TypeScript is the new JavaScript</a
       >
     </li>
 
     <li class="blogs__list">
       <a href="/blogs/rust-javascript-tooling" class="blog__link"
-        >Why Rust is the future of Javascript tooling</a
+        >Why Rust is the future of JavaScript tooling</a
       >
     </li>
 
@@ -2412,8 +2554,8 @@ This has been a lengthy discourse on Astro! We’ve delved into building a proje
 Why stop here? We’ve only just scratched the surface.
 
 [^1]: For other editors, please see the official Astro site https://docs.astro.build/en/editor-setup/
-[^2]: What is a “.d.ts” file in Typescript? https://medium.com/@ohansemmanuel/what-is-a-d-ts-file-in-typescript-2e2d90d58eca
-[^3]: As we’ll see later, they can also be used in .mdx files.
+[^2]: What is a “.d.ts” file in TypeScript? https://medium.com/@ohansemmanuel/what-is-a-d-ts-file-in-typescript-2e2d90d58eca
+[^3]: As we’ll see later, they can also be used in `.mdx` files.
 [^4]: Don’t know CSS variables? Read my guide https://medium.com/free-code-camp/everything-you-need-to-know-about-css-variables-c74d922ea855
 [^5]: What is Markdown? https://en.wikipedia.org/wiki/Markdown
 [^6]: The markdown syntax cheatsheet https://www.markdownguide.org/cheat-sheet/
