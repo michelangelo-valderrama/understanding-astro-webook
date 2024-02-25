@@ -16,13 +16,13 @@ const { headings, nextLink, prevLink } = Astro.props
 
 <div class="fixed bottom-0 left-0 w-full z-50">
   <div class="max-w-sm px-4 pb-6 mx-auto">
-    <div class="rounded-full border flex items-center justify-center">
+    <div class="rounded-full flex items-center justify-center bg-background">
       <a
         href={prevLink}
         class={cn(
-          "inline-flex items-center justify-center whitespace-nowrap rounded-md transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-background shadow-sm rounded-l-full w-12 h-11 hover:bg-accent hover:text-accent-foreground",
+          "inline-flex items-center justify-center whitespace-nowrap rounded-md transition focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-secondary hover:border shadow-sm rounded-l-full w-12 h-11 hover:bg-secondary/80 text-secondary-foreground",
           {
-            "text-muted-foreground/60 pointer-events-none": !prevLink,
+            "text-secondary-foreground/60 pointer-events-none": !prevLink,
           }
         )}
       >
@@ -33,9 +33,9 @@ const { headings, nextLink, prevLink } = Astro.props
       <a
         href={nextLink}
         class={cn(
-          "inline-flex items-center justify-center whitespace-nowrap rounded-md transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-background shadow-sm rounded-r-full w-12 h-11 hover:bg-accent hover:text-accent-foreground",
+          "inline-flex items-center justify-center whitespace-nowrap rounded-md transition focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-secondary hover:border shadow-sm rounded-r-full w-12 h-11 hover:bg-secondary/80 text-secondary-foreground",
           {
-            "text-muted-foreground/60 pointer-events-none": !nextLink,
+            "text-secondary-foreground/20 pointer-events-none": !nextLink,
           }
         )}
       >

@@ -3,6 +3,7 @@ import {
   remarkReadingTime,
   remarkImageOptimization,
   rehypeLinkHeading,
+  rehypeTables
 } from "./plugins"
 import { rehypeHeadingIds } from "@astrojs/markdown-remark"
 import expressiveCode from "astro-expressive-code"
@@ -15,15 +16,18 @@ import theme from "./public/vercel-theme.json"
 export default defineConfig({
   markdown: {
     remarkPlugins: [remarkReadingTime, remarkImageOptimization],
-    rehypePlugins: [rehypeHeadingIds, rehypeLinkHeading],
+    rehypePlugins: [rehypeHeadingIds, rehypeLinkHeading, rehypeTables],
+    remarkRehype: {
+      footnoteLabelProperties: {}
+    }
   },
   devToolbar: {
-    enabled: false,
+    enabled: false
   },
   site: "https://understanding-astro-webook.vercel.app/",
   integrations: [
     tailwind({
-      applyBaseStyles: false,
+      applyBaseStyles: false
     }),
     react(),
     expressiveCode({
@@ -38,9 +42,9 @@ export default defineConfig({
           terminalBackground: "#18181b",
           terminalTitlebarBackground: "#18181b",
           shadowColor: "transparent",
-        },
-      },
+        }
+      }
     }),
-    mdx(),
-  ],
+    mdx()
+  ]
 })
