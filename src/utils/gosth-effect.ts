@@ -7,10 +7,10 @@ interface Props {
 
 export class GhostEffect {
   constructor({
+    triggerSelector,
     elementSelector,
     intersectionFn,
     noIntersectionFn,
-    triggerSelector,
   }: Props) {
     const callback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {

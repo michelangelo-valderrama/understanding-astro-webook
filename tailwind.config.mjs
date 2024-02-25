@@ -47,6 +47,10 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        'shiny-card': {
+          DEFAULT: "hsl(var(--shiny-card))",
+          hover: "hsl(var(--shiny-card-hover))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -89,7 +93,7 @@ module.exports = {
             blockquote: {
               "@apply mt-6 border-l-2 border-l-border/80 pl-6 italic": "",
             },
-            table: { "@apply w-full": "" },
+            table: { "@apply w-full mb-0": "" },
             tr: { "@apply m-0 border-t p-0 even:bg-muted/40": "" },
             th: {
               "@apply border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right":

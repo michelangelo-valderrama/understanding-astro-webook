@@ -10,7 +10,10 @@
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
 
-    --popover: 0 0% 100%;
+    --shiny-card: 0, 0%, 98%;
+    --shiny-card-hover: 0, 0%, 95%;
+
+    --popover: 240 4.8% 95.9%;
     --popover-foreground: 240 10% 3.9%;
 
     --primary: 240 5.9% 10%;
@@ -42,7 +45,10 @@
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 10% 3.9%;
+    --shiny-card: 240, 10%, 5%;
+    --shiny-card-hover: 240, 10%, 8%;
+
+    --popover: 240 3.7% 15.9%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 0 0% 98%;
