@@ -12,8 +12,8 @@ export const TocButton = ({ headings }: Props) => (
   <Popover>
     <PopoverTrigger className="w-full" asChild>
       <Button
-        variant="outline"
-        className="gap-x-2 border-none font-semibold py-5 flex-1 rounded-none h-11"
+        variant="secondary"
+        className="gap-x-2 font-semibold py-5 flex-1 rounded-none h-11 hover:border shadow-none"
       >
         <List className="size-5" />
         <span>Table of contents</span>

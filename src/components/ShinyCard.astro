@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from "astro/types"
+
+interface Props extends HTMLAttributes<"a"> {}
+---
+
+<a
+  {...Astro.props}
+  data-shiny-card
+  class={`
+  z-0 block relative rounded-xl p-[1px] overflow-hidden
+  transition duration-700 outline-none group/card
+  before:content-[''] before:absolute before:inset-0 before:opacity-0
+  before:bg-[radial-gradient(circle_250px_at_var(--cursor-x)_var(--cursor-y),hsl(var(--foreground)/.40)_0,transparent_50%)]
+  group-hover:before:opacity-100 before:transition-opacity before:duration-1000
+  `}
+>
+  <article
+    class="relative rounded-xl size-full z-10 bg-shiny-card text-card-foreground group-hover/card:bg-shiny-card-hover transition duration-700"
+  >
+    <slot />
+  </article>
+</a>
+
+<script>
+  import { ShinyCard } from "@/utils"
+  new ShinyCard({
+    triggerSelector: "[data-shiny-card-trigger]",
+    elementsSelector: "[data-shiny-card]",
+  })
+</script>

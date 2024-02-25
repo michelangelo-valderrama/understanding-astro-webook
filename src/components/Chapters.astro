@@ -10,33 +10,40 @@ const col02: CollectionEntry<"chapters">[] = []
 collection
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
   .forEach((c, i) => {
-    if (i % 2 === 0) {
-      return col01.push(c)
-    }
+    if (i % 2 === 0) return col01.push(c)
     return col02.push(c)
   })
 ---
 
-<section>
+<section class={Astro.props.class}>
   <h2 class="font-bold mb-4">Chapters:</h2>
-  <div class="md:columns-2 gap-x-6">
-    <div>
+  <ul data-shiny-card-trigger class="md:columns-2 gap-6 group">
+    <div class="md:hidden space-y-6">
+      {
+        collection.map(({ slug, data: { title, description } }) => (
+          <li>
+            <Chapter href={slug} {title} {description} />
+          </li>
+        ))
+      }
+    </div>
+    <div class="hidden md:block space-y-6">
       {
         col01.map(({ slug, data: { title, description } }) => (
-          <a class="group" href={`/${slug}`}>
-            <Chapter {title} {description} />
-          </a>
+          <li>
+            <Chapter href={slug} {title} {description} shiny />
+          </li>
         ))
       }
     </div>
-    <div>
+    <div class="hidden md:block space-y-6">
       {
         col02.map(({ slug, data: { title, description } }) => (
-          <a class="group" href={`/${slug}`}>
-            <Chapter {title} {description} />
-          </a>
+          <li>
+            <Chapter href={slug} {title} {description} shiny />
+          </li>
         ))
       }
     </div>
-  </div>
+  </ul>
 </section>

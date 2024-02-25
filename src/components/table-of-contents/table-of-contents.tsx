@@ -27,7 +27,7 @@ export const TableOfContents = ({ headings }: Props) => {
       {layer.map(({ slug, text, children }, i) => (
         <li key={i}>
           <a
-            className="block py-1 text-muted-foreground hover:text-foreground hover:underline"
+            className="block py-1 text-muted-foreground hover:text-accent-foreground hover:underline"
             href={`#${slug}`}
             dangerouslySetInnerHTML={{ __html: text }}
           />

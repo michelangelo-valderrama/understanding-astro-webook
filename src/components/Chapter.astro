@@ -1,19 +1,39 @@
 ---
-import { Card, CardContent, CardHeader } from "./ui/card"
+import ShinyCard from "@/components/ShinyCard.astro"
 
 interface Props {
+  href: string
   title: string
   description: string
+  shiny?: boolean
 }
+
+const { description, href, title, shiny = false } = Astro.props
 ---
 
-<Card
-  className="w-full h-full transition duration-300 group-hover:shadow-black/5 dark:group-hover:shadow-white/5 group-hover:shadow-xl group-hover:border-black/80 dark:group-hover:border-white/80 mb-6"
->
-  <CardHeader className="pb-2 md:pb-4">
-    <h3 class="text-lg md:text-xl font-bold">{Astro.props.title}</h3>
-  </CardHeader>
-  <CardContent>
-    <p class="text-muted-foreground">{Astro.props.description}</p>
-  </CardContent>
-</Card>
+{
+  shiny ? (
+    <ShinyCard {href}>
+      <header class="flex flex-col space-y-1.5 p-6 pb-2 md:pb-4">
+        <h3 class="text-lg md:text-xl font-bold">{title}</h3>
+      </header>
+      <div class="p-6 pt-0">
+        <p class="text-muted-foreground">{description}</p>
+      </div>
+    </ShinyCard>
+  ) : (
+    <a
+      class="block relative rounded-xl outline-none bg-shiny-card text-card-foreground hover:bg-shiny-card-hover active:bg-shiny-card-hover transition duration-700"
+      {href}
+    >
+      <article class="size-full">
+        <header class="flex flex-col space-y-1.5 p-6 pb-2 md:pb-4">
+          <h3 class="text-lg md:text-xl font-bold">{title}</h3>
+        </header>
+        <div class="p-6 pt-0">
+          <p class="text-muted-foreground">{description}</p>
+        </div>
+      </article>
+    </a>
+  )
+}
