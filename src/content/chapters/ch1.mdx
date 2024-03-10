@@ -601,9 +601,9 @@ To render the `Main.astro` component, we’d do similar:
 <Main>render something within the Main component</Main>
 ```
 
-Let’s put this into practice. We may now use the `Main` layout in the `index.astro` page. To do this, we will do the following:
+Let’s put this into practice. We may now use the `Main.astro` layout in the `index.astro` page. To do this, we will do the following:
 
-- Import the `Main` layout from `"../layouts/Main.astro"`
+- Import the `Main.astro` layout from `"../layouts/Main.astro"`
 - Substitute the `<html>`, `<head>` and `<body>` elements for the `<Main>` layout in `index.astro`.
 
 ```astro ins={2} {7,25}
@@ -719,7 +719,7 @@ For this reason, it’s common practice to capitalise both component file names 
 
 ## The global style directive
 
-The `Main` layout is in place but doesn’t add much to our page. Let’s start by adding some styles for the headers and also centre the page’s content:
+The `Main.astro` layout is in place but doesn’t add much to our page. Let’s start by adding some styles for the headers and also centre the page’s content:
 
 ```astro title="src/layouts/Main.astro"
 <style>
@@ -750,7 +750,7 @@ This is because styles applied via the `<style>` tag are locally scoped by defau
 
 Can you tell me why?
 
-The `main` element resides in the `Main` layout. However, the header `h1` and `h2` exist in a different `index.astro` component!
+The `main` element resides in the `Main.astro` layout. However, the header `h1` and `h2` exist in a different `index.astro` component!
 
 For our use case, we need global styles.
 
@@ -1423,7 +1423,7 @@ Here’s a summary of what Astro does:
 - TypeScript is fully supported within the `<script>`.
 - If a single `Astro` component with a `<script>` is used multiple times on a page, the `<script>` is processed and only included once.
 - Astro will process and insert the script in the `<head>` of the page with a `type=module` attribute.
-- ❗️The implication of `type=module` is that the browser will defer the script, i.e., load in parallel and **execute it only after** the page’s parsed.
+  > ❗️The implication of `type=module` is that the browser will defer the script, i.e., load in parallel and **execute it only after** the page’s parsed.
 
 ## Leveraging inline scripts
 
@@ -1449,7 +1449,7 @@ To prevent this, we will use the `is:inline` directive, which will make the scri
 
 Since scripts with the `is:inline` attribute aren’t processed, they’ll be added multiple times if used in reusable components that appear more than once on the page.
 
-So, let’s go ahead and move the theme restoration code bit into `Main.astro` — because the `Main` layout is only included once per page.
+So, let’s go ahead and move the theme restoration code bit into `Main.astro` — because the `Main.astro` layout is only included once per page.
 
 We’ll also make sure to add this within the `<head>` of the layout, as shown below:
 
@@ -1569,8 +1569,10 @@ We’ll create two new pages to replace our dead `Philosophies` and `Beyond tech
 
 ![The dead navigation links.](/images/ch1/CleanShot%202023-05-02%20at%2010.50.19@2x.png)
 
-Create the first page in `src/pages/philosophies.md` with the following content:
+Create the pages with the following content:
 
+<Tabs>
+  <TabItem label="Philosophies">
 ```md title="src/pages/philosophies.md"
 - 5X **Marathoner**
 - Olympic gold medalist
@@ -1578,9 +1580,8 @@ Create the first page in `src/pages/philosophies.md` with the following content:
 - Michelin-star restaurant owner
 - Adviser to the vice president
 ```
-
-Create the second page in `src/pages/beyond-tech.md` with the following content:
-
+  </TabItem>
+  <TabItem label="Beyond technology">
 ```md title="src/pages/beyond-tech.md"
 - Be present and **enjoy the now**
 - Be driven by values
@@ -1588,6 +1589,8 @@ Create the second page in `src/pages/beyond-tech.md` with the following content:
 - Be deliberate
 - Laugh out loud
 ```
+  </TabItem>
+</Tabs>
 
 These files are written in markdown syntax[^6].
 
@@ -1603,7 +1606,7 @@ Astro uses the standard `<a>` element to navigate between pages. This makes sens
 
 Let’s update the navigation links to point to the new markdown pages as shown below:
 
-```html title="src/components/NavigationBar.astro"
+```html title="src/components/NavigationBar.astro" ins="/philosophies" ins="/beyond-tech"
 <li>
   <a href="/">Home</a>
 </li>
@@ -1647,7 +1650,7 @@ layout: path-to-layout
 ---
 ```
 
-First, let’s reuse the same `Main` layout by adding the following to both markdown pages:
+First, let’s reuse the same `Main.astro` layout by adding the following to both markdown pages:
 
 ```md
 ---
@@ -1709,7 +1712,7 @@ As we build reusable components, we often find situations where we must customis
 <title>Astro</title>
 ```
 
-A hardcoded `title` on every page where the `Main` layout is used is ridiculous.
+A hardcoded `title` on every page where the `Main.astro` layout is used is ridiculous.
 
 To foster reusability, components can accept properties. These are commonly known as **props**.
 
@@ -1721,22 +1724,16 @@ Props are passed to components as attributes.
 
 The prop values are then accessed via `Astro.props`. This is better explained with an example.
 
-Go ahead and update `Main` to accept a `title` prop as shown below:
+Go ahead and update `Main.astro` to accept a `title` prop as shown below:
 
-```astro title="src/layouts/Main.astro"
+```astro title="src/layouts/Main.astro" {16} ins={6}
 ---
-// ...
+import Footer from "../components/Footer.astro"
+import NavigationBar from "../components/NavigationBar.astro"
+import "../styles/global.css"
+
 const { title } = Astro.props;
 ---
-
-<html lang="en">
-  <head>
-    {/** ... **/}
-    {/** 👀 look here **/}
-    <title>{title}</title>
-  </head>
-     {/** ... **/}
-</html>
 ```
 
 To enforce TypeScript checks, define the `Props` type alias or interface.
@@ -1752,36 +1749,41 @@ interface Props {
 }
 ```
 
-For simplicity, I’ll stick to a type alias for the `Main` layout:
+For simplicity, I’ll stick to a type alias for the `Main.astro` layout:
 
-```astro title="src/layouts/Main.astro"
+```astro title="src/layouts/Main.astro" ins={6-8}
 ---
+import Footer from "../components/Footer.astro"
+import NavigationBar from "../components/NavigationBar.astro"
+import "../styles/global.css"
+
 type Props = {
   title: string
 }
 
 const { title } = Astro.props;
 ---
-{/** ... **/}
 ```
 
 With the type declared, we’ll have TypeScript error(s) in files where we’ve used `<Main>` without the required `title` prop.
 
 ![Invalid title props error.](/images/ch1/CleanShot%202023-05-03%20at%2006.01.52.png)
 
-Update the `index.astro` and `Blog.astro` pages to pass a `title` prop to `Main`:
+Update the `index.astro` and `Blog.astro` pages to pass a `title` prop to `Main.astro`:
 
 <Tabs>
   <TabItem label="index.astro">
-    ```astro title="src/layouts/index.astro"
+    ```astro title="src/layouts/index.astro" {1}
     <Main title="Frau Katarina">
-    {/* ... */}
+      <!-- ... -->
+    </Main>
     ```
   </TabItem>
   <TabItem label="Blog.astro">
-    ```astro title="src/layouts/Blog.astro"
+    ```astro title="src/layouts/Blog.astro" {1}
     <Main title="Frau Katarina | Blog">
-    {/* ... */}
+      <slot />
+    </Main>
     ```
   </TabItem>
 </Tabs>
@@ -1792,27 +1794,29 @@ All markdown pages in our application will have a title, subtitle and poster. Lu
 
 Update the markdown pages to now include these properties, as shown below.
 
-```md title="src/pages/beyond-tech.md"
----
-layout: ../layouts/Blog.astro
-poster: "/images/road-trip.jpg"
-title: "Beyond Technology"
-subtitle: "Humans are multi-faceted. Beyond tech, I indulge in the following:"
----
-
-...
-```
-
-```md title="src/pages/philosophies.md"
+<Tabs>
+  <TabItem label="Philosophies">
+```md title="src/pages/philosophies.md" {2} ins={3-5}
 ---
 layout: ../layouts/Blog.astro
 poster: "/images/philosophies.jpg"
 title: "My Guiding Philosophies"
 subtitle: "These are the philosophies that guide every decision and action I make."
 ---
-
-...
 ```
+  </TabItem>
+  <TabItem label="Beyond technology">
+```md title="src/pages/beyond-tech.md" {2} ins={3-5}
+---
+layout: ../layouts/Blog.astro
+poster: "/images/road-trip.jpg"
+title: "Beyond Technology"
+subtitle: "Humans are multi-faceted. Beyond tech, I indulge in the following:"
+---
+```
+  </TabItem>
+</Tabs>
+
 
 Note that `poster` points to image paths. These paths reference the `public` directory. So `/images/philosophies.jpg` points to an image in `public/images/philosophies.jpg`.
 
@@ -1824,7 +1828,7 @@ Luckily, markdown layouts have a unique superpower — they can access markdown 
 
 Let’s go ahead and globally handle this in our `Blog.astro` layout component. Below’s the component script section:
 
-```astro title="src/layouts/Blog.astro"
+```astro title="src/layouts/Blog.astro" ins={2-4, 7-13, 15-16}
 ---
 // import the type utility for the markdown layout props
 import type { MarkdownLayoutProps } from "astro";
@@ -1853,8 +1857,8 @@ const { poster, title, subtitle } = Astro.props.frontmatter;
 
 Equally update the layout markup to render the image, title and subtitle:
 
-```astro title="src/layouts/Blog.astro"
-<main>
+```astro title="src/layouts/Blog.astro" ins={2-13, 15-16, 21-38}
+<Main title="Frau Katarina | Blog">
   <figure class="figure">
     <img
       src={poster}
@@ -1872,7 +1876,7 @@ Equally update the layout markup to render the image, title and subtitle:
   <h2>{subtitle}</h2>
 
   <slot />
-</main>
+</Main>
 
 <style>
   h1 + h2 {
@@ -1925,13 +1929,42 @@ As with all things programming, there are different ways to achieve this, but we
 
 Finally, add the relevant style for the active tag:
 
-```astro title="src/components/NavigationBar.astro"
+```astro title="src/components/NavigationBar.astro" ins={32-35}
 <style>
-  /* ... */
- a.active {
-  background: var(--grey-900);
-  color: var(--background);
- }
+  nav {
+    display: flex;
+    align-items: flex-start;
+    padding: 2rem 0;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 auto 0 0;
+  }
+
+  nav li {
+    opacity: 0.8;
+    list-style: none;
+    font-size: 0.95rem;
+  }
+
+  a {
+    color: var(--grey-400);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--grey-900);
+  }
+
+  a.active {
+    background: var(--grey-900);
+    color: var(--background);
+  }
 </style>
 ```
 
@@ -1941,7 +1974,7 @@ Viola! We should now have the active anchor tag styled differently.
 
 ## Component composition
 
-Our first look at component composition was with the `Main` and `Blog` layouts. Let’s take this further.
+Our first look at component composition was with the `Main.astro` and `Blog.astro` layouts. Let’s take this further.
 
 Our goal is to create a set of different yet identical cards. Each card acts as a link to a blog and will have a title and some background gradient.
 
@@ -1951,37 +1984,35 @@ To achieve this, we’ll have a `Cards.astro` component that renders multiple `C
 
 ![The card composition visualised.](/images/ch1/b.png)
 
-Let’s start by creating `Card.astro`.
+Let’s start by creating `Card.astro` and `Cards.astro`.
 
-Define the relevant component props and relevant markup as shown below:
-
+<Tabs>
+  <TabItem label="Card.astro">
 ```astro title="src/components/Card.astro"
 ---
-{/** Export the Props type alias **/}
+// Export the Props type alias
 export type Props = {
-  to: string;
-  title: string;
-  gradientFrom: string;
-  gradientTo: string;
+  to: string
+  title: string
+  gradientFrom: string
+  gradientTo: string
 };
 
 // Get component props from Astro.props
 const { title, to } = Astro.props;
 ---
-```
 
-```astro
 <a href={to} class="card">
   <div class="card__inner">
     <div class="card__title">{title}</div>
-    <!-- Render the arrow via HTML entity name: → = &rarr;-->
+    <!-- Render the arrow via HTML entity name: &rarr; = → -->
     <div class="card__footer">&rarr;</div>
   </div>
 </a>
 
 <style>
   .card {
-    /** local CSS variable reused below */
+    /* local CSS variable reused below */
     --radius: 10px;
 
     padding: 4px;
@@ -2017,9 +2048,8 @@ const { title, to } = Astro.props;
   }
 </style>
 ```
-
-Now, go ahead and create the `Cards.astro` component as follows:
-
+  </TabItem>
+  <TabItem label="Cards.astro">
 ```astro title="src/components/Cards.astro"
 ---
 // Import the Card component
@@ -2035,9 +2065,7 @@ type Props = {
 // Retrieve the cards prop
 const { cards } = Astro.props;
 ---
-```
 
-```astro
 <div class="cards">
   <!-- Dynamically render multiple Card components and spread the required card props -->
   {cards.map((card) => <Card {...card} />)}
@@ -2058,19 +2086,20 @@ const { cards } = Astro.props;
   }
 </style>
 ```
+  </TabItem>
+</Tabs>
 
 To see the fruits of our labour, we must now import and render `Cards` in the `index.astro` page component.
 
-```astro title="src/pages/index.astro"
+```astro title="src/pages/index.astro" ins={3, 9-30}
 ---
 // ...
 import Cards from "../components/Cards.astro";
+// ...
 ---
+
 <Main>
-  <div class="profile">
-   {/** ... **/}
-  </div>
-  {/** 👀 look here **/}
+  <!-- ... -->
   <Cards
     cards={[
       {
@@ -2130,7 +2159,7 @@ As we’ve built our application, we’ve frequently leveraged data in the front
 const data = "Understanding Astro"
 ---
 
-{/** Use data in the template **/}
+<!-- Use data in the template -->
 <h1>{data}</h1>
 ```
 
@@ -2143,18 +2172,16 @@ However, consider a more robust markup that includes `<style>` and `<script>` el
 const data = "Understanding Astro"
 ---
 
-{/** ✅ Use data in the template **/}
+<!-- ✅ Use data in the template -->
 <h1>{data}</h1>
 
-{/** styles **/}
 <style>
- /** ❌referencing data here will fail **/
+  /* ❌ referencing data here will fail */
 </style>
 
-{/** scripts **/}
 <script>
-// ❌referencing data here will fail
-console.log(data)
+  // ❌ referencing data here will fail
+  console.log(data)
 </script>
 ```
 
@@ -2168,14 +2195,24 @@ We must reference the `gradientFrom` and `gradientTo` variables passed as props 
 
 First, to make the variables available within `<style>`, we’ll go ahead and use `define:vars` as follows:
 
-```astro title="src/components/Card.astro"
+```astro title="src/components/Card.astro" {11, 16}
 ---
+// Export the Props type alias
+export type Props = {
+  to: string
+  title: string
+  gradientFrom: string
+  gradientTo: string
+};
+
+// Get component props from Astro.props
 const { title, to, gradientFrom, gradientTo } = Astro.props;
-// ...
 ---
 
-<style define:vars={{gradientFrom, gradientTo }}>
-  {/** ... **/}
+<!-- ... -->
+
+<style define:vars={{ gradientFrom, gradientTo }}>
+  /* ... */
 </style>
 ```
 
@@ -2185,17 +2222,25 @@ The variables are defined but not used yet!
 
 Now, we can reference the variables via custom properties (aka css variables) as shown below:
 
-```astro title="src/components/Card.astro"
-<style define:vars={{gradientFrom, gradientTo }}>
-  /** 👀 look here **/
+```astro title="src/components/Card.astro" ins={11-15}
+<style define:vars={{ gradientFrom, gradientTo }}>
   .card {
+    /* local CSS variable reused below */
+    --radius: 10px;
+
+    padding: 4px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+
     background-image: linear-gradient(
       to right,
       var(--gradientFrom),
       var(--gradientTo)
     );
   }
- /** ... **/
+
+  /* ... */
 </style>
 ```
 
@@ -2218,7 +2263,7 @@ Here’s an example to make this clear.
 In `Card.astro` go ahead and add a `<script>` with the `define:vars` directive as follows:
 
 ```astro title="src/components/Card.astro"
-<script define:vars={{ gradientFrom }}>console.log(gradientFrom);</script>
+<script define:vars={{ gradientFrom }}>console.log(gradientFrom)</script>
 ```
 
 Inspect the elements via the developer tools. You’ll notice that the `<script>` is inlined and unprocessed, i.e., just as we’ve written it, apart from being wrapped in an immediately invoked function execution (IIFE).
@@ -2231,12 +2276,15 @@ With scripts, a better solution (except the inline behaviour is ideal for your u
 
 For example, we may rewrite the previous solution as shown below:
 
-```astro
----
----
+```astro ins="data-gradientfrom={gradientFrom}" ins={9-17}
+<a href={to} class="card" data-gradientfrom={gradientFrom}>
+  <!-- ... -->
+</a>
 
-<a href={to} class="card" data-gradientfrom={gradientFrom}> ... </a>
-...
+<style>
+  /* ... */
+</style>
+
 <script>
   const card = document.querySelector(".card");
 
@@ -2254,6 +2302,8 @@ Note that this is a contrived example and only retrieves the first card element 
 
 Let’s go ahead and create a new `blog` directory to hold some more markdown pages. The pages and their content are shown below:
 
+<Tabs>
+  <TabItem label="rust-javascript-tooling">
 ```md title="pages/blogs/rust-javascript-tooling.md"
 ---
 layout: "../../layouts/Blog.astro"
@@ -2267,7 +2317,8 @@ subtitle: "How to create fast, speedy developer experiences."
 - Touted as the new C++
 - Did I mention it's pretty fast?
 ```
-
+  </TabItem>
+  <TabItem label="sleep-more">
 ```md title="pages/blogs/sleep-more.md"
 ---
 layout: "../../layouts/Blog.astro"
@@ -2280,7 +2331,8 @@ subtitle: "Sleep is great for you. Here's why:"
 - Sleep more
 - Sleep a little more
 ```
-
+  </TabItem>
+  <TabItem label="typescript-new-javascript">
 ```md title="pages/blogs/typescript-new-javascript.md"
 ---
 layout: "../../layouts/Blog.astro"
@@ -2293,13 +2345,14 @@ subtitle: "TypeScript is becoming a standard for web development these days:"
 - Type safety!
 - Even more type safety!
 ```
+  </TabItem>
+</Tabs>
 
 We aim to list these blog titles on our home page. One way to do this would be to render all link elements in `index.astro` manually:
 
-```astro title="src/pages/index.astro"
-{/** ... **/}
-<main>
-  {/** ... **/}
+```astro title="src/pages/index.astro" ins={3-28, 33-69}
+<Main title="Frau Katerina">
+  <!-- ... -->
   <div class="featured-blogs">
     <h3 class="featured-blogs__title">Featured Blogs</h3>
     <p class="featured-blogs__description">
@@ -2326,19 +2379,15 @@ We aim to list these blog titles on our home page. One way to do this would be t
       >
     </li>
   </ol>
-</main>
-```
+</Main>
 
-Then update our component styles:
-
-```astro title="src/pages/index.astro"
-{/** ... **/}
 <style>
-  /** ... **/
+  /* ... */
   .featured-blogs {
     margin: 0;
     padding: 3rem 0 0 0;
   }
+
   .featured-blogs__title {
     font-size: 2rem;
     color: var(--gray-900);
@@ -2386,20 +2435,20 @@ Talk is cheap, so let’s put this into action.
 
 Instead of manually writing out the list of blog articles, we will use `Astro.glob()` to fetch all the blog posts:
 
-```astro title="src/pages/index.astro"
+```astro title="src/pages/index.astro" ins={3-7}
 ---
+// ...
 const blogs = await Astro.glob<{
   poster: string;
   title: string;
   subtitle: string;
 }>("../pages/blogs/*.md");
-// ...
 ---
-{/** ... **/}
 ```
 
-- Note the argument passed to `.glob`, i.e., `../pages/blogs/*.md`. This relative glob path represents all markdown files in the `/blogs` directory.
+- Note the argument passed to `.glob`, i.e., `../pages/blogs/*.md`. This relative glob path represents all markdown files in the `blogs` directory.
 - Also note the typing provided. `.glob` implements a generic, which, in this case, represents the markdown frontmatter object type.
+
   ```ts
   {
     poster: string
@@ -2411,8 +2460,7 @@ const blogs = await Astro.glob<{
 Now, we may replace the manual list with a dynamically rendered list, as shown below:
 
 ```astro title="src/pages/index.astro"
-{/** ... **/}
-<ol>
+<ol class="blogs">
   {
     blogs.map((blog) => (
       <li class="blogs__list">
