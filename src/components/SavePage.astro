@@ -1,0 +1,48 @@
+---
+import { Bookmark } from "lucide"
+import { Button } from "./ui/button"
+import LucideIcon from "./LucideIcon.astro"
+---
+
+<Button id="save-page-btn" type="button" size="icon" variant="ghost">
+  <LucideIcon id="bookmark-icon" icon={Bookmark}>
+    <span class="sr-only">Save Page</span>
+  </LucideIcon>
+</Button>
+
+<script is:inline>
+  const STORAGE_SAVED_PAGE_PATHNAME = "saved-page-pathname"
+  const FILL_CLASS = "fill-foreground"
+
+  const savePageBtn = document.getElementById("save-page-btn")
+  const bookmarkIcon = document.getElementById("bookmark-icon")
+  const currentPathname = window.location.pathname
+
+  const savedPagePathname = (() => {
+    if (
+      typeof localStorage !== "undefined" &&
+      localStorage.getItem(STORAGE_SAVED_PAGE_PATHNAME)
+    ) {
+      return localStorage.getItem(STORAGE_SAVED_PAGE_PATHNAME)
+    }
+    return null
+  })()
+
+  if (savedPagePathname === currentPathname) {
+    bookmarkIcon.classList.add(FILL_CLASS)
+  } else {
+    bookmarkIcon.classList.remove(FILL_CLASS)
+  }
+
+  localStorage.setItem(STORAGE_SAVED_PAGE_PATHNAME, savedPagePathname)
+
+  savePageBtn.addEventListener("click", () => {
+    bookmarkIcon.classList.toggle(FILL_CLASS)
+    const isMarked = bookmarkIcon.classList.contains(FILL_CLASS)
+    if (isMarked) {
+      localStorage.setItem(STORAGE_SAVED_PAGE_PATHNAME, currentPathname)
+    } else {
+      localStorage.setItem(STORAGE_SAVED_PAGE_PATHNAME, null)
+    }
+  })
+</script>

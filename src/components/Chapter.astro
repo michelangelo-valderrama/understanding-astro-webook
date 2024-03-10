@@ -1,5 +1,7 @@
 ---
 import ShinyCard from "@/components/ShinyCard.astro"
+import LucideIcon from "./LucideIcon.astro"
+import { Bookmark } from "lucide"
 
 interface Props {
   href: string
@@ -8,32 +10,30 @@ interface Props {
   shiny?: boolean
 }
 
-const { description, href, title, shiny = false } = Astro.props
+const { description, href, title } = Astro.props
 ---
 
-{
-  shiny ? (
-    <ShinyCard {href}>
-      <header class="flex flex-col space-y-1.5 p-6 pb-2 md:pb-4">
-        <h3 class="text-lg md:text-xl font-bold">{title}</h3>
-      </header>
-      <div class="p-6 pt-0">
-        <p class="text-muted-foreground">{description}</p>
-      </div>
-    </ShinyCard>
-  ) : (
-    <a
-      class="block relative rounded-xl outline-none bg-shiny-card text-card-foreground hover:bg-shiny-card-hover active:bg-shiny-card-hover transition duration-700"
-      {href}
-    >
-      <article class="size-full">
-        <header class="flex flex-col space-y-1.5 p-6 pb-2 md:pb-4">
-          <h3 class="text-lg md:text-xl font-bold">{title}</h3>
-        </header>
-        <div class="p-6 pt-0">
-          <p class="text-muted-foreground">{description}</p>
-        </div>
-      </article>
-    </a>
+<ShinyCard {href}>
+  <header class="flex p-6 pb-2 md:pb-4">
+    <h3 class="flex-1 text-lg md:text-xl font-bold">{title}</h3>
+    <LucideIcon data-href={`/${href}`} icon={Bookmark} class="hidden" />
+  </header>
+  <div class="p-6 pt-0">
+    <p class="text-muted-foreground">{description}</p>
+  </div>
+</ShinyCard>
+
+<script>
+  const savedPagePathnameInLocalStorage = localStorage.getItem(
+    "saved-page-pathname"
   )
-}
+  if (savedPagePathnameInLocalStorage) {
+    const bookmarkIcons = document.querySelectorAll(
+      `[data-href='${savedPagePathnameInLocalStorage}']`
+    )
+    bookmarkIcons.forEach((b) => {
+      b.classList.remove("hidden")
+      b.classList.add("fill-foreground")
+    })
+  }
+</script>

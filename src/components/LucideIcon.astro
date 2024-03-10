@@ -1,10 +1,11 @@
 ---
-interface Props {
+import type { HTMLAttributes } from "astro/types"
+
+interface Props extends HTMLAttributes<"svg"> {
   icon: any
-  class?: string
 }
 
-const { icon, class: className, ...props } = Astro.props
+const { icon, ...props } = Astro.props
 
 const [, attributes, children] = icon
 
@@ -20,4 +21,8 @@ const componentChildren = children
 const componentAttributes = { ...attributes, ...props }
 ---
 
-<svg class={className} {...componentAttributes} set:html={componentChildren} />
+<svg
+  class={Astro.props.class}
+  {...componentAttributes}
+  set:html={componentChildren}
+/>

@@ -1,5 +1,9 @@
 ---
+import { Bookmark } from "lucide"
 import Header from "@/components/Header.astro"
+import LucideIcon from "@/components/LucideIcon.astro"
+import { Button } from "@/components/ui/button"
+import SavePage from "@/components/SavePage.astro"
 
 interface Props {
   title: string
@@ -10,7 +14,7 @@ interface Props {
 <div class:list={["flex flex-col min-h-screen", Astro.props.class]}>
   <div class="h-14 w-full absolute top-0 left-0" data-ghost-trigger></div>
   <Header>
-    <div class="max-w-screen-sm mx-auto px-2 md:px-4 select-none">
+    <div class="select-none flex-1">
       <p
         class="w-full truncate font-semibold text-transparent transition duration-300"
         data-ghost-title
@@ -18,6 +22,7 @@ interface Props {
         {Astro.props.title}
       </p>
     </div>
+    <SavePage />
   </Header>
   <main>
     <div class="mx-auto p-4 md:mt-6 max-w-screen-sm">

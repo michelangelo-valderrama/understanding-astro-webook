@@ -34,7 +34,7 @@ import { Button } from "./ui/button"
     document.documentElement.classList.remove(DARK_CLASS)
   }
 
-  window.localStorage.setItem(STORAGE_THEME_ITEM, theme)
+  localStorage.setItem(STORAGE_THEME_ITEM, theme)
 
   toggleThemeButton.addEventListener("click", () => {
     const root = document.documentElement

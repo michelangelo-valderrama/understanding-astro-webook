@@ -29,6 +29,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "hast-util-select": "^6.0.2",
+    "image-size": "^1.1.1",
     "lucide": "^0.312.0",
     "lucide-react": "^0.312.0",
     "mdast-util-to-string": "^4.0.0",
