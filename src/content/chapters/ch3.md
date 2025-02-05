@@ -8,11 +8,22 @@ proyect:
   source: https://github.com/understanding-astro/build-your-own-component-island
 ---
 
-> What I cannot create, I do not understand
->
-> — Richard Feynman
+> “What I cannot create, I do not understand” — Richard Feynman
 
 Astro’s fast narrative relies on component islands, which allow using other framework components like React, Vue, or Svelte in our Astro applications. This chapter will guide us in creating our own component island from the ground up.
+
+<br /> 
+<br />
+
+[![](/images/ch3/watch-instead@3x.png)](https://ohans.me/understanding-astro-udemy)
+
+<br /> 
+<br />
+
+[![](/images/ch3/view-project.png)](https://github.com/understanding-astro/build-your-own-component-island)
+
+<br /> 
+<br />
 
 ## What you’ll learn
 
@@ -37,7 +48,11 @@ In simple terms, there are two main actors in serving an application to a user:
 
 To display a website, a user requests a resource from an application server.
 
-![The web browser requesting article.html from an application server.](/images/ch3/a.png)
+<figure>
+    <img src="images/ch3/a.png" width="70%" alt="The web browser requesting article.html from an application server." align="center">
+    <figcaption><em>The web browser requesting article.html from an application server.</em></figcaption>
+    <br><br><br>
+</figure>
 
 With these two actors at play, a significant architectural decision you’ll make when building any decent frontend application is whether to render an application on the client or server[^1].
 
@@ -47,17 +62,29 @@ Let’s briefly explore both options.
 
 ### Client-side rendering (CSR)
 
-![Choosing client side rendering.](/images/ch3/1.png)
+<figure>
+    <img src="images/ch3/1.png" width="80%" alt="Choosing client side rendering." align="center">
+    <figcaption><em>Choosing client side rendering.</em></figcaption>
+    <br><br><br>
+</figure>
 
 By definition, a client-side rendered application renders pages directly in the browser using Javascript. All logic, data-fetching, templating and routing are handled on the client (the user’s browser).
 
-![An overview of a client-side rendered application.](/images/ch3/a-1.png)
+<figure>
+    <img src="images/ch3/a-1.png" width="70%" alt="An overview of a client-side rendered application." align="center">
+    <figcaption><em>An overview of a client-side rendered application.</em></figcaption>
+    <br><br><br>
+</figure>
 
 The past years saw the rise of client-side rendering, particularly among single-page applications. You’ve likely seen this in action if you’ve worked with libraries like React or Vue.
 
 For a practical overview, consider the webpage for a blog article with a like count and a comment section below the initial viewport.
 
-![A blog article with a dynamic sidebar and a comment section below the article.](/images/ch3/a-2.png)
+<figure>
+    <img src="images/ch3/a-2.png" width="70%" alt="A blog article with a dynamic sidebar and a comment section below the article." align="center">
+    <figcaption><em>A blog article with a dynamic sidebar and a comment section below the article.</em></figcaption>
+    <br><br><br>
+</figure>
 
 If this application was entirely client-side rendered, the simplified rendering flow would look like this:
 
@@ -68,7 +95,11 @@ If this application was entirely client-side rendered, the simplified rendering 
 5. The data for the article, number of comments and comments are fetched.
 6. A fully interactive page is shown to the user.
 
-![Visualising the rendering process from a user's perspective.](/images/ch3/a-3.png)
+<figure>
+    <img src="images/ch3/a-3.png" width="70%" alt="Visualising the rendering process from a user's perspective." align="center">
+    <figcaption><em>Visualising the rendering process from a user's perspective.</em></figcaption>
+    <br><br><br>
+</figure>
 
 #### The pros of client-side rendering (CSR)
 
@@ -89,7 +120,11 @@ If this application was entirely client-side rendered, the simplified rendering 
 
 ### Server-side rendering
 
-![Choosing server-side rendering.](/images/ch3/choosing-ssr.png)
+<figure>
+    <img src="images/ch3/choosing-ssr.png" width="70%" alt="Choosing server-side rendering." align="center">
+    <figcaption><em>Choosing server-side rendering.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Let’s assume we’re unhappy with client-side rendering and decide to do the opposite.
 
@@ -104,7 +139,11 @@ In our example, here’s what a simplified flow would look like:
 3. The server renders the `HTML` page with the article, the number of comments and other required assets.
 4. The server sends the client a fully formed `HTML` page.
 
-![Visualising the rendering process from a user's perspective.](/images/ch3/aa.png)
+<figure>
+    <img src="images/ch3/aa.png" width="70%" alt="Visualising the rendering process from a user's perspective." align="center">
+    <figcaption><em>Visualising the rendering process from a user's perspective.</em></figcaption>
+    <br><br><br>
+</figure>
 
 NB: it is assumed that the server sends a mostly static `HTML` page with minimal Javascript needed for interactivity.
 
@@ -125,7 +164,11 @@ NB: it is assumed that the server sends a mostly static `HTML` page with minimal
 
 We’ve explored rendering on both sides of the application rendering pole. However, what if there was a way to use server and client-side rendering? Some strategy right in the middle of the hypothetic rendering pole?
 
-![Choosing SSR with client-side hydration.](/images/ch3/ssr-with-client-rehydration.png)
+<figure>
+    <img src="images/ch3/ssr-with-client-rehydration.png" width="70%" alt="Choosing SSR with client-side hydration." align="center">
+    <figcaption><em>Choosing SSR with client-side hydration.</em></figcaption>
+    <br><br><br>
+</figure>
 
 If we were building an interactive application and working with a framework like React or Vue, a widely common approach is to render on the server and hydrate on the client.
 
@@ -143,7 +186,11 @@ In our example, here’s what a simplified flow would look like:
 
 Making an otherwise static page interactive (e.g., attaching event listeners) is called hydration.
 
-![Visualising the rendering process from a user's perspective.](/images/ch3/ssr-csr-hydrate-flow.png)
+<figure>
+    <img src="images/ch3/ssr-csr-hydrate-flow.png" width="70%" alt="Visualising the rendering process from a user's perspective." align="center">
+    <figcaption><em>Visualising the rendering process from a user's perspective.</em></figcaption>
+    <br><br><br>
+</figure>
 
 #### The pros of server-side rendering with client-side hydration
 
@@ -166,7 +213,11 @@ Combining server-side rendering with client-side hydration has the potential to 
 
 One way to tackle the heavy delay in time to interactivity (TTI) seems obvious. Instead of hydrating the entire application, why not hydrate only the interactive bits?
 
-![Partial hydration vs full-page hydration.](/images/ch3/p-hydration.png)
+<figure>
+    <img src="images/ch3/p-hydration.png" width="70%" alt="Partial hydration vs full-page hydration." align="center">
+    <figcaption><em>Partial hydration vs full-page hydration.</em></figcaption>
+    <br><br><br>
+</figure>
 
 As opposed to hydrating the entire application client side, partial hydration refers to hydrating specific parts of an application while leaving the rest static.
 
@@ -176,7 +227,11 @@ We may also take partial hydration further and implement what’s known as lazy 
 
 In this case, we may hydrate the like button when the page is loaded and hydrate the comment section only when the user scrolls below the initial viewport.
 
-![Hydrate the comment section at a later time.](/images/ch3/a-4.png)
+<figure>
+    <img src="images/ch3/a-4.png" width="70%" alt="Hydrate the comment section at a later time." align="center">
+    <figcaption><em>Hydrate the comment section at a later time.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Talk about flexibility!
 
@@ -193,7 +248,11 @@ Talk about flexibility!
 
 The island architecture is built upon the foundation of partial hydration. Essentially, the islands architecture refers to having “islands of interactivity” on an otherwise static `HTML` page.
 
-![Islands of interactivity on an otherwise static webpage.](/images/ch3/independent-islands.png)
+<figure>
+    <img src="images/ch3/independent-islands.png" width="70%" alt="Islands of interactivity on an otherwise static webpage." align="center">
+    <figcaption><em>Islands of interactivity on an otherwise static webpage.</em></figcaption>
+    <br><br><br>
+</figure>
 
 To make sense of this, think of these islands as partially hydrated components. So our entire page isn’t hydrated, but rather these islands.
 
@@ -279,7 +338,7 @@ We will use the `<template>` ￼ HTML element, the content template element.
 <!-- ❌ incorrect usage: -->
 <mini-island client:idle>
   <script>
-    console.log("this should be partially hydrated")
+    console.log("this should be partially hydrated");
   </script>
 </mini-island>
 
@@ -288,7 +347,7 @@ We will use the `<template>` ￼ HTML element, the content template element.
   <!-- use the <template> element -->
   <template>
     <script>
-      console.log("this should be partially hydrated")
+      console.log("this should be partially hydrated");
     </script>
   </template>
 </mini-island>
@@ -356,14 +415,14 @@ property.
    * The name can't be a single word. ✅ mini-island ❌ 
 miniIsland
    */
-  static tagName = "mini-island"
+  static tagName = "mini-island";
   /**
    * Define the island element attributes
    *, e.g., <mini-island data-island>
    */
   static attributes = {
     dataIsland: "data-island",
-  }
+  };
 }
 
 /**
@@ -382,14 +441,14 @@ if ("customElements" in window) {
    *
    * NB: "MiniIsland.tagName" below represents the static class property, i.e., "static tagName".
    */
-  window.customElements.define(MiniIsland.tagName, MiniIsland)
+  window.customElements.define(MiniIsland.tagName, MiniIsland);
 } else {
   /**
    * custom elements not supported, log an error to the console
    */
   console.error(
     "Island cannot be initiated because Window.customElements is unavailable."
-  )
+  );
 }
 ```
 
@@ -425,7 +484,11 @@ To view this via a local web server, run the following command from the project 
 
 By default, this should start a local static web server on port `8000`. We may now view the initial demo page on `http://localhost:8000/demos/initial.html`
 
-![The initial demo page.](/images/ch3/CleanShot%202023-05-14%20at%2007.29.14.png)
+<figure>
+    <img src="images/ch3/CleanShot%202023-05-14%20at%2007.29.14.png" width="70%" alt="The initial demo page." align="center">
+    <figcaption><em>The initial demo page.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Let’s confirm that our custom element `mini-island` is registered rendering the custom element with a simple paragraph child element:
 
@@ -442,7 +505,11 @@ Let’s confirm that our custom element `mini-island` is registered rendering th
 
 This will render the custom element and the `Hello future island` paragraph as expected:
 
-![Rendering the custom element with a child element.](/images/ch3/CleanShot%202023-05-14%20at%2007.27.26.png)
+<figure>
+    <img src="images/ch3/CleanShot%202023-05-14%20at%2007.27.26.png" width="70%" alt="Rendering the custom element with a child element." align="center">
+    <figcaption><em>Rendering the custom element with a child element.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Now, let’s go ahead and add some Javascript within `<mini-island>` as shown below:
 
@@ -452,14 +519,18 @@ Now, let’s go ahead and add some Javascript within `<mini-island>` as shown be
 <mini-island>
   <p>Hello future island</p>
   <script type="module">
-    console.warn("THIS IS A WARNING FROM AN ISLAND")
+    console.warn("THIS IS A WARNING FROM AN ISLAND");
   </script>
 </mini-island>
 ```
 
 If you refresh the page and check the browser console, we should see the warning logged.
 
-![Console warning from the island.](/images/ch3/CleanShot%202023-05-14%20at%2007.32.44.png)
+<figure>
+    <img src="images/ch3/CleanShot%202023-05-14%20at%2007.32.44.png" width="70%" alt="Console warning from the island." align="center">
+    <figcaption><em>Console warning from the island.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This means the script was fired almost immediately. Not our ideal solution.
 
@@ -482,7 +553,7 @@ For example, let’s go ahead and wrap the script from the previous example in a
   <p>Hello future island</p>
   <template>
     <script type="module">
-      console.warn("THIS IS A WARNING FROM AN ISLAND")
+      console.warn("THIS IS A WARNING FROM AN ISLAND");
     </script>
   </template>
 </mini-island>
@@ -501,7 +572,7 @@ As discussed in the proposed API implementation, consider the following:
   <p>Hello future island</p>
   <template>
     <script type="module">
-      console.warn("THIS IS A WARNING FROM AN ISLAND")
+      console.warn("THIS IS A WARNING FROM AN ISLAND");
     </script>
   </template>
 </mini-island>
@@ -526,14 +597,14 @@ class MiniIsland extends HTMLElement {
     /**
      * As soon as the island is connected, we will go ahead and hydrate the island
      */
-    await this.hydrate()
+    await this.hydrate();
   }
 
   hydrate() {
     /**
      * Retrieve the relevant <template> child elements of the island
      */
-    const relevantChildTemplates = this.getTemplates()
+    const relevantChildTemplates = this.getTemplates();
   }
 }
 ```
@@ -644,11 +715,19 @@ Note that the `<template>` element has the `data-island` attribute. This is how 
 
 Now, refresh your browser and notice how the `console.warn` is triggered.
 
-![Hydrated island script.](/images/ch3/CleanShot%202023-05-15%20at%2007.10.42.png)
+<figure>
+    <img src="images/ch3/CleanShot%202023-05-15%20at%2007.10.42.png" width="70%" alt="Hydrated island script." align="center">
+    <figcaption><em>Hydrated island script.</em></figcaption>
+    <br><br><br>
+</figure>
 
 If you also inspect the elements, you’ll notice that the `<template>` has been replaced with its live child content.
 
-![Replaced island <template> element.](/images/ch3/CleanShot%202023-05-15%20at%2007.11.54.png)
+<figure>
+    <img src="images/ch3/CleanShot%202023-05-15%20at%2007.11.54.png" width="70%" alt="Replaced island <template> element." align="center">
+    <figcaption><em>Replaced island template element.</em></figcaption>
+    <br><br><br>
+</figure>
 
 We’re officially hydrating our island!
 
@@ -673,7 +752,7 @@ Update the `initial.html` document to consider our first use case. Here’s the 
     <title>Initial island demo</title>
 
     <script type="module">
-      import "../mini-island.js"
+      import "../mini-island.js";
     </script>
   </head>
   <body>
@@ -686,7 +765,7 @@ Update the `initial.html` document to consider our first use case. Here’s the 
 
       <template data-island>
         <script type="module">
-          console.warn("THIS IS A WARNING FROM AN ISLAND")
+          console.warn("THIS IS A WARNING FROM AN ISLAND");
         </script>
       </template>
     </mini-island>
@@ -694,7 +773,11 @@ Update the `initial.html` document to consider our first use case. Here’s the 
 </html>
 ```
 
-![The client:visible demo.](/images/ch3/CleanShot%202023-05-15%20at%2007.18.38.png)
+<figure>
+    <img src="images/ch3/CleanShot%202023-05-15%20at%2007.18.38.png" width="70%" alt="The client:visible demo." align="center">
+    <figcaption><em>The client:visible demo.</em></figcaption>
+    <br><br><br>
+</figure>
 
 We now have a paragraph that reads `scroll down`, which has a large enough bottom padding to push the island off the viewport.
 
@@ -702,7 +785,11 @@ With the `client:visible` attribute on the `<mini-island>`, we should not hydrat
 
 However, test this in your browser.
 
-![The island is hydrated before being in view](/images/ch3/CleanShot%202023-05-15%20at%2007.20.43.png)
+<figure>
+    <img src="images/ch3/CleanShot%202023-05-15%20at%2007.20.43.png" width="70%" alt="The island is hydrated before being in view" align="center">
+    <figcaption><em>The island is hydrated before being in view.</em></figcaption>
+    <br><br><br>
+</figure>
 
 The script is hydrated before we scroll (as soon as the page loads), and the `THIS IS A WARNING FROM AN ISLAND` message is logged.
 
@@ -740,17 +827,21 @@ class Conditions {}
 
 // same existing code ...
 if ("customElements" in window) {
-  window.customElements.define(MiniIsland.tagName, MiniIsland)
+  window.customElements.define(MiniIsland.tagName, MiniIsland);
 } else {
   console.error(
     "Island cannot be initiated because Window.customElements is unavailable."
-  )
+  );
 }
 ```
 
 Within `Conditions`, we will introduce a static property that’s a key-value representation of the `client:` attribute and async methods.
 
-![An object with key-value corresponding to attribute and promise condition.](/images/ch3/attr-promise.png)
+<figure>
+    <img src="images/ch3/attr-promise.png" width="80%" alt="An object with key-value corresponding to attribute and promise condition." align="center">
+    <figcaption><em>An object with key-value corresponding to attribute and promise condition.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Our conditions will be fulfilled at a later unknown time. So, we will represent these with async functions. These async functions will return promises that are resolved when the associated condition is met.
 
@@ -767,18 +858,18 @@ class Conditions {
     idle: Conditions.waitForIdle,
     visible: Conditions.waitForVisible,
     media: Conditions.waitForMedia,
-  }
+  };
 
   static waitForIdle() {
-    return new Promise((resolve) => resolve())
+    return new Promise((resolve) => resolve());
   }
 
   static waitForVisible() {
-    return new Promise((resolve) => resolve())
+    return new Promise((resolve) => resolve());
   }
 
   static waitForMedia() {
-    return new Promise((resolve) => resolve())
+    return new Promise((resolve) => resolve());
   }
 }
 ```
@@ -803,7 +894,7 @@ class Conditions {
      * and for <mini-island client:media="(max-width: 400px)" />
      * result should be { media: "(max-width: 400px)" }
      */
-    let result = {}
+    let result = {};
 
     /**
      * Loop over all keys of the static map,
@@ -820,11 +911,11 @@ class Conditions {
          * save the condition (key) - attribute (value)
          * to the result object
          */
-        result[condition] = node.getAttribute(`client:${condition}`)
+        result[condition] = node.getAttribute(`client:${condition}`);
       }
     }
     /** return the result */
-    return result
+    return result;
   }
 }
 ```
@@ -841,13 +932,13 @@ class Conditions {
      * Using the "getConditions" static class method, retrieve
      * a conditions attributes map
      */
-    const conditionAttributesMap = Conditions.getConditions(node)
+    const conditionAttributesMap = Conditions.getConditions(node);
 
     /**
      * Check the length of the result keys to determine if there are
      * any loading conditions on the node
      */
-    return Object.keys(conditionAttributesMap).length > 0
+    return Object.keys(conditionAttributesMap).length > 0;
   }
 }
 ```
@@ -862,8 +953,8 @@ First, here’s the current state of the `hydrate` method.
 class MiniIsland extends HTMLElement {
   // ...
   hydrate() {
-    const relevantChildTemplates = this.getTemplates()
-    this.replaceTemplates(relevantChildTemplates)
+    const relevantChildTemplates = this.getTemplates();
+    this.replaceTemplates(relevantChildTemplates);
   }
   // ...
 }
@@ -881,14 +972,14 @@ class MiniIsland extends HTMLElement {
      * conditions will hold an array of potential
      * promises to be resolved before hydration
      */
-    const conditions = []
+    const conditions = [];
 
     /**
      * Get the condition - attribute value map
      * NB: the argument passed to
      * `Conditions.getConditions` is the island node
      */
-    let conditionAttributesMap = Conditions.getConditions(this)
+    let conditionAttributesMap = Conditions.getConditions(this);
 
     /**
      * Loop over the conditionAttributesMap variable
@@ -898,7 +989,7 @@ class MiniIsland extends HTMLElement {
        * Grab the condition async function from the static map
        * Remember that the function that returns a promise when invoked
        */
-      const conditionFn = Conditions.map[condition]
+      const conditionFn = Conditions.map[condition];
 
       /**
        * Check if the condition function exists
@@ -917,29 +1008,29 @@ class MiniIsland extends HTMLElement {
         const conditionPromise = conditionFn(
           conditionAttributesMap[condition],
           this
-        )
+        );
 
         /**
          * append the promise to the conditions array
          */
 
-        conditions.push(conditionPromise)
+        conditions.push(conditionPromise);
       }
 
       /**
        * Await all promise conditions to be
        * resolved before replacing the template nodes
        */
-      await Promise.all(conditions)
+      await Promise.all(conditions);
       /**
        * Retrieve the relevant <template> child elements of the island
        */
-      const relevantChildTemplates = this.getTemplates()
+      const relevantChildTemplates = this.getTemplates();
       /**
        * Grab the DOM subtree in the template
        * and replace the template with live content
        */
-      this.replaceTemplates(relevantChildTemplates)
+      this.replaceTemplates(relevantChildTemplates);
     }
   }
 }
@@ -976,7 +1067,7 @@ class Conditions {
      * go ahead and exit immediately.
      */
     if (!("IntersectionObserver" in window)) {
-      return
+      return;
     }
 
     /**
@@ -985,7 +1076,7 @@ class Conditions {
      */
     return new Promise((resolve) => {
       let observer = new IntersectionObserver((entries) => {
-        let [entry] = entries
+        let [entry] = entries;
 
         /**
          * is it visible?
@@ -994,19 +1085,19 @@ class Conditions {
           /**
            * remove observer
            */
-          observer.unobserve(entry.target)
+          observer.unobserve(entry.target);
           /**
            * resolve promise
            */
-          resolve()
+          resolve();
         }
-      })
+      });
 
       /**
        * set up the observer on the "el" argument
        */
-      observer.observe(el)
-    })
+      observer.observe(el);
+    });
   }
 }
 ```
@@ -1071,18 +1162,18 @@ class Conditions {
             /**
              * resolve this promise once the "load" event is fired.
              */
-            resolve()
+            resolve();
           },
           /**
            * Remove the listener after the first
            * invocation of the "load" event.
            */
           { once: true }
-        )
+        );
       } else {
-        resolve()
+        resolve();
       }
-    })
+    });
 
     /**
      * The window.requestIdleCallback() method queues a
@@ -1101,22 +1192,22 @@ class Conditions {
            * pass the promise resolve function
            * as the operation to be queued
            */
-          resolve()
-        })
+          resolve();
+        });
       } else {
         /**
          * resolve the promise immediately
          * if requestIdleCallback isn't supported
          */
-        resolve()
+        resolve();
       }
-    })
+    });
 
     /**
      * waitForIdle will wait for both
      * promises to be resolved, i.e., onIdle and onLoad
      */
-    return Promise.all([onIdle, onLoad])
+    return Promise.all([onIdle, onLoad]);
   }
 }
 ```
@@ -1141,7 +1232,7 @@ Now, go to the `initial.html` demo file and update the file as shown below:
 
       <template data-island>
         <script type="module">
-          console.warn("THIS IS A WARNING FROM AN ISLAND")
+          console.warn("THIS IS A WARNING FROM AN ISLAND");
         </script>
       </template>
     </mini-island>
@@ -1155,7 +1246,11 @@ Note that we’ve introduced a large `34MB` image from [Effigis](https://effigis
 
 The large image will keep the browser busy for some time. Before testing this in the browser, I suggest disabling the browser cache via developer tools.
 
-![The disable cache property in Firefox.](/images/ch3/CleanShot%202023-05-15%20at%2011.43.31.png)
+<figure>
+    <img src="images/ch3/CleanShot%202023-05-15%20at%2011.43.31.png" width="70%" alt="The disable cache property in Firefox." align="center">
+    <figcaption><em>The disable cache property in Firefox.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Open the page in the browser and notice how the script is not invoked until the browser has finished loading the large image and is in an idle state.
 
@@ -1194,13 +1289,13 @@ class Conditions {
      */
     let queryList = {
       matches: true,
-    }
+    };
 
     if (query && "matchMedia" in window) {
       /** 
        Override our stub with the actual query list
      */
-      queryList = window.matchMedia(query)
+      queryList = window.matchMedia(query);
     }
 
     /**
@@ -1209,7 +1304,7 @@ class Conditions {
      * e.g., truthy if matchMedia isn't in the window object
      */
     if (queryList.matches) {
-      return
+      return;
     }
 
     return new Promise((resolve) => {
@@ -1219,10 +1314,10 @@ class Conditions {
        */
       queryList.addListener((e) => {
         if (e.matches) {
-          resolve()
+          resolve();
         }
-      })
-    })
+      });
+    });
   }
 }
 ```
@@ -1241,7 +1336,7 @@ With this in place, we may update the `initial.html` demo file to the following:
 
       <template data-island>
         <script type="module">
-          console.warn("THIS IS A WARNING FROM AN ISLAND")
+          console.warn("THIS IS A WARNING FROM AN ISLAND");
         </script>
       </template>
     </mini-island>
@@ -1277,7 +1372,7 @@ Let’s go ahead and build a counter application leveraging Vue and `<mini-islan
     <title>Vue mini-island demo</title>
 
     <script type="module">
-      import "../mini-island.js"
+      import "../mini-island.js";
     </script>
   </head>
   <body>
@@ -1311,11 +1406,11 @@ Let’s go ahead and build a counter application leveraging Vue and `<mini-islan
 
       <template data-island>
         <script type="module">
-          import { createApp } from "https://unpkg.com/vue@3.2.36/dist/vue.esm-browser.prod.js"
+          import { createApp } from "https://unpkg.com/vue@3.2.36/dist/vue.esm-browser.prod.js";
 
           createApp({
             data: () => ({ count: 0 }),
-          }).mount("#vue-app")
+          }).mount("#vue-app");
         </script>
       </template>
     </mini-island>
@@ -1326,7 +1421,6 @@ Let’s go ahead and build a counter application leveraging Vue and `<mini-islan
 It’s okay if you do not understand the Vue code snippets. What’s important is the following:
 
 - The HTML markup is rendered as soon as the HTML page is loaded and parsed.
-
 - This includes the static counter markup within `mini-island`, i.e.,
 
   ```html
@@ -1347,21 +1441,18 @@ It’s okay if you do not understand the Vue code snippets. What’s important i
   ```
 
 - However, the counter is not hydrated at this point. So, clicking the counter will not increase the count. This is because Vue hasn’t been loaded, and the counter button is not yet hydrated.
-
 - Consider the loading condition set on the island, i.e., `client:media="(max-width: 400px)"`.
-
 - Now, resize your browser (use the developer tools) to a width less than `400px` to hydrate the island.
-
 - This will import Vue and hydrate the counter. Here’s the code responsible for within the island `template`:
 
   ```html
   <template data-island>
     <script type="module">
-      import { createApp } from "https://unpkg.com/vue@3.2.36/dist/vue.esm-browser.prod.js"
+      import { createApp } from "https://unpkg.com/vue@3.2.36/dist/vue.esm-browser.prod.js";
 
       createApp({
         data: () => ({ count: 0 }),
-      }).mount("#vue-app")
+      }).mount("#vue-app");
     </script>
   </template>
   ```
@@ -1388,7 +1479,7 @@ Let’s go ahead and create a similar demo using `petite-vue` as shown below:
     <title>Vue mini-island demo</title>
 
     <script type="module">
-      import "../mini-island.js"
+      import "../mini-island.js";
     </script>
   </head>
   <body>
@@ -1422,9 +1513,9 @@ Let’s go ahead and create a similar demo using `petite-vue` as shown below:
 
       <template data-island>
         <script type="module">
-          import { createApp } from "https://unpkg.com/petite-vue@0.4.1/dist/petite-vue.es.js"
+          import { createApp } from "https://unpkg.com/petite-vue@0.4.1/dist/petite-vue.es.js";
 
-          createApp().mount("#vue-app")
+          createApp().mount("#vue-app");
         </script>
       </template>
     </mini-island>
@@ -1436,7 +1527,6 @@ Apart from a few changes, the code above is identical to the standard Vue API.
 Here’s how this works:
 
 - The HTML markup is rendered as soon as the HTML page is loaded and parsed.
-
 - This includes the static counter markup within `mini-island`, i.e.,
 
   ```html
@@ -1457,21 +1547,17 @@ Here’s how this works:
   ```
 
 - NB: the significant difference in the code above is the introduction of the `v-scope` attribute to hold our count data variable.
-
 - The counter, however, is not hydrated at this point. So, clicking the counter will not increase the count. This is because petite-vue hasn’t been loaded, and the counter button is not yet hydrated.
-
 - Consider the loading condition set on the island, i.e., `client:media="(max-width: 400px)"`
-
 - Now, resize your browser (take advantage of the developer tools) to a width less than `400px` to hydrate the island.
-
 - This will import Petite-vue and hydrate the counter. Here’s the code responsible for within the island `template`:
 
   ```html
   <template data-island>
     <script type="module">
-      import { createApp } from "https://unpkg.com/petite-vue@0.4.1/dist/petite-vue.es.js"
+      import { createApp } from "https://unpkg.com/petite-vue@0.4.1/dist/petite-vue.es.js";
 
-      createApp().mount("#vue-app")
+      createApp().mount("#vue-app");
     </script>
   </template>
   ```
@@ -1496,7 +1582,7 @@ Let’s go ahead and create a similar demo using Preact, as shown below:
     <title>Preact mini-island demo</title>
 
     <script type="module">
-      import "../mini-island.js"
+      import "../mini-island.js";
     </script>
   </head>
 
@@ -1516,17 +1602,18 @@ Let’s go ahead and create a similar demo using Preact, as shown below:
 
       <template data-island>
         <script type="module">
-          import { h, Component, render } from "https://esm.sh/preact"
-          import { useState } from "https://esm.sh/preact/hooks"
-          import htm from "https://esm.sh/htm"
+          import { h, Component, render } from "https://esm.sh/preact";
+          import { useState } from "https://esm.sh/preact/hooks";
+          import htm from "https://esm.sh/htm";
 
           // Initialize htm with Preact
-          const html = htm.bind(h)
+          const html = htm.bind(h);
 
           function App(props) {
-            const [count, setCount] = useState(0)
+            const [count, setCount] = useState(0);
 
-            const increment = () => setCount((currentCount) => currentCount + 1)
+            const increment = () =>
+              setCount((currentCount) => currentCount + 1);
 
             return html`<div>
               <button onClick=${() => increment()}>
@@ -1541,10 +1628,10 @@ Let’s go ahead and create a similar demo using Preact, as shown below:
                   </div>
                 </div>
               </button>
-            </div>`
+            </div>`;
           }
 
-          render(html`<${App} />`, document.getElementById("preact-app"))
+          render(html`<${App} />`, document.getElementById("preact-app"));
         </script>
       </template>
     </mini-island>
@@ -1585,10 +1672,10 @@ Now, we will take this knowledge into exploring component islands in Astro, and 
 [^3]: The TTI measure the duration it takes for a webpage to achieve complete interactivity.
 [^4]: When a browser displays the initial content from the DOM, it is known as the First Contentful Paint (FCP). This is the first indication to the user that the page is loading.
 [^5]: Time to first byte (TTFB): the time from when the user navigates the page to when the first bit of content comes in.
-[^6]: Web components on MDN: <https://developer.mozilla.org/en-US/docs/Web/API/Web_components>
+[^6]: Web components on MDN: [https://developer.mozilla.org/en-US/docs/Web/API/Web_components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)
 [^7]: The whole page is loaded when dependent resources such as stylesheets, scripts, iframes, and images have been fetched.
-[^8]: Leverage `window.requestIdleCallback` for idle state: <https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback>
-[^9]: querySelectorAll on MDN: <https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll>
-[^10]: The IntersectionObserver API on MDN <https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API>
+[^8]: Leverage window.requestIdleCallback for idle state: [https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)
+[^9]: querySelectorAll on MDN: [https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
+[^10]: The IntersectionObserver API on MDN [https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
 [^11]: [https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState](https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState "readyState")
 [^12]: [https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback "requestIdleCallback")

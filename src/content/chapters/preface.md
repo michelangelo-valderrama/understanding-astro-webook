@@ -85,19 +85,31 @@ The mix of these different chapter types will keep you engaged and make your lea
 
 ### Concept chapters
 
-![Learn new concepts.](/images/concept@2x.png)
+<figure>
+    <img src="images/concept@2x.png" width="70%" alt="Learn new concepts." align="center">
+    <figcaption><em>Learn new concepts.</em></figcaption>
+    <br><br><br>
+</figure>
 
 In concept chapters, we’ll learn the core concepts of Astro. These chapters will include code examples and throwaway applications. We will build no real-world projects in these chapters.
 
 ### Project chapters
 
-![Build real world projects.](/images/build.png)
+<figure>
+    <img src="images/build.png" width="70%" alt="Build real world projects." align="center">
+    <figcaption><em>Build real world projects.</em></figcaption>
+    <br><br><br>
+</figure>
 
 In project chapters, we’ll apply previous concepts we’ve learned towards building a near real-world project.
 
 ### Concept and project chapters
 
-![Building and learning new concepts.](/images/concept%20and%20build.png)
+<figure>
+    <img src="images/concept%20and%20build.png" width="70%" alt="Building and learning new concepts." align="center">
+    <figcaption><em>Building and learning new concepts.</em></figcaption>
+    <br><br><br>
+</figure>
 
 A project and concept chapter focuses on building a real-world application while introducing new concepts along the way.
 
@@ -173,7 +185,7 @@ When text is written in a monospaced font, it typically represents code samples.
 
 Below’s an example:
 
-```astro
+```js
 ---
 const { author } = Astro.props;
 const book = "Understanding Astro.js";
@@ -182,9 +194,10 @@ const book = "Understanding Astro.js";
 <h1 data-name={book}>A new book</h1>
 ```
 
-To display the source of the code, a _tab_ will be added above the code block with the absolute path, as shown below:
+Sometimes, to show the source of the code, a comment to the file path is added to the top of the code block, as shown below:
 
-```astro title="src/pages/index.astro"
+```js
+{/** 📂 src/pages/index.astro **/}
 ---
 const { author } = Astro.props;
 const book = "Understanding Astro.js";
@@ -193,10 +206,10 @@ const book = "Understanding Astro.js";
 <h1 data-name={book}>A new book</h1>
 ```
 
-In code fragment that refer to changes in the code, the changes will be shown in green if they are an addition, or in red if they have been removed, e. g.:
+With code fragments referring to changes in a nearby application code, you’ll find an ellipsis to signify no code changes in the previous code, e.g.:
 
-```astro title="src/pages/index.astro" del={1} ins={2}
-<h1 data-name={book}>A new book</h1>
+```js
+// ...
 <h1 data-name={book}>A changed book name</h1>
 ```
 
@@ -204,7 +217,7 @@ The code above suggests the previous code block remains the same, except for the
 
 Finally, the book uses the `npm` package manager. For example, the code to install a package will be described as shown below:
 
-```bash
+```js
 npm install some-package
 ```
 

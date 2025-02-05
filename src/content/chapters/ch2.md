@@ -22,7 +22,13 @@ Consider the Pareto principle:
 
 > The Pareto principle, also known as the 80/20 rule, states that 20% of the input can significantly impact 80% of the outcome in a particular situation or system.
 
-![The pareto principle illustrated](/images/ch2/pareto.png)
+<figure>
+    <img src="images/ch2/pareto.png" width="50%" alt="The pareto principle illustrated" align="center">
+    <figcaption>
+      <em>The pareto principle illustrated</em>
+    </figcaption>
+    <br><br><br>
+</figure>
 
 Now, pay attention because this is where things get spicy. When it comes to working with Astro, I've got a sneaky suspicion that the Astro components are that magic 20% that yields a whopping 80% productivity.
 
@@ -36,7 +42,11 @@ At the time of writing, consider the definition of Astro components from the off
 
 The first part of the sentence is clear as daylight: _Astro components are the basic building blocks of any Astro project._
 
-![Tetris blocks](/images/ch2/building-blocks.png)
+<figure>
+    <img src="images/ch2/building-blocks.png" width="70%" alt="Tetris blocks" align="center">
+    <figcaption><em>Like a fun game of Tetris, Astro components are how we build Astro applications.</em></figcaption>
+    <br><br><br>
+</figure>
 
 The second part of the sentence leaves room for interpretation or ambiguity: _they are HTML-only templating components with no client-side runtime._
 
@@ -58,7 +68,11 @@ npx create-react-app test-react-app
 
 This utilises the [create-react-app](https://create-react-app.dev/) utility.
 
-![Creating a new React project from the terminal.](/images/ch2/CleanShot%202023-04-28%20at%2012.28.51@2x.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-04-28%20at%2012.28.51@2x.png" width="70%" alt="Creating a new React project from the terminal." align="center">
+    <figcaption><em>Creating a new React project from the terminal.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This will create a new React app in the `test-react-app` directory.
 
@@ -68,11 +82,19 @@ Now change the current directory, install dependencies and start up the React ap
 cd test-react-app && npm install && npm run start
 ```
 
-![Starting the test React application.](/images/ch2/CleanShot%202023-04-28%20at%2012.30.17@2x.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-04-28%20at%2012.30.17@2x.png" width="70%" alt="Starting the test React application." align="center">
+    <figcaption><em>Starting the test React application.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This will start a trivial React application on `http://localhost:3000/` or any other available local port.
 
-![The React test application running in the browser.](/images/ch2/CleanShot%202023-04-28%20at%2012.31.38@2x.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-04-28%20at%2012.31.38@2x.png" width="70%" alt="The React test application running in the browser." align="center">
+    <figcaption><em>The React test application running in the browser.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This is a contrived React application. It renders text paragraphs, and the React logo, and the application has no significant UI state changes or complex logic.
 
@@ -80,11 +102,15 @@ Now, let’s bundle this application for production.
 
 Stop the local running server and build the application with the following command:
 
-```bash
+```js
 npm run build
 ```
 
-![Building the test React application for production.](/images/ch2/CleanShot%202023-04-28%20at%2012.34.26@2x.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-04-28%20at%2012.34.26@2x.png" width="70%" alt="Building the test React application for production." align="center">
+    <figcaption><em>Building the test React application for production.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Let’s take a look at the build output.
 
@@ -92,7 +118,9 @@ Open the `test-react-app` directory in your code editor of choice and observe th
 
 Unwrap the minified file:
 
-```html title="build/index.html"
+```html
+<!-- 📂 build/index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -119,14 +147,15 @@ Unwrap the minified file:
 
 This is a standard HTML file. However, what’s of note in its content is the following:
 
-```html title="build/index.html"
-<!-- ... -->
+```html
+<!-- 📂 build/index.html -->
+...
 <script defer="defer" src="/static/js/main.3b5961bb.js"></script>
 <link href="/static/css/main.073c9b0a.css" rel="stylesheet" />
-<!-- ... -->
+...
 
 <div id="root"></div>
-<!-- ... -->
+...
 ```
 
 The document renders a `<div id="root"></div>` node, and the bundled `JS` and `CSS` assets are linked in the `<head>`.
@@ -141,7 +170,11 @@ Well, let’s not panic. Instead, let’s explore the Javascript referenced here
 
 If we unwrap the minified file, we should have a file that’s a little short of `9500` lines of Javascript!
 
-![Unwrapping the minified Javascript asset for the trivial React application.](/images/ch2/CleanShot%202023-04-28%20at%2012.46.05@2x.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-04-28%20at%2012.46.05@2x.png" width="70%" alt="Unwrapping the minified Javascript asset for the trivial React application." align="center">
+    <figcaption><em>Unwrapping the minified Javascript asset for the trivial React application.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Wait … what?! For such a trivial application?! 😱
 
@@ -151,10 +184,11 @@ I considered adding a funny meme here, but let’s not stray from the point’s 
 
 Explaining what goes on within these `9000+` lines of Javascript is beyond the scope of this book. However, what we have in the file is an immediately invoked function (IIFE) with its entire content executed.
 
-```js title="build/static/js/main...js"
+```js
+// 📂 build/static/js/main...js
 !(function () {
   // ... lines of code go here
-})()
+})();
 ```
 
 We certainly didn’t write the `9000+` lines of code in the `main` bundle. No! Most of that is the React runtime needed to make our React application work in the way React’s built: state, props, hooks, virtual DOM, and all the lovely abstractions React provides.
@@ -169,27 +203,35 @@ To do this, I built the same React starter application using Astro.
 
 Use the following command to create the project:
 
-```bash
+```js
 npm create astro@latest -- --template ohansemmanuel/astrojs-ditch-the-runtime-react --yes
 ```
 
 We use the same `create astro` command to create a new project. The difference here is the `--template` argument that points to `ohansemmanuel/astrojs-ditch-the-runtime-react` and the `--yes` argument to skip all prompts and accept the defaults.
 
-![Creating a new Astro project with a template.](/images/ch2/CleanShot%202023-05-09%20at%2007.40.44.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-05-09%20at%2007.40.44.png" width="70%" alt="Creating a new Astro project with a template." align="center">
+    <figcaption><em>Creating a new Astro project with a template.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Choose the project directory, then start the application via:
 
-```bash
+```js
 npm run start
 ```
 
-![The new Astro project running on localhost.](/images/ch2/CleanShot%202023-01-14%20at%2009.31.23@2x.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-01-14%20at%2009.31.23@2x.png" width="70%" alt="The new Astro project running on localhost." align="center">
+    <figcaption><em>The new Astro project running on localhost.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Note that the application is similar to the starter React application we explored earlier.
 
 Now let’s go ahead and build this application for production with the following command:
 
-```bash
+```js
 npm run build
 ```
 
@@ -197,7 +239,11 @@ This will build the Astro application and generate static in the `dist/` directo
 
 Explore the build output and find the main `HTML`, `CSS` and Image files in `dist/assets`.
 
-![The Astro project build output.](/images/ch2/CleanShot%202023-04-28%20at%2013.04.29@2x.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-04-28%20at%2013.04.29@2x.png" width="70%" alt="The Astro project build output." align="center">
+    <figcaption><em>The Astro project build output.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Look closely, and you’ll realise there’s no Javascript build output!! Instead, we have the `index.html` file, associating `CSS` and image assets.
 
@@ -215,7 +261,11 @@ Before defining Astro components, let’s consider a more generic question. In s
 
 My straightforward answer would be: a website is a set of related `HTML` pages under a single domain.
 
-![A multi page website.](/images/ch2/2.png)
+<figure>
+    <img src="images/ch2/2.png" width="70%" alt="A multi page website." align="center">
+    <figcaption><em>A multi page website.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Now, with a single-page application, my definition would need to be updated. This is because a single-page website now consists of a single `HTML` page with routing handled via client-side Javascript.
 
@@ -223,7 +273,7 @@ Regardless of the type of website, there’s a common denominator: the browser r
 
 So, we will start our discussion by exploring the basic `HTML` page shown below:
 
-```html
+```js
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -251,7 +301,11 @@ We won’t win any design awards with this page, but it suffices for our learnin
 
 In the `HTML` above, notice how we’ve produced a paragraph with the text `Hello world`, styled it with some `CSS` and logged a message to the console using `Javascript`.
 
-![The basic HTML page.](/images/ch2/CleanShot%202023-02-02%20at%2006.19.40.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-02-02%20at%2006.19.40.png" width="70%" alt="The basic HTML page." align="center">
+    <figcaption><em>The basic HTML page.</em></figcaption>
+    <br><br><br>
+</figure>
 
 In this seemingly simple file, we’ve combined `style`, `script` and `markup` — the three core components of any web application.
 
@@ -272,7 +326,7 @@ cd hello-astro
 
 Run the following command to start the new project:
 
-```bash
+```js
 npm init --yes
 ```
 
@@ -280,7 +334,7 @@ The `--yes` flag will use all the defaults, skipping the prompts.
 
 Now install `astro`:
 
-```bash
+```js
 npm install astro
 ```
 
@@ -290,11 +344,16 @@ This file must be in the `src/pages` directory as `pages` are the entry point to
 
 Now we should have a project structure similar to the following:
 
-![The hello-astro project structure.](/images/ch2/CleanShot%202023-02-02%20at%2007.30.52.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-02-02%20at%2007.30.52.png" width="70%" alt="The hello-astro project structure." align="center">
+    <figcaption><em>The hello-astro project structure.</em></figcaption>
+    <br><br><br>
+</figure>
 
 At this point, go ahead and paste the starting `HTML` snippet into the `index.astro` component as follows:
 
-```html title="src/pages/index.astro"
+```html
+<!-- 📂 src/pages/index.astro -->
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -309,7 +368,7 @@ At this point, go ahead and paste the starting `HTML` snippet into the `index.as
     </style>
 
     <script>
-      console.log("Hello world")
+      console.log("Hello world");
     </script>
   </head>
   <body>
@@ -320,11 +379,15 @@ At this point, go ahead and paste the starting `HTML` snippet into the `index.as
 
 Then start up the application with the command:
 
-```bash
+```html
 npx astro dev
 ```
 
-![The hello astro application.](/images/ch2/CleanShot%202023-02-04%20at%2007.09.03.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-02-04%20at%2007.09.03.png" width="70%" alt="The hello astro application." align="center">
+    <figcaption><em>The hello astro application.</em></figcaption>
+    <br><br><br>
+</figure>
 
 We’ve got `Hello World` in red! `index.astro` successfully renders the `HTML` content to our web application’s `index` page.
 
@@ -346,11 +409,15 @@ However, composability is vital to structuring complex user interfaces.
 
 Astro components are composable, which makes them highly flexible and reusable.
 
-![The parent child component relationship.](/images/ch2/c.png)
+<figure>
+    <img src="images/ch2/c.png" width="70%" alt="The parent child component relationship." align="center">
+    <figcaption><em>The parent child component relationship.</em></figcaption>
+    <br><br><br>
+</figure>
 
 The following pseudocode would be a valid representation of parent-child components:
 
-```astro
+```html
 <AstroComponent>
   <!-- render children components in here -->
   <ChildAstroComponent />
@@ -365,7 +432,11 @@ Astro builds upon the same mental model.
 
 So, essentially, an Astro website comprises pages that eventually get compiled into `HTML`.
 
-![A website made of Astro pages.](/images/ch2/c-1.png)
+<figure>
+    <img src="images/ch2/c-1.png" width="70%" alt="A website made of Astro pages." align="center">
+    <figcaption><em>A website made of Astro pages.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Since Astro pages are just Astro components found in the `src/pages` directory of our Astro project, they can also compose other Astro components.
 
@@ -373,7 +444,9 @@ Let’s give this a shot.
 
 Consider the starting `index.astro` page below:
 
-```astro title="src/pages/index.astro"
+```html
+<!-- 📂src/pages/index.astro -->
+
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -388,7 +461,7 @@ Consider the starting `index.astro` page below:
     </style>
 
     <script>
-      console.log("Hello world")
+      console.log("Hello world");
     </script>
   </head>
   <body>
@@ -399,11 +472,16 @@ Consider the starting `index.astro` page below:
 
 Conceptually, we could compose the `index.astro` component from two smaller components: `Head` and `Body`.
 
-![Composing the index page from the Head and Body components.](/images/ch2/c-2.png)
+<figure>
+    <img src="images/ch2/c-2.png" width="70%" alt="Composing the index page from the Head and Body components." align="center">
+    <figcaption><em>Composing the index page from the Head and Body components.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Here’s how:
 
-```astro title="src/pages/index.astro"
+```js
+<!-- 📂 src/pages/index.astro -->
 ---
 import Body from "../components/Body.astro";
 import Head from "../components/Head.astro";
@@ -414,6 +492,7 @@ import Head from "../components/Head.astro";
   <Head />
   <Body />
 </html>
+
 ```
 
 - The child components are imported within a code fence `---`
@@ -421,13 +500,15 @@ import Head from "../components/Head.astro";
 
 Where `Body` and `Head` are as follows:
 
-```astro title="src/components/Body.astro"
+```js
+// 📂 src/components/Body.astro
 <body>
   <p>Hello World</p>
 </body>
 ```
 
-```astro title="src/components/Head.astro"
+```js
+// 📂 src/components/Head.astro
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
@@ -451,9 +532,14 @@ The level of composition we build our pages from is entirely up to us. For examp
 
 Let’s consider introducing isolated components for the `meta`, `title`, `style` and script elements.
 
-![Composing the Head component from other smaller components.](/images/ch2/c-3.png)
+<figure>
+    <img src="images/ch2/c-3.png" width="70%" alt="Composing the Head component from other smaller components." align="center">
+    <figcaption><em>Composing the Head component from other smaller components.</em></figcaption>
+    <br><br><br>
+</figure>
 
-```astro title="src/components/Head.astro"
+```js
+// 📂 src/components/Head.astro
 ---
 import Meta from "./Meta.astro";
 import Title from "./Title.astro";
@@ -481,13 +567,21 @@ For example, we had a red paragraph when we started with all the `HTML` content 
 
 Now we’ve lost the paragraph style after our composition.
 
-![The red paragraph style lost after the composition.](/images/ch2/CleanShot%202023-02-04%20at%2013.04.36.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-02-04%20at%2013.04.36.png" width="70%" alt="The red paragraph style lost after the composition." align="center">
+    <figcaption><em>The red paragraph style lost after the composition.</em></figcaption>
+    <br><br><br>
+</figure>
 
 What’s gone wrong?
 
 To understand this, we must determine where the style seats in the component composition.
 
-![Styles in Astro components are local by default and do not leak over.](/images/ch2/c-4.png)
+<figure>
+    <img src="images/ch2/c-4.png" width="70%" alt="Styles in Astro components are local by default and do not leak over." align="center">
+    <figcaption><em>Styles in Astro components are local by default and do not leak over.</em></figcaption>
+    <br><br><br>
+</figure>
 
 We have the `style` defined in the `Head.astro` component and expect it to affect the `<p>` in the `Body.astro` component.
 
@@ -503,7 +597,8 @@ The `<html>` element represents the top-level element of an HTML document. It is
 
 Our current `index.astro` page composition looks like this:
 
-```astro title="src/components/index.astro"
+```js
+// 📂 src/components/index.astro
 ---
 import Body from "../components/Body.astro";
 import Head from "../components/Head.astro";
@@ -520,7 +615,8 @@ Every child component is housed in `Head` and `Body` and rendered within the roo
 
 However, what happens if we remove this element (and the associated `DOCTYPE` as seen below:
 
-```astro title="src/components/index.astro"
+```js
+// src/components/index.astro
 ---
 import Body from "../components/Body.astro";
 import Head from "../components/Head.astro";
@@ -540,7 +636,11 @@ The `HTML` page will be rendered with a reasonable default:
 </html>
 ```
 
-![The rendered page with a reasonable default.](/images/ch2/CleanShot%202023-01-17%20at%2006.40.58@2x.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-01-17%20at%2006.40.58@2x.png" width="70%" alt="The rendered page with a reasonable default." align="center">
+    <figcaption><em>The rendered page with a reasonable default.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Did you know that according to HTML standards, the use of `<html>` is optional? This means that even without it, the browser can still render the page with a suitable default. Browsers can even render invalid HTML pages! That being said, Astro’s default setting allows you to template even invalid HTML. So, be careful.
 
@@ -550,14 +650,18 @@ For accessibility reasons, include a `<html>` element. This is relevant to provi
 
 Our page’s `<script>` and `<style>` elements exist in the associated `Script` and `Style` components.
 
-![The Style and Script child components.](/images/ch2/c-5.png)
+<figure>
+    <img src="images/ch2/c-5.png" width="70%" alt="The Style and Script child components." align="center">
+    <figcaption><em>The Style and Script child components.</em></figcaption>
+    <br><br><br>
+</figure>
 
 These child components are also precisely rendered within the `Head` component, and ultimately, we have a markup with `<style>` and `<script>` in `<head>`.
 
 ```html
 <head>
-  <style> /* ... */ </style>
-  <script> /* ... */ </script>
+  <style> ... </style>
+  <script> ... </script>
 </head/>
 ```
 
@@ -567,7 +671,7 @@ Let’s attempt to break this rule.
 
 Change `index.astro` to have `Style` and `Script` as adjacent sibling components to `Head`:
 
-```astro
+```js
 ---
 import Body from "../components/Body.astro";
 import Head from "../components/Head.astro";
@@ -585,24 +689,32 @@ Instead of rendering `Style` and `Script` within the `<head>` of the document, w
 
 From the composition above, you may expect a render markup similar to the following:
 
-```astro
-<head> {/** ... **/} <head>
-<body> {/** ... **/} </body>
-<style> /* ... */ </style>
-<script> /* ... */ </script>
+```js
+<head> ... <head>
+<body> .... </body>
+<style> ... </style>
+<script> ... </script>
 ```
 
 However, inspect the rendered Astro page, and you’ll find the `style` and `script` elements still placed within the `<head>` of the document.
 
-![The hoisted script and style elements.](/images/ch2/CleanShot%202023-02-04%20at%2013.50.39.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-02-04%20at%2013.50.39.png" width="70%" alt="The hoisted script and style elements." align="center">
+    <figcaption><em>The hoisted script and style elements.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This is because in Astro, we can freely use the `<style>` and `<script>` elements within our components, and they’ll be hoisted to the `<head>` of the rendered document. This is regardless of the component composition.
 
-![<style> and <script> are hoisted to the <head> of our page.](/images/ch2/c-6.png)
+<figure>
+    <img src="images/ch2/c-6.png" width="70%" alt="<style> and <script> are hoisted to the <head> of our page." align="center">
+    <figcaption><em>style and script are hoisted to the head of our page.</em></figcaption>
+    <br><br><br>
+</figure>
 
 As we’ll learn later, there’s an exception to this behaviour with inline scripts.
 
-#### 4. The `<head>` element and its children will not be hoisted
+#### 4. The \<head\> element and its children will not be hoisted
 
 Seeing how `<style>` and `<script>` elements are hoisted may tempt you to use a `<head>` element wrongly in your component composition.
 
@@ -610,7 +722,8 @@ However, note that the `<head>` element and its children will not be hoisted, i.
 
 Let’s add a new adjacent `<head>` element:
 
-```astro title="src/components/index.astro"
+```js
+// 📂 src/components/index.astro
 ---
 import Body from "../components/Body.astro";
 import Head from "../components/Head.astro";
@@ -629,7 +742,11 @@ import Script from "../components/Script.astro";
 
 Adding a new `<head>` element to the bottom of the page is a silly composition. However, browsers are forgiving of bad `HTML` markup, so in this case, the extra `<head>` element is ignored, and its content is rendered within the `<body>` element of the page.
 
-![The browser trying to make sense of the wrong composition.](/images/ch2/CleanShot%202023-01-17%20at%2007.50.01@2x.png)
+<figure>
+    <img src="images/ch2/CleanShot%202023-01-17%20at%2007.50.01@2x.png" width="70%" alt="The browser trying to make sense of the wrong composition." align="center">
+    <figcaption><em>The browser trying to make sense of the wrong composition.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Always have the `<head>` page elements in a layout component to prevent unwanted behaviours. This is a recommended best practice.
 
@@ -641,7 +758,7 @@ Astro isn’t different.
 
 Astro provides powerful templating by splitting a component into two main parts: the component script and the component template sections.
 
-![The make-up of an Astro component](/images/ch2/c-7.png)
+![The make-up of an Astro component](images/ch2/c-7.png width=230)
 
 It is important to note that technically, an Astro component is still valid with one or none of the sections present, i.e., an empty (yet valid) Astro component will have none of these sections.
 
@@ -649,15 +766,19 @@ It is important to note that technically, an Astro component is still valid with
 
 The component script section is identified with a code fence `(---)`.
 
-```astro
+```js
 ---
-// This is the component script section
+  // This is the component script section
 ---
 ```
 
 Typically, the component script section is where we write the Javascript code we need to reference within our template.
 
-![Leverage values from the component script section in the component template.](/images/ch2/c-8.png)
+<figure>
+    <img src="images/ch2/c-8.png" width="70%" alt="Leverage values from the component script section in the component template." align="center">
+    <figcaption><em>Leverage values from the component script section in the component template.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Remember that when our Astro component is eventually compiled, the Javascript expressions in the script section are evaluated at build time. Therefore, the Javascript values are used to generate the eventual `HTML` pages once.
 
@@ -671,7 +792,7 @@ Let’s take a look at these.
 
 We may need to create variables for various reasons, e.g., to keep our markup DRY (don’t repeat yourself). In addition, the component script section supports standard Javascript and Typescript code. Hence, creating or referencing variables works as we would expect.
 
-```astro
+```js
 ---
 // Javascript
 const newVariable = "This is a new variable"
@@ -683,7 +804,7 @@ newVar = 9;
 
 If the IDE is setup for Typescript, we’ll get a warning within the editor when we try the reassign the `newVar` variable to a number:
 
-```bash
+```js
 Type 'number' is not assignable to type 'string'.
 ```
 
@@ -691,13 +812,14 @@ Typescript is supported in the component script section by default.
 
 Components are also capable of receiving props. Props are HTML-like attributes passed when we render a component; for example, here is a name prop passed to a `MyAstroComponent` component:
 
-```astro
+```js
 <MyAstroComponent name="Emmanuel" />
 ```
 
 Within the component script section, props passed to a component may be referenced on the `Astro.props` global as shown below:
 
-```astro title="MyAstroComponent.astro"
+```js
+<!-- 📂 MyAstroComponent.astro -->
 ---
 const { name } = Astro.props
 ---
@@ -707,7 +829,7 @@ Since Typescript is valid within the component script section, we can also type 
 
 To provide prop types, go ahead and define a `Props` interface or type alias in the component script section:
 
-```astro
+```js
 ---
 // ✅ This is valid
 type Props = {
@@ -716,7 +838,7 @@ type Props = {
 ---
 ```
 
-```astro
+```js
 ---
 // ✅ This is equally valid
 interface Props {
@@ -748,67 +870,69 @@ Out of the box, Astro supports a wide range of file types, namely:
 
 That’s a lot of file types supported natively! Here are some examples of import statements:
 
-```ts
+```js
 // Astro
-import Book from "./book.astro"
+import Book from "./book.astro";
 
 // Javascript
-import { getUnderstandingAstro } from "./book.js"
+import { getUnderstandingAstro } from "./book.js";
 
 // Typescript
-import { getUser } from "./book"
-import type { UserType } from "./book"
+import { getUser } from "./book";
+import type { UserType } from "./book";
 
 // NPM package
-import { v4 as uuidv4 } from "uuid"
+import { v4 as uuidv4 } from "uuid";
 
 // load JSON via default export
-import json from "./data.json"
+import json from "./data.json";
 
 // load and inject style onto the page
-import "./style.css"
+import "./style.css";
 
 // css modules
-import styles from "./style.module.css"
+import styles from "./style.module.css";
 
 // other assets
-import imgReference from "./image.png"
-import svgReference from "./image.svg"
-import txtReference from "./words.txt"
+import imgReference from "./image.png";
+import svgReference from "./image.svg";
+import txtReference from "./words.txt";
 ```
 
 The important point to note here is apart from Typescript files and NPM packages; we typically need to add the file ending to the Astro import statement, e.g.:
 
-```ts
+```js
 // ✅ do this
-import Book from "./book.astro"
+import Book from "./book.astro";
 
 // ❌ not this
-import Book from "./book"
+import Book from "./book";
 ```
 
 Astro also supports importing components from other UI frameworks such as React, Vue, Svelte etc. An example import for a React component would look like this:
 
-```ts
-import { Header } from "./Header.jsx"
+```js
+import { Header } from "./Header.jsx";
 // if file ending is .tsx
-import { Header } from "./Header"
+import { Header } from "./Header";
 ```
 
 We will explore these in a later chapter.
 
 It’s equally important to note that we can import any asset from the `public` directory. However, note that assets in the `public` directory will remain untouched by Astro, i.e., they will be copied as is into the final build without processing, e.g., minification.
 
-```ts
+```js
 // image in public/img-public.png
-import imageRef from "/img-public.png"
+import imageRef from "/img-public.png";
 ```
 
 As a matter of best practices, favour placing images within the `src` directory so Astro can transform, optimise and bundle them where possible. The exception is images in markdown (`.md`) files.
 
 Images within `src` won’t work in markdown files, so use the `public` directory or a remote `src` URL as shown below:
 
-```md title="my-nice-blog.md"
+```md
+// my-nice-blog.md
+
 ![A wonderful photo of a cat](/photo-in-public-dir.png)
 ![Another cat photo](https://www.photos.com/this-is-a-cat.png)
 ```
@@ -817,15 +941,15 @@ Images within `src` won’t work in markdown files, so use the `public` director
 
 Astro components can utilise the global `fetch` function to establish HTTP requests to remote APIs from the component script section. The fetched data can subsequently be accessed within the component template.
 
-```astro
+```js
 ---
-// Random user generator
+{/** Random user generator **/}
 const URL = "https://random-data-api.com/api/users/random_user?size=1"
 const response = await fetch(URL)
 const data = await response.json()
 ---
 
-{/** Use data in the template **/}
+// Use data in the template
 <pre>{JSON.stringify(data, null, 2)}</pre>
 
 ```
@@ -840,7 +964,7 @@ Run the production build with `npm run build` and preview the production applica
 
 The variables created, imports made, and data fetched in the component script section exist primarily for one reason: to be consumed in the component template section the component[^3].
 
-![Consuming variables in the component template section](/images/ch2/d.png)
+![Consuming variables in the component template section](images/ch2/d.png width=300)
 
 If Astro components are eventually built to `HTML`, the template section defines the markup of the said `HTML` page. However, the component template section lets us do this dynamically, i.e., leveraging the power of Javascript expressions.
 
@@ -850,38 +974,37 @@ Let’s explore some of the actions we’re likely to perform within the compone
 
 To consume a variable, wrap the name of the variable in curly braces as shown below:
 
-```astro
+```js
 ---
 const book = "Understanding AstroJS";
 ---
 
-<h1>{book}</h1>
-{/** Outputs <h1>Understanding AstroJS</h1> **/}
+<h1>{book}</h1> // Outputs <h1>Understanding AstroJS</h1>
 ```
 
 ##### Create dynamic attributes
 
 Creating a dynamic attribute is similar to consuming a variable. Use the variable in curly braces to pass attributes to both HTML elements and components:
 
-```astro
+```js
 ---
 const { author } = Astro.props;
 const book = "Understanding AstroJS";
 ---
 
 <h1 data-name={book}>A new book</h1>
-{/** Outputs <h1 data-name="Understanding AstroJS">A new book</h1> **/}
+// Outputs <h1 data-name="Understanding AstroJS">A new book</h1>
 ```
 
 ##### Dynamic HTML
 
 Dynamic HTML is quite the lifesaver as we’ll occasionally not want to repeat ourselves. For example, consider how we may create dynamic lists as shown below:
 
-```astro
+```js
 ---
 const technologies = ['Javascript', 'Typescript', 'NodeJS']
 ---
-{/** Dynamically create a list of elements from technologies **/}
+// Dynamically create a list of elements from technologies
 <ul>
   {items.map((item) => <li>{item}</li>)}
 </ul>
@@ -889,15 +1012,15 @@ const technologies = ['Javascript', 'Typescript', 'NodeJS']
 
 Or we may find ourselves in need of conditional rendering. To do this, leverage logical operators and ternary expressions as shown below:
 
-```astro
+```js
 ---
 const showCallToAction = true;
 ---
 
-{/** This will render <button>Buy now</button> **/}
+// This will render <button>Buy now</button>
 {showCallToAction && <button>Buy now</button>}
 
-{/** Alternatively, represent this with a ternary to provide a fallback **/}
+// Alternatively, represent this with a ternary to provide a fallback
 {showCallToAction ?  <button>Buy now</button> : <p>Continue
  shopping</p>}
 ```
@@ -908,8 +1031,8 @@ This will render `<button>Buy now</button>` when `showCallToAction` is truthy an
 
 Less commonly used, dynamic tags can still be useful in certain situations, such as building polymorphic components. Depending on the consumer’s prop input, these components can render to various element nodes. An example is the `Text.astro` component that can render any element passed to it:
 
-```astro
-{/** usage **/}
+```js
+// usage
 <Text as="h1" />
 <Text as="div" />
 ```
@@ -918,7 +1041,8 @@ In both cases, we want to render the same component with different underlying HT
 
 We can handle this dynamically, as shown below:
 
-```astro title="Text.astro"
+```js
+<!-- 📂 Text.astro -->
 ---
 const { as: As = "h1" } = Astro.props;
 ---
@@ -928,11 +1052,11 @@ const { as: As = "h1" } = Astro.props;
 
 Within the component script section, we deconstruct the `as` prop and rename it to a capitalised variable `As`. This is important as the variable names for a dynamically rendered component must be capitalised, i.e.:
 
-```astro
-{/** ✅ Do this **/}
+```js
+// ✅ Do this
 <As>Text content</As>
 
-{/** ❌ not this **/}
+// ❌ not this
 <as>Text content</as>
 ```
 
@@ -942,11 +1066,16 @@ If we pass a lower cased variable, Astro will try to render the variable name as
 
 If you want to easily add external HTML content to your component template, the `<slot />` element is your friend! Any child elements you include will be automatically rendered in a component’s `<slot />`.
 
-![Extra white spaces in coloured text backgrounds.](/images/ch2/slot.png)
+<figure>
+    <img src="images/ch2/slot.png" width="70%" alt="Extra white spaces in coloured text backgrounds." align="center">
+    <figcaption><em>Using the <slot/> element.</em></figcaption>
+    <br><br><br>
+</figure>
 
 If we had a basic `Main` component with a slot as shown below:
 
-```astro title="src/components/main.astro"
+```js
+// 📂 src/components/main.astro
 ---
 ---
 
@@ -957,7 +1086,8 @@ If we had a basic `Main` component with a slot as shown below:
 
 The child elements of `Main` will be rendered in the `<slot />` as shown below:
 
-```astro title="src/pages/index.astro"
+```js
+// 📂 src/pages/index.astro
 ---
 ---
 <Main>
@@ -967,7 +1097,8 @@ The child elements of `Main` will be rendered in the `<slot />` as shown below:
 
 We can also provide fallback `<slot>` content when no child elements are passed to the component. To do this, provide the `<slot />` its own children as shown below:
 
-```astro title="src/components/main.astro"
+```js
+// 📂 src/components/main.astro
 ---
 ---
 
@@ -980,7 +1111,8 @@ We can also provide fallback `<slot>` content when no child elements are passed 
 
 It is possible to provide more than one slot via named slots! Consider the following example:
 
-```astro title="src/components/main.astro"
+```js
+// 📂 src/components/main.astro
 ---
 ---
 
@@ -996,7 +1128,8 @@ It is possible to provide more than one slot via named slots! Consider the follo
 
 In this case, we can render specific child elements to the specific slots `after-intro` and `after-footer` as shown below:
 
-```astro title="src/pages/index.astro"
+```js
+// 📂 src/pages/index.astro
 ---
 ---
 <Main>
@@ -1013,7 +1146,7 @@ Astro’s syntax will feel very familiar to React developers because it is desig
 
 All `HTML` attributes in `JSX` use `camelCase` formats. In Astro, stick to the standard `kebab-case` format:
 
-```html
+```js
 
 <!-- JSX -->
 <div className="foo" dataValue="bar" />
@@ -1026,7 +1159,7 @@ Unlike `JSX`, use `class`, not `className`.
 
 In Astro, we can also use standard Javascript or HTML comments:
 
-```astro
+```js
 ---
 //This is a comment
 ---
@@ -1040,27 +1173,27 @@ With Astro, it is essential to note that HTML-style comments will be included in
 
 My favourite difference is we can use the attribute shorthand for identically named variables in Astro, for example:
 
-```astro
+```js
 ---
 const name = "Understanding astro"
 ---
 
 <MyComponent {name} />
 
-{/** This is identical to writing **/} <MyComponent name={name}>
+// This is identical to writing <MyComponent name={name}>
 ```
 
 This shorthand is not supported in JSX.
 
 Astro and JSX also differ in how whitespaces are treated. Astro follows the HTML rules as closely as possible. However, unlike JSX, whitespaces are not escaped.
 
-```astro
-{/** ❌ will render span (string) with extra whitespace(s) **/}
+```js
+// ❌ will render span (string) with extra whitespace(s)
 <span>
   <slot />
 </span>
 
-{/** ✅ will add no extra character spaces **/}
+// ✅ will add no extra character spaces
 <span><slot /></span>
 ```
 
@@ -1068,7 +1201,8 @@ In most cases, this isn’t very important except when you don’t want that spa
 
 Consider the `Code.astro` component shown below:
 
-```astro title="src/components/Code.astro"
+```js
+// 📂 src/components/Code.astro
 ---
 ---
 
@@ -1086,9 +1220,14 @@ Consider the `Code.astro` component shown below:
 
 Including the `Code` component within a paragraph will result in highlighted white spaces.
 
-![Extra white spaces in coloured text backgrounds.](/images/ch2/white-space.png)
+<figure>
+    <img src="images/ch2/white-space.png" width="70%" alt="Extra white spaces in coloured text backgrounds." align="center">
+    <figcaption><em>Extra white spaces in coloured text backgrounds.</em></figcaption>
+    <br><br><br>
+</figure>
 
-```astro title="src/pages/index.astro"
+```js
+// 📂 src/pages/index.astro
 ---
 import Code from "../components/Code.astro";
 ---
@@ -1098,8 +1237,8 @@ import Code from "../components/Code.astro";
 
 To prevent this, change the `Code` component render to ignore white spaces:
 
-```astro
-{/** ✅ will add no extra character spaces **/}
+```js
+// ✅ will add no extra character spaces
 <span>
   <slot />
 </span>
@@ -1113,6 +1252,6 @@ Put these together, and we now have a solid definition for an Astro component: a
 
 Wow, if I were to ask a candidate about an Astro component definition in an interview and they gave me this answer, I would knight them on the spot! The job is theirs.
 
-[^1]: HTML imports are deprecated. See <https://web.dev/imports/>
+[^1]: HTML imports are deprecated. See [https://web.dev/imports/](https://web.dev/imports/)
 [^2]: Javascript templating: [https://en.wikipedia.org/wiki/JavaScript_templating](https://en.wikipedia.org/wiki/JavaScript_templating "Javascript templating")
 [^3]: As we’ll see In server-side rendered applications, it’s also possible to talk to a backend service here.

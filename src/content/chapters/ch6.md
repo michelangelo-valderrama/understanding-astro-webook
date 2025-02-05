@@ -10,6 +10,21 @@ proyect:
 
 This chapter will guide you on enabling SSR in an Astro project, and we will also discuss a detailed overview of the extensive features a server-side rendered Astro project offers.
 
+<br /> 
+<br /> 
+<br /> 
+<br />
+
+[![](images/ch1/watch-instead@3x.png)](https://ohans.me/understanding-astro-udemy)
+
+<br /> 
+<br />
+
+[![](images/ch1/view-project.png)](https://github.com/understanding-astro/ssr)
+
+<br /> 
+<br />
+
 ## What you’ll learn
 
 - Understand how to enable SSR in an Astro project.
@@ -65,9 +80,11 @@ The app should run on a local server with a single `index.astro` page.
 
 If we build the application for production via `npm build`, we should have the single `index.astro` page pre-rendered, i.e., statically built.
 
-
-![Statically rendering the index.astro page.](/images/ch6/CleanShot%202023-04-22%20at%2007.13.56.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-22%20at%2007.13.56.png" width="70%" alt="Statically rendering the index.astro page." align="center">
+    <figcaption><em>Statically rendering the index.astro page.</em></figcaption>
+    <br><br><br>
+</figure>
 
 To re-iterate, a pre-rendered application is essentially a static site, i.e., not server-side rendered.
 
@@ -85,7 +102,7 @@ export default defineConfig({
 
 If we rerun the production build, we will have an error in the console.
 
-```bash
+```She
 [error] Cannot use `output: 'server'` without an adapter. Please install and configure the appropriate server adapter for your final deployment.
 ```
 
@@ -97,9 +114,11 @@ SSR requires a server runtime, i.e., the code running within the server that ren
 
 An adapter allows Astro to do two things. First, determine the server runtime environment. Second, output a script that runs the SSR code on the specified runtime.
 
-
-![The Astro adapter needs..](/images/ch6/astro_adapter_needs.png)
-
+<figure>
+    <img src="images/ch6/astro_adapter_needs.png" width="70%" alt="The Astro adapter needs.." align="center">
+    <figcaption><em>The Astro adapter needs..</em></figcaption>
+    <br><br><br>
+</figure>
 
 At the time of writing, the available Astro adapters are Cloudfare, Deno, Netlify, NodeJS and Vercel.
 
@@ -154,9 +173,11 @@ It goes without saying that after adding an adapter, the project should be deplo
 
 Use the correct adapter for your deployment runtime.
 
-
-![Deploying a Vercel adapter to Netlify is wrong.](/images/ch6/adapter_deploy.png)
-
+<figure>
+    <img src="images/ch6/adapter_deploy.png" width="70%" alt="Deploying a Vercel adapter to Netlify is wrong." align="center">
+    <figcaption><em>Deploying a Vercel adapter to Netlify is wrong.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Our actual deployment steps will vary depending on the server runtime being deployed. For example, for Netlify, we may follow the steps described in the deploy a static site in Chapter 1. These steps will be identical for similar runtimes like Vercel.
 
@@ -166,9 +187,11 @@ For other runtimes, the official Astro [deployment guides](https://docs.astro.bu
 
 With the `output` configuration property set to `server`, every page in our Astro project will be server-side rendered. However, there’s a great chance we may want one or more pages to be statically generated at build time, i.e., some pages server-side rendered and others pre-rendered.
 
-
-![Having a mix of server and statically rendered pages.](/images/ch6/hybrid_rendering.png)
-
+<figure>
+    <img src="images/ch6/hybrid_rendering.png" width="50%" alt="Having a mix of server and statically rendered pages." align="center">
+    <figcaption><em>Having a mix of server and statically rendered pages.</em></figcaption>
+    <br><br><br>
+</figure>
 
 In such cases, we can opt-in to pre-rendering by adding `export const prerender = true` to any page that supports exporting variables, e.g., `.astro`, `.mdx` `, .ts` and `.js`.
 
@@ -201,9 +224,11 @@ With the `prerender` export, the `about` page will be statically rendered at bui
 
 Run `npm run build` to see this in action.
 
-
-![Static and server-side generated pages in the same project.](/images/ch6/CleanShot%202023-04-22%20at%2008.33.08.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-22%20at%2008.33.08.png" width="70%" alt="Static and server-side generated pages in the same project." align="center">
+    <figcaption><em>Static and server-side generated pages in the same project.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## From Request to Response
 
@@ -291,9 +316,11 @@ if (isBeta) {
 
 Instead of returning the `HTML` page, we should now have a simple text response sent to the client.
 
-
-![Returning a simple text response to the client.](/images/ch6/CleanShot%202023-04-22%20at%2010.43.19.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-22%20at%2010.43.19.png" width="70%" alt="Returning a simple text response to the client." align="center">
+    <figcaption><em>Returning a simple text response to the client.</em></figcaption>
+    <br><br><br>
+</figure>
 
 There’s also a `response` object on the `Astro` global. Blimey!
 However, It’s important to note that this is not the same as the `Response` object constructor. So, rewriting our example to use `Astro.response` will fail.
@@ -312,9 +339,11 @@ if (isBeta) {
 ---
 ```
 
-
-![Error: Astro.response is not a constructor.](/images/ch6/CleanShot%202023-04-22%20at%2011.28.52.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-22%20at%2011.28.52.png" width="70%" alt="Error: Astro.response is not a constructor." align="center">
+    <figcaption><em>Error: Astro.response is not a constructor.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This is because `Astro.response` represents the response object initialiser. It’s used to set the `options` on the server response, i.e., `status`, `statusText` and `headers`.
 
@@ -343,9 +372,11 @@ Astro.response.headers.set("beta_id", "some_header_value");
 
 The server will return the `HTML` page and our custom `beta_id` header.
 
-
-![Setting a custom header on the server response.](/images/ch6/CleanShot%202023-04-22%20at%2011.31.50.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-22%20at%2011.31.50.png" width="70%" alt="Setting a custom header on the server response." align="center">
+    <figcaption><em>Setting a custom header on the server response.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ### Redirect response
 
@@ -396,7 +427,7 @@ if (isLoggedOut) {
 
 We have a much simpler API here. We can redirect by just passing the relative path to redirect to. The status code is also optional here.
 
-> It’s important to note that redirects should be done in page components, i.e., not inside other components, e.g., layouts or base components.
+> It’s important to note that redirects should be done in page components, I.e., not inside other components, e.g., layouts or base components.
 
 ### Utilities for manipulating cookies
 
@@ -463,11 +494,11 @@ const ip = Astro.clientAddress;
 <div>Your IP address is: {ip}</div>
 ```
 
-___
+---
 
 ## Environment variables
 
-If you’re completely new to environment variables, you might the thinking, *"Oi, what are Environment variables, and why should I care?"*
+If you’re completely new to environment variables, you might the thinking, _"Oi, what are Environment variables, and why should I care?"_
 
 Generally speaking, environment variables help us store important information like API keys or sensitive data without ever having to reveal them to clients accessing your application.
 
@@ -592,9 +623,11 @@ In this case, `CAT_API_TOKEN` will be available both server-side and client-side
 
 We don't get Typescript IntelliSense support if we attempt to access `CAT_API_TOKEN` in `pages/index.astro` after creating the `.env` file.
 
-
-![No Typescript IntelliSense for our custom environment variable.](/images/ch6/CleanShot%202023-04-23%20at%2009.44.07.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-23%20at%2009.44.07.png" width="70%" alt="No Typescript IntelliSense for our custom environment variable." align="center">
+    <figcaption><em>No Typescript IntelliSense for our custom environment variable.</em></figcaption>
+    <br><br><br>
+</figure>
 
 We’re pro developers; come on. Let’s fix this.
 
@@ -617,9 +650,11 @@ interface ImportMetaEnv {
 
 And voila! Typescript knows our secrets - for the better.
 
-
-![Typescript IntelliSense activated.](/images/ch6/CleanShot%202023-04-23%20at%2009.50.10.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-23%20at%2009.50.10.png" width="70%" alt="Typescript IntelliSense activated." align="center">
+    <figcaption><em>Typescript IntelliSense activated.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Dynamic routes
 
@@ -678,9 +713,11 @@ Alternatively:
 
 Now if we visit the `/products/understanding-astro` page, we should have the title of the product displayed.
 
-
-![Grabbing dynamic route path values.](/images/ch6/CleanShot%202023-04-24%20at%2010.25.23.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-24%20at%2010.25.23.png" width="70%" alt="Grabbing dynamic route path values." align="center">
+    <figcaption><em>Grabbing dynamic route path values.</em></figcaption>
+    <br><br><br>
+</figure>
 
 In most cases, our variable path parameter will include a unique identifier, e.g., `/pages/products/[id].astro`.
 
@@ -696,9 +733,11 @@ It is also possible to leverage multiple named parameters in the route path, as 
 
 This will be matched with a URL similar to `/products/understanding-astro_09u34359534530903453450`
 
-
-![Matching multiple route named parameters.](/images/ch6/CleanShot%202023-04-24%20at%2010.31.22.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-24%20at%2010.31.22.png" width="70%" alt="Matching multiple route named parameters." align="center">
+    <figcaption><em>Matching multiple route named parameters.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ### 2. Rest parameters
 
@@ -712,9 +751,9 @@ Consider the following product pages:
 /products/types/category/product-id
 ```
 
-The routes above will all be matched by the page `pages/product/[...path].astro`, and we can access the full dynamic string path within our code.
+The routes above will all be matched by the page `pages/products/[...path].astro`, and we can access the full dynamic string path within our code.
 
-For example, create a file in `/pages/product/[...path].astro` with the following content:
+For example, create a file in `/pages/products/[...path].astro` with the following content:
 
 ```js
 ---
@@ -769,9 +808,11 @@ if (!relevantPageDetails) {
 <h1>{relevantPageDetails.title}</h1>
 ```
 
-
-![Rendering rest parameter routes.](/images/ch6/CleanShot%202023-04-24%20at%2012.42.28@2x.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-24%20at%2012.42.28@2x.png" width="70%" alt="Rendering rest parameter routes." align="center">
+    <figcaption><em>Rendering rest parameter routes.</em></figcaption>
+    <br><br><br>
+</figure>
 
 It’s important to note that if the `path` is undefined, the root path will be matched, i.e., corresponds to `pages/product`.
 
@@ -837,9 +878,11 @@ Well, Astro needs to make a decision, and that’s following the priority list b
 3. Dynamic routes with rest parameters have the lowest priority, e.g., `/pages/products/[...path]`.
 4. Following the above, any ties will be resolved alphabetically.
 
-
-![Route priority order from first to last.](/images/ch6/route_priority.png)
-
+<figure>
+    <img src="images/ch6/route_priority.png" width="70%" alt="Route priority order from first to last." align="center">
+    <figcaption><em>Route priority order from first to last.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Server endpoints
 
@@ -1022,15 +1065,19 @@ Another critical point is to notice how the specific id is retrieved from `ctx.p
 
 If we make a GET request to `api/products/astro-book-001`, we should have some data returned to the client.
 
-
-![Testing the product API on hopscotch.io](/images/ch6/CleanShot%202023-04-25%20at%2008.57.00@2x.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-25%20at%2008.57.00@2x.png" width="70%" alt="Testing the product API on hopscotch.io" align="center">
+    <figcaption><em>Setting a custom header on the server response.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Note how whatever “id” is passed in the request path is rightly retrieved, e.g., `astro-book-001`.
 
-
-![The product ID returned in the JSON response.](/images/ch6/CleanShot%202023-04-25%20at%2008.49.31@2x.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-25%20at%2008.49.31@2x.png" width="70%" alt="The product ID returned in the JSON response." align="center">
+    <figcaption><em>The product ID returned in the JSON response.</em></figcaption>
+    <br><br><br>
+</figure>
 
 To re-iterate, we can get the path segments in the dynamic route pattern via `context.params` and voila! We have our use case resolved.
 
@@ -1089,9 +1136,11 @@ const version = searchParams.get("version");
 const publishedDate = searchParams.get("publishedDate");
 ```
 
-
-![Retrieving query parameters in a server endpoint.](/images/ch6/CleanShot%202023-04-25%20at%2009.13.04@2x.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-25%20at%2009.13.04@2x.png" width="70%" alt="Retrieving query parameters in a server endpoint." align="center">
+    <figcaption><em>Retrieving query parameters in a server endpoint.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ### Dedicated api directory
 
@@ -1196,9 +1245,11 @@ export const post: APIRoute = async (ctx) => {
 
 Go ahead and give these a try!
 
-
-![Making a POST request to our server endpoint.](/images/ch6/CleanShot%202023-04-25%20at%2008.53.33@2x.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-25%20at%2008.53.33@2x.png" width="70%" alt="Making a POST request to our server endpoint." align="center">
+    <figcaption><em>Making a POST request to our server endpoint.</em></figcaption>
+    <br><br><br>
+</figure>
 
 As a fallback to handle other HTTP methods, we can provide an `all` function to match methods that don’t have a corresponding exported function. Consider the example below:
 
@@ -1223,9 +1274,11 @@ export const all: APIRoute = async (ctx) => {
 
 This will match unhandled methods in our implementation, such as `PATCH` requests.
 
-
-![Handling unsupported methods in a server endpoint.](/images/ch6/CleanShot%202023-04-25%20at%2008.56.25@2x.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-25%20at%2008.56.25@2x.png" width="70%" alt="Handling unsupported methods in a server endpoint." align="center">
+    <figcaption><em>Handling unsupported methods in a server endpoint.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Streams, oh streams
 
@@ -1242,9 +1295,11 @@ In theory, we may break this off into distinct steps:
 - The server returns the **fully formed page** to the browser
 - The browser renders the page
 
-
-![Server sending a fully formed page to the client.](/images/ch6/send_full_page.png)
-
+<figure>
+    <img src="images/ch6/send_full_page.png" width="70%" alt="Server sending a fully formed page to the client." align="center">
+    <figcaption><em>Server sending a fully formed page to the client.</em></figcaption>
+    <br><br><br>
+</figure>
 
 What’s important here is to note that the server generates the page’s full HTML, and only then does it send the HTML to the browser.
 
@@ -1254,9 +1309,11 @@ In most cases, certain parts of the HTML page are static and could be sent from 
 
 What if the server could transmit the `HTML` to the browser as it creates the page server side?
 
-
-![The server sends partial chunks to the browser.](/images/ch6/server_send_chunks.png)
-
+<figure>
+    <img src="images/ch6/server_send_chunks.png" width="70%" alt="The server sends partial chunks to the browser." align="center">
+    <figcaption><em>The server sends partial chunks to the browser.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This is the crux of streaming: stream HTML to a browser as the server generates the HTML.
 
@@ -1264,7 +1321,7 @@ This is the crux of streaming: stream HTML to a browser as the server generates 
 
 In theory, browsers can render partial HTML[^1] and support receiving and rendering HTML data in chunks. Users can view and interact with a page as it streams rather than waiting for the full page to be sent as one big chunk.
 
-Different applications will need various workarounds. However, streaming improves server overhead. The server doesn’t need as much memory to buffer entire pages. It’ll incrementally send page data to the browser releasing memory to handle more requests and consequently save overhead costs. This is a great argument to convince your boss that streaming is good for the company’s wallets (except your company plays the silly game of *burning as much cash as possible*).
+Different applications will need various workarounds. However, streaming improves server overhead. The server doesn’t need as much memory to buffer entire pages. It’ll incrementally send page data to the browser releasing memory to handle more requests and consequently save overhead costs. This is a great argument to convince your boss that streaming is good for the company’s wallets (except your company plays the silly game of _burning as much cash as possible_).
 
 ### Streaming is easy yet difficult
 
@@ -1376,9 +1433,11 @@ export const sleep = (delay: number) =>
 
 Now, go to the Chrome browser and visit the `/streaming` route to view the wonders of streaming.
 
-
-![Initial block streamed while awaiting Block #2.](/images/ch6/CleanShot%202023-04-26%20at%2011.47.56.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-04-26%20at%2011.47.56.png" width="70%" alt="Initial block streamed while awaiting Block #2." align="center">
+    <figcaption><em>Initial block streamed while awaiting Block #2.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Each block of content comes in one at a time!
 
@@ -1417,9 +1476,11 @@ When `Block #4` is rendered, `block5Promise` is already fetched as it takes one 
 
 This can be difficult to grasp via text descriptions.
 
-
-![Describing the parallelized rendering of each block.](/images/ch6/CleanShot%202023-05-25%20at%2013.44.47@2x.png)
-
+<figure>
+    <img src="images/ch6/CleanShot%202023-05-25%20at%2013.44.47@2x.png" width="70%" alt="Describing the parallelized rendering of each block." align="center">
+    <figcaption><em>Describing the parallelized rendering of each block.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Give this a look in your Chrome browser.
 
@@ -1521,4 +1582,4 @@ Excellent!
 
 Server-side rendering is powerful and opens up many opportunities in our application. However, with much power comes responsibility. So, before considering making every page in your application server-rendered, consider the PROs and CONs (e.g., as discussed in Chapter 3). Then, make the right decision for your application — that’s where true responsibility lies. And do not forget to leverage hybrid rendering where possible.
 
-[^1]: <https://en.wikipedia.org/wiki/Incremental_rendering>
+[^1]: [https://en.wikipedia.org/wiki/Incremental_rendering](https://en.wikipedia.org/wiki/Incremental_rendering)

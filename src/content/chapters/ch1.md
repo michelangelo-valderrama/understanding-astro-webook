@@ -9,13 +9,29 @@ proyect:
   source: https://github.com/understanding-astro/astro-beginner-project
 ---
 
-import { Tabs, TabItem } from "@/components/tabs"
-
-> Long is the road to learning by precepts, but short and successful by examples
->
-> — Seneca the Younger.
+> Long is the road to learning by precepts, but short and successful by examples - Seneca the Younger.
 
 Get started with the basics of Astro by building a practical application: a personal site.
+
+<br /> 
+<br /> 
+<br /> 
+<br />
+
+[![](images/ch1/view-project@3x.png)](https://astro-beginner-project.vercel.app/)
+
+<br /> 
+<br />
+
+[![](images/ch1/watch-instead@3x.png)](https://ohans.me/understanding-astro-udemy)
+
+<br /> 
+<br />
+
+[![](images/ch1/view-project.png)](https://github.com/understanding-astro/astro-beginner-project)
+
+<br /> 
+<br />
 
 ## What you’ll learn
 
@@ -43,11 +59,19 @@ Firstly, make sure you have nodejs installed.
 
 If unsure, run `node --version` in your terminal. You will get back a node version if you have nodejs installed.
 
-![Get NodeJS version from the CLI.](/images/ch1/CleanShot%202023-04-29%20at%2011.11.18@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-29%20at%2011.11.18@2x.png" width="70%" alt="Get NodeJS version from the CLI." align="center">
+    <figcaption><em>Get NodeJS version from the CLI.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Don’t have nodejs installed? Then, visit the official [download](https://nodejs.org/en/download) page and install the necessary package for your operating system. It’s as easy as installing any other computer program. Click, click, click!
 
-![The NodeJS download page.](/images/ch1/CleanShot%202023-04-28%20at%2010.44.30@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-28%20at%2010.44.30@2x.png" width="70%" alt="The NodeJS download page." align="center">
+    <figcaption><em>The NodeJS download page.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ### Setting up your code editor
 
@@ -59,7 +83,11 @@ You can develop Astro applications with any code editor, but VSCode is also the 
 
 If you’re building with VSCode[^1], install the official [Astro extension](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode). This helps with syntax and semantic highlighting, diagnostic messages, IntelliSense, and more.
 
-![The official Astro VSCode extension.](/images/ch1/CleanShot%202023-04-28%20at%2011.03.36@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-28%20at%2011.03.36@2x.png" width="70%" alt="The official Astro VSCode extension." align="center">
+    <figcaption><em>The official Astro VSCode extension.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Let’s now get started setting up our first Astro project. To do this, we must install Astro, and the fastest way to do this is to use the Astro automatic CLI.
 
@@ -80,7 +108,11 @@ pnpm create astro@latest
 yarn create astro
 ```
 
-![Starting a new project with the Astro CLI wizard extension.](/images/ch1/CleanShot%202023-04-28%20at%2011.15.44@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-28%20at%2011.15.44@2x.png" width="70%" alt="Starting a new project with the Astro CLI wizard extension." align="center">
+    <figcaption><em>Starting a new project with the Astro CLI wizard extension.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This will start the wizard, which will guide us through helpful prompts. It’s important to mention that we can run this from anywhere on our machine and later choose where exactly we want the project created.
 
@@ -90,41 +122,61 @@ Alternatively, we could have run the `npm create astro@latest` command in our de
 
 When asked, “How would you like to start your new project?” go ahead and choose “Empty”.
 
-![Answering the template CLI prompt.](/images/ch1/CleanShot%202023-04-28%20at%2011.20.54@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-28%20at%2011.20.54@2x.png" width="70%" alt="Answering the template CLI prompt." align="center">
+    <figcaption><em>Answering the template CLI prompt.</em></figcaption>
+    <br><br><br>
+</figure>
 
 We want a fresh start to explore Astro from the ground up.
 
 Now, we will be asked whether to install dependencies or not. Select yes and hit enter to continue the installation.
 
-![Installing dependencies in the CLI prompt.](/images/ch1/CleanShot%202023-04-28%20at%2011.22.21@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-28%20at%2011.22.21@2x.png" width="70%" alt="Installing dependencies in the CLI prompt." align="center">
+    <figcaption><em>Installing dependencies in the CLI prompt.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Once the dependencies are installed, answer the “Do you plan to write TypeScript?” prompt with a yes and choose the “strictest” option.
 
 We want strong type safety.
 
-![Choosing TypeScript in the CLI prompt.](/images/ch1/CleanShot%202023-04-28%20at%2011.24.22@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-28%20at%2011.24.22@2x.png" width="70%" alt="Choosing Typescript in the CLI prompt." align="center">
+    <figcaption><em>Choosing Typescript in the CLI prompt.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Afterwards, answer the “Initialise a new git repository?” question with whatever works for you. I’ll go with a yes here and hit enter.
 
-![Initialising git in the CLI prompt.](/images/ch1/CleanShot%202023-04-28%20at%2011.25.33@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-28%20at%2011.25.33@2x.png" width="70%" alt="Initialising git in the CLI prompt." align="center">
+    <figcaption><em>Initialising git in the CLI prompt.</em></figcaption>
+    <br><br><br>
+</figure>
 
 And voila! Believe it or not, our new project is created and ready to go!
 
 Change into the directory where you set up the project. In my case, this looks like the following:
 
-```bash
+```html
 cd ./documents/dev/books/understanding-astro/astro-beginner-project
 ```
 
 And then run the application via the following:
 
-```bash
+```html
 npm run start
 ```
 
 This will start the live application on an available local port 🚀
 
-![The basic Astro project running on localhost:3000.](/images/ch1/CleanShot%202023-04-28%20at%2011.29.57@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-28%20at%2011.29.57@2x.png" width="70%" alt="The basic Astro project running on localhost:3000." align="center">
+    <figcaption><em>The basic Astro project running on localhost:3000.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Project structure
 
@@ -132,13 +184,13 @@ Open the newly created project in your code editor, and you’ll notice that the
 
 Astro has an opinionated folder structure. We can see some of this in our new project. By design, every Astro project will include the following in the root directory:
 
-| File / Directory   |                                                                                                                                                        |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `astro.config.mjs` | The Astro configuration file. This is where we provide configuration options for our Astro project.                                                    |
-| `tsconfig.json`    | A TypeScript configuration file. This specifies the root files and TypeScript compiler options.                                                        |
-| `package.json`     | A JSON file that holds the project metadata. This is typically found at the root of most Node.js projects.                                             |
-| `public/*`         | This directory holds files and assets that will be copied into the Astro build directory untouched, e.g., fonts, images and files such as `robots.txt` |
-| `src/*`            | The source code of our project resides here.                                                                                                           |
+| File / Directory |                                                                                                                                                        |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| astro.config.mjs | The Astro configuration file. This is where we provide configuration options for our Astro project.                                                    |
+| tsconfig.json    | A Typescript configuration file. This specifies the root files and Typescript compiler options.                                                        |
+| package.json     | A JSON file that holds the project metadata. This is typically found at the root of most Node.js projects.                                             |
+| public/\*        | This directory holds files and assets that will be copied into the Astro build directory untouched, e.g., fonts, images and files such as `robots.txt` |
+| src/\*           | The source code of our project resides here.                                                                                                           |
 
 Let’s now look at the files in our newly generated project.
 
@@ -146,7 +198,7 @@ Let’s now look at the files in our newly generated project.
 
 The content of our `tsconfig.json` file is the following:
 
-```json title="tsconfig.json"
+```js
 {
   "extends": "astro/tsconfigs/strictest"
 }
@@ -156,7 +208,7 @@ The `extends` property points to the base configuration file path to inherit fro
 
 Using your editor, we may navigate to the referenced path, e.g., in `vscode` by clicking on the link while holding `CMD`. This will navigate us to `node_modules/astro/tsconfigs/strictest.json`, where we’ll find a well-annotated file:
 
-```json title="tsconfig.json"
+```js
 {
   ...
   "compilerOptions": {
@@ -173,9 +225,9 @@ Using your editor, we may navigate to the referenced path, e.g., in `vscode` by 
 }
 ```
 
-This is very well annotated, so we won’t spend time on this. However, the `compilerOptions` for TypeScript are set in this file. The point to make here is Astro keeps a list of typescript configurations (`base`, `strict` and `strictest`) that our project leverage when we initialise via the CLI wizard.
+This is very well annotated, so we won’t spend time on this. However, the `compilerOptions` for Typescript are set in this file. The point to make here is Astro keeps a list of typescript configurations (`base`, `strict` and `strictest`) that our project leverage when we initialise via the CLI wizard.
 
-In this example, we’ll leave the `tsconfig.json` file as is. TypeScript (and consequently the `tsconfig.json` file is optional in Astro projects. However, I strongly recommend you leverage TypeScript. We’ll do so all through the book.
+In this example, we’ll leave the `tsconfig.json` file as is. Typescript (and consequently the `tsconfig.json` file is optional in Astro projects. However, I strongly recommend you leverage Typescript. We’ll do so all through the book.
 
 ### package.json
 
@@ -191,19 +243,19 @@ The `package-lock.json` file is an autogenerated file that holds information on 
 
 Most frameworks define a way for us to specify our project-specific configurations. For example, Astro achieves this via the `astro.config` file.
 
-```ts title="astro.config.mjs"
-import { defineConfig } from "astro/config"
+```js
+import { defineConfig } from "astro/config";
 
-export default defineConfig({})
+export default defineConfig({});
 ```
 
 At the moment, it defines an empty configuration. So we’ll leave it as is. However, this is the right place to specify different build and server options, for example.
 
 ### src/env.d.ts
 
-`.d.ts` files are called type declaration files[^2]. Yes, that’s for TypeScript alone, and they exist for one purpose: to describe the shape of some existing module. The information in this file is used for type checking by TypeScript.
+`d.ts` files are called type declaration files[^2]. Yes, that’s for Typescript alone, and they exist for one purpose: to describe the shape of some existing module. The information in this file is used for type checking by Typescript.
 
-```ts title="src/env.d.ts"
+```js
 /// <reference types="astro/client" />
 ```
 
@@ -215,7 +267,7 @@ As mentioned earlier, the `src` folder is where the source code for our project 
 
 First, consider the contents of the `index.astro` file:
 
-```astro title="src/pages/index.astro"
+```js
 ---
 ---
 
@@ -239,11 +291,19 @@ Also, notice what’s written within the `<body>` tag. An `<h1>` element with th
 
 If we visit the running application in the browser, we have the `<h1>` rendered.
 
-![The rendered page heading.](/images/ch1/CleanShot%202023-05-11%20at%2014.18.20@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-11%20at%2014.18.20@2x.png" width="70%" alt="The rendered page heading." align="center">
+    <figcaption><em>The rendered page heading.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Now change the text to read `<h1>Hello world</h1>` and notice how the page is updated in the browser!
 
-![The updated page heading.](/images/ch1/CleanShot%202023-05-11%20at%2014.19.41@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-11%20at%2014.19.41@2x.png" width="70%" alt="The updated page heading." align="center">
+    <figcaption><em>The updated page heading.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This leads us nicely to discuss pages in Astro — what I consider the entry point to our application.
 
@@ -253,11 +313,16 @@ Astro leverages a file-based routing system and achieves this by using the files
 
 For example, the `src/pages/index.astro` file corresponds to the `index` page served in the browser.
 
-![The project’s index page.](/images/ch1/CleanShot%202023-04-29%20at%2009.49.26@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-29%20at%2009.49.26@2x.png" width="70%" alt="The project’s index page." align="center">
+    <figcaption><em>The project’s index page.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Let’s go ahead and create an `src/pages/about.astro` page with similar content to `index.astro` as shown below:
 
-```astro title="src/pages/about.astro"
+```js
+// 📂 src/pages/about.astro
 ---
 ---
 
@@ -280,7 +345,11 @@ Let’s go ahead and create an `src/pages/about.astro` page with similar content
 
 Now, if we navigate to `/about` in the browser, we should have the new page rendered.
 
-![The “About us” page.](/images/ch1/CleanShot%202023-04-29%20at%2009.50.13@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-29%20at%2009.50.13@2x.png" width="70%" alt="The “About us” page." align="center">
+    <figcaption><em>The “About us” page.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ### What makes a valid Astro page?
 
@@ -288,11 +357,19 @@ We’ve defined Astro pages as files in the `src/pages/`directory. Unfortunately
 
 For example, if we duplicate the `favicon.svg` file in `public/favicon.svg` into the `pages` directory, does this represent a `favicon` page?
 
-![Duplicating the favicon in the pages directory.](/images/ch1/CleanShot%202023-04-29%20at%2009.55.21.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-29%20at%2009.55.21.png" width="40%" alt="Duplicating the favicon in the pages directory." align="center">
+    <figcaption><em>Duplicating the favicon in the pages directory.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Even though `index.astro` and `about.astro` correspond to our website’s index and about pages, `/favicon` will return a `404: Not found` error.
 
-![The /favicon route.](/images/ch1/CleanShot%202023-04-29%20at%2009.56.51@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-29%20at%2009.56.51@2x.png" width="70%" alt="The /favicon route." align="center">
+    <figcaption><em>The /favicon route.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This is because only specific files make a valid astro page. For example, if we consider the `index` and `about` files in the `pages` directory, you perhaps notice something: they both have the `.astro` file ending!
 
@@ -300,7 +377,7 @@ In layperson’s terms, these are Astro files, but a more technical terminology 
 
 So, quick quiz: what is an Astro component?
 
-That’s easy: a file with the `.astro` ending.
+That’s easy—a file with the `.astro` ending.
 
 10 points to you! Well done.
 
@@ -314,12 +391,14 @@ Now, let’s dig into the content of these files.
 
 Consider the contents of the `index.astro` page:
 
-```astro title="src/pages/index.astro"
+```js
+// 📂 src/pages/index.astro
 ---
 ---
 
 <html lang="en">
   <!-- removed for brevity -->
+
 </html>
 ```
 
@@ -327,10 +406,9 @@ Notice the distinction between the two parts of this file’s content.
 
 The section at the bottom contains the page’s markup:
 
-```astro title="src/pages/index.astro" {4-6}
----
----
-
+```js
+// 📂 src/pages/index.astro
+// ...
 <html lang="en">
   <!-- removed for brevity -->
 </html>
@@ -340,13 +418,9 @@ This part is called the **component template** section.
 
 While the top section contains a rather strange divider-looking syntax:
 
-```astro title="src/pages/index.astro" {1-2}
+```js
 ---
 ---
-
-<html lang="en">
-  <!-- removed for brevity -->
-</html>
 ```
 
 This part is called the **component script** section, and the `---` is called fence.
@@ -355,13 +429,14 @@ Together, these make up an Astro component.
 
 Let’s take the component script section for a spin.
 
-The section’s name hints at what this section of the component does. Within the component script code fence, we may declare variables, import packages and fully take advantage of JavaScript or TypeScript.
+The section’s name hints at what this section of the component does. Within the component script code fence, we may declare variables, import packages and fully take advantage of Javascript or Typescript.
 
-Oh yes, TypeScript!
+Oh yes, Typescript!
 
 Let’s start by creating a variable to hold our user’s profile picture, as shown below:
 
-```astro title="src/pages/index.astro"
+```js
+// 📂 src/pages/index.astro
 ---
 const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
 ---
@@ -369,7 +444,8 @@ const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
 
 We may then take advantage of the component template section to reference this image as shown below:
 
-```astro title="src/pages/index.astro" ins={15-20} del={14}
+```js
+// 📂 src/pages/index.astro
 ---
 const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
 ---
@@ -383,7 +459,7 @@ const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
     <title>Astro</title>
   </head>
   <body>
-    <h1>Astro</h1>
+    <!-- 👀 Look here  -->
     <img
       src={profilePicture}
       alt="Frau Katerina's headshot."
@@ -392,50 +468,53 @@ const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
     />
   </body>
 </html>
+
 ```
 
 Note that the `profilePicture` variable is referenced using curly braces `{ }`. This is how to reference variables from the component script in the component markup.
 
 Now we should have the image rendered on the home page:
 
-![Rendering the user profile photo.](/images/ch1/CleanShot%202023-04-29%20at%2010.30.54@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-04-29%20at%2010.30.54@2x.png" width="70%" alt="Rendering the user profile photo." align="center">
+    <figcaption><em>Rendering the user profile photo.</em></figcaption>
+    <br><br><br>
+</figure>
 
 It’s not much, but it’s honest work, eh?
 
 Let’s go ahead and flesh out the page to have the user’s profile markup:
 
-```astro title="src/pages/index.astro" ins={8-23} del={2-7}
-<body>
-  <img
-    src={profilePicture}
-    alt="Frau Katerina's headshot."
-    width="100px"
-    height="100px"
-  />
-  <div>
-    <img
-      src={profilePicture}
-      alt="Frau Katerina's headshot."
-      width="100px"
-      height="100px"
-    />
+```js
+// 📂 src/pages/index.astro
+// ...
+  <body>
+    <!-- Look here 👀 -->
     <div>
-      <h1>Frau Katerina</h1>
-      <h2>VP of Engineering at Goooogle</h2>
-      <p>
-        Helping developers be excellent and succeed at building scalable
-        products
-      </p>
+      <img
+        src={profilePicture}
+        alt="Frau Katerina's headshot."
+        width="100px"
+        height="100px"
+      />
+      <div>
+        <h1>Frau Katerina</h1>
+        <h2>VP of Engineering at Goooogle</h2>
+        <p>
+          Helping developers be excellent and succeed at building scalable
+          products
+        </p>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
+// ...
 ```
 
-As you might have noticed, we’re writing HTML looking syntax in the component markup section!
+As you might have noticed, we’re writing `HTML` looking syntax in the component markup section!
 
 Now we should have the user photo and their bio rendered in the browser as follows:
 
-![The user profile photo and bio.](/images/ch1/CleanShot%202023-05-10%20at%2014.07.31@2x.png)
+![The user profile photo and bio.](images/ch1/CleanShot%202023-05-10%20at%2014.07.31@2x.png)
 
 ## Component styles
 
@@ -443,29 +522,27 @@ Styling in Astro is relatively easy to reason about. Add a `<style>` tag to a co
 
 While it’s possible to select elements directly, let’s go ahead and add classes to the component markup for ease:
 
-```astro title="src/pages/index.astro" ins='class="profile"' ins='class="profile__picture"' ins='class="profile__details"'
+```js
+// 📂 src/pages/index.astro
+// ...
 <div class="profile">
-  <img
-    src={profilePicture}
-    class="profile__picture"
-    alt="Frau Katerina's headshot."
-    width="100px"
-    height="100px"
-  />
-  <div class="profile__details">
-    <h1>Frau Katerina</h1>
-    <h2>VP of Engineering at Goooogle</h2>
-    <p>
-      Helping developers be excellent and succeed at building scalable
-      products
-    </p>
-  </div>
+    <img
+      src={profilePicture}
+      class="profile__picture"
+      {/** ... **/}
+    />
+    <div class="profile__details">
+      <h1>Frau Katerina</h1>
+      {/** ... **/}
+    </div>
 </div>
+// ...
 ```
 
 Add a `<style>` tag, and write CSS as usual!
 
-```astro
+```js
+// ...
 <style>
   .profile {
     display: flex;
@@ -487,17 +564,22 @@ Add a `<style>` tag, and write CSS as usual!
     margin: 0 2rem 1rem 0;
   }
 </style>
+
 ```
 
 The user details should now be styled as expected.
 
-![Applying styles to the index.astro page component.](/images/ch1/CleanShot%202023-05-01%20at%2008.42.27@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-01%20at%2008.42.27@2x.png" width="70%" alt="Applying styles to the index.astro page component." align="center">
+    <figcaption><em>Applying styles to the index.astro page component.</em></figcaption>
+    <br><br><br>
+</figure>
 
 If we inspect the eventual styles applied to our UI elements via the browser developer tools, we’ll notice that the style selectors look different.
 
 For example, to style the user name, we’ve written the following CSS:
 
-```css
+```js
 .profile__details > h1 {
   margin-top: 0;
 }
@@ -505,7 +587,7 @@ For example, to style the user name, we’ve written the following CSS:
 
 However, what’s applied in the browser looks something like this:
 
-```css ":where(.astro-J7PV25F6) > h1:where(.astro-J7PV25F6)"
+```js
 .profile__details:where(.astro-J7PV25F6) > h1:where(.astro-J7PV25F6) {
   margin-top: 0;
 }
@@ -527,7 +609,7 @@ h1 {
 
 The eventual style applied in the browser will be similar to the following:
 
-```css ":where(.astro-some-unique-id)"
+```css
 h1:where(.astro-some-unique-id) {
   color: red;
 }
@@ -539,7 +621,11 @@ This will ensure all other `h1` in our project remains the same, and this style 
 
 Please look at the pages of our completed application, and realise how they all have identical forms.
 
-![A breakdown of the application page structure.](/images/ch1/CleanShot%202023-05-01%20at%2009.10.55.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-01%20at%2009.10.55.png" width="70%" alt="A breakdown of the application page structure." align="center">
+    <figcaption><em>A breakdown of the application page structure.</em></figcaption>
+    <br><br><br>
+</figure>
 
 There’s a navigation bar, a footer, and some container that holds the page’s main content.
 
@@ -553,9 +639,10 @@ Layouts are Astro components with a twist. They are used to provide reusable UI 
 
 Conventionally, layouts are placed in the `src/layouts` directory. This is not compulsory but a widespread pattern.
 
-Let’s go ahead and create our first layout in `src/layouts/Main.astro`. We’ll do this by moving away all the reusable UI structures currently in `index.astro` as follows:
+Let’s go ahead and create our first layout in `src/layouts/Main`. We’ll do this by moving away all the reusable UI structures currently in `index.astro` as follows:
 
-```astro title="src/layouts/Main.astro" ins={"Add a new meta description tag":10-11}
+```js
+// 📂 src/layouts/Main.astro
 ---
 ---
 
@@ -565,14 +652,14 @@ Let’s go ahead and create our first layout in `src/layouts/Main.astro`. We’l
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-
+    {/* Add a new meta description tag */}
     <meta name="description" content="Frau Katarina's website" />
-    <!-- Title is hardcoded as Astro, for now -->
+    {/* Title is hardcoded as Astro, for now. */}
     <title>Astro</title>
   </head>
   <body>
     <main>
-      <!-- We want the content of each page to go here -->
+      {/* We want the content of each page to go here */}
     </main>
   </body>
 </html>
@@ -589,7 +676,7 @@ On the one hand, layouts are unique because they mostly do one thing - provide r
 
 Rendering an Astro component is similar to how you’d attempt to render an HTML element, e.g., we’d render a div by writing the following:
 
-```astro
+```js
 <div>render something within the div</div>
 ```
 
@@ -597,16 +684,16 @@ The same goes for Astro components.
 
 To render the `Main.astro` component, we’d do similar:
 
-```astro
+```js
 <Main>render something within the Main component</Main>
 ```
 
-Let’s put this into practice. We may now use the `Main.astro` layout in the `index.astro` page. To do this, we will do the following:
+Let’s put this into practice. We may now use the `Main` layout in the `index.astro` page. To do this, we will do the following:
 
-- Import the `Main.astro` layout from `"../layouts/Main.astro"`
+- Import the `Main` layout from `"../layouts/Main.astro"`
 - Substitute the `<html>`, `<head>` and `<body>` elements for the `<Main>` layout in `index.astro`.
 
-```astro ins={2} {7,25}
+```js
 ---
 import Main from "../layouts/Main.astro";
 
@@ -632,40 +719,22 @@ const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
     </div>
   </div>
 </Main>
-
-<style>
-  .profile {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    padding: 1rem 0 3rem 0;
-  }
-
-  .profile__details {
-    flex: 1 0 300px;
-  }
-
-  .profile__details > h1 {
-    margin-top: 0;
-  }
-
-  .profile__picture {
-    border-radius: 50%;
-    margin: 0 2rem 1rem 0;
-  }
-</style>
 ```
 
 If we checked our app, we’d have a blank `index` page.
 
-![Blank application page.](/images/ch1/CleanShot%202023-05-10%20at%2017.18.07.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-10%20at%2017.18.07.png" width="70%" alt="Blank application page." align="center">
+    <figcaption><em>Blank application page.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Why’s that?
 
 Unlike HTML elements, the child elements in the `<Main>` tag aren’t automatically rendered.
 
-```astro
-<!-- Child div will not be automatically rendered  -->
+```js
+{/** Child div will not be automatically rendered */}
 <Main>
   <div>Hello from child</div>
 <Main>
@@ -675,20 +744,29 @@ The `<Main>` layout component is rendered, and nothing else. The child component
 
 To render the child elements of an Astro component, we must specify where to render these using a `<slot />` element.
 
-![Injecting child elements into a slot.](/images/ch1/a.png)
+<figure>
+    <img src="images/ch1/a.png" width="70%" alt="Injecting child elements into a slot." align="center">
+    <figcaption><em>Injecting child elements into a slot.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Let’s add a `<slot>` within `Main.astro` :
 
-```astro ins={"We want the content of each page to go here":3-4}
+```js
+//...
 <body>
   <main>
-
+    {/* We want the content of each page to go here */}
     <slot />
   </main>
 </body>
 ```
 
-![Page refactored to use a reusable layout component.](/images/ch1/CleanShot%202023-05-10%20at%2017.19.59.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-10%20at%2017.19.59.png" width="70%" alt="Page refactored to use a reusable layout component." align="center">
+    <figcaption><em>Page refactored to use a reusable layout component.</em></figcaption>
+    <br><br><br>
+</figure>
 
 We should now have our page rendered with the reusable layout in place.
 
@@ -700,17 +778,17 @@ Theoretically, the answer to that is no.
 
 We could create a file with a lower cased name, e.g., `mainLayout.astro` and import the component as follows:
 
-```ts
-import Main from "../layouts/mainLayout.astro"
+```js
+import Main from "../layouts/mainLayout.astro";
 ```
 
 This is perfectly correct.
 
 However, where we encounter issues is if we name the imported component with a lowercase:
 
-```ts
+```js
 // main NOT Main
-import main from "../layouts/mainLayout.astro"
+import main from "../layouts/mainLayout.astro";
 ```
 
 In this case, we’ll encounter issues when we attempt to render the component as the name collides with the standard HTML `main` element.
@@ -719,9 +797,10 @@ For this reason, it’s common practice to capitalise both component file names 
 
 ## The global style directive
 
-The `Main.astro` layout is in place but doesn’t add much to our page. Let’s start by adding some styles for the headers and also centre the page’s content:
+The `Main` layout is in place but doesn’t add much to our page. Let’s start by adding some styles for the headers and also centre the page’s content:
 
-```astro title="src/layouts/Main.astro"
+```html
+<!-- 📂 src/layouts/Main.astro -->
 <style>
   h1 {
     font-size: 3rem;
@@ -744,13 +823,17 @@ The `Main.astro` layout is in place but doesn’t add much to our page. Let’s 
 
 With this, we’ll have the `main` element centred, but the headers, `h1` and `h2` remain unstyled.
 
-![A comparison of the changes before and after the layout component style.](/images/ch1/CleanShot%202023-05-10%20at%2017.21.33.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-10%20at%2017.21.33.png" width="70%" alt="A comparison of the changes before and after the layout component style." align="center">
+    <figcaption><em>A comparison of the changes before and after the layout component style.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This is because styles applied via the `<style>` tag are locally scoped by default.
 
 Can you tell me why?
 
-The `main` element resides in the `Main.astro` layout. However, the header `h1` and `h2` exist in a different `index.astro` component!
+The `main` element resides in the `Main` layout. However, the header `h1` and `h2` exist in a different `index.astro` component!
 
 For our use case, we need global styles.
 
@@ -762,15 +845,19 @@ I know that sounds like a mouthful! However, in simple terms, template directive
 
 For example, to break out of the default locally scoped `<style>` behaviour, we can add a `is:global` attribute as shown below:
 
-```astro ins="is:global"
+```html
 <style is:global>
-  /** ... **/
+  ...;
 </style>
 ```
 
 This will remove the local CSS scoping and make the styles available globally.
 
-![The page with global fonts and styles.](/images/ch1/CleanShot%202023-05-01%20at%2011.06.50.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-01%20at%2011.06.50.png" width="70%" alt="The page with global fonts and styles." align="center">
+    <figcaption><em>The page with global fonts and styles.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Custom fonts and global CSS
 
@@ -782,7 +869,8 @@ In cases where a project requires importing some existing global css file, this 
 
 For example, let’s refactor our project to use `global.css`. To do so, move the entire CSS content within the `<style is:global>` element into `src/styles/global.css`. Then import the styles in the `Main.astro` component frontmatter:
 
-```astro title="src/layouts/Main.astro" ins={2}
+```js
+// 📂 src/layouts/Main.astro
 ---
 import "../styles/global.css";
 ---
@@ -792,7 +880,7 @@ This will load and inject style onto the page.
 
 Now, let’s turn our attention to global fonts.
 
-We will use the [Google Inter font](https://fonts.google.com/specimen/Inter) for the project, but how do we do this?
+We will use the Google [Inter](https://fonts.google.com/specimen/Inter) font for the project, but how do we do this?
 
 Technically speaking, to add Inter to our project, we must add the `<link>`s to Inter on every page required.
 
@@ -800,16 +888,11 @@ However, instead of repeating ourselves on every page, we can leverage the share
 
 Go ahead and add the `<link>`s to the Inter font as shown below:
 
-```astro title="src/layouts/Main.astro" ins={10-15}
+```js
+// 📂 src/layouts/Main.astro
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Frau Katarina's website" />
-    <title>Astro</title>
-
+    {/** 👀 Look here ... */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -817,7 +900,7 @@ Go ahead and add the `<link>`s to the Inter font as shown below:
       rel="stylesheet"
     />
   </head>
-  <!-- ... -->
+  {/** ... */}
 </html>
 ```
 
@@ -826,13 +909,17 @@ We may now update the `global.css` file to use the new font family:
 ```css
 body {
   font-family: "Inter", sans-serif;
-  padding: 0 0.5rem;
+  padding: 0 0.5rem; /* Additional body style */
 }
 ```
 
 And boom! We have sorted global fonts.
 
-![The page with global fonts and styles.](/images/ch1/CleanShot%202023-05-10%20at%2017.41.13.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-10%20at%2017.41.13.png" width="70%" alt="The page with global fonts and styles." align="center">
+    <figcaption><em>The page with global fonts and styles.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Independent Astro components
 
@@ -844,7 +931,8 @@ Let’s put this to practice by creating `NavigationBar` and `Footer` components
 
 When creating components, a standard convention is to have them in the `src/components` directory. Let’s go ahead and create one.
 
-```astro title="src/components/Footer.astro"
+```js
+// 📂 src/components/Footer.astro
 <footer>&copy; Frau Katerina</footer>
 
 <style>
@@ -861,7 +949,8 @@ When creating components, a standard convention is to have them in the `src/comp
 
 Let’s also create a `NavigationBar` component:
 
-```astro title="src/components/NavigationBar.astro"
+```js
+// 📂 src/components/NavigationBar.astro
 ---
 ---
 
@@ -870,12 +959,14 @@ Let’s also create a `NavigationBar` component:
     <li>
       <a href="/">Home</a>
     </li>
+
     <li>
-      <!-- Link points nowhere for now -->
+      {/** Link points nowhere for now*/}
       <a href="#">Philosophies</a>
     </li>
+
     <li>
-      <!-- Link points nowhere for now -->
+      {/** Link points nowhere for now*/}
       <a href="#">Beyond technology</a>
     </li>
   </ul>
@@ -911,59 +1002,45 @@ Let’s also create a `NavigationBar` component:
 
 Now render the `NavigationBar` and `Footer` as shown below:
 
-```astro title="src/layouts/Main.astro" ins={2-3,25,27}
+```js
+// 📂 src/layouts/Main.astro
 ---
+//...
 import Footer from "../components/Footer.astro";
 import NavigationBar from "../components/NavigationBar.astro";
-import "../styles/global.css";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Frau Katarina's website" />
-    <title>Astro</title>
+{/** ... **/}
+<main>
+  <NavigationBar />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <main>
-      <NavigationBar />
-      <slot />
-      <Footer />
-    </main>
-  </body>
-</html>
+  <slot />
+
+  <Footer />
+</main>
 ```
 
-![Navigation bar and footer rendered.](/images/ch1/CleanShot%202023-05-01%20at%2015.17.48@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-01%20at%2015.17.48@2x.png" width="70%" alt="Navigation bar and footer rendered." align="center">
+    <figcaption><em>Navigation bar and footer rendered.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Adding interactive scripts
 
-An integral part of Astro’s philosophy is shipping zero JavaScript by default to the browser.
+An integral part of Astro’s philosophy is shipping zero Javascript by default to the browser.
 
-This means our pages get compiled into HTML pages with all JavaScript stripped away by default.
+This means our pages get compiled into `HTML` pages with all Javascript stripped away by default.
 
-You might ask, what about all the JavaScript written in the component script section of an Astro component?
+You might ask, what about all the Javascript written in the component script section of an Astro component?
 
-The component script and markup will be used to generate the eventual HTML page(s) sent to the browser.
+The component script and markup will be used to generate the eventual `HTML` page(s) sent to the browser.
 
 For example, go ahead and add a simple `console.log` to the frontmatter of the `index.astro` page:
 
-```astro title="src/pages/index.astro" ins={6}
+```js
+// 📂 src/pages/index.astro
 ---
-import Main from "../layouts/Main.astro"
-
-const profilePicture = "https://i.imgur.com/JPGFE75.jpg"
-
 console.log("Hello world!");
 ---
 ```
@@ -974,20 +1051,31 @@ So, where’s the log?
 
 Astro runs on the server. In our case, this represents our local development server. So, the `console.log` will appear in the terminal where Astro serves our local application.
 
-![Astro server logs.](/images/ch1/CleanShot%202023-05-01%20at%2017.55.33.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-01%20at%2017.55.33.png" width="70%" alt="Astro server logs." align="center">
+    <figcaption><em>Astro server logs.</em></figcaption>
+    <br><br><br>
+</figure>
 
-When we eventually build our application for production with `npm run build`, Astro will output HTML files corresponding to our pages in `src/pages`.
+When we eventually build our application for production with `npm run build`, Astro will output `HTML` files corresponding to our pages in `src/pages`.
 
-In this example, the `Hello world!` message will be logged but not get into the compiled HTML pages.
+In this example, the `Hello world!` message will be logged but not get into the compiled `HTML` pages.
 
-![Logs during building the production application.](/images/ch1/CleanShot%202023-05-01%20at%2018.02.53.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-01%20at%2018.02.53.png" width="70%" alt="Logs during building the production application." align="center">
+    <figcaption><em>Logs during building the production application.</em></figcaption>
+    <br><br><br>
+</figure>
 
-To add interactive scripts, i.e., scripts that make it into the final HTML page build output, add a `<script>` element in the component markup section.
+To add interactive scripts, i.e., scripts that make it into the final `HTML` page build output, add a `<script>` element in the component markup section.
 
 For example, let’s move the `console.log` from the frontmatter to the markup via a `<script>` element:
 
-```astro title="src/pages/index.astro" ins={3-5}
-<!-- ... -->
+```js
+// 📂 src/pages/index.astro
+---
+---
+// ...
 
 <script>
   console.log("Hello world!");
@@ -996,7 +1084,11 @@ For example, let’s move the `console.log` from the frontmatter to the markup v
 
 We should have `Hello world!` logged in the browser console!
 
-![The browser “Hello world” log.](/images/ch1/CleanShot%202023-05-01%20at%2018.07.13@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-01%20at%2018.07.13@2x.png" width="70%" alt="The browser “Hello world” log." align="center">
+    <figcaption><em>The browser “Hello world” log.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Interactive theme toggle
 
@@ -1006,7 +1098,8 @@ Create a new `ThemeToggler.astro` component in the `src/components` directory.
 
 Add the following markup:
 
-```astro title="src/components/ThemeToggler.astro"
+```js
+// 📂 src/components/ThemeToggler.astro
 <button aria-label="Theme toggler">
   <svg width="25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path
@@ -1023,31 +1116,39 @@ Add the following markup:
 </button>
 ```
 
-- For accessibility, the button has an `aria-label` of `Theme toggler`.
-- The SVG has a fixed width of `25px`, rendering two `<path>` elements.
+- For accessibility, the button has an `aria-label` of `Theme toggler`].
+- The `SVG` has a fixed width of `25px`, rendering two `<path>` elements.
 - The first `<path>` visually represents a sun icon. The second is a moon icon.
 - By default, both icons (sun and moon) are rendered. Our goal is to toggle the displayed icon based on the active theme.
 
 Then import the component and render it in the `NavigationBar`:
 
-```astro title="src/components/NavigationBar" ins={2,9}
+```js
+// 📂 src/components/NavigationBar
 ---
 import ThemeToggler from "./ThemeToggler.astro";
 ---
 
 <nav>
   <ul>
-    <!-- ... -->
+    {/** ... **/}
   </ul>
+  {/** 👀 Look here **/}
   <ThemeToggler />
 </nav>
 ```
 
-![The sun and moon icons rendered in the toggle button.](/images/ch1/CleanShot%202023-05-02%20at%2006.43.28.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-02%20at%2006.43.28.png" width="70%" alt="The sun and moon icons rendered in the toggle button." align="center">
+    <figcaption><em>The sun and moon icons rendered in the toggle button.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Let’s add some `<style>` to `ThemeToggler`:
 
-```astro title="src/components/ThemeToggler.astro"
+```js
+// 📂 src/components/ThemeToggler.astro
+// ...
 <style>
   button {
     cursor: pointer;
@@ -1063,7 +1164,7 @@ Let’s add some `<style>` to `ThemeToggler`:
   }
 
   button:active {
-    /* Return the button to its standard size when active */
+    /** Return the button to its standard size when active */
     transform: scale(1);
   }
 
@@ -1076,7 +1177,11 @@ Let’s add some `<style>` to `ThemeToggler`:
 
 Now, we should have a decent-looking theme toggler.
 
-![A styled theme toggle button](/images/ch1/CleanShot%202023-05-02%20at%2006.50.49.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-02%20at%2006.50.49.png" width="70%" alt="A styled theme toggle button" align="center">
+    <figcaption><em>A styled theme toggle button</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## The :global() selector
 
@@ -1084,7 +1189,11 @@ Let’s take a moment to consider the strategy we’ll use for toggling the them
 
 We’ll toggle a CSS class on the root element whenever a user clicks the toggle.
 
-![Adding a new “dark” class on toggle](/images/ch1/embed.png)
+<figure>
+    <img src="images/ch1/embed.png" width="70%" alt="Adding a new “dark” class on toggle" align="center">
+    <figcaption><em>Adding a new “dark” class on toggle</em></figcaption>
+    <br><br><br>
+</figure>
 
 For example, if the user was viewing the site in light mode and clicked to toggle, we’ll add a `.dark` class to the root element and, based on that, apply dark-themed styles.
 
@@ -1096,16 +1205,17 @@ To do this, we will leverage the `:global` selector.
 
 Here’s how we’d achieve this:
 
-```astro title="src/components/ThemeToggler.astro" ins={4-7,9-12}
+```html
+<!-- 📂 src/components/ThemeToggler.astro -->
 <style>
-  /* ... */
+  /**...**/
 
-  /* If a parent element has a .dark class, target the .sun icon and make the path black (shows the icon) */
+  /** If a parent element has a .dark class, target the .sun icon and make the path black (shows the icon) */
   :global(.dark) .sun {
     fill: black;
   }
 
-  /* If a parent element has a .dark class, target the .moon icon and make the path transparent (hides the icon) */
+  /** If a parent element has a .dark class, target the .moon icon and make the path transparent (hides the icon) */
   :global(.dark) .moon {
     fill: transparent;
   }
@@ -1114,7 +1224,11 @@ Here’s how we’d achieve this:
 
 To see this at work, inspect the page via the developer tools, and add a `dark` class to the root element. The toggle icon will be appropriately changed.
 
-![Inspecting icon change with a root dark class](/images/ch1/CleanShot%202023-05-02%20at%2007.03.08.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-02%20at%2007.03.08.png" width="70%" alt="Inspecting icon change with a root dark class" align="center">
+    <figcaption><em>Inspecting icon change with a root dark class</em></figcaption>
+    <br><br><br>
+</figure>
 
 In practice, limit `:global` only to appropriate use cases because mixing global and locally scoped component styles will become challenging to debug. However, this is permissible, given our use case.
 
@@ -1122,26 +1236,27 @@ In practice, limit `:global` only to appropriate use cases because mixing global
 
 We’ve handled the styles for our toggle, assuming a `.dark` root class. Now, Let’s go ahead and handle the toggle click event with a `<script>` element.
 
-```astro title="src/components/ThemeToggler.astro"
+```html
+<!-- 📂 src/components/ThemeToggler.astro -->
 <script>
-  /* Represent the toggle theme class with a variable */
-  const DARK_THEME_CLASS = "dark"
+  /** Represent the toggle theme class with a variable */
+  const DARK_THEME_CLASS = "dark";
 
-  /* Grab the toggle */
-  const toggle = document.querySelector("button")
-  /* Grab the document root element. In this case <html>  */
-  const rootEl = document.documentElement
+  /** Grab the toggle */
+  const toggle = document.querySelector("button");
+  /** Grab the document root element. In this case <html>  */
+  const rootEl = document.documentElement;
 
   if (toggle) {
     toggle.addEventListener("click", () => {
-      /* toggle the "dark" class on the root element */
-      rootEl.classList.toggle(DARK_THEME_CLASS)
-    })
+      /** toggle the "dark" class on the root element */
+      rootEl.classList.toggle(DARK_THEME_CLASS);
+    });
   }
 </script>
 ```
 
-Notice that this is standard JavaScript. Nothing fancy going on here.
+Notice that this is standard Javascript. Nothing fancy going on here.
 
 - The toggle is selected via `document.querySelector("button")`.
 - To set up an event listener, we use the `.addEventListener` method on the button.
@@ -1157,7 +1272,8 @@ CSS variables[^4] are outstanding, and we’ll leverage them for theming our app
 
 Firstly, let’s go ahead and define the colour variables we’ll use in the project.
 
-```css title="styles/global.css" ins={1-15}
+```js
+// 📂 styles/global.css
 html {
   --background: white;
   --grey-200: #222222;
@@ -1173,40 +1289,17 @@ html.dark {
   --grey-600: #ffffff;
   --grey-900: #fafafa;
 }
-
-h1 {
-  font-size: 3rem;
-  line-height: 1;
-}
-
-h1 + h2 {
-  font-size: 1.1rem;
-  margin-top: -1.4rem;
-  opacity: 0.9;
-  font-weight: 400;
-}
-
-main {
-  max-width: 40rem;
-  margin: auto;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  padding: 0 0.5rem;
-}
 ```
 
-- Set the variables on the root HTML element to be globally scoped.
+- Set the variables on the root `HTML` element to be globally scoped.
 - A CSS variable is a property that begins with two dashes, `--` e.g., `--background`.
 - For simplicity, we’ll stick to the minimal grey palette above.
 
 The first visual change we’ll make is to add the following `color` and `background` style declarations to the `body` element:
 
-```css title="styles/global.css" ins={4-5}
+```js
+// 📂 styles/global.css
 body {
-  font-family: "Inter", sans-serif;
-  padding: 0 0.5rem;
   color: var(--grey-600);
   background: var(--background);
 }
@@ -1214,31 +1307,18 @@ body {
 
 With this seemingly simple change, we should now have the text and background colour of the `body` react to clicking the toggle.
 
-![Dark mode activated](/images/ch1/CleanShot%202023-05-02%20at%2007.51.51.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-02%20at%2007.51.51.png" width="70%" alt="Dark mode activated" align="center">
+    <figcaption><em>Dark mode activated</em></figcaption>
+    <br><br><br>
+</figure>
 
 Finally, update the navigation links in `NavigationBar` to reflect theme preferences:
 
-```astro title="src/components/NavigationBar.astro" ins={22,28-30}
+```css
+/* 📂 src/components/NavigationBar.astro */
 <style>
-  nav {
-    display: flex;
-    align-items: flex-start;
-    padding: 2rem 0;
-  }
-
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0 auto 0 0;
-  }
-
-  nav li {
-    opacity: 0.8;
-    list-style: none;
-    font-size: 0.95rem;
-  }
-
+  /* ... */
   a {
     color: var(--grey-400);
     padding: 0.5rem 1rem;
@@ -1252,7 +1332,11 @@ Finally, update the navigation links in `NavigationBar` to reflect theme prefere
 </style>
 ```
 
-![Navigation links styled for dark mode](/images/ch1/CleanShot%202023-05-02%20at%2007.55.56.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-02%20at%2007.55.56.png" width="70%" alt="Navigation links styled for dark mode" align="center">
+    <figcaption><em>Navigation links styled for dark mode</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Accessing global client objects
 
@@ -1264,14 +1348,14 @@ At this point, I hope the answer to the question is clear from previous examples
 
 Since Astro runs on the server, attempting to access a `window` property within the frontmatter of a component will result in an error.
 
-```astro
+```css
 ---
-// ❌ this will fail with the error: window is undefined
-const value = window.localStorage.getItem("value");
+{/** ❌ this will fail with the error: window is undefined **/}
+ const value = window.localStorage.getItem("value")
 ---
 ```
 
-To access `window` properties, we need the script to run on the client, i.e., in the browser. So, we must leverage one or more client-side scripts.
+To access `window` properties, we need the script to run on the client, I.e., in the browser. So, we must leverage one or more client-side scripts.
 
 A good use case for this is remembering the user’s theme choice.
 
@@ -1287,39 +1371,32 @@ Here are the first steps we’ll take:
 - Save the theme value to the browser’s local storage in the form:
   ```ts
   {
-    COLOUR_MODE: "LIGHT" | "DARK"
+    COLOUR_MODE: "LIGHT" | "DARK";
   }
   ```
 
 Here’s that translated in code:
 
-```astro title="src/components/ThemeToggler.astro" ins={4-8,19-24}
+```html
+<!-- 📂 src/components/ThemeToggler.astro -->
 <script>
-  // Represent the toggle theme class with a variable
   const DARK_THEME_CLASS = "dark";
-  // Represent the local storage key by a variable
+  /** Represent the local storage key by a variable */
   const COLOUR_MODE = "COLOUR_MODE";
-  // Represent the local storage values by variables
+  /** Represent the local storage values by variables */
   const LIGHT_THEME = "LIGHT";
   const DARK_THEME = "DARK";
+  /** ... **/
+  toggle.addEventListener("click", () => {
+    /** ... */
+    /**Get the current theme mode, i.e., light or dark */
+    const colourMode = rootEl.classList.contains(DARK_THEME_CLASS)
+      ? DARK_THEME
+      : LIGHT_THEME;
 
-  // Grab the toggle
-  const toggle = document.querySelector("button");
-  // Grab the document root element. In this case <html>
-  const rootEl = document.documentElement;
-
-  if (toggle) {
-    toggle.addEventListener("click", () => {
-      // toggle the "dark" class on the root element
-      rootEl.classList.toggle(DARK_THEME_CLASS);
-      // Get the current theme mode, i.e., light or dark
-      const colourMode = rootEl.classList.contains(DARK_THEME_CLASS)
-        ? DARK_THEME
-        : LIGHT_THEME;
-      // Save the current theme to local storage
-      window.localStorage.setItem(COLOUR_MODE, colourMode);
-    })
-  }
+    /** Save the current theme to local storage   */
+    window.localStorage.setItem(COLOUR_MODE, colourMode);
+  });
 </script>
 ```
 
@@ -1327,36 +1404,26 @@ We have saved the theme to local storage but must now set the active theme as so
 
 Here’s the annotated code required to achieve this:
 
-```astro title="src/components/ThemeToggler.astro" ins={15-38}
+```html
+<!-- 📂 src/components/ThemeToggler.astro -->
 <script>
-  // Represent the toggle theme class with a variable
-  const DARK_THEME_CLASS = "dark";
-  // Represent the local storage key by a variable
-  const COLOUR_MODE = "COLOUR_MODE";
-  // Represent the local storage values by variables
-  const LIGHT_THEME = "LIGHT";
-  const DARK_THEME = "DARK";
-  
-  // Grab the toggle
-  const toggle = document.querySelector("button");
-  // Grab the document root element. In this case <html>
-  const rootEl = document.documentElement;
-
+  {
+    /**... **/
+  }
   const getInitialColourMode = () => {
-    // Get colour mode from local storage
+    /** Get colour mode from local storage **/
     const previouslySavedColourMode = window.localStorage.getItem(COLOUR_MODE);
     if (previouslySavedColourMode) {
       return previouslySavedColourMode;
     }
-    // Does the user prefer dark mode, e.g., through an operating system or user agent setting?
+    /** Does the user prefer dark mode, e.g., through an operating system or user agent setting? */
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       return DARK_THEME;
     }
-    // Default to the light theme
+    /** Default to the light theme */
     return LIGHT_THEME;
-  }
-
-  // Get initial colour mode
+  };
+  /**Get initial colour mode */
   const initialColourMode = getInitialColourMode();
   const setInitialColourMode = (mode: string) => {
     if (mode === LIGHT_THEME) {
@@ -1364,20 +1431,11 @@ Here’s the annotated code required to achieve this:
     } else {
       rootEl.classList.add(DARK_THEME_CLASS);
     }
-  }
+  };
+  /** Set the initial colour mode as soon as the script is executed */
   setInitialColourMode(initialColourMode);
-
-  if (toggle) {
-    toggle.addEventListener("click", () => {
-      // toggle the "dark" class on the root element
-      rootEl.classList.toggle(DARK_THEME_CLASS);
-      // Get the current theme mode, i.e., light or dark
-      const colourMode = rootEl.classList.contains(DARK_THEME_CLASS)
-        ? DARK_THEME
-        : LIGHT_THEME;
-      // Save the current theme to local storage
-      window.localStorage.setItem(COLOUR_MODE, colourMode);
-    });
+  {
+    /**... **/
   }
 </script>
 ```
@@ -1386,13 +1444,13 @@ Now, give this a try. First, toggle the theme and refresh to see the theme choic
 
 ## The magic of scripts
 
-Client-side scripts added via a `<script>` may seem like your typical JavaScript vanilla JS, but they’re more capable in specific ways.
+Client-side scripts added via a `<script>` may seem like your typical Javascript vanilla JS, but they’re more capable in specific ways.
 
 The most crucial point is that Astro processes these. This means within a `<script>`, we can import other scripts or import npm packages, and Astro will resolve and package the script for use in the browser.
 
-```astro
+```html
 <script>
-  // ✅ valid package import
+  /** ✅ valid package import **/
   import { titleCase } from "title-case";
 
   const title = titleCase("string");
@@ -1401,39 +1459,39 @@ The most crucial point is that Astro processes these. This means within a `<scri
 </script>
 ```
 
-```astro
-<!-- ✅ valid script reference -->
+```html
+/** ✅ valid script reference **/
 <script src="path-to-script.js" />
 ```
 
-Another critical point is the `<script>` fully supports TypeScript. For example, in our solution, we typed the parameter for the `setInitialColourMode` function:
+Another critical point is the `<script>` fully supports Typescript. For example, in our solution, we typed the parameter for the `setInitialColourMode` function:
 
 ```ts
 // mode is of type string
 const setInitialColourMode = (mode: string) => {
-  // ...
+  ...
 };
 ```
 
-We don’t have to sacrifice type safety within the client `<script>` elements and can go on to write standard TypeScript code. Astro will strip out the types at build time and only serve the processed JavaScript to the browser.
+We don’t have to sacrifice type safety within the client `<script>` elements and can go on to write standard Typescript code. Astro will strip out the types at build time and only serve the processed Javascript to the browser.
 
 Here’s a summary of what Astro does:
 
-- NPM packages and local files can be imported and will be bundled.
-- TypeScript is fully supported within the `<script>`.
+- `NPM` packages and local files can be imported and will be bundled.
+- Typescript is fully supported within the `<script>`.
 - If a single `Astro` component with a `<script>` is used multiple times on a page, the `<script>` is processed and only included once.
 - Astro will process and insert the script in the `<head>` of the page with a `type=module` attribute.
-  > ❗️The implication of `type=module` is that the browser will defer the script, i.e., load in parallel and **execute it only after** the page’s parsed.
+- ❗️The implication of `type=module` is that the browser will defer the script, i.e., load in parallel and **execute it only after** the page’s parsed.
 
 ## Leveraging inline scripts
 
 By default, Astro processes `<script>`s. However, to opt out of Astro’s default script processing, we may pass a `is:inline` directive as shown below:
 
-```astro
+```ts
 <script is:inline>
-  // Imports will not be processed
-  // TypeScript not supported by default
-  // Script will be added as is, e.g., multiple times if the component is used more than once on a page.
+  // Imports will not be processed // Typescript not supported by default //
+  Script will be added as is, e.g., multiple times if the component is used more
+  than once on a page.
 </script>
 ```
 
@@ -1441,7 +1499,11 @@ In the real world, we quickly realise that the defaults don’t always satisfy e
 
 For example, consider the unstyled flash of content when we refresh our home page. For a user who chose the dark theme previously, refreshing the page shows light-themed rendered content before changing to dark after the script is parsed.
 
-![Transitioning light themed content viewed on Regular 3G throttling.](/images/ch1/CleanShot%202023-05-03%20at%2003.24.42.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-03%20at%2003.24.42.png" width="70%" alt="Transitioning light themed content viewed on Regular 3G throttling." align="center">
+    <figcaption><em>Transitioning light themed content viewed on Regular 3G throttling.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This occurs because we restore the user-chosen theme only after the page’s HTML has been parsed, i.e, the default behaviour of processed Astro scripts.
 
@@ -1449,52 +1511,31 @@ To prevent this, we will use the `is:inline` directive, which will make the scri
 
 Since scripts with the `is:inline` attribute aren’t processed, they’ll be added multiple times if used in reusable components that appear more than once on the page.
 
-So, let’s go ahead and move the theme restoration code bit into `Main.astro` — because the `Main.astro` layout is only included once per page.
+So, let’s go ahead and move the theme restoration code bit into `Main.astro` — because the `Main` layout is only included once per page.
 
 We’ll also make sure to add this within the `<head>` of the layout, as shown below:
 
-```astro title="src/layouts/Main.astro" ins={3-42}
+```html
+<!-- 📂 src/layouts/Main.astro -->
 <head>
   <!-- ... -->
+  <!-- 👀 add is:inline -->
   <script is:inline>
     const DARK_THEME_CLASS = "dark";
     const COLOUR_MODE = "COLOUR_MODE";
     const LIGHT_THEME = "LIGHT";
     const DARK_THEME = "DARK";
-
-    const toggle = document.querySelector("button");
     const rootEl = document.documentElement;
-
     const getInitialColourMode = () => {
-      const previouslySavedColourMode = window.localStorage.getItem(COLOUR_MODE);
-      if (previouslySavedColourMode) {
-        return previouslySavedColourMode;
-      }
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        return DARK_THEME;
-      }
-      return LIGHT_THEME;
-    }
-
+      /** ... */
+    };
     const initialColourMode = getInitialColourMode();
-    const setInitialColourMode = (mode: string) => {
-      if (mode === LIGHT_THEME) {
-        rootEl.classList.remove(DARK_THEME_CLASS);
-      } else {
-        rootEl.classList.add(DARK_THEME_CLASS);
-      }
-    }
+    // 👀 remove string type on mode
+    const setInitialColourMode = (mode) => {
+      /** ... */
+    };
+    /** Set the initial colour mode as soon as the script is executed */
     setInitialColourMode(initialColourMode);
-
-    if (toggle) {
-      toggle.addEventListener("click", () => {
-        rootEl.classList.toggle(DARK_THEME_CLASS);
-        const colourMode = rootEl.classList.contains(DARK_THEME_CLASS)
-          ? DARK_THEME
-          : LIGHT_THEME;
-        window.localStorage.setItem(COLOUR_MODE, colourMode);
-      });
-    }
   </script>
 </head>
 ```
@@ -1505,7 +1546,11 @@ Be careful with `is:inline` as it removes the default non-blocking nature of scr
 
 Open your developer tools and throttle the network. Then go ahead and refresh after toggling dark mode. We should have eradicated the flash of unstyled content!
 
-![Throttling the network via the chrome developer tools.](/images/ch1/CleanShot%202023-05-11%20at%2007.30.21@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-11%20at%2007.30.21@2x.png" width="70%" alt="Throttling the network via the chrome developer tools." align="center">
+    <figcaption><em>Throttling the network via the chrome developer tools.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Global selectors in scripts
 
@@ -1515,7 +1560,8 @@ We know the `<script>` will eventually be bundled and injected into our page’s
 
 However, consider our selector for registering the theme toggle clicks:
 
-```ts title="src/components/ThemeToggler.astro"
+```ts
+// 📂 src/components/ThemeToggler.astro
 const toggle = document.querySelector("button");
 ```
 
@@ -1523,13 +1569,19 @@ The problem with this seemingly harmless code is that `document.querySelector` w
 
 This will be selected if we add a random button somewhere on the page before our theme toggle button.
 
-```astro title="src/layouts/Main.astro"
-<button>Donate to charity</button>
+```js
+// 📂 src/layouts/Main.astro
+<button> Donate to charity </button>
 <Nav />
-<!--... -->
+
+//...
 ```
 
-![The donate to charity button.](/images/ch1/CleanShot%202023-05-03%20at%2003.38.21.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-03%20at%2003.38.21.png" width="70%" alt="The donate to charity button." align="center">
+    <figcaption><em>The donate to charity button.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This button, which has nothing to do with theme toggling, will now be responsible for toggling the user’s theme.
 
@@ -1537,25 +1589,26 @@ Clicking “donate to charity” now toggles the theme. This is unacceptable.
 
 The lesson here is to be mindful of your DOM selectors and be specific where possible, e.g., via ids or classes:
 
-```ts
-document.querySelector("#some-unique-id")
+```js
+document.querySelector("#some-unique-id");
 ```
 
 Let’s refactor our solution to use a data attribute.
 
-```astro title="src/components/ThemeToggler.astro" ins='[data-theme-toggle]' ins='aria-label="Theme toggler"' ins='data-theme-toggle'
+```html
+<!-- 📂 src/components/ThemeToggler.astro -->
 <button aria-label="Theme toggler" data-theme-toggle>
   <!-- ... -->
 </button>
 
 <script>
-  // ...
-  const toggle = document.querySelector("[data-theme-toggle]")
+  /** 👀 Look here */
+  const toggle = document.querySelector("[data-theme-toggle]");
   // ...
 </script>
 ```
 
-With the more specific selector, only an element with the data attribute `theme-toggle` will be selected, leaving `<button>Donate to charity</button>` out of our theme toggle business.
+With the more specific selector, only an element with the data attribute `theme-toggle` will be selected, leaving `<button> Donate to charity </button>` out of our theme toggle business.
 
 ## Markdown pages
 
@@ -1567,46 +1620,53 @@ It’s no surprise Astro supports creating pages via markdown. So, let’s put t
 
 We’ll create two new pages to replace our dead `Philosophies` and `Beyond technology` navigation links.
 
-![The dead navigation links.](/images/ch1/CleanShot%202023-05-02%20at%2010.50.19@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-02%20at%2010.50.19@2x.png" width="70%" alt="The dead navigation links." align="center">
+    <figcaption><em>The dead navigation links.</em></figcaption>
+    <br><br><br>
+</figure>
 
-Create the pages with the following content:
+Create the first page in `src/pages/philosophies.md` with the following content:
 
-<Tabs>
-  <TabItem label="Philosophies">
-```md title="src/pages/philosophies.md"
+```md
 - 5X **Marathoner**
 - Olympic gold medalist
 - Fashion _model_
 - Michelin-star restaurant owner
 - Adviser to the vice president
 ```
-  </TabItem>
-  <TabItem label="Beyond technology">
-```md title="src/pages/beyond-tech.md"
+
+Create the second page in `src/pages/beyond-tech.md` with the following content:
+
+```md
 - Be present and **enjoy the now**
 - Be driven by values
 - Health is _wealth_
 - Be deliberate
 - Laugh out loud
 ```
-  </TabItem>
-</Tabs>
 
 These files are written in markdown syntax[^6].
 
-As with Astro component pages, markdown pages eventually get compiled to standard HTML pages rendered in the browser. The same file-based routing is also used. For example, to access the `philosophies` and `beyond-tech` pages, visit the `/philosophies` and `/beyond-tech ` routes, respectively.
+As with Astro component pages, markdown pages eventually get compiled to standard `HTML` pages rendered in the browser. The same file-based routing is also used. For example, to access the `philosophies` and `beyond-tech` pages, visit the `/philosophies` and `/beyond-tech ` routes, respectively.
 
-![The philosophies page.](/images/ch1/CleanShot%202023-05-03%20at%2002.42.23.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-03%20at%2002.42.23.png" width="70%" alt="The philosophies page." align="center">
+    <figcaption><em>The philosophies page.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Navigating between pages
 
 Navigating between pages in Astro requires no magic wand. Surprise!
 
-Astro uses the standard `<a>` element to navigate between pages. This makes sense as each page is a separate HTML page.
+Astro uses the standard `<a>` element to navigate between pages. This makes sense as each page is a separate `HTML` page.
 
 Let’s update the navigation links to point to the new markdown pages as shown below:
 
-```html title="src/components/NavigationBar.astro" ins="/philosophies" ins="/beyond-tech"
+```html
+<!-- 📂 NavigationBar.astro -->
+
 <li>
   <a href="/">Home</a>
 </li>
@@ -1630,7 +1690,7 @@ You’ve probably realised I ask questions and then provide answers. All right, 
 
 Believe it or not, Astro component frontmatter was inspired by markdown! The original markdown syntax supports frontmatter for providing metadata about the document. For example, we could add a `title` metadata as shown below:
 
-```md
+```ts
 ---
 title: Understanding Astro
 ---
@@ -1644,28 +1704,35 @@ Let’s get started.
 
 With Astro markdown pages, we can provide layouts for a markdown page by providing a layout frontmatter metadata as shown below:
 
-```md
+```ts
 ---
 layout: path-to-layout
 ---
 ```
 
-First, let’s reuse the same `Main.astro` layout by adding the following to both markdown pages:
+First, let’s reuse the same `Main` layout by adding the following to both markdown pages:
 
-```md
+```ts
+// add at the top of the Markdown pages.
 ---
-# add at the top of the Markdown pages.
 layout: ../layouts/Main.astro
 ---
 ```
 
 The markdown pages should now reuse our existing layout with the theming, navigation and footer all set in place!
 
-![Using the Main layout in the markdown pages.](/images/ch1/CleanShot%202023-05-03%20at%2004.40.15.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-03%20at%2004.40.15.png" width="70%" alt="Using the Main layout in the markdown pages." align="center">
+    <figcaption><em>Using the Main layout in the markdown pages.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Since `Main.astro` includes our `global.css` files, let’s go ahead and provide some default global styles for paragraphs and lists:
 
-```css title="src/styles/global.css"
+```css
+ {
+  /** 📂 src/styles/global.css **/
+}
 p,
 li {
   font-size: 1rem;
@@ -1678,7 +1745,11 @@ li {
 }
 ```
 
-![Global list styles are now applied to the Markdown pages.](/images/ch1/CleanShot%202023-05-11%20at%2007.51.10@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-11%20at%2007.51.10@2x.png" width="70%" alt="Global list styles are now applied to the Markdown pages." align="center">
+    <figcaption><em>Global list styles are now applied to the Markdown pages.</em></figcaption>
+    <br><br><br>
+</figure>
 
 We should now have these styles take effect on our markdown pages! Isn’t life better with shared layout components? 😉
 
@@ -1688,7 +1759,8 @@ Layouts are Astro components, meaning we can compose them, i.e., render a layout
 
 For example, let’s create a separate `Blog.astro` layout that composes our base `Main.astro` layout.
 
-```astro title="src/layouts/Blog.astro"
+```js
+// 📂 src/layouts/Blog.astro
 ---
 import Main from "./Main.astro";
 ---
@@ -1708,85 +1780,90 @@ Now, at this point, the markdown pages have the same layout markup and styles fr
 
 As we build reusable components, we often find situations where we must customise certain values within a component. For example, consider the `<title>` in our `Main.astro` layout component:
 
-```astro title="src/layouts/Main.astro"
+```js
+// 📂 src/layouts/Main.astro
 <title>Astro</title>
 ```
 
-A hardcoded `title` on every page where the `Main.astro` layout is used is ridiculous.
+A hardcoded `title` on every page where the `Main` layout is used is ridiculous.
 
 To foster reusability, components can accept properties. These are commonly known as **props**.
 
 Props are passed to components as attributes.
 
-```astro title="src/layouts/Main.astro"
+```js
 <Main title="Some title" />
 ```
 
 The prop values are then accessed via `Astro.props`. This is better explained with an example.
 
-Go ahead and update `Main.astro` to accept a `title` prop as shown below:
+Go ahead and update `Main` to accept a `title` prop as shown below:
 
-```astro title="src/layouts/Main.astro" {16} ins={6}
+```js
+// 📂 src/layouts/Main.astro
 ---
-import Footer from "../components/Footer.astro"
-import NavigationBar from "../components/NavigationBar.astro"
-import "../styles/global.css"
-
+// ...
 const { title } = Astro.props;
 ---
+
+<html lang="en">
+  <head>
+    {/** ... **/}
+    {/** 👀 look here **/}
+    <title>{title}</title>
+  </head>
+     {/** ... **/}
+</html>
 ```
 
-To enforce TypeScript checks, define the `Props` type alias or interface.
+To enforce Typescript checks, define the `Props` type alias or interface.
 
-```ts
+```js
 // Either of these is valid
 type Props = {
-  title: string
-}
+  title: string,
+};
 
 interface Props {
-  title: string
+  title: string;
 }
 ```
 
-For simplicity, I’ll stick to a type alias for the `Main.astro` layout:
+For simplicity, I’ll stick to a type alias for the `Main` layout:
 
-```astro title="src/layouts/Main.astro" ins={6-8}
+```js
+// 📂 src/layouts/Main.astro
 ---
-import Footer from "../components/Footer.astro"
-import NavigationBar from "../components/NavigationBar.astro"
-import "../styles/global.css"
-
 type Props = {
   title: string
 }
 
 const { title } = Astro.props;
 ---
+// ...
 ```
 
-With the type declared, we’ll have TypeScript error(s) in files where we’ve used `<Main>` without the required `title` prop.
+With the type declared, we’ll have Typescript error(s) in files where we’ve used `<Main>` without the required `title` prop.
 
-![Invalid title props error.](/images/ch1/CleanShot%202023-05-03%20at%2006.01.52.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-03%20at%2006.01.52.png" width="70%" alt="Invalid title props error." align="center">
+    <figcaption><em>Invalid title props error.</em></figcaption>
+    <br><br><br>
+</figure>
 
-Update the `index.astro` and `Blog.astro` pages to pass a `title` prop to `Main.astro`:
+Update the `index.astro` and `Blog.astro` pages to pass a `title` prop to `Main`:
 
-<Tabs>
-  <TabItem label="index.astro">
-    ```astro title="src/layouts/index.astro" {1}
-    <Main title="Frau Katarina">
-      <!-- ... -->
-    </Main>
-    ```
-  </TabItem>
-  <TabItem label="Blog.astro">
-    ```astro title="src/layouts/Blog.astro" {1}
-    <Main title="Frau Katarina | Blog">
-      <slot />
-    </Main>
-    ```
-  </TabItem>
-</Tabs>
+```js
+// 📂 src/layouts/index.astro
+<Main title="Frau Katarina">
+{/* ... */}
+```
+
+```js
+// 📂 src/layouts/Blog.astro
+<Main title="Frau Katarina | Blog">
+{/* ... */}
+```
 
 ## Leveraging markdown frontmatter properties
 
@@ -1794,29 +1871,31 @@ All markdown pages in our application will have a title, subtitle and poster. Lu
 
 Update the markdown pages to now include these properties, as shown below.
 
-<Tabs>
-  <TabItem label="Philosophies">
-```md title="src/pages/philosophies.md" {2} ins={3-5}
----
-layout: ../layouts/Blog.astro
-poster: "/images/philosophies.jpg"
-title: "My Guiding Philosophies"
-subtitle: "These are the philosophies that guide every decision and action I make."
----
-```
-  </TabItem>
-  <TabItem label="Beyond technology">
-```md title="src/pages/beyond-tech.md" {2} ins={3-5}
+`📂 src/pages/beyond-tech.md`:
+
+```md
 ---
 layout: ../layouts/Blog.astro
 poster: "/images/road-trip.jpg"
 title: "Beyond Technology"
 subtitle: "Humans are multi-faceted. Beyond tech, I indulge in the following:"
 ---
-```
-  </TabItem>
-</Tabs>
 
+...
+```
+
+`📂 src/pages/philosophies.md`:
+
+```md
+---
+layout: ../layouts/Blog.astro
+poster: "/images/philosophies.jpg"
+title: "My Guiding Philosophies"
+subtitle: "These are the philosophies that guide every decision and action I make."
+---
+
+...
+```
 
 Note that `poster` points to image paths. These paths reference the `public` directory. So `/images/philosophies.jpg` points to an image in `public/images/philosophies.jpg`.
 
@@ -1828,7 +1907,8 @@ Luckily, markdown layouts have a unique superpower — they can access markdown 
 
 Let’s go ahead and globally handle this in our `Blog.astro` layout component. Below’s the component script section:
 
-```astro title="src/layouts/Blog.astro" ins={2-4, 7-13, 15-16}
+```ts
+// 📂 src/layouts/Blog.astro
 ---
 // import the type utility for the markdown layout props
 import type { MarkdownLayoutProps } from "astro";
@@ -1851,14 +1931,19 @@ const { poster, title, subtitle } = Astro.props.frontmatter;
 - The `MarkdownLayoutProps` utility type accepts a generic and returns the type for all the properties available to a markdown layout. So feel free to inspect the entire shape[^7].
 - `MarkdownLayoutProps` accepts our frontmatter property type definition as a generic, i.e., `title`, `poster` and `subtitle`. These are properties we’ve added in the frontmatter of our Markdown pages.
 - `type Props = ...` or `interface Props {}` is how we provide types for an Astro component.
-- The final line deconstructs the properties from `Astro.props.frontmatter` with full TypeScript support.
+- The final line deconstructs the properties from `Astro.props.frontmatter` with full Typescript support.
 
-![TypeScript support in the Markdown layout.](/images/ch1/CleanShot%202023-05-03%20at%2005.16.20.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-03%20at%2005.16.20.png" width="70%" alt="Typescript support in the Markdown layout." align="center">
+    <figcaption><em>Typescript support in the Markdown layout.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Equally update the layout markup to render the image, title and subtitle:
 
-```astro title="src/layouts/Blog.astro" ins={2-13, 15-16, 21-38}
-<Main title="Frau Katarina | Blog">
+```astro
+<!-- 📂 src/layouts/Blog.astro -->
+<main>
   <figure class="figure">
     <img
       src={poster}
@@ -1876,7 +1961,7 @@ Equally update the layout markup to render the image, title and subtitle:
   <h2>{subtitle}</h2>
 
   <slot />
-</Main>
+</main>
 
 <style>
   h1 + h2 {
@@ -1902,7 +1987,11 @@ Most of the markup is arguably standard. However, note the `title.toLowerCase()`
 
 Our markdown pages will now have styled titles, subtitles and poster images! With all this handled in one place — the markdown layout.
 
-![The fully formed Markdown page.](/images/ch1/CleanShot%202023-05-03%20at%2005.19.26.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-03%20at%2005.19.26.png" width="70%" alt="The fully formed Markdown page." align="center">
+    <figcaption><em>The fully formed Markdown page.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Interactive navigation state
 
@@ -1910,15 +1999,16 @@ Now that we’re pros at handling interactive scripts in Astro let’s go ahead 
 
 As with all things programming, there are different ways to achieve this, but we will go ahead and script this.
 
-```astro title="src/components/NavigationBar.astro"
+```html
+<!-- 📂 src/components/NavigationBar.astro -->
 <script>
-  const { pathname } = window.location
+  const { pathname } = window.location;
   const activeNavigationElement = document.querySelector(
     `nav a[href="${pathname}"]`
-  )
+  );
 
   if (activeNavigationElement) {
-    activeNavigationElement.classList.add("active")
+    activeNavigationElement.classList.add("active");
   }
 </script>
 ```
@@ -1929,90 +2019,77 @@ As with all things programming, there are different ways to achieve this, but we
 
 Finally, add the relevant style for the active tag:
 
-```astro title="src/components/NavigationBar.astro" ins={32-35}
+```css
+/* 📂 src/components/NavigationBar.astro */
 <style>
-  nav {
-    display: flex;
-    align-items: flex-start;
-    padding: 2rem 0;
-  }
-
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0 auto 0 0;
-  }
-
-  nav li {
-    opacity: 0.8;
-    list-style: none;
-    font-size: 0.95rem;
-  }
-
-  a {
-    color: var(--grey-400);
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: var(--grey-900);
-  }
-
-  a.active {
-    background: var(--grey-900);
-    color: var(--background);
-  }
+  /* ... */
+ a.active {
+  background: var(--grey-900);
+  color: var(--background);
+ }
 </style>
 ```
 
 Viola! We should now have the active anchor tag styled differently.
 
-![Active anchor tag styles.](/images/ch1/CleanShot%202023-05-03%20at%2009.44.02.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-03%20at%2009.44.02.png" width="70%" alt="Active anchor tag styles." align="center">
+    <figcaption><em>Active anchor tag styles.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Component composition
 
-Our first look at component composition was with the `Main.astro` and `Blog.astro` layouts. Let’s take this further.
+Our first look at component composition was with the `Main` and `Blog` layouts. Let’s take this further.
 
 Our goal is to create a set of different yet identical cards. Each card acts as a link to a blog and will have a title and some background gradient.
 
-![The eventual card layout we will build.](/images/ch1/CleanShot%202023-05-04%20at%2009.44.58.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-04%20at%2009.44.58.png" width="70%" alt="The eventual card layout we will build." align="center">
+    <figcaption><em>The eventual card layout we will build.</em></figcaption>
+    <br><br><br>
+</figure>
 
 To achieve this, we’ll have a `Cards.astro` component that renders multiple `Card.astro` components.
 
-![The card composition visualised.](/images/ch1/b.png)
+<figure>
+    <img src="images/ch1/b.png" width="70%" alt="The card composition visualised." align="center">
+    <figcaption><em>The card composition visualised.</em></figcaption>
+    <br><br><br>
+</figure>
 
-Let’s start by creating `Card.astro` and `Cards.astro`.
+Let’s start by creating `Card.astro`.
 
-<Tabs>
-  <TabItem label="Card.astro">
-```astro title="src/components/Card.astro"
+Define the relevant component props and relevant markup as shown below:
+
+```js
+// 📂 src/components/Card.astro
 ---
-// Export the Props type alias
+{/** Export the Props type alias **/}
 export type Props = {
-  to: string
-  title: string
-  gradientFrom: string
-  gradientTo: string
+  to: string;
+  title: string;
+  gradientFrom: string;
+  gradientTo: string;
 };
 
 // Get component props from Astro.props
 const { title, to } = Astro.props;
 ---
+```
 
+```astro
 <a href={to} class="card">
   <div class="card__inner">
     <div class="card__title">{title}</div>
-    <!-- Render the arrow via HTML entity name: &rarr; = → -->
+    <!-- Render the arrow via HTML entity name: → = &rarr;-->
     <div class="card__footer">&rarr;</div>
   </div>
 </a>
 
 <style>
   .card {
-    /* local CSS variable reused below */
+    /** local CSS variable reused below */
     --radius: 10px;
 
     padding: 4px;
@@ -2048,9 +2125,11 @@ const { title, to } = Astro.props;
   }
 </style>
 ```
-  </TabItem>
-  <TabItem label="Cards.astro">
-```astro title="src/components/Cards.astro"
+
+Now, go ahead and create the `Cards.astro` component as follows:
+
+```js
+// 📂 src/components/Cards.astro
 ---
 // Import the Card component
 import Card from "./Card.astro";
@@ -2065,7 +2144,9 @@ type Props = {
 // Retrieve the cards prop
 const { cards } = Astro.props;
 ---
+```
 
+```html
 <div class="cards">
   <!-- Dynamically render multiple Card components and spread the required card props -->
   {cards.map((card) => <Card {...card} />)}
@@ -2086,20 +2167,20 @@ const { cards } = Astro.props;
   }
 </style>
 ```
-  </TabItem>
-</Tabs>
 
 To see the fruits of our labour, we must now import and render `Cards` in the `index.astro` page component.
 
-```astro title="src/pages/index.astro" ins={3, 9-30}
+```js
+// 📂 src/pages/index.astro
 ---
 // ...
 import Cards from "../components/Cards.astro";
-// ...
 ---
-
 <Main>
-  <!-- ... -->
+  <div class="profile">
+   {/** ... **/}
+  </div>
+  {/** 👀 look here **/}
   <Cards
     cards={[
       {
@@ -2125,13 +2206,18 @@ import Cards from "../components/Cards.astro";
 </Main>
 ```
 
-![The rendered cards.](/images/ch1/CleanShot%202023-05-04%20at%2010.18.23.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-04%20at%2010.18.23.png" width="70%" alt="The rendered cards." align="center">
+    <figcaption><em>The rendered cards.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Clicking any of the links will point to the respective blog page.
 
 Let’s not forget to add the new `work-summary.md` page:
 
-```md title="src/pages/work-summary.md"
+```js
+// 📂 src/pages/work-summary.md
 ---
 layout: ../layouts/Blog.astro
 poster: "/images/work-summary.jpg"
@@ -2154,12 +2240,12 @@ As we’ve discussed, the data in the frontmatter runs on the server and is not 
 
 As we’ve built our application, we’ve frequently leveraged data in the frontmatter in the template section, as shown below:
 
-```astro
+```js
 ---
-const data = "Understanding Astro"
+ const data = "Understanding Astro"
 ---
 
-<!-- Use data in the template -->
+//Use data in the template
 <h1>{data}</h1>
 ```
 
@@ -2167,21 +2253,23 @@ This is easy to reason about for our static website. We know this will eventuall
 
 However, consider a more robust markup that includes `<style>` and `<script>` elements. How do we reference data from the frontmatter in these markup sections?
 
-```astro
+```js
 ---
-const data = "Understanding Astro"
+ const data = "Understanding Astro"
 ---
 
-<!-- ✅ Use data in the template -->
+// ✅ Use data in the template
 <h1>{data}</h1>
 
+// styles
 <style>
-  /* ❌ referencing data here will fail */
+ {/** ❌referencing data here will fail */}
 </style>
 
+// scripts
 <script>
-  // ❌ referencing data here will fail
-  console.log(data)
+{/** ❌referencing data here will fail */}
+ console.log(data)
 </script>
 ```
 
@@ -2195,24 +2283,15 @@ We must reference the `gradientFrom` and `gradientTo` variables passed as props 
 
 First, to make the variables available within `<style>`, we’ll go ahead and use `define:vars` as follows:
 
-```astro title="src/components/Card.astro" {11, 16}
+```js
+// 📂 src/components/Card.astro
 ---
-// Export the Props type alias
-export type Props = {
-  to: string
-  title: string
-  gradientFrom: string
-  gradientTo: string
-};
-
-// Get component props from Astro.props
 const { title, to, gradientFrom, gradientTo } = Astro.props;
+// ...
 ---
 
-<!-- ... -->
-
-<style define:vars={{ gradientFrom, gradientTo }}>
-  /* ... */
+<style define:vars={{gradientFrom, gradientTo }}>
+  {/** ... **/}
 </style>
 ```
 
@@ -2222,25 +2301,18 @@ The variables are defined but not used yet!
 
 Now, we can reference the variables via custom properties (aka css variables) as shown below:
 
-```astro title="src/components/Card.astro" ins={11-15}
-<style define:vars={{ gradientFrom, gradientTo }}>
+```css
+/** 📂 src/components/Card.astro **/
+<style define:vars={{gradientFrom, gradientTo }}>
+  /** 👀 look here **/
   .card {
-    /* local CSS variable reused below */
-    --radius: 10px;
-
-    padding: 4px;
-    border-radius: var(--radius);
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-
     background-image: linear-gradient(
       to right,
       var(--gradientFrom),
       var(--gradientTo)
     );
   }
-
-  /* ... */
+ /** ... **/
 </style>
 ```
 
@@ -2248,7 +2320,11 @@ And voila!
 
 Our cards are now more beautiful than ever.
 
-![Applying dynamic gradients to the cards.](/images/ch1/CleanShot%202023-05-04%20at%2010.45.36.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-04%20at%2010.45.36.png" width="70%" alt="Applying dynamic gradients to the cards." align="center">
+    <figcaption><em>Applying dynamic gradients to the cards.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## The dark side of define:vars
 
@@ -2262,29 +2338,31 @@ Here’s an example to make this clear.
 
 In `Card.astro` go ahead and add a `<script>` with the `define:vars` directive as follows:
 
-```astro title="src/components/Card.astro"
-<script define:vars={{ gradientFrom }}>console.log(gradientFrom)</script>
+```js
+/** 📂 src/components/Card.astro **/
+<script define:vars={{ gradientFrom }}>console.log(gradientFrom);</script>
 ```
 
 Inspect the elements via the developer tools. You’ll notice that the `<script>` is inlined and unprocessed, i.e., just as we’ve written it, apart from being wrapped in an immediately invoked function execution (IIFE).
 
-![The inlined scripts.](/images/ch1/CleanShot%202023-05-04%20at%2012.07.32.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-04%20at%2012.07.32.png" width="70%" alt="The inlined scripts." align="center">
+    <figcaption><em>The inlined scripts.</em></figcaption>
+    <br><br><br>
+</figure>
 
 The script is also added three times — with a different value of `gradientFrom` for each rendered card.
 
-With scripts, a better solution (except the inline behaviour is ideal for your use case) is to pass the data from the component frontmatter to the rendered element via `data-` attributes and then access these via JavaScript.
+With scripts, a better solution (except the inline behaviour is ideal for your use case) is to pass the data from the component frontmatter to the rendered element via `data-` attributes and then access these via Javascript.
 
 For example, we may rewrite the previous solution as shown below:
 
-```astro ins="data-gradientfrom={gradientFrom}" ins={9-17}
-<a href={to} class="card" data-gradientfrom={gradientFrom}>
-  <!-- ... -->
-</a>
+```astro
+---
+---
 
-<style>
-  /* ... */
-</style>
-
+<a href={to} class="card" data-gradientfrom={gradientFrom}> ... </a>
+...
 <script>
   const card = document.querySelector(".card");
 
@@ -2302,13 +2380,13 @@ Note that this is a contrived example and only retrieves the first card element 
 
 Let’s go ahead and create a new `blog` directory to hold some more markdown pages. The pages and their content are shown below:
 
-<Tabs>
-  <TabItem label="rust-javascript-tooling">
-```md title="pages/blogs/rust-javascript-tooling.md"
+`📂 pages/blogs/rust-javascript-tooling.md` :
+
+```md
 ---
 layout: "../../layouts/Blog.astro"
 poster: "/images/adventure.jpg"
-title: "Why Rust is the Future of JavaScript Tooling"
+title: "Why Rust is the Future of Javascript Tooling"
 subtitle: "How to create fast, speedy developer experiences."
 ---
 
@@ -2317,9 +2395,10 @@ subtitle: "How to create fast, speedy developer experiences."
 - Touted as the new C++
 - Did I mention it's pretty fast?
 ```
-  </TabItem>
-  <TabItem label="sleep-more">
-```md title="pages/blogs/sleep-more.md"
+
+`📂 pages/blogs/sleep-more.md` :
+
+```md
 ---
 layout: "../../layouts/Blog.astro"
 poster: "/images/sleeping-cat.jpg"
@@ -2331,28 +2410,29 @@ subtitle: "Sleep is great for you. Here's why:"
 - Sleep more
 - Sleep a little more
 ```
-  </TabItem>
-  <TabItem label="typescript-new-javascript">
-```md title="pages/blogs/typescript-new-javascript.md"
+
+`📂 pages/blogs/typescript-new-javascript.md ` :
+
+```md
 ---
 layout: "../../layouts/Blog.astro"
 poster: "/images/coding.jpg"
-title: "TypeScript is the new JavaScript"
-subtitle: "TypeScript is becoming a standard for web development these days:"
+title: "Typescript is the new Javascript"
+subtitle: "Typescript is becoming a standard for web development these days:"
 ---
 
 - Type safety
 - Type safety!
 - Even more type safety!
 ```
-  </TabItem>
-</Tabs>
 
 We aim to list these blog titles on our home page. One way to do this would be to render all link elements in `index.astro` manually:
 
-```astro title="src/pages/index.astro" ins={3-28, 33-69}
-<Main title="Frau Katerina">
-  <!-- ... -->
+```html
+<!-- 📂 src/pages/index.astro -->
+...
+<main>
+  ...
   <div class="featured-blogs">
     <h3 class="featured-blogs__title">Featured Blogs</h3>
     <p class="featured-blogs__description">
@@ -2363,13 +2443,13 @@ We aim to list these blog titles on our home page. One way to do this would be t
   <ol class="blogs">
     <li class="blogs__list">
       <a href="blogs/typescript-new-javascript" class="blog__link"
-        >TypeScript is the new JavaScript</a
+        >Typescript is the new Javascript</a
       >
     </li>
 
     <li class="blogs__list">
       <a href="/blogs/rust-javascript-tooling" class="blog__link"
-        >Why Rust is the future of JavaScript tooling</a
+        >Why Rust is the future of Javascript tooling</a
       >
     </li>
 
@@ -2379,15 +2459,19 @@ We aim to list these blog titles on our home page. One way to do this would be t
       >
     </li>
   </ol>
-</Main>
+</main>
+```
 
+Then update our component styles:
+
+```html
+<!-- 📂 src/pages/index.astro -->
+...
 <style>
-  /* ... */
-  .featured-blogs {
+  ... .featured-blogs {
     margin: 0;
     padding: 3rem 0 0 0;
   }
-
   .featured-blogs__title {
     font-size: 2rem;
     color: var(--gray-900);
@@ -2425,7 +2509,11 @@ We aim to list these blog titles on our home page. One way to do this would be t
 
 This isn’t necessarily a wrong approach to getting this done. We will now have a list of the blogs, as expected.
 
-![The rendered blog list.](/images/ch1/CleanShot%202023-05-11%20at%2012.52.18@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-11%20at%2012.52.18@2x.png" width="70%" alt="The rendered blog list." align="center">
+    <figcaption><em>The rendered blog list.</em></figcaption>
+    <br><br><br>
+</figure>
 
 A better solution is to use `Astro.glob()` to load multiple files.
 
@@ -2435,42 +2523,45 @@ Talk is cheap, so let’s put this into action.
 
 Instead of manually writing out the list of blog articles, we will use `Astro.glob()` to fetch all the blog posts:
 
-```astro title="src/pages/index.astro" ins={3-7}
+```js
+// 📂 src/pages/index.astro
 ---
-// ...
 const blogs = await Astro.glob<{
   poster: string;
   title: string;
   subtitle: string;
 }>("../pages/blogs/*.md");
+...
 ---
+...
 ```
 
-- Note the argument passed to `.glob`, i.e., `../pages/blogs/*.md`. This relative glob path represents all markdown files in the `blogs` directory.
+- Note the argument passed to `.glob`, i.e., `../pages/blogs/*.md`. This relative glob path represents all markdown files in the `/blogs` directory.
 - Also note the typing provided. `.glob` implements a generic, which, in this case, represents the markdown frontmatter object type.
-
-  ```ts
+  ```js
   {
-    poster: string
-    title: string
-    subtitle: string
+    poster: string;
+    title: string;
+    subtitle: string;
   }
   ```
 
 Now, we may replace the manual list with a dynamically rendered list, as shown below:
 
-```astro title="src/pages/index.astro"
-<ol class="blogs">
-  {
-    blogs.map((blog) => (
-      <li class="blogs__list">
-        <a href={blog.url} class="blog__link">
-          {blog.frontmatter.title}
-        </a>
-      </li>
-    ))
-  }
-</ol>
+```js
+// 📂 src/pages/index.astro
+...
+  <ol>
+    {
+      blogs.map((blog) => (
+        <li class="blogs__list">
+          <a href={blog.url} class="blog__link">
+            {blog.frontmatter.title}
+          </a>
+        </li>
+      ))
+    }
+  </ol>
 ```
 
 - Dynamically render the blog list using the `.map` array function.
@@ -2488,7 +2579,11 @@ Deploying a static website is relatively the same regardless of the technology u
 
 At the end of your deployment build, we’ll have static assets to deploy to any service we choose.
 
-![Generating production builds.](/images/ch1/generate-prod-build.png)
+<figure>
+    <img src="images/ch1/generate-prod-build.png" width="70%" alt="Generating production builds." align="center">
+    <figcaption><em>Generating production builds.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Once this is done, we must wire up a static web server to serve this content when your users visit the deployed site.
 
@@ -2519,17 +2614,29 @@ Choosing a web server will come down to your choice. I’ll go ahead and explain
 
 Go over to Netlify and create an account.
 
-![The Netlify homepage.](/images/ch1/CleanShot%202023-01-25%20at%2004.51.46@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-01-25%20at%2004.51.46@2x.png" width="70%" alt="The Netlify homepage." align="center">
+    <figcaption><em>The Netlify homepage.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Once you create an account and sign in, you’ll find a manual section to deploy a site.
 
-![The Netlify dashboard.](/images/ch1/CleanShot%202023-01-25%20at%2004.56.37@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-01-25%20at%2004.56.37@2x.png" width="70%" alt="The Netlify dashboard." align="center">
+    <figcaption><em>The Netlify dashboard.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Now, click `browse to upload` and upload the `dist` folder containing our static production assets.
 
 Once the upload is completed, you’ll have your site deployed with a random public URL, as shown below:
 
-![Deployed Netlify site URL.](/images/ch1/CleanShot%202023-01-25%20at%2004.57.57@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-01-25%20at%2004.57.57@2x.png" width="70%" alt="Deployed Netlify site URL." align="center">
+    <figcaption><em>Deployed Netlify site URL.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Visit the URL to view your newly deployed website!
 
@@ -2541,7 +2648,11 @@ However, in the real world, you may find this less optimal.
 
 The main challenge here is that every change made to your website requires you to build the application and re-upload it to your server manually.
 
-![Manually redeploying after new changes.](/images/ch1/manual-redeployment.png)
+<figure>
+    <img src="images/ch1/manual-redeployment.png" width="70%" alt="Manually redeploying after new changes." align="center">
+    <figcaption><em>Manually redeploying after new changes.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This is a well-known problem with a standardised solution. The solution
 involves automating the entire process of deploying static websites by connecting your website to a git provider.
@@ -2558,15 +2669,27 @@ Automating the deployment of a static website looks something like this:
 
 To see this process in practice with Netlify, go over [to your dashboard](https://app.netlify.com/start) and connect a Git provider (step 1).
 
-![Netlify: connecting a Git provider.](/images/ch1/CleanShot%202023-01-25%20at%2005.46.08@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-01-25%20at%2005.46.08@2x.png" width="70%" alt="Netlify: connecting a Git provider." align="center">
+    <figcaption><em>Netlify: connecting a Git provider.</em></figcaption>
+    <br><br><br>
+</figure>
 
 I’ll go ahead to select Github, authorise Netlify and select the GitHub project (step 2).
 
-![Netlify: selecting the Github project.](/images/ch1/CleanShot%202023-01-25%20at%2005.47.23@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-01-25%20at%2005.47.23@2x.png" width="70%" alt="Netlify: selecting the Github project." align="center">
+    <figcaption><em>Netlify: selecting the Github project.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Once that’s selected, provide the settings for your application deployment (Step 3). By default, Netlify will suggest the `build` and `publish directory`. Check these to make sure there are no errors.
 
-![Netlify: suggested build command and publish directory.](/images/ch1/CleanShot%202023-01-25%20at%2005.49.46@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-01-25%20at%2005.49.46@2x.png" width="70%" alt="Netlify: suggested build command and publish directory." align="center">
+    <figcaption><em>Netlify: suggested build command and publish directory.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Hit deploy, and your site will be live in seconds (step 4).
 
@@ -2583,11 +2706,19 @@ Let’s put this to the test by following the steps below:
 - Go to the Lighthouse tab.
 - Analyse the page load.
 
-![Analysing page load via lighthouse.](/images/ch1/CleanShot%202023-05-11%20at%2013.42.45@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-11%20at%2013.42.45@2x.png" width="70%" alt="Analysing page load via lighthouse." align="center">
+    <figcaption><em>Analysing page load via lighthouse.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Here’s my result running the test:
 
-![Lighthouse 100% scores.](/images/ch1/CleanShot%202023-05-11%20at%2013.44.24@2x.png)
+<figure>
+    <img src="images/ch1/CleanShot%202023-05-11%20at%2013.44.24@2x.png" width="70%" alt="Lighthouse 100% scores." align="center">
+    <figcaption><em>Lighthouse 100% scores.</em></figcaption>
+    <br><br><br>
+</figure>
 
 If this were a school examination, we would have just scored A+ on performance without trying!
 
@@ -2601,10 +2732,10 @@ This has been a lengthy discourse on Astro! We’ve delved into building a proje
 
 Why stop here? We’ve only just scratched the surface.
 
-[^1]: For other editors, please see the official Astro site https://docs.astro.build/en/editor-setup/
-[^2]: What is a “.d.ts” file in TypeScript? https://medium.com/@ohansemmanuel/what-is-a-d-ts-file-in-typescript-2e2d90d58eca
-[^3]: As we’ll see later, they can also be used in `.mdx` files.
-[^4]: Don’t know CSS variables? Read my guide https://medium.com/free-code-camp/everything-you-need-to-know-about-css-variables-c74d922ea855
-[^5]: What is Markdown? https://en.wikipedia.org/wiki/Markdown
-[^6]: The markdown syntax cheatsheet https://www.markdownguide.org/cheat-sheet/
-[^7]: Markdown layout properties: https://docs.astro.build/en/core-concepts/layouts/#markdown-layout-props
+[^1]: For other editors, please see the official Astro site [https://docs.astro.build/en/editor-setup/](https://docs.astro.build/en/editor-setup/)
+[^2]: What is a “.d.ts” file in Typescript? [https://medium.com/@ohansemmanuel/what-is-a-d-ts-file-in-typescript-2e2d90d58eca](https://medium.com/@ohansemmanuel/what-is-a-d-ts-file-in-typescript-2e2d90d58eca)
+[^3]: As we’ll see later, they can also be used in .mdx files.
+[^4]: Don’t know CSS variables? Read my guide [https://medium.com/free-code-camp/everything-you-need-to-know-about-css-variables-c74d922ea855](https://medium.com/free-code-camp/everything-you-need-to-know-about-css-variables-c74d922ea855)
+[^5]: What is Markdown? [https://en.wikipedia.org/wiki/Markdown](https://en.wikipedia.org/wiki/Markdown)
+[^6]: The markdown syntax cheatsheet [https://www.markdownguide.org/cheat-sheet/](https://www.markdownguide.org/cheat-sheet/)
+[^7]: Markdown layout properties: [https://docs.astro.build/en/core-concepts/layouts/#markdown-layout-props](https://docs.astro.build/en/core-concepts/layouts/#markdown-layout-props)

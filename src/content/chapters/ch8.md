@@ -20,9 +20,11 @@ At the end of this chapter, you’ll join the order of mages who wield great pow
 
 Before we dive into the beautiful world of Astro integrations, we need to know who’s powering the Astro build ship - and that’s [Vite](https://vitejs.dev/), the build tool all about speed, efficiency and flexibility. Think of Vite as our trusty co-pilot, helping us bundle our web pages and creating a lightning-fast development environment.
 
-
-![The Astro Vite relationship](/images/ch8/astro-vite-relationship.png)
-
+<figure>
+    <img src="images/ch8/astro-vite-relationship.png" width="70%" alt="The Astro Vite relationship" align="center">
+    <figcaption><em>The Astro Vite relationship.</em></figcaption>
+    <br><br><br>
+</figure>
 
 To build the custom integrations we’re dreaming of, we may need to go beyond Astro and venture deep into Vite territory, e.g., customising the build step with Vite plugins.
 
@@ -236,9 +238,11 @@ And voila!
 
 We have our first integration running as expected.
 
-
-![Working integration log printed in the browser console](/images/ch8/CleanShot%202023-04-06%20at%2005.29.53.png)
-
+<figure>
+    <img src="images/ch8/CleanShot%202023-04-06%20at%2005.29.53.png" width="70%" alt="Working integration log printed in the browser console" align="center">
+    <figcaption><em>Working integration log printed in the browser console.</em></figcaption>
+    <br><br><br>
+</figure>
 
 We may create more pages, and the console message will be logged on every page in the application.
 
@@ -250,9 +254,11 @@ This may be useful for usability or ascertaining that our custom integration wor
 
 At the moment, here’s the mess my server logs look like:
 
-
-![The (messy) Astro server logs](/images/ch8/CleanShot%202023-04-06%20at%2005.33.46.png)
-
+<figure>
+    <img src="images/ch8/CleanShot%202023-04-06%20at%2005.33.46.png" width="70%" alt="The (messy) Astro server logs" align="center">
+    <figcaption><em>The (messy) Astro server logs.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Yours should look familiar. This is from the incremental process of building our first integration.
 
@@ -274,9 +280,11 @@ hooks: {
 
 Restart the server for a clean slate, and we should have the log printed as shown below:
 
-
-![The server log from our hello world integration](/images/ch8/CleanShot%202023-04-06%20at%2005.38.59.png)
-
+<figure>
+    <img src="images/ch8/CleanShot%202023-04-06%20at%2005.38.59.png" width="70%" alt="The server log from our hello world integration" align="center">
+    <figcaption><em>The server log from our hello world integration.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Since we’re fancy developers who care about usability, let’s go ahead and make the log feel native to other Astro logs by adding some text formatting and colour via `kleur`.
 
@@ -292,9 +300,11 @@ Once the installation is complete, we should now have a new log in the dev serve
 05:41:02 AM [astro] update /package-lock.json
 ```
 
-
-![Example native astro server log](/images/ch8/CleanShot%202023-04-06%20at%2005.41.12.png)
-
+<figure>
+    <img src="images/ch8/CleanShot%202023-04-06%20at%2005.41.12.png" width="70%" alt="Example native astro server log" align="center">
+    <figcaption><em>Example native astro server log.</em></figcaption>
+    <br><br><br>
+</figure>
 
 `05:41:02` represents my current time.
 
@@ -334,9 +344,11 @@ export default defineConfig({
 
 Now we should have a beautiful log message that feels native to Astro, i.e., like the other server console logs.
 
-
-![The custom integration 'native feeling' server log](/images/ch8/CleanShot%202023-04-06%20at%2005.47.14.png)
-
+<figure>
+    <img src="images/ch8/CleanShot%202023-04-06%20at%2005.47.14.png" width="70%" alt="The custom integration 'native feeling' server log" align="center">
+    <figcaption><em>The custom integration 'native feeling' server log.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ### Custom integrations as factory functions
 
@@ -456,14 +468,16 @@ One of the first questions I asked myself when I started tinkering with astro in
 
 Well, the answer to these lies below, but first, consider the following diagram that depicts the order in which the hooks are executed:
 
-
-![Execution order of Astro hooks ](/images/ch8/hooks-lifecycle.png)
-
+<figure>
+    <img src="images/ch8/hooks-lifecycle.png" width="70%" alt="Execution order of Astro hooks " align="center">
+    <figcaption><em>Execution order of Astro hooks .</em></figcaption>
+    <br><br><br>
+</figure>
 
 Kicking off the process are two hooks:
 
-1. `astro:config:setup`
-2. `astro:config:done`
+1.  `astro:config:setup`
+2.  `astro:config:done`
 
 These hooks are always executed regardless of the Astro build process.
 
@@ -600,9 +614,11 @@ export default lifecycleLogs;
 
 Import `lifecycleLogs` and add it to your project’s integration list, then (re)start your application to see the logs in the console as shown below:
 
-
-![The dev lifecycle hooks](/images/ch8/CleanShot%202023-04-08%20at%2017.13.02.png)
-
+<figure>
+    <img src="images/ch8/CleanShot%202023-04-08%20at%2017.13.02.png" width="70%" alt="The dev lifecycle hooks" align="center">
+    <figcaption><em>The dev lifecycle hooks.</em></figcaption>
+    <br><br><br>
+</figure>
 
 As an exercise, I suggest you add a new SSR page and run a production build to see the order of hooks execution logged.
 
@@ -611,9 +627,11 @@ Here’s an example with two pages:
 - a static `index.astro` page
 - a server-side rendered `ssr.astro` page
 
-
-![The entire hook lifecycle logged](/images/ch8/CleanShot%202023-04-08%20at%2018.16.15.png)
-
+<figure>
+    <img src="images/ch8/CleanShot%202023-04-08%20at%2018.16.15.png" width="70%" alt="The entire hook lifecycle logged" align="center">
+    <figcaption><em>The entire hook lifecycle logged.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Build a default prerender integration
 
@@ -775,16 +793,16 @@ Here’s a quick table of the available CLI flags:
 
 <br />
 
-| Name                         | Description                                                                                                                     |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `--template <name>`          | Specify the template. Where `name` could be any of the directories in <https://github.com/withastro/astro/tree/main/examples/>. |
-| `--install` / `--no-install` | Install dependencies (or not).                                                                                                  |
-| `--git` / `--no-git`         | Initialize git repo (or not).                                                                                                   |
-| `--yes` (`-y`)               | Skip all prompts and accept the defaults.                                                                                       |
-| `--no` (`-n`)                | Skip all prompts and decline the defaults.                                                                                      |
-| `--dry-run`                  | Walk through the project creation steps without any actual execution. Useful for a “dry run”                                    |
-| `--skip-houston`             | Skip the Houston animation. If in a hurry, this saves some time and starts the prompt directly.                                 |
-| `--typescript <option>`      | Where `option` is `strict` , `strictest` or`relaxed`                                                                            |
+| Name                         | Description                                                                                                                                                                             |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--template <name>`          | Specify the template. Where `name` could be any of the directories in [https://github.com/withastro/astro/tree/main/examples/](https://github.com/withastro/astro/tree/main/examples/). |
+| `--install` / `--no-install` | Install dependencies (or not).                                                                                                                                                          |
+| `--git` / `--no-git`         | Initialize git repo (or not).                                                                                                                                                           |
+| `--yes` (`-y`)               | Skip all prompts and accept the defaults.                                                                                                                                               |
+| `--no` (`-n`)                | Skip all prompts and decline the defaults.                                                                                                                                              |
+| `--dry-run`                  | Walk through the project creation steps without any actual execution. Useful for a “dry run”                                                                                            |
+| `--skip-houston`             | Skip the Houston animation. If in a hurry, this saves some time and starts the prompt directly.                                                                                         |
+| `--typescript <option>`      | Where `option` is `strict` , `strictest` or`relaxed`                                                                                                                                    |
 
 Now, change the directory and run the new Astro application:
 
@@ -978,9 +996,11 @@ import { log } from "./log";
 
 Now if we go ahead and build the project with `npm run build`, we should have our integration validation log displayed as shown below:
 
-
-![Validation server log](/images/ch8/CleanShot%202023-04-12%20at%2007.01.41.png)
-
+<figure>
+    <img src="images/ch8/CleanShot%202023-04-12%20at%2007.01.41.png" width="70%" alt="Validation server log" align="center">
+    <figcaption><em>Validation server log.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This is expected because the project does not have a `server` output configured. In this case, hybrid rendering cannot be utilised.
 
@@ -1240,9 +1260,11 @@ We may now explore the log from`getVitePlugin` by running `npm run build` from t
 
 Notice how many more files are transformed than just the user’s `.astro` pages.
 
-
-![Exploring the list of transformed files](/images/ch8/CleanShot%202023-04-12%20at%2009.18.14.png)
-
+<figure>
+    <img src="images/ch8/CleanShot%202023-04-12%20at%2009.18.14.png" width="70%" alt="Exploring the list of transformed files" align="center">
+    <figcaption><em>Exploring the list of transformed files.</em></figcaption>
+    <br><br><br>
+</figure>
 
 Most of the files here are related to Astro internals. Therefore, we must only concern ourselves with the user’s `.astro` pages. We want to transform those files while leaving everything else as is.
 
@@ -1269,9 +1291,11 @@ return {
 
 Now, rerun the build, and we should have just the user’s `.astro` page files.
 
-
-![Logging the project page files](/images/ch8/CleanShot%202023-04-12%20at%2009.22.30.png)
-
+<figure>
+    <img src="images/ch8/CleanShot%202023-04-12%20at%2009.22.30.png" width="70%" alt="Logging the project page files" align="center">
+    <figcaption><em>Logging the project page files.</em></figcaption>
+    <br><br><br>
+</figure>
 
 This is excellent.
 
@@ -1477,9 +1501,11 @@ The code block above is annotated. Please take a close look at it. If something 
 
 We have our solution complete. Now, let’s test it. First, build the project with `npm run build`, and even though we have a `server` output in the Astro config, we now have the `index.astro` page statically built by default!
 
-
-![Pre-rendering the index.astro static route](/images/ch8/CleanShot%202023-04-12%20at%2016.10.58@2x.png)
-
+<figure>
+    <img src="images/ch8/CleanShot%202023-04-12%20at%2016.10.58@2x.png" width="70%" alt="Pre-rendering the index.astro static route" align="center">
+    <figcaption><em>Pre-rendering the index.astro static route.</em></figcaption>
+    <br><br><br>
+</figure>
 
 To render a server-side page, we need to manually add `export const prerender = false`.
 
@@ -1504,15 +1530,17 @@ export const prerender = false;
 
 Now rerun the build and notice how only the `index.astro` page is pre-rendered.
 
-
-![Skipping prerender when export is found](/images/ch8/CleanShot%202023-04-12%20at%2016.17.15@2x.png)
-
+<figure>
+    <img src="images/ch8/CleanShot%202023-04-12%20at%2016.17.15@2x.png" width="70%" alt="Skipping prerender when export is found" align="center">
+    <figcaption><em>Skipping prerender when export is found.</em></figcaption>
+    <br><br><br>
+</figure>
 
 ## Building renderers and library Integrations
 
 As stated earlier in the chapter, the focus here is feature integrations. For building renderers and library integrations, I strongly recommend taking a look at the source code for popular integrations such as:
 
-- The [React ](https://github.com/withastro/astro/tree/main/packages/integrations/react), [Preact](https://github.com/withastro/astro/tree/main/packages/integrations/preact)or [Vue](https://github.com/withastro/astro/tree/main/packages/integrations/vue) renderer integrations.
+- The [React ](https://github.com/withastro/astro/tree/main/packages/integrations/react), [Preact](https://github.com/withastro/astro/tree/main/packages/integrations/preact)or [Vue](https://github.com/withastro/astro/tree/main/packages/integrations/vue) renderer integrations.
 - The [tailwind](https://github.com/withastro/astro/tree/main/packages/integrations/tailwind) or [partytown](https://github.com/withastro/astro/tree/main/packages/integrations/partytown) library integrations.
 
 Most of these integrations are barely 100 lines of code at the core. Dig into them!
@@ -1521,16 +1549,12 @@ Most of these integrations are barely 100 lines of code at the core. Dig into th
 
 Building custom integrations isn’t a practice we should leave to the “smart” ones among us. Heck! Writing compilers isn’t a prerequisite! Building upon the explanations and examples discussed here, we’ve seen how mere mortals like us can reach down into the internals of Astro and bend it to our will. Now, put this knowledge to practice.
 
-[^1]: What is a sitemap? <https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview>
-
-[^2]: The injectSctipt option: <https://docs.astro.build/en/reference/integrations-reference/#injectscript-option>
-
-[^3]: Colours in Javascript console (SO) <https://stackoverflow.com/questions/7505623/colors-in-javascript-console>
-
-[^4]: Astro integration API: <https://docs.astro.build/en/reference/integrations-reference/>
-
-[^5]: The Vite configuration options <https://vitejs.dev/config/>
-
-[^6]: Transforming custom file types in Vite : [https://vitejs.dev/guide/api-plugin.html#transforming-custom-file-types](https://vitejs.dev/guide/api-plugin.html#transforming-custom-file-types "Transforming custom file types in Vite")
+[^1]: What is a sitemap? [https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview)
+[^2]: The injectSctipt option: [https://docs.astro.build/en/reference/integrations-reference/#injectscript-option](https://docs.astro.build/en/reference/integrations-reference/#injectscript-option)
+[^3]: Colours in Javascript console (SO) [https://stackoverflow.com/questions/7505623/colors-in-javascript-console](https://stackoverflow.com/questions/7505623/colors-in-javascript-console)
+[^4]: Astro integration API: [https://docs.astro.build/en/reference/integrations-reference/](https://docs.astro.build/en/reference/integrations-reference/)
+[^5]: The Vite configuration options [https://vitejs.dev/config/](https://vitejs.dev/config/)
+[^6]:
+    Transforming custom file types in Vite : [https://vitejs.dev/guide/api-plugin.html#transforming-custom-file-types](https://vitejs.dev/guide/api-plugin.html#transforming-custom-file-types "Transforming custom file types in Vite")
 
     The transform hook: [https://rollupjs.org/plugin-development/#transform](https://rollupjs.org/plugin-development/#transform "The transform hook")
