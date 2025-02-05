@@ -12,21 +12,7 @@ const { class: className } = Astro.props
 
 <div class="flex flex-col min-h-screen">
   <div class="h-14 w-full absolute top-0 left-0" data-ghost-trigger></div>
-  <Header>
-    <div slot="top">
-      <Banner client:load className="text-sm">
-        <a
-          href="https://github.com/michelangelo-valderrama/understanding-astro-webook"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          🚧 Web still in <strong>development</strong>, if you want to
-          contribute do not hesitate to do so
-          <span class="font-bold underline underline-offset-4"> here</span>
-        </a>
-      </Banner>
-    </div>
-  </Header>
+  <Header />
   <main>
     <div class:list={["mx-auto p-4 md:mt-6", className]}>
       <slot />
